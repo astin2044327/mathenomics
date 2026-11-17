@@ -1,0 +1,10 @@
+{
+  "name": "mathenomics",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mathenomics — grade-by-grade math mnemonics you can play as a PWA.",
+  "scripts": {
+    "start": "python3 -m http.server 8766",
+    "check": "node tools/check.js"
+  }
+}
