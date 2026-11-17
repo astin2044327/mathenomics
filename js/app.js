@@ -215,6 +215,16 @@
     window.scrollTo(0, 0);
   }
 
+  /* Prefer High School theorems right after Grade 10 (near PABSON in the shelf). */
+  function libraryCourses() {
+    const pin = ["k", "g1", "g3", "g5", "g7", "g8", "g9", "g10", "hs", "g11", "trig2", "tables", "pabson", "optional"];
+    const rank = (id) => {
+      const i = pin.indexOf(id);
+      return i === -1 ? pin.length + 1 : i;
+    };
+    return C.slice().sort((a, b) => rank(a.id) - rank(b.id) || C.indexOf(a) - C.indexOf(b));
+  }
+
   /* ---------- screens ---------- */
   function home() {
     const last = S.last && course(S.last.c);
@@ -234,10 +244,12 @@
       </section>
       <h2 class="section-title">The library</h2>
       <section class="grades">
-        ${C.map((c) => {
+        ${libraryCourses().map((c) => {
           const m = courseMark(c);
-          return `<a class="grade" href="#/g/${c.id}" style="--accent:${c.color}">
+          const hs = c.id === "hs";
+          return `<a class="grade${hs ? " grade-hs" : ""}" href="#/g/${c.id}" style="--accent:${c.color}">
             <span class="grade-band">${c.grade}</span>
+            ${hs ? `<span class="grade-proof-tag">Proof mode</span>` : ""}
             <strong>${c.title}</strong>
             <span class="grade-blurb">${c.blurb}</span>
             <span class="grade-foot">
@@ -275,31 +287,38 @@
     delete S.walkFrom[c.id];
     save();
 
+    const hs = c.id === "hs";
+    const mapEyebrow = hs ? "Proof mode" : c.grade;
+    const mapLede = hs
+      ? "One mnemonic per theorem, then the proof moves and the trap. Built for SEE send-up and NEB bridge — every stop is open."
+      : `${c.blurb} Every stop is open, so jump to the one you need.`;
+
     paint("learn", c.color, `
       <a class="crumb" href="#/">← All grades</a>
-      <header class="course-head">
+      <header class="course-head${hs ? " course-head-hs" : ""}">
         <div>
-          <p class="eyebrow">${c.grade}</p>
+          <p class="eyebrow">${mapEyebrow}</p>
           <h1>${c.title}</h1>
-          <p class="lede">${c.blurb} Every stop is open, so jump to the one you need.</p>
+          <p class="lede">${mapLede}</p>
         </div>
         <div class="course-mark">
           <span class="stamp big ${m.pct == null ? "blank" : ""}">${m.letter}</span>
           <span>${m.pct == null ? "No mark yet" : `${m.pct}% average`}<br>${m.done} of ${n} played</span>
-          ${c.cheat && c.cheat.length ? `<a class="btn ghost" href="#/cheat/${c.id}">Grade cheatsheet</a>` : ""}
+          ${c.cheat && c.cheat.length ? `<a class="btn ghost" href="#/cheat/${c.id}">${hs ? "Theorem cheatsheet" : "Grade cheatsheet"}</a>` : ""}
           ${c.id === "tables" ? `<a class="btn primary" href="#/puzzle/2">Table puzzle</a>` : ""}
         </div>
       </header>
-      <section class="map" style="height:${H}px">
+      <section class="map${hs ? " map-hs" : ""}" style="height:${H}px">
         <svg class="trail" viewBox="0 0 100 ${H}" preserveAspectRatio="none" aria-hidden="true">
           <path d="${path}" fill="none" stroke="#1F1D1A" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
         </svg>
         ${c.lessons.map((l, i) => {
           const best = S.best[key(c, l)];
           const [x, y] = pts[i];
+          const tag = l.tag ? `<span class="theorem-badge badge-${String(l.tag).toLowerCase()}">${l.tag}</span>` : "";
           return `<a class="stop ${best != null ? "done" : ""} ${x > 50 ? "flip" : ""}" href="#/l/${c.id}/${l.id}" style="left:${x}%;top:${y}px">
             <span class="stop-dot">${i + 1}</span>
-            <span class="stop-card"><strong>${l.name}</strong><em>${l.phrase}</em>${best != null ? `<span class="stop-meta">${stars(starsFor(best))}<b>${letter(best)}</b></span>` : ""}</span>
+            <span class="stop-card">${tag}<strong>${l.name}</strong><em>${l.phrase}</em>${best != null ? `<span class="stop-meta">${stars(starsFor(best))}<b>${letter(best)}</b></span>` : ""}</span>
           </a>`;
         }).join("")}
         <div class="walker" style="left:${standAt(pts[from])};top:${pts[from][1]}px">${fox("idle")}</div>
@@ -322,22 +341,28 @@
     const best = S.best[key(c, l)];
     const idx = c.lessons.indexOf(l);
     const next = c.lessons[idx + 1];
+    const hs = c.id === "hs";
+    const badge = l.tag
+      ? `<span class="theorem-badge badge-${String(l.tag).toLowerCase()}">${l.tag}</span>`
+      : "";
+    const stepsClass = hs ? "steps proof-steps" : "steps";
+    const stepsTitle = hs ? "Proof moves" : "How it works";
     paint("learn", c.color, `
       <a class="crumb" href="#/g/${c.id}">← ${c.grade} · ${c.title}</a>
-      <article class="lesson">
+      <article class="lesson${hs ? " lesson-hs" : ""}">
         <figure class="figure">
           <div class="figure-pic">${l.pic()}</div>
           <figcaption>Stop ${idx + 1} of ${c.lessons.length}</figcaption>
           <div class="figure-fox">${fox("idle")}</div>
         </figure>
         <div class="lesson-copy">
-          <p class="eyebrow">${l.name}</p>
+          <p class="eyebrow">${badge}${l.name}</p>
           <h1 class="phrase">“${l.phrase}”</h1>
           <button type="button" class="btn ghost" id="hear">▶ Hear the phrase</button>
           <span class="voice-hint">Owner voice when a clip is in voices/</span>
           ${l.also ? `<p class="also"><span>Also said as</span>${l.also}</p>` : ""}
-          <h3 class="small-title">How it works</h3>
-          <ol class="steps">${l.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
+          <h3 class="small-title">${stepsTitle}</h3>
+          <ol class="${stepsClass}">${l.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
           <aside class="watch"><strong>Watch out</strong><p>${l.exception}</p></aside>
           <div class="lesson-actions">
             <a class="btn primary" href="#/play/${c.id}/${l.id}">Play ${ROUNDS} rounds</a>
@@ -537,16 +562,19 @@
 
   function cheatScreen(c) {
     const sheets = c.cheat || [];
+    const hs = c.id === "hs";
     paint("learn", c.color, `
       <a class="crumb" href="#/g/${c.id}">← ${c.grade} · ${c.title}</a>
-      <header class="course-head">
+      <header class="course-head${hs ? " course-head-hs" : ""}">
         <div>
-          <p class="eyebrow">${c.grade} cheatsheet</p>
-          <h1>Say it. Spot the trap.</h1>
-          <p class="lede">Every mnemonic for this grade on one page. Use it before a test, then play the map to lock it in.</p>
+          <p class="eyebrow">${hs ? "Proof mode · cheatsheet" : `${c.grade} cheatsheet`}</p>
+          <h1>${hs ? "Theorems at a glance." : "Say it. Spot the trap."}</h1>
+          <p class="lede">${hs
+            ? "Geo and trig hooks for SEE send-up and NEB bridge. Say the phrase, check the trap, then return to the map."
+            : "Every mnemonic for this grade on one page. Use it before a test, then play the map to lock it in."}</p>
         </div>
       </header>
-      <section class="cheat">
+      <section class="cheat${hs ? " cheat-hs" : ""}">
         ${sheets.map((block) => `
           <article class="cheat-card">
             <h2>${block.title}</h2>

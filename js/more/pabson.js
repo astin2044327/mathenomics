@@ -1,8 +1,8 @@
-/** PABSON / NEB Class 12 hard-problem course: exam-style types with original prompts. */
+/** PABSON send-up bridges + NEB Class 12 hard-problem course: exam-style types with original prompts. */
 (function () {
   if (!window.MK) return;
   const { P, R, pick, gcd, neg, fr, pow, Q, course } = window.MK;
-  const { box, T, line, poly, circle, dot, right, side } = P.kit;
+  const { box, T, line, poly, circle, dot, right, side, arc } = P.kit;
   const ACC = "var(--accent)";
 
   const fact = (n) => {
@@ -69,15 +69,38 @@
     return P.roof("lim x→a f(x)", "L", "Get close to a; the outputs get close to L");
   }
 
+  function seeElevPic(ang, d, h) {
+    const A = [48, 184], F = [260, 184], Tp = [260, 52];
+    let body = line(16, 184, 304, 184, { w: 2 }) + poly([A, F, Tp]) + line(F[0], F[1], Tp[0], Tp[1], { stroke: ACC, w: 5 });
+    body += right(F, A, Tp) + P.kit.arc(A, F, Tp, 40, ang);
+    if (d != null) body += side(A, F, [160, 150], d);
+    if (h != null) body += side(F, Tp, [160, 150], h, { d: 26 });
+    return box(320, 214, body, "SEE: elevation");
+  }
+
   course({
     id: "pabson",
-    grade: "Grade 12",
-    title: "PABSON-hard set",
+    grade: "Grade 12 · SEE",
+    title: "PABSON / send-up & NEB hard set",
     color: "#5C2A2A",
-    blurb: "Exam-style problems up to Class 12. Each card is a mnemonic for a hard problem type, with guided steps.",
+    blurb: "Send-up (SEE Groups) geo+trig drills plus the Class-12 NEB hard set. Cards tagged SEE send-up sit first; Class-12 calculus/algebra follow.",
     cheat: [
       {
-        title: "Hard-set hooks",
+        title: "SEE Group patterns (send-up)",
+        rows: [
+          ["Group A", "One-liners: Heron s=(a+b+c)/2, depreciation, quartile class, sphere vol"],
+          ["Group B", "Short apps: sets/Venn, CI/population, VAT/FX, mensuration"],
+          ["Group C", "Algebra + solids: factor, quadratic, AP/GP, cylinder/cone"],
+          ["Group D", "Longer: circle theorems, similarity/BPT, heights & distances, stats/prob"],
+          ["Heron", "s first, then √[s(s−a)(s−b)(s−c)]"],
+          ["Elevation", "Sketch → tan θ = h/d (often)"],
+          ["Center/rim", "∠center = 2 × ∠rim (same arc)"],
+          ["Cyclic", "Opposite angles sum 180°"],
+          ["SOHCAHTOA", "Right △ only; oblique → sine/cosine rule"]
+        ]
+      },
+      {
+        title: "Hard-set hooks (NEB / Class 12)",
         rows: [
           ["nPr", "Order matters: n! / (n−r)!"],
           ["nCr", "Order does not: n! / (r!(n−r)!)"],
@@ -102,6 +125,160 @@
       }
     ],
     lessons: [
+      /* ---- SEE send-up geo + trig (keep Class-12 set below) ---- */
+      {
+        id: "see-heron",
+        name: "SEE · Heron area",
+        tag: "SEE send-up",
+        phrase: "Group A move: write s = (a+b+c)/2, then area = √[s(s−a)(s−b)(s−c)].",
+        steps: [
+          "Add the three sides; divide by 2 for s.",
+          "Build s(s−a)(s−b)(s−c).",
+          "Take the square root."
+        ],
+        exception: "Triangle inequality first. Using the full perimeter instead of s is the classic send-up trap.",
+        pic: () => P.roof("s=(a+b+c)/2", "√[s(s−a)(s−b)(s−c)]", "Heron"),
+        gen() {
+          const [a, b, c, area] = pick([[5, 5, 6, 12], [13, 14, 15, 84], [7, 15, 20, 42], [5, 5, 4, 6]]);
+          if (Math.random() < 0.4) {
+            const s = (a + b + c) / 2;
+            return Q(`SEE: sides ${a}, ${b}, ${c}. Write s.`, s, near(s, [a + b + c, (a + b + c) / 3]),
+              `s = (${a}+${b}+${c})/2 = ${s}.`, P.roof("s", String(s)));
+          }
+          return Q(`SEE: sides ${a}, ${b}, ${c}. Area (Heron)?`, area, near(area, [(a + b + c) / 2, a * b / 2]),
+            `s=${(a + b + c) / 2}; area=${area}.`, P.roof("Heron", String(area)));
+        },
+        worked: [
+          {
+            problem: "Sides 13, 14, 15. Find the area.",
+            steps: [["s", "21"], ["Product", "21·8·7·6=7056"], ["√", "84"]],
+            answer: "84"
+          }
+        ]
+      },
+      {
+        id: "see-elev",
+        name: "SEE · Angle of elevation",
+        tag: "SEE send-up",
+        phrase: "Send-up heights: sketch, mark elevation θ, then tan θ = opposite/adjacent.",
+        steps: [
+          "Draw ground line, tower, and sight line from the observer.",
+          "Mark θ at the eye looking up.",
+          "Usually tan θ = height / distance; solve."
+        ],
+        exception: "Depression is looking down. Don’t use SOHCAHTOA on a non-right figure without dropping a perpendicular.",
+        pic: () => seeElevPic("θ", "d", "h"),
+        gen() {
+          const pack = pick([
+            [45, 30, 30, "30"],
+            [30, 20, "20/√3", "20/√3"],
+            [60, 8, "8√3", "8√3"],
+            [45, 15, 15, "15"]
+          ]);
+          const [ang, d, , exact] = pack;
+          return Q(`Elevation ${ang}°, distance ${d} m. Tower height?`, exact, [String(d), String(2 * d), "10"],
+            `tan ${ang}° = h/${d} ⇒ h = ${exact}.`, seeElevPic(`${ang}°`, d, "?"));
+        },
+        worked: [
+          {
+            problem: "40 m from a tower, elevation 45°. Height?",
+            steps: [["tan 45°=1", "h/40=1"], ["h", "40 m"]],
+            answer: "40 m"
+          }
+        ]
+      },
+      {
+        id: "see-circle",
+        name: "SEE · Center & cyclic",
+        tag: "SEE send-up",
+        phrase: "Group D circle hooks: center = 2×rim; cyclic opposites sum to 180°.",
+        steps: [
+          "Same arc: double a rim angle for the center (or halve a central).",
+          "Cyclic quad: opposite angles → 180°.",
+          "Tangent ⊥ radius when a tangent appears."
+        ],
+        exception: "Rim and center must share the same arc. Adjacent cyclic angles are not forced to 180°.",
+        pic: () => P.central("α", "2α"),
+        gen() {
+          if (Math.random() < 0.5) {
+            const rim = pick([25, 30, 35, 40, 42, 50]);
+            return Q(`SEE: rim angle ${rim}° on an arc. Central angle?`, `${2 * rim}°`,
+              [`${rim}°`, `${180 - rim}°`, `${90 - rim}°`],
+              `Center = 2×rim = ${2 * rim}°.`, P.central(`${rim}°`, "?"));
+          }
+          const a = R(60, 120);
+          return Q(`SEE: cyclic quad angle ${a}°. Opposite angle?`, `${180 - a}°`,
+            [`${a}°`, `90°`, `${360 - a}°`],
+            `Opposites sum to 180° → ${180 - a}°.`, P.cyclic(`${a}°`, "?"));
+        },
+        worked: [
+          {
+            problem: "Central angle 100°. Inscribed angle on the same arc?",
+            steps: [["Halve", "100÷2=50°"]],
+            answer: "50°"
+          }
+        ]
+      },
+      {
+        id: "see-bpt",
+        name: "SEE · BPT / similarity",
+        tag: "SEE send-up",
+        phrase: "Parallel cut → equal ratios; AAA → proportional sides.",
+        steps: [
+          "Spot DE ∥ BC (or equal angles for AAA).",
+          "Write AD/DB = AE/EC (BPT) or corresponding sides (similar).",
+          "Cross-multiply."
+        ],
+        exception: "Match corresponding pieces. AAA is similarity, not congruence.",
+        pic: () => P.bpt(3, 6, 4, "?"),
+        gen() {
+          const ad = R(2, 5), k = R(2, 3), db = ad * k, ae = R(3, 7), ec = ae * k;
+          return Q(`SEE: DE∥BC, AD=${ad}, DB=${db}, AE=${ae}. EC?`, ec, near(ec, [ae, ad]),
+            `AD/DB=AE/EC ⇒ EC=${ec}.`, P.bpt(ad, db, ae, "?"));
+        },
+        worked: [
+          {
+            problem: "AD=2, DB=4, AE=5, DE∥BC. Find EC.",
+            steps: [["BPT", "2/4=5/EC"], ["EC", "10"]],
+            answer: "10"
+          }
+        ]
+      },
+      {
+        id: "see-soh",
+        name: "SEE · SOHCAHTOA drill",
+        tag: "SEE send-up",
+        phrase: "Right-triangle send-up: label opp/adj/hyp, then SOH CAH TOA.",
+        steps: [
+          "Confirm the right angle.",
+          "Relative to θ, mark opp, adj, hyp.",
+          "Pick the ratio that uses the known and unknown."
+        ],
+        exception: "Oblique triangles need sine/cosine rules — not plain SOHCAHTOA.",
+        pic: () => P.rightTri({ theta: "θ", opp: "opp", adj: "adj", hyp: "hyp" }),
+        gen() {
+          const [a, b, c] = pick([[3, 4, 5], [5, 12, 13], [8, 15, 17]]);
+          const kind = pick(["sin", "cos", "tan"]);
+          if (kind === "sin") {
+            return Q(`SEE: opp=${a}, hyp=${c}. sin θ?`, fr(a, c), [fr(b, c), fr(a, b), fr(c, a)],
+              `sin=opp/hyp=${a}/${c}.`, P.rightTri({ theta: "θ", opp: a, hyp: c }));
+          }
+          if (kind === "cos") {
+            return Q(`SEE: adj=${b}, hyp=${c}. cos θ?`, fr(b, c), [fr(a, c), fr(b, a), fr(c, b)],
+              `cos=adj/hyp=${b}/${c}.`, P.rightTri({ theta: "θ", adj: b, hyp: c }));
+          }
+          return Q(`SEE: opp=${a}, adj=${b}. tan θ?`, fr(a, b), [fr(b, a), fr(a, c), fr(b, c)],
+            `tan=opp/adj=${a}/${b}.`, P.rightTri({ theta: "θ", opp: a, adj: b }));
+        },
+        worked: [
+          {
+            problem: "Opp=5, hyp=13. sin θ?",
+            steps: [["SOH", "5/13"]],
+            answer: "5/13"
+          }
+        ]
+      },
+
       {
         id: "perm",
         name: "Permutations nPr",
