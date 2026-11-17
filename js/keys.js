@@ -3,6 +3,7 @@
   const ACCENT = "#C84F2E";
   const SHAPES = ["★", "●", "▲", "◆", "■", "✦"];
   const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const LETTERS_LO = "abcdefghijklmnopqrstuvwxyz".split("");
   const DIGITS = "0123456789".split("");
   const COLORS = [
     "#C84F2E", "#2A7A52", "#2E4057", "#E9A23B", "#2A9D8F",
@@ -20,9 +21,16 @@
     "🎸", "🥁", "🎺", "🎹", "🎷", "🔔"
   ];
   const SOUND_KEY = "mathenomics-keys-sound";
+  const MODE_KEY = "mathenomics-keys-mode";
+  const MODES = [
+    { id: "upper", label: "ABC", title: "Capital letters" },
+    { id: "lower", label: "abc", title: "Small letters" },
+    { id: "digits", label: "123", title: "Numbers" }
+  ];
 
   let alive = false;
   let soundOn = true;
+  let padMode = "upper";
   let audioCtx = null;
   let holdTimer = null;
   let smashCount = 0;
@@ -52,7 +60,8 @@
     if (e.target.closest(".keys-chrome")) return;
     if (e.target.closest(".keys-pad button")) return;
     e.preventDefault();
-    spawnGlyph(randomLetter(), "letter", null);
+    const g = randomGlyph();
+    spawnGlyph(g.text, g.kind);
   };
 
   const onHash = () => {
@@ -61,6 +70,16 @@
 
   function randomLetter() {
     return LETTERS[(Math.random() * LETTERS.length) | 0];
+  }
+
+  function randomGlyph() {
+    if (padMode === "digits") {
+      return { text: DIGITS[(Math.random() * DIGITS.length) | 0], kind: "digit" };
+    }
+    if (padMode === "lower") {
+      return { text: LETTERS_LO[(Math.random() * LETTERS_LO.length) | 0], kind: "letter" };
+    }
+    return { text: randomLetter(), kind: "letter" };
   }
 
   function randomColor() {
@@ -111,14 +130,18 @@
   }
 
   function glyphForKey(key) {
-    if (!key) return { text: randomLetter(), kind: "letter" };
+    if (!key) return randomGlyph();
     if (key === "`" || key === "~") {
       return { text: randomEmoji(), kind: "emoji" };
     }
     if (key.length === 1) {
-      const up = key.toUpperCase();
-      if (/[A-Z]/.test(up)) return { text: up, kind: "letter" };
-      if (/[0-9]/.test(up)) return { text: up, kind: "digit" };
+      if (/[0-9]/.test(key)) return { text: key, kind: "digit" };
+      if (/[a-z]/.test(key)) return { text: key, kind: "letter" };
+      if (/[A-Z]/.test(key)) {
+        // Caps Lock / Shift: show capital; otherwise follow pad mode for letter keys
+        if (padMode === "lower") return { text: key.toLowerCase(), kind: "letter" };
+        return { text: key, kind: "letter" };
+      }
     }
     return { text: randomShape(), kind: "shape" };
   }
@@ -142,7 +165,7 @@
     const ctx = ensureAudio();
     if (!ctx) return;
     let idx = 0;
-    if (kind === "letter") idx = LETTERS.indexOf(text);
+    if (kind === "letter") idx = LETTERS.indexOf(String(text).toUpperCase());
     else if (kind === "digit") idx = DIGITS.indexOf(text);
     else if (kind === "emoji") idx = Math.abs(hashStr(text)) % 12;
     else idx = SHAPES.indexOf(text);
@@ -246,11 +269,15 @@
     if (!alive || !stage) return;
     trackOnce();
     smashCount += 1;
-    const k = kind || (/[A-Z]/.test(text) ? "letter" : /[0-9]/.test(text) ? "digit" : "shape");
+    const k = kind || (/[A-Za-z]/.test(text) ? "letter" : /[0-9]/.test(text) ? "digit" : "shape");
     const pos = playSpawnXY();
 
     const el = document.createElement("span");
-    el.className = "keys-fly" + (k === "emoji" ? " keys-fly-emoji" : "") + (reduced ? " keys-fly-static" : "");
+    el.className = "keys-fly"
+      + (k === "emoji" ? " keys-fly-emoji" : "")
+      + (k === "letter" && text === text.toLowerCase() && /[a-z]/.test(text) ? " keys-fly-lower" : "")
+      + (k === "digit" ? " keys-fly-digit" : "")
+      + (reduced ? " keys-fly-static" : "");
     el.textContent = text;
     if (k !== "emoji") el.style.color = randomColor();
     const size = k === "emoji" ? (3.4 + Math.random() * 3.4) : (2.8 + Math.random() * 3.2);
@@ -335,12 +362,48 @@
     }
   }
 
-  function padHtml() {
-    const letters = LETTERS.map((ch) =>
-      `<button type="button" class="keys-key" data-ch="${ch}" aria-label="Letter ${ch}">${ch}</button>`
+  function modeHtml() {
+    return MODES.map((m) =>
+      `<button type="button" class="keys-mode-btn${padMode === m.id ? " on" : ""}" data-mode="${m.id}" title="${m.title}" aria-pressed="${padMode === m.id ? "true" : "false"}">${m.label}</button>`
     ).join("");
+  }
+
+  function padKeys() {
+    if (padMode === "digits") {
+      return DIGITS.map((ch) =>
+        `<button type="button" class="keys-key keys-digit" data-ch="${ch}" data-kind="digit" aria-label="Number ${ch}">${ch}</button>`
+      ).join("");
+    }
+    const chars = padMode === "lower" ? LETTERS_LO : LETTERS;
+    return chars.map((ch) =>
+      `<button type="button" class="keys-key${padMode === "lower" ? " keys-lower" : ""}" data-ch="${ch}" data-kind="letter" aria-label="Letter ${ch}">${ch}</button>`
+    ).join("");
+  }
+
+  function padHtml() {
     const emoji = `<button type="button" class="keys-key keys-emoji" data-emoji="1" aria-label="Smash a random emoji">${lastEmoji}</button>`;
-    return letters + emoji;
+    return padKeys() + emoji;
+  }
+
+  function refreshPad() {
+    if (!root) return;
+    const pad = root.querySelector(".keys-pad");
+    if (pad) {
+      pad.innerHTML = padHtml();
+      emojiBtn = pad.querySelector(".keys-emoji");
+    }
+    root.querySelectorAll(".keys-mode-btn").forEach((btn) => {
+      const on = btn.dataset.mode === padMode;
+      btn.classList.toggle("on", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    try { localStorage.setItem(MODE_KEY, padMode); } catch (_) {}
+  }
+
+  function setPadMode(mode) {
+    if (!MODES.some((m) => m.id === mode)) return;
+    padMode = mode;
+    refreshPad();
   }
 
   function bind() {
@@ -364,6 +427,17 @@
       });
     }
 
+    const modes = root.querySelector(".keys-modes");
+    if (modes) {
+      modes.addEventListener("pointerdown", (e) => {
+        const btn = e.target.closest("button[data-mode]");
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        setPadMode(btn.dataset.mode);
+      });
+    }
+
     const pad = root.querySelector(".keys-pad");
     if (pad) {
       pad.addEventListener("pointerdown", (e) => {
@@ -378,7 +452,8 @@
         if (!btn) return;
         e.preventDefault();
         e.stopPropagation();
-        spawnGlyph(btn.dataset.ch, "letter");
+        const kind = btn.dataset.kind === "digit" ? "digit" : "letter";
+        spawnGlyph(btn.dataset.ch, kind);
       });
     }
 
@@ -406,8 +481,11 @@
     try {
       const saved = localStorage.getItem(SOUND_KEY);
       soundOn = saved == null ? true : saved !== "0";
+      const modeSaved = localStorage.getItem(MODE_KEY);
+      padMode = MODES.some((m) => m.id === modeSaved) ? modeSaved : "upper";
     } catch (_) {
       soundOn = true;
+      padMode = "upper";
     }
     smashCount = 0;
     tracked = false;
@@ -431,11 +509,14 @@
         <div class="keys-play" aria-hidden="true">
           <div class="keys-fireworks" id="keys-fireworks"></div>
           <div class="keys-stage" id="keys-stage"></div>
-          <p class="keys-hint">Keyboard stays at the bottom — smash into the open sky above</p>
+          <p class="keys-hint">Pick ABC, abc, or 123 — smash into the open sky above</p>
         </div>
         <div class="keys-chrome keys-bottom">
-          <a class="keys-leave" href="#/kids">Leave</a>
-          <div class="keys-pad" role="group" aria-label="On-screen letter and emoji pad">${padHtml()}</div>
+          <div class="keys-bottom-bar">
+            <a class="keys-leave" href="#/kids">Leave</a>
+            <div class="keys-modes" role="group" aria-label="Pad mode">${modeHtml()}</div>
+          </div>
+          <div class="keys-pad" role="group" aria-label="On-screen smash pad">${padHtml()}</div>
         </div>
       </section>
     `);

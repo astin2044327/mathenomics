@@ -1148,6 +1148,43 @@ body.keys-mode {
   border-top: 2px solid var(--ink);
   box-shadow: 0 -6px 24px color-mix(in srgb, var(--ink) 12%, transparent);
 }
+.keys-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.keys-modes {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: auto;
+}
+.keys-mode-btn {
+  appearance: none;
+  min-width: 3.2rem;
+  padding: 8px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  background: var(--paper2);
+  color: var(--ink);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 2px 2px 0 var(--ink);
+  cursor: pointer;
+}
+.keys-mode-btn.on {
+  background: var(--accent);
+  color: #fff;
+}
+.keys-mode-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+.keys-lower { text-transform: none; font-variant: normal; }
+.keys-fly-lower { font-weight: 650; }
+.keys-fly-digit { font-variant-numeric: tabular-nums; }
 .keys-brand {
   display: inline-flex;
   align-items: center;
