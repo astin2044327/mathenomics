@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Octopus">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <circle cx="60" cy="48" r="22" fill="#C84F2E" stroke="#1F1D1A" stroke-width="2.5"/>
+  <circle cx="50" cy="44" r="4" fill="#F7F2E8" stroke="#1F1D1A" stroke-width="1.5"/>
+  <circle cx="70" cy="44" r="4" fill="#F7F2E8" stroke="#1F1D1A" stroke-width="1.5"/>
+  <circle cx="50" cy="44" r="1.8" fill="#1F1D1A"/>
+  <circle cx="70" cy="44" r="1.8" fill="#1F1D1A"/>
+  <path d="M42 64 Q36 90 30 100" fill="none" stroke="#1F1D1A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M50 68 Q48 94 46 104" fill="none" stroke="#1F1D1A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M70 68 Q72 94 74 104" fill="none" stroke="#1F1D1A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M78 64 Q84 90 90 100" fill="none" stroke="#1F1D1A" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="42" cy="56" r="3" fill="#E9A23B" opacity="0.7"/>
+  <circle cx="74" cy="58" r="2.5" fill="#E9A23B" opacity="0.7"/>
+
+</svg>

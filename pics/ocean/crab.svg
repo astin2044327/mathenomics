@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Crab">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <ellipse cx="60" cy="68" rx="28" ry="18" fill="#C84F2E" stroke="#1F1D1A" stroke-width="2.5"/>
+  <circle cx="48" cy="58" r="8" fill="#E4572E" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="72" cy="58" r="8" fill="#E4572E" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="48" cy="58" r="2.5" fill="#1F1D1A"/>
+  <circle cx="72" cy="58" r="2.5" fill="#1F1D1A"/>
+  <path d="M32 62 Q18 48 22 36" fill="none" stroke="#1F1D1A" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M88 62 Q102 48 98 36" fill="none" stroke="#1F1D1A" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M40 84 L34 98 M50 86 L48 100 M70 86 L72 100 M80 84 L86 98" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+
+</svg>

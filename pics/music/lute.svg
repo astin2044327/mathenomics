@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Lute">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <ellipse cx="58" cy="72" rx="32" ry="28" fill="#C48A3A" stroke="#1F1D1A" stroke-width="2.5"/>
+  <circle cx="58" cy="70" r="10" fill="#F4EEE3" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M58 44 V22" stroke="#1F1D1A" stroke-width="5" stroke-linecap="round"/>
+  <rect x="48" y="14" width="20" height="12" rx="3" fill="#5C4030" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M52 44 V80 M58 44 V86 M64 44 V80" stroke="#1F1D1A" stroke-width="1.2"/>
+
+</svg>

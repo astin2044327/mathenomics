@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Narwhal">
+  <rect width="120" height="120" rx="24" fill="#E8F4FA"/>
+
+  <ellipse cx="64" cy="68" rx="32" ry="16" fill="#A8B8C8" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M34 62 L12 42" stroke="#E9E5DC" stroke-width="5" stroke-linecap="round"/>
+  <path d="M34 62 L12 42" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="48" cy="64" r="2.5" fill="#1F1D1A"/>
+  <path d="M92 68 L110 58 L110 78 Z" fill="#8A9AAC" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="56" cy="72" r="2" fill="#5C574F"/>
+  <circle cx="66" cy="74" r="2" fill="#5C574F"/>
+
+</svg>

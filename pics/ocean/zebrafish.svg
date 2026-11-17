@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Zebrafish">
+  <rect width="120" height="120" rx="24" fill="#E8F4FA"/>
+
+  <ellipse cx="58" cy="64" rx="34" ry="15" fill="#F4EEE3" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M90 64 L110 50 L110 78 Z" fill="#E9E5DC" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M32 56 H78 M32 64 H82 M32 72 H78" stroke="#1F1D1A" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="38" cy="60" r="2.8" fill="#1F1D1A"/>
+  <path d="M54 50 L60 40 L66 50" fill="#F4EEE3" stroke="#1F1D1A" stroke-width="1.8"/>
+
+</svg>

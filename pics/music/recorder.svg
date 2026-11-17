@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Recorder">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <rect x="50" y="18" width="20" height="84" rx="8" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2.5"/>
+  <rect x="52" y="18" width="16" height="14" rx="4" fill="#C84F2E" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="60" cy="42" r="3.2" fill="#1F1D1A"/>
+  <circle cx="60" cy="54" r="3.2" fill="#1F1D1A"/>
+  <circle cx="60" cy="66" r="3.2" fill="#1F1D1A"/>
+  <circle cx="60" cy="78" r="3.2" fill="#1F1D1A"/>
+  <circle cx="60" cy="90" r="3.2" fill="#1F1D1A"/>
+
+</svg>

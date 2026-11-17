@@ -61,6 +61,16 @@
     </aside>`;
   }
 
+  /* Optional hook for keyboard smash (and similar kids toys) */
+  window.MATH_METRICS = {
+    bumpKeys() {
+      try {
+        S.metrics.gamesPlayed += 1;
+        save();
+      } catch (_) { /* ignore */ }
+    }
+  };
+
   const course = (id) => C.find((c) => c.id === id);
   const lessonOf = (c, id) => c && c.lessons.find((l) => l.id === id);
   const key = (c, l) => `${c.id}/${l.id}`;
@@ -108,29 +118,46 @@
 
   let clip = null;
   function hush() {
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
     if (clip) { clip.pause(); clip = null; }
     if (window.NARRATION) window.NARRATION.stop();
   }
 
   function playFile(src, onend) {
-    hush();
+    if (clip) { clip.pause(); clip = null; }
     clip = new Audio(src);
     if (onend) {
       clip.addEventListener("ended", onend, { once: true });
       clip.addEventListener("error", onend, { once: true });
     }
-    return clip.play().catch(() => { if (onend) onend(); });
+    return clip.play().then(() => true).catch(() => { if (onend) onend(); return false; });
   }
 
-  /** Hear uses the owner’s pre-recorded clip from /voices — never device TTS, never learner mic. */
-  function bindHear(btn, playFn) {
+  function sayText(text, opts = {}) {
+    return new Promise((resolve) => {
+      if (!window.speechSynthesis) { resolve(false); return; }
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.rate = opts.rate || 0.9;
+      u.pitch = opts.pitch || 1.15;
+      let done = false;
+      const end = () => { if (!done) { done = true; resolve(true); } };
+      u.addEventListener("end", end);
+      u.addEventListener("error", end);
+      window.setTimeout(end, 800 + text.length * 90);
+      window.speechSynthesis.speak(u);
+    });
+  }
+
+  /** Lesson phrases: owner clip only. Kids names: owner clip, else announce with device voice, then real sound. */
+  function bindHear(btn, playFn, missTip) {
     btn.addEventListener("click", async () => {
       hush();
       const ok = await playFn();
       if (!ok) {
         btn.classList.add("miss");
         const tip = btn.parentElement.querySelector(".voice-miss") || Object.assign(document.createElement("span"), { className: "voice-miss" });
-        tip.textContent = "Voice clip not added yet. The owner records phrases into the voices/ folder.";
+        tip.textContent = missTip || "Voice clip not added yet. The owner records phrases into the voices/ folder.";
         if (!tip.parentElement) btn.after(tip);
         window.setTimeout(() => btn.classList.remove("miss"), 1200);
       }
@@ -671,25 +698,72 @@
   }
 
   /* ---------- kids ---------- */
+  function isKidImg(pic) {
+    return typeof pic === "string" && (/^(\.\/)?pics\//.test(pic) || /\.(svg|png|webp|jpe?g)$/i.test(pic));
+  }
+
+  function kidPic(name, pic, o = {}) {
+    if (isKidImg(pic)) {
+      return `<img class="kid-img${o.tiny ? " kid-img-tiny" : ""}" src="${pic}" alt="${name}" draggable="false">`;
+    }
+    return `<span class="emoji" role="img" aria-label="${name}">${pic}</span>`;
+  }
+
+  function kidsEntry(set) {
+    return set.id === "ocean" ? `#/kids/ocean/intro` : `#/kids/${set.id}/0`;
+  }
+
   function kidsHome() {
     paint("kids", "#C84F2E", `
       <header class="course-head">
         <div>
           <p class="eyebrow">Kids’ corner</p>
           <h1>Look, say, listen.</h1>
-          <p class="lede">Pick a set. Each page shows one picture. Tap <b>Hear it</b> for the name (owner voice when recorded) and the real animal sound, then tap <b>Next</b>.</p>
+          <p class="lede">Each set goes <b>A to Z</b>. Tap <b>Hear it</b> to hear the letter and name, then the real sound. Try the <b>keyboard smash</b> to get used to keys on a phone or laptop.</p>
         </div>
         <div class="kids-fox">${fox("idle")}</div>
       </header>
+      <a class="kid-set keyboard-cta" href="#/keys" style="--accent:#2E4057">
+        <span class="kid-set-pics keyboard-preview"><span>A</span><span>B</span><span>C</span><span>🎹</span></span>
+        <strong>Keyboard smash</strong>
+        <em>Like TinyFingers — press any key or tap the screen</em>
+      </a>
       <section class="kid-sets">
         ${K.map((set) => `
-          <a class="kid-set" href="#/kids/${set.id}/0" style="--accent:${set.color}">
-            <span class="kid-set-pics">${set.items.slice(0, 4).map((it) => `<span>${it[1]}</span>`).join("")}</span>
+          <a class="kid-set" href="${kidsEntry(set)}" style="--accent:${set.color}">
+            <span class="kid-set-pics">${set.items.slice(0, 4).map((it) => `<span>${kidPic(it[0], it[1], { tiny: true })}</span>`).join("")}</span>
             <strong>${set.title}</strong>
-            <em>${set.items.length} pictures</em>
+            <em>${set.items.length} pictures · A–Z</em>
           </a>`).join("")}
       </section>
     `);
+  }
+
+  function kidsOceanIntro(set) {
+    paint("kids", set.color, `
+      <div class="kid-top">
+        <a class="crumb" href="#/kids">← All sets</a>
+        <p class="kid-count">${set.title}</p>
+      </div>
+      <section class="aquarium">
+        <div class="aquarium-frame">
+          <span class="aquarium-bubbles" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i>
+          </span>
+          <img class="aquarium-scene" src="./pics/ocean/aquarium.svg" alt="All ocean animals swimming together" width="1000" height="560">
+        </div>
+        <div class="aquarium-copy">
+          <h1>Ocean animals</h1>
+          <p class="lede">Everyone swimming together</p>
+          <a class="btn primary big" href="#/kids/ocean/0">Meet them A to Z →</a>
+        </div>
+      </section>
+    `);
+  }
+
+  function letterOf(name) {
+    const ch = String(name).replace(/[^A-Za-z]/g, "").charAt(0).toUpperCase();
+    return ch || "?";
   }
 
   function kidsPage(set, i) {
@@ -697,24 +771,40 @@
     if (i >= n) return kidsDone(set);
     const [name, emoji, line] = set.items[i];
     const setIdx = K.indexOf(set);
+    const letter = letterOf(name);
     const snd = (window.SOUNDS || {})[`${set.id}/${name}`];
+    const byLetter = {};
+    set.items.forEach((it, idx) => { byLetter[letterOf(it[0])] = idx; });
     paint("kids", set.color, `
       <div class="kid-top">
         <a class="crumb" href="#/kids">← All sets</a>
-        <p class="kid-count">${set.title} · <b>${i + 1}</b> of ${n}</p>
+        <p class="kid-count">${set.title} · <b>${letter}</b> · ${i + 1} of ${n}</p>
       </div>
+      <nav class="alpha-strip" aria-label="Jump to a letter">
+        ${"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((L) => {
+          const idx = byLetter[L];
+          const on = L === letter ? "on" : "";
+          return idx == null
+            ? `<span class="alpha-gap">${L}</span>`
+            : `<a class="alpha ${on}" href="#/kids/${set.id}/${idx}">${L}</a>`;
+        }).join("")}
+      </nav>
       <section class="flash" id="flash">
-        <div class="flash-pic"><span class="emoji" role="img" aria-label="${name}">${emoji}</span></div>
+        <div class="flash-pic">
+          <span class="letter-badge" aria-hidden="true">${letter}</span>
+          ${kidPic(name, emoji)}
+        </div>
         <div class="flash-copy">
+          <p class="flash-letter-line"><span>Letter</span>${letter} is for ${name}</p>
           <h1 class="flash-name">${name}</h1>
           <p class="flash-letters">${name.toUpperCase().split("").map((ch) => `<span>${ch === " " ? "&nbsp;" : ch}</span>`).join("")}</p>
           <p class="flash-line"><span>${set.verb}</span>${line}</p>
-          <button type="button" class="btn primary big" id="hear">Hear it</button>
-          ${snd ? `<p class="credit">${snd.real ? "Real recording" : "Recording"}: <a href="${snd.page}" target="_blank" rel="noopener">${snd.title}</a>, ${snd.artist}, ${snd.license}</p>` : ""}
+          <button type="button" class="btn primary big" id="hear">Hear name & sound</button>
+          ${snd ? `<p class="credit">${snd.real ? "Real recording" : "Recording"}: <a href="${snd.page}" target="_blank" rel="noopener">${snd.title}</a>, ${snd.artist}, ${snd.license}</p>` : `<p class="credit">Sound coming soon for this one.</p>`}
         </div>
       </section>
       <nav class="pager">
-        <button type="button" class="btn" id="prev" ${i === 0 && setIdx === 0 ? "disabled" : ""}>← Back</button>
+        <button type="button" class="btn" id="prev" ${i === 0 && set.id !== "ocean" && setIdx === 0 ? "disabled" : ""}>← Back</button>
         <div class="pager-dots">${set.items.map((_, k) => `<i class="${k === i ? "on" : k < i ? "seen" : ""}"></i>`).join("")}</div>
         <button type="button" class="btn primary" id="next">Next →</button>
       </nav>
@@ -726,20 +816,27 @@
       void pic.offsetWidth;
       pic.classList.add("wiggle");
     };
-    const hearBtn = app.querySelector("#hear");
-    bindHear(hearBtn, async () => {
+    const announce = async () => {
       wiggle();
-      const said = await window.NARRATION.playKid(set.id, name);
+      const lineSay = `${letter} is for ${name}. ${name}.`;
+      const owner = await window.NARRATION.playKid(set.id, name);
+      if (!owner) await sayText(lineSay, { rate: 0.85, pitch: 1.2 });
       if (snd) {
-        if (said) await new Promise((r) => window.setTimeout(r, 200));
+        await new Promise((r) => window.setTimeout(r, owner ? 200 : 120));
         await playFile(snd.src);
-        return true;
       }
-      return said;
-    });
+      return true;
+    };
+    const hearBtn = app.querySelector("#hear");
+    bindHear(hearBtn, announce, "Could not play audio on this device.");
     const hear = () => hearBtn.click();
     const go = (to) => {
       if (to < 0) {
+        if (set.id === "ocean") {
+          hush();
+          location.hash = `#/kids/ocean/intro`;
+          return;
+        }
         const prevSet = K[setIdx - 1];
         if (prevSet) location.hash = `#/kids/${prevSet.id}/${prevSet.items.length - 1}`;
         return;
@@ -767,6 +864,12 @@
       if (e.key === "ArrowRight") go(i + 1);
       if (e.key === "ArrowLeft") go(i - 1);
       if (e.key === " ") { e.preventDefault(); hear(); }
+      const L = e.key.toUpperCase();
+      if (/^[A-Z]$/.test(L) && byLetter[L] != null) {
+        hush();
+        kidsAutoHear = true;
+        location.hash = `#/kids/${set.id}/${byLetter[L]}`;
+      }
     };
   }
 
@@ -778,10 +881,10 @@
         <div class="result-card">
           <p class="eyebrow">${set.title}</p>
           <h1>You named all ${set.items.length}!</h1>
-          <p class="kid-done-pics">${set.items.map((it) => it[1]).join(" ")}</p>
+          <p class="kid-done-pics">${set.items.map((it) => kidPic(it[0], it[1], { tiny: true })).join("")}</p>
           <div class="result-actions">
-            ${nextSet ? `<a class="btn primary" href="#/kids/${nextSet.id}/0">Next set: ${nextSet.title} →</a>` : ""}
-            <a class="btn" href="#/kids/${set.id}/0">Start again</a>
+            ${nextSet ? `<a class="btn primary" href="${kidsEntry(nextSet)}">Next set: ${nextSet.title} →</a>` : ""}
+            <a class="btn" href="${kidsEntry(set)}">Start again</a>
             <a class="btn ghost" href="#/kids">All sets</a>
           </div>
         </div>
@@ -804,6 +907,7 @@
   function route() {
     kidsKeys = null;
     hush();
+    if (window.KEYS && typeof window.KEYS.teardown === "function") window.KEYS.teardown();
     const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
     const [view, a, b] = parts;
     const c = course(a);
@@ -815,10 +919,20 @@
     if (view === "report") return report();
     if (view === "cheat" && c) return cheatScreen(c);
     if (view === "puzzle") return puzzleScreen(a);
+    if (view === "keys") {
+      if (window.KEYS && window.KEYS.mount) return window.KEYS.mount(paint, fox);
+      paint("kids", "#2E4057", `<a class="crumb" href="#/kids">← Kids’ corner</a><p class="lede">Keyboard smash is loading…</p>`);
+      return;
+    }
     if (view === "kids" && !a) return kidsHome();
     if (view === "kids") {
       const set = K.find((s) => s.id === a);
-      if (set) return kidsPage(set, Math.max(0, Number(b) || 0));
+      if (set) {
+        if (set.id === "ocean" && (b == null || b === "" || b === "intro")) {
+          return kidsOceanIntro(set);
+        }
+        return kidsPage(set, Math.max(0, Number(b) || 0));
+      }
     }
     return home();
   }

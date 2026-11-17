@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Urchin">
+  <rect width="120" height="120" rx="24" fill="#E8F4FA"/>
+
+  <circle cx="60" cy="64" r="22" fill="#6D597A" stroke="#1F1D1A" stroke-width="2.5"/>
+  <g stroke="#1F1D1A" stroke-width="2.5" stroke-linecap="round">
+    <line x1="60" y1="64" x2="60" y2="28"/><line x1="60" y1="64" x2="60" y2="100"/>
+    <line x1="60" y1="64" x2="28" y2="48"/><line x1="60" y1="64" x2="92" y2="80"/>
+    <line x1="60" y1="64" x2="28" y2="80"/><line x1="60" y1="64" x2="92" y2="48"/>
+    <line x1="60" y1="64" x2="40" y2="36"/><line x1="60" y1="64" x2="80" y2="92"/>
+    <line x1="60" y1="64" x2="80" y2="36"/><line x1="60" y1="64" x2="40" y2="92"/>
+  </g>
+  <circle cx="60" cy="64" r="8" fill="#4A3A5C" stroke="#1F1D1A" stroke-width="1.5"/>
+
+</svg>

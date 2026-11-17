@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Quena">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <rect x="22" y="55" width="78" height="12" rx="6" fill="#8B5A2B" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M22 55 v12 l-8 -6z" fill="#5C4030" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M34 55 v-6 h10 v6" fill="#F4EEE3" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="52" cy="61" r="2.6" fill="#1F1D1A"/>
+  <circle cx="64" cy="61" r="2.6" fill="#1F1D1A"/>
+  <circle cx="76" cy="61" r="2.6" fill="#1F1D1A"/>
+  <circle cx="88" cy="61" r="2.6" fill="#1F1D1A"/>
+
+</svg>

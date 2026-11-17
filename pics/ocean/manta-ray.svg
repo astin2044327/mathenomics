@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Manta ray">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <path d="M18 60 Q60 26 102 60 Q60 74 18 60 Z" fill="#3A5568" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M34 58 Q60 42 86 58 Q60 66 34 58 Z" fill="#5B7388" stroke="#1F1D1A" stroke-width="1.5"/>
+  <path d="M60 70 L56 98 L64 98 Z" fill="#2E4057" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="48" cy="52" r="3" fill="#1F1D1A"/>
+  <circle cx="72" cy="52" r="3" fill="#1F1D1A"/>
+  <path d="M26 54 L14 38 M94 54 L106 38" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+
+</svg>

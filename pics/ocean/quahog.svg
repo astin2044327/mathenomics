@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Quahog">
+  <rect width="120" height="120" rx="24" fill="#E8F4FA"/>
+
+  <path d="M28 70 Q60 28 92 70 Q60 98 28 70Z" fill="#C4A484" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M36 68 Q60 42 84 68" fill="none" stroke="#1F1D1A" stroke-width="1.5"/>
+  <path d="M40 74 Q60 56 80 74" fill="none" stroke="#1F1D1A" stroke-width="1.3"/>
+  <circle cx="60" cy="64" r="4" fill="#E9E5DC" stroke="#1F1D1A" stroke-width="1.5"/>
+
+</svg>

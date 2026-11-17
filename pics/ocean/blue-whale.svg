@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Blue whale">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <ellipse cx="58" cy="62" rx="42" ry="20" fill="#3A6EA5" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M16 62 L4 50 L4 74 Z" fill="#2E4057" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M48 44 L56 28 L64 44" fill="#2E4057" stroke="#1F1D1A" stroke-width="2"/>
+  <ellipse cx="72" cy="70" rx="10" ry="6" fill="#A8C4D8" stroke="#1F1D1A" stroke-width="1.5"/>
+  <circle cx="90" cy="56" r="3.5" fill="#1F1D1A"/>
+
+</svg>

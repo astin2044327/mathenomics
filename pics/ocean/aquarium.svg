@@ -1,0 +1,305 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-label="Ocean aquarium — all A–Z animals swimming together">
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B3A5B"/>
+      <stop offset="50%" stop-color="#1B6CA8"/>
+      <stop offset="100%" stop-color="#3AA0C9"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4B896"/>
+      <stop offset="100%" stop-color="#C4A574"/>
+    </linearGradient>
+    <linearGradient id="shaft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- water -->
+  <rect width="900" height="520" fill="url(#water)"/>
+  <!-- soft light shafts -->
+  <path d="M110 0 L170 520 L250 520 L150 0 Z" fill="url(#shaft)"/>
+  <path d="M390 0 L470 520 L545 520 L440 0 Z" fill="url(#shaft)"/>
+  <path d="M680 0 L735 520 L800 520 L720 0 Z" fill="url(#shaft)"/>
+  <!-- bubbles -->
+  <circle cx="70" cy="100" r="9" fill="#fff" opacity="0.22"/>
+  <circle cx="120" cy="180" r="5" fill="#fff" opacity="0.18"/>
+  <circle cx="820" cy="90" r="8" fill="#fff" opacity="0.2"/>
+  <circle cx="760" cy="160" r="4" fill="#fff" opacity="0.16"/>
+  <circle cx="480" cy="70" r="6" fill="#fff" opacity="0.18"/>
+  <circle cx="300" cy="130" r="4" fill="#fff" opacity="0.14"/>
+  <circle cx="600" cy="110" r="5" fill="#fff" opacity="0.15"/>
+
+  <!-- sand bottom -->
+  <path d="M0 448 Q160 420 320 452 T640 438 T900 458 L900 520 L0 520 Z" fill="url(#sand)" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="140" cy="470" r="4" fill="#B8956A" opacity="0.7"/>
+  <circle cx="380" cy="485" r="3" fill="#B8956A" opacity="0.6"/>
+  <circle cx="620" cy="475" r="5" fill="#B8956A" opacity="0.55"/>
+  <circle cx="800" cy="488" r="3.5" fill="#B8956A" opacity="0.65"/>
+
+  <!-- seaweed -->
+  <path d="M48 450 C58 400 30 355 48 295" fill="none" stroke="#2A7A52" stroke-width="7" stroke-linecap="round"/>
+  <path d="M78 455 C90 405 58 365 74 310" fill="none" stroke="#1F5C3A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M850 458 C838 405 868 360 852 300" fill="none" stroke="#2A7A52" stroke-width="7" stroke-linecap="round"/>
+  <path d="M878 452 C866 400 896 358 880 305" fill="none" stroke="#1F5C3A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M250 455 C262 410 240 370 255 330" fill="none" stroke="#2A7A52" stroke-width="4" stroke-linecap="round"/>
+  <path d="M700 458 C688 415 710 375 695 335" fill="none" stroke="#1F5C3A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- title -->
+  <text x="450" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#FFFBF4">Ocean animals</text>
+  <text x="450" y="52" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#D7EEF5">A–Z swimming together</text>
+
+  <!-- A Angelfish -->
+  <g transform="translate(90,95)">
+    <ellipse cx="0" cy="0" rx="16" ry="22" fill="#3AA0C9" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M0 -22 L12 -36 L2 -14 Z" fill="#E9A23B" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M0 22 L12 36 L2 14 Z" fill="#E9A23B" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-16 0 L-30 -10 L-30 10 Z" fill="#2A9D8F" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="6" cy="-4" r="2.2" fill="#1F1D1A"/>
+    <text x="0" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">A</text>
+  </g>
+
+  <!-- B Blue whale -->
+  <g transform="translate(230,85)">
+    <ellipse cx="0" cy="0" rx="42" ry="14" fill="#3A6EA5" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-42 0 L-58 -10 L-56 10 Z" fill="#2E4057" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-6 -14 L2 -28 L10 -12" fill="#2E4057" stroke="#1F1D1A" stroke-width="1.5"/>
+    <ellipse cx="12" cy="6" rx="10" ry="5" fill="#A8C4D8" stroke="#1F1D1A" stroke-width="1"/>
+    <circle cx="28" cy="-3" r="2.2" fill="#1F1D1A"/>
+    <text x="0" y="30" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">B</text>
+  </g>
+
+  <!-- C Crab -->
+  <g transform="translate(100,390)">
+    <ellipse cx="0" cy="4" rx="18" ry="11" fill="#C84F2E" stroke="#1F1D1A" stroke-width="2"/>
+    <circle cx="-8" cy="-4" r="6" fill="#E4572E" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="8" cy="-4" r="6" fill="#E4572E" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="-8" cy="-4" r="1.8" fill="#1F1D1A"/><circle cx="8" cy="-4" r="1.8" fill="#1F1D1A"/>
+    <path d="M-16 0 Q-28 -10 -26 -20 M16 0 Q28 -10 26 -20" fill="none" stroke="#1F1D1A" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M-10 14 L-14 24 M0 16 L0 26 M10 14 L14 24" stroke="#1F1D1A" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="0" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1F1D1A" opacity="0.75">C</text>
+  </g>
+
+  <!-- D Dolphin -->
+  <g transform="translate(340,115)">
+    <ellipse cx="0" cy="0" rx="30" ry="12" fill="#5B8FA8" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-30 0 L-44 -10 L-42 10 Z" fill="#3A6EA5" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-4 -12 L2 -26 L10 -10" fill="#3A6EA5" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M10 10 Q16 22 8 24" fill="#3A6EA5" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="18" cy="-3" r="2.2" fill="#1F1D1A"/>
+    <text x="0" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">D</text>
+  </g>
+
+  <!-- E Eel -->
+  <g transform="translate(470,210)">
+    <path d="M-40 4 C-22 -18 -8 18 12 -2 C24 -14 36 2 44 4" fill="none" stroke="#2A7A52" stroke-width="9" stroke-linecap="round"/>
+    <path d="M-40 4 C-22 -18 -8 18 12 -2 C24 -14 36 2 44 4" fill="none" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="42" cy="3" r="2.2" fill="#1F1D1A"/>
+    <text x="0" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">E</text>
+  </g>
+
+  <!-- F Fish -->
+  <g transform="translate(160,185)">
+    <ellipse cx="0" cy="0" rx="22" ry="12" fill="#5CC8A0" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-22 0 L-36 -10 L-36 10 Z" fill="#2A9D8F" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M0 -12 L6 -22 L12 -10" fill="#2A9D8F" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="10" cy="-2" r="2.2" fill="#1F1D1A"/>
+    <text x="0" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">F</text>
+  </g>
+
+  <!-- G Goldfish -->
+  <g transform="translate(560,130)">
+    <ellipse cx="0" cy="0" rx="20" ry="11" fill="#E4572E" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-20 0 L-34 -12 L-30 0 L-34 12 Z" fill="#C84F2E" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M0 -11 L6 -22 L12 -9" fill="#E9A23B" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="10" cy="-2" r="2.2" fill="#1F1D1A"/>
+    <text x="0" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">G</text>
+  </g>
+
+  <!-- H Hammerhead -->
+  <g transform="translate(420,80)">
+    <ellipse cx="0" cy="4" rx="28" ry="10" fill="#7A8B99" stroke="#1F1D1A" stroke-width="2"/>
+    <rect x="18" y="-6" width="28" height="10" rx="5" fill="#5C6B78" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="24" cy="-1" r="1.8" fill="#1F1D1A"/><circle cx="40" cy="-1" r="1.8" fill="#1F1D1A"/>
+    <path d="M-28 4 L-40 -4 L-38 10 Z" fill="#5C6B78" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-4 -6 L2 -20 L8 -4" fill="#5C6B78" stroke="#1F1D1A" stroke-width="1.5"/>
+    <text x="0" y="30" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">H</text>
+  </g>
+
+  <!-- I Icefish -->
+  <g transform="translate(640,210)">
+    <ellipse cx="0" cy="0" rx="24" ry="11" fill="#E8F2F6" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-24 0 L-36 -9 L-36 9 Z" fill="#B8D4E0" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M0 -11 L6 -22 L12 -9" fill="#B8D4E0" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="12" cy="-2" r="2.2" fill="#1F1D1A"/>
+    <circle cx="-8" cy="-22" r="2.5" fill="#DCEAF0" stroke="#1F1D1A" stroke-width="1"/>
+    <text x="0" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">I</text>
+  </g>
+
+  <!-- J Jellyfish -->
+  <g transform="translate(760,105)">
+    <ellipse cx="0" cy="-6" rx="18" ry="12" fill="#7EB8C9" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-10 4 Q-12 28 -8 34 M0 6 Q0 30 0 36 M10 4 Q12 28 8 34" fill="none" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="-6" cy="-8" r="2.5" fill="#F7F2E8" stroke="#1F1D1A" stroke-width="1"/>
+    <circle cx="6" cy="-8" r="2.5" fill="#F7F2E8" stroke="#1F1D1A" stroke-width="1"/>
+    <text x="0" y="48" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">J</text>
+  </g>
+
+  <!-- K Killer whale -->
+  <g transform="translate(280,220)">
+    <ellipse cx="0" cy="0" rx="34" ry="13" fill="#2E4057" stroke="#1F1D1A" stroke-width="2"/>
+    <ellipse cx="8" cy="8" rx="14" ry="6" fill="#FFFBF4"/>
+    <path d="M-34 0 L-48 -10 L-46 10 Z" fill="#1F1D1A" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-6 -13 L0 -30 L8 -11" fill="#1F1D1A" stroke="#1F1D1A" stroke-width="1.5"/>
+    <ellipse cx="-10" cy="-2" rx="5" ry="4" fill="#FFFBF4" stroke="#1F1D1A" stroke-width="1"/>
+    <circle cx="22" cy="-3" r="2.2" fill="#1F1D1A"/>
+    <text x="0" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">K</text>
+  </g>
+
+  <!-- L Lobster -->
+  <g transform="translate(210,400)">
+    <ellipse cx="0" cy="0" rx="10" ry="18" fill="#C84F2E" stroke="#1F1D1A" stroke-width="2"/>
+    <ellipse cx="0" cy="-16" rx="8" ry="7" fill="#E4572E" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="-4" cy="-17" r="1.6" fill="#1F1D1A"/><circle cx="4" cy="-17" r="1.6" fill="#1F1D1A"/>
+    <path d="M-8 -12 Q-22 -20 -26 -10 Q-20 -4 -8 -8 M8 -12 Q22 -20 26 -10 Q20 -4 8 -8" fill="#E4572E" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-6 16 L-10 28 M0 18 L0 30 M6 16 L10 28" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+    <text x="0" y="40" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1F1D1A" opacity="0.75">L</text>
+  </g>
+
+  <!-- M Manatee -->
+  <g transform="translate(130,285)">
+    <ellipse cx="0" cy="0" rx="32" ry="16" fill="#8B9A8E" stroke="#1F1D1A" stroke-width="2"/>
+    <ellipse cx="28" cy="-4" rx="12" ry="10" fill="#9AABA0" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-32 0 L-44 -8 L-42 8 Z" fill="#6B7A6E" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="32" cy="-6" r="2" fill="#1F1D1A"/>
+    <ellipse cx="-6" cy="8" rx="7" ry="4" fill="#A8B5AC" stroke="#1F1D1A" stroke-width="1"/>
+    <text x="0" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">M</text>
+  </g>
+
+  <!-- N Narwhal -->
+  <g transform="translate(500,300)">
+    <ellipse cx="0" cy="4" rx="26" ry="12" fill="#A8B8C4" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-26 4 L-38 -6 L-36 12 Z" fill="#7A8B99" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M22 -2 L52 -16" stroke="#E9E5DC" stroke-width="4" stroke-linecap="round"/>
+    <path d="M22 -2 L52 -16" stroke="#1F1D1A" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="14" cy="0" r="2.2" fill="#1F1D1A"/>
+    <path d="M-6 -8 L0 -20 L6 -6" fill="#7A8B99" stroke="#1F1D1A" stroke-width="1.5"/>
+    <text x="0" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">N</text>
+  </g>
+
+  <!-- O Octopus -->
+  <g transform="translate(370,355)">
+    <circle cx="0" cy="-4" r="14" fill="#C84F2E" stroke="#1F1D1A" stroke-width="2"/>
+    <circle cx="-5" cy="-6" r="2.2" fill="#1F1D1A"/><circle cx="5" cy="-6" r="2.2" fill="#1F1D1A"/>
+    <path d="M-10 8 Q-18 28 -10 32 M-2 10 Q-4 32 2 32 M6 10 Q8 32 2 28 M12 8 Q20 28 12 32" fill="none" stroke="#1F1D1A" stroke-width="2.2" stroke-linecap="round"/>
+    <text x="0" y="46" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">O</text>
+  </g>
+
+  <!-- P Pufferfish -->
+  <g transform="translate(650,315)">
+    <circle cx="0" cy="0" r="18" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+    <circle cx="-6" cy="-4" r="2.5" fill="#1F1D1A"/><circle cx="6" cy="-4" r="2.5" fill="#1F1D1A"/>
+    <path d="M-4 6 Q0 12 4 6" fill="none" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-12 -14 L-16 -22 M12 -14 L16 -22 M0 -18 L0 -26 M-14 10 L-20 16 M14 10 L20 16" stroke="#1F1D1A" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M-18 0 L-28 -6 L-28 6 Z" fill="#C84F2E" stroke="#1F1D1A" stroke-width="1.5"/>
+    <text x="0" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">P</text>
+  </g>
+
+  <!-- Q Quahog -->
+  <g transform="translate(50,430)">
+    <ellipse cx="0" cy="0" rx="22" ry="14" fill="#8B7355" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-20 0 Q0 -12 20 0" fill="none" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-16 -4 Q0 -14 16 -4" fill="none" stroke="#A89070" stroke-width="1.2"/>
+    <ellipse cx="0" cy="0" rx="5" ry="3" fill="#C4A882" stroke="#1F1D1A" stroke-width="1"/>
+    <text x="0" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1F1D1A" opacity="0.75">Q</text>
+  </g>
+
+  <!-- R Ray -->
+  <g transform="translate(450,400)">
+    <path d="M0 -20 L32 6 L0 14 L-32 6 Z" fill="#5C6B7A" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M0 14 L4 30" stroke="#1F1D1A" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="-8" cy="-2" r="2" fill="#1F1D1A"/><circle cx="8" cy="-2" r="2" fill="#1F1D1A"/>
+    <text x="0" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1F1D1A" opacity="0.75">R</text>
+  </g>
+
+  <!-- S Seahorse -->
+  <g transform="translate(780,275)">
+    <path d="M2 -20 C14 -20 16 -6 4 0 C14 6 8 26 -4 28 C-10 28 -12 22 -6 20 C-14 18 -12 4 -2 0 C-8 -4 -8 -16 2 -20Z" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+    <circle cx="6" cy="-12" r="2" fill="#1F1D1A"/>
+    <path d="M-4 20 Q-10 32 -2 34" fill="none" stroke="#1F1D1A" stroke-width="2.2" stroke-linecap="round"/>
+    <text x="0" y="48" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">S</text>
+  </g>
+
+  <!-- T Turtle -->
+  <g transform="translate(580,390)">
+    <ellipse cx="0" cy="0" rx="18" ry="13" fill="#2A9D8F" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-10 -6 L0 -12 L10 -6 L6 8 L-6 8 Z" fill="#E9A23B" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="-20" cy="-2" r="6" fill="#3AA0C9" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="-22" cy="-3" r="1.6" fill="#1F1D1A"/>
+    <ellipse cx="-14" cy="-12" rx="6" ry="3.5" fill="#3AA0C9" stroke="#1F1D1A" stroke-width="1.2"/>
+    <ellipse cx="-14" cy="12" rx="6" ry="3.5" fill="#3AA0C9" stroke="#1F1D1A" stroke-width="1.2"/>
+    <ellipse cx="14" cy="10" rx="6" ry="3.5" fill="#3AA0C9" stroke="#1F1D1A" stroke-width="1.2"/>
+    <text x="0" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1F1D1A" opacity="0.75">T</text>
+  </g>
+
+  <!-- U Urchin -->
+  <g transform="translate(310,445)">
+    <circle cx="0" cy="0" r="11" fill="#5C3D6E" stroke="#1F1D1A" stroke-width="2"/>
+    <circle cx="0" cy="0" r="6" fill="#7A5588" stroke="#1F1D1A" stroke-width="1"/>
+    <path d="M0 -11 V-22 M0 11 V22 M-11 0 H-22 M11 0 H22 M-8 -8 L-16 -16 M8 -8 L16 -16 M-8 8 L-16 16 M8 8 L16 16" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+    <text x="0" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1F1D1A" opacity="0.75">U</text>
+  </g>
+
+  <!-- V Viperfish -->
+  <g transform="translate(740,400)">
+    <ellipse cx="0" cy="0" rx="24" ry="9" fill="#2E4057" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-24 0 L-36 -9 L-34 9 Z" fill="#1F1D1A" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M14 -4 L24 -16 L26 -2" fill="#C84F2E" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="14" cy="-2" r="2.5" fill="#E9A23B" stroke="#1F1D1A" stroke-width="1"/>
+    <path d="M18 4 L26 0 M18 7 L28 6 M18 10 L26 12" stroke="#FFFBF4" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="0" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#1F1D1A" opacity="0.75">V</text>
+  </g>
+
+  <!-- W Walrus -->
+  <g transform="translate(200,340)">
+    <ellipse cx="0" cy="0" rx="28" ry="14" fill="#A89080" stroke="#1F1D1A" stroke-width="2"/>
+    <ellipse cx="24" cy="-4" rx="12" ry="10" fill="#B8A090" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="28" cy="-6" r="2" fill="#1F1D1A"/>
+    <path d="M20 4 L18 22 M28 4 L30 22" stroke="#FFFBF4" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M20 4 L18 22 M28 4 L30 22" stroke="#1F1D1A" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M-28 0 L-40 -8 L-38 8 Z" fill="#8B7355" stroke="#1F1D1A" stroke-width="1.5"/>
+    <text x="0" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">W</text>
+  </g>
+
+  <!-- X X-ray tetra -->
+  <g transform="translate(400,255)">
+    <ellipse cx="0" cy="0" rx="22" ry="10" fill="#D7EEF5" fill-opacity="0.85" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-22 0 L-34 -8 L-34 8 Z" fill="#A8C4D8" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M-10 -4 H12 M-10 0 H14 M-10 4 H10" stroke="#1F1D1A" stroke-width="1" opacity="0.45"/>
+    <ellipse cx="-2" cy="0" rx="4" ry="5" fill="#C84F2E" fill-opacity="0.65" stroke="#1F1D1A" stroke-width="1"/>
+    <circle cx="12" cy="-2" r="2" fill="#1F1D1A"/>
+    <text x="0" y="26" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">X</text>
+  </g>
+
+  <!-- Y Yellowfin tuna -->
+  <g transform="translate(530,165)">
+    <ellipse cx="0" cy="0" rx="26" ry="11" fill="#2E6B8A" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-26 0 L-38 -10 L-36 10 Z" fill="#E9A23B" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M0 -11 L6 -26 L14 -9" fill="#E9A23B" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M0 11 L10 26 L-4 12" fill="#E9A23B" stroke="#1F1D1A" stroke-width="1.5"/>
+    <path d="M12 -4 L30 -12" stroke="#E9A23B" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="14" cy="-2" r="2.2" fill="#1F1D1A"/>
+    <text x="0" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">Y</text>
+  </g>
+
+  <!-- Z Zebrafish -->
+  <g transform="translate(80,165)">
+    <ellipse cx="0" cy="0" rx="22" ry="10" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+    <path d="M-12 -6 V6 M-4 -8 V8 M4 -8 V8 M12 -6 V6" stroke="#1F1D1A" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M-22 0 L-34 -8 L-34 8 Z" fill="#2E4057" stroke="#1F1D1A" stroke-width="1.5"/>
+    <circle cx="14" cy="-2" r="2.2" fill="#1F1D1A"/>
+    <text x="0" y="26" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#FFFBF4" opacity="0.85">Z</text>
+  </g>
+
+  <rect x="3" y="3" width="894" height="514" rx="16" fill="none" stroke="#1F1D1A" stroke-width="4"/>
+</svg>

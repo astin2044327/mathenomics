@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Walrus">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <ellipse cx="56" cy="66" rx="34" ry="22" fill="#A89080" stroke="#1F1D1A" stroke-width="2.5"/>
+  <ellipse cx="88" cy="58" rx="16" ry="14" fill="#B8A090" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="92" cy="54" r="3" fill="#1F1D1A"/>
+  <path d="M84 66 L80 92 M92 66 L96 92" stroke="#F7F2E8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M84 66 L80 92 M92 66 L96 92" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M22 66 L10 54 L10 78 Z" fill="#8B7355" stroke="#1F1D1A" stroke-width="2"/>
+  <ellipse cx="48" cy="74" rx="8" ry="5" fill="#8B7355" stroke="#1F1D1A" stroke-width="1.2"/>
+
+</svg>

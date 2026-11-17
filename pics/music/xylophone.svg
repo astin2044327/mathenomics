@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Xylophone">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <rect x="16" y="78" width="88" height="10" rx="3" fill="#5C4030" stroke="#1F1D1A" stroke-width="2"/>
+  <rect x="22" y="36" width="12" height="44" rx="3" fill="#C84F2E" stroke="#1F1D1A" stroke-width="2"/>
+  <rect x="38" y="40" width="12" height="40" rx="3" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+  <rect x="54" y="44" width="12" height="36" rx="3" fill="#2A9D8F" stroke="#1F1D1A" stroke-width="2"/>
+  <rect x="70" y="48" width="12" height="32" rx="3" fill="#2E4057" stroke="#1F1D1A" stroke-width="2"/>
+  <rect x="86" y="52" width="12" height="28" rx="3" fill="#6D597A" stroke="#1F1D1A" stroke-width="2"/>
+  <line x1="30" y1="28" x2="42" y2="42" stroke="#1F1D1A" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="28" cy="26" r="5" fill="#E4572E" stroke="#1F1D1A" stroke-width="1.5"/>
+
+</svg>

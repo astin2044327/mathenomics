@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mathenomics — record voice sample</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; line-height: 1.45; color: #1F1D1A; background: #F4EEE3; }
+    h1 { font-size: 1.6rem; }
+    button { font: inherit; padding: 10px 14px; margin: 6px 8px 6px 0; cursor: pointer; border: 2px solid #1F1D1A; border-radius: 10px; background: #FFFBF4; font-weight: 700; }
+    .live { background: #E4572E; color: #fff; }
+    .hint { color: #5B554C; font-size: 0.95rem; }
+    .box { margin-top: 20px; padding: 16px; border: 2px solid #1F1D1A; border-radius: 14px; background: #FFFBF4; }
+    .script {
+      margin: 12px 0 0; padding: 14px; border-radius: 12px; background: #fff;
+      border: 2px dashed #1F1D1A; font-size: 1.05rem; line-height: 1.55;
+    }
+    code { background: #fff; padding: 2px 6px; border-radius: 6px; }
+    a { color: #C84F2E; font-weight: 650; }
+    #timer { font-variant-numeric: tabular-nums; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Record one voice sample</h1>
+  <p class="hint">
+    The app cannot clone your voice from a single word like “Dog” by itself.
+    Record <b>about 30–60 seconds</b> of clear reading (this script). Then run
+    <code>tools/generate-kids-voice.mjs</code> with an ElevenLabs API key to generate
+    every kids name in <i>your</i> voice into <code>voices/</code>. Learners never see this page.
+  </p>
+  <p class="hint"><a href="./record-owner.html">← Single-clip recorder</a> · <a href="../index.html">Open app</a></p>
+
+  <div class="box">
+    <p class="hint">Read this out loud in your normal speaking voice. Quiet room, phone ~20 cm away.</p>
+    <div class="script" id="script">
+      Hello. My name is the Mathenomics storyteller. I like to help kids learn letters and names.
+      Dog. Cat. Apple. Banana. Bus. Car. Drum. Piano.
+      A is for ant. B is for bee. C is for cat. D is for dog.
+      Please listen carefully. One, two, three, four, five. Ready, set, go!
+      The quick brown fox jumps over the lazy dog near the river.
+    </div>
+    <p class="hint">Time: <span id="timer">0.0</span>s · aim for at least 30 seconds</p>
+    <div>
+      <button type="button" id="rec">Record sample</button>
+      <button type="button" id="play" disabled>Play</button>
+      <button type="button" id="save" disabled>Download sample</button>
+    </div>
+    <p id="status" class="hint"></p>
+  </div>
+
+  <script>
+    const status = document.getElementById("status");
+    const timerEl = document.getElementById("timer");
+    let rec = null, parts = [], blob = null, audio = null, t0 = 0, tick = null;
+
+    function setTimer(on) {
+      if (tick) { clearInterval(tick); tick = null; }
+      if (!on) return;
+      t0 = performance.now();
+      tick = setInterval(() => {
+        timerEl.textContent = ((performance.now() - t0) / 1000).toFixed(1);
+      }, 100);
+    }
+
+    document.getElementById("rec").addEventListener("click", async () => {
+      const btn = document.getElementById("rec");
+      if (rec) {
+        rec.stop();
+        return;
+      }
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mime = ["audio/webm;codecs=opus", "audio/webm"].find((t) => MediaRecorder.isTypeSupported(t));
+      rec = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined);
+      parts = [];
+      rec.ondataavailable = (e) => e.data.size && parts.push(e.data);
+      rec.onstop = () => {
+        stream.getTracks().forEach((t) => t.stop());
+        setTimer(false);
+        blob = new Blob(parts, { type: rec.mimeType || "audio/webm" });
+        rec = null;
+        btn.textContent = "Record sample";
+        btn.classList.remove("live");
+        document.getElementById("play").disabled = false;
+        document.getElementById("save").disabled = false;
+        const sec = Number(timerEl.textContent);
+        status.textContent = sec < 25
+          ? `Only ${sec.toFixed(1)}s — try again for ~30–60s so the clone sounds like you.`
+          : `Recorded ${(blob.size / 1024).toFixed(1)} KB (${sec.toFixed(1)}s). Download as voices/_sample.webm then run the generator.`;
+      };
+      rec.start();
+      btn.textContent = "Stop";
+      btn.classList.add("live");
+      setTimer(true);
+      status.textContent = "Recording… read the script naturally.";
+    });
+
+    document.getElementById("play").addEventListener("click", () => {
+      if (!blob) return;
+      if (audio) audio.pause();
+      audio = new Audio(URL.createObjectURL(blob));
+      audio.play();
+    });
+
+    document.getElementById("save").addEventListener("click", () => {
+      if (!blob) return;
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "_sample.webm";
+      a.click();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Goldfish">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <ellipse cx="56" cy="60" rx="26" ry="16" fill="#E4572E" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M30 60 L14 44 L18 60 L14 76 Z" fill="#C84F2E" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M56 44 L62 28 L70 44" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="72" cy="56" r="3.5" fill="#1F1D1A"/>
+  <ellipse cx="48" cy="64" rx="5" ry="3" fill="#E9A23B" opacity="0.7"/>
+
+</svg>

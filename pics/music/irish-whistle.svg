@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Irish whistle">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <rect x="18" y="56" width="84" height="10" rx="5" fill="#B8C0CC" stroke="#1F1D1A" stroke-width="2.5"/>
+  <rect x="18" y="56" width="16" height="10" rx="5" fill="#2E4057" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="44" cy="61" r="2.5" fill="#1F1D1A"/>
+  <circle cx="56" cy="61" r="2.5" fill="#1F1D1A"/>
+  <circle cx="68" cy="61" r="2.5" fill="#1F1D1A"/>
+  <circle cx="80" cy="61" r="2.5" fill="#1F1D1A"/>
+  <circle cx="92" cy="61" r="2.5" fill="#1F1D1A"/>
+
+</svg>

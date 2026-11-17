@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Icefish">
+  <rect width="120" height="120" rx="24" fill="#E8F4FA"/>
+
+  <ellipse cx="58" cy="64" rx="34" ry="16" fill="#F7FBFF" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M90 64 L108 52 L108 76 Z" fill="#DCE9F5" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M50 50 L58 40 L66 50" fill="#B8D4E8" stroke="#1F1D1A" stroke-width="1.8"/>
+  <circle cx="42" cy="62" r="3" fill="#1F1D1A"/>
+  <path d="M30 64 H48" stroke="#9BB8CC" stroke-width="1.5"/>
+
+</svg>

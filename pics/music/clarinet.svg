@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Clarinet">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <rect x="28" y="54" width="72" height="14" rx="7" fill="#2E4057" stroke="#1F1D1A" stroke-width="2.5"/>
+  <circle cx="34" cy="61" r="5" fill="#C84F2E" stroke="#1F1D1A" stroke-width="1.5"/>
+  <circle cx="48" cy="61" r="3" fill="#E9E5DC" stroke="#1F1D1A" stroke-width="1.2"/>
+  <circle cx="60" cy="61" r="3" fill="#E9E5DC" stroke="#1F1D1A" stroke-width="1.2"/>
+  <circle cx="72" cy="61" r="3" fill="#E9E5DC" stroke="#1F1D1A" stroke-width="1.2"/>
+  <circle cx="84" cy="61" r="3" fill="#E9E5DC" stroke="#1F1D1A" stroke-width="1.2"/>
+  <path d="M96 54 l12 -6 v26 l-12 -6z" fill="#5C574F" stroke="#1F1D1A" stroke-width="2"/>
+
+</svg>

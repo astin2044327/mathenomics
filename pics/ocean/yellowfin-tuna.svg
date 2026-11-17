@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Yellowfin tuna">
+  <rect width="120" height="120" rx="24" fill="#E8F4FA"/>
+
+  <ellipse cx="56" cy="64" rx="34" ry="16" fill="#2E6B8A" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M88 64 L112 48 L106 64 L112 80 Z" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M50 50 L60 34 L70 50" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M50 78 L58 94 L66 78" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="36" cy="60" r="3" fill="#1F1D1A"/>
+  <path d="M44 64 H70" stroke="#1A1916" stroke-width="1.5"/>
+
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Jellyfish">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <ellipse cx="60" cy="42" rx="28" ry="20" fill="#7EB8C9" stroke="#1F1D1A" stroke-width="2.5"/>
+  <ellipse cx="60" cy="48" rx="20" ry="10" fill="#A8D4E0" stroke="#1F1D1A" stroke-width="1.5"/>
+  <path d="M42 58 Q40 88 38 100" fill="none" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M52 60 Q54 90 50 102" fill="none" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M68 60 Q66 90 70 102" fill="none" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M78 58 Q80 88 82 100" fill="none" stroke="#1F1D1A" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="50" cy="40" r="3" fill="#F7F2E8" stroke="#1F1D1A" stroke-width="1.2"/>
+  <circle cx="68" cy="38" r="3" fill="#F7F2E8" stroke="#1F1D1A" stroke-width="1.2"/>
+
+</svg>

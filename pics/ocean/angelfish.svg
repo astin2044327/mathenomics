@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Angelfish">
+  <rect width="120" height="120" rx="24" fill="#F7F2E8"/>
+
+  <ellipse cx="58" cy="60" rx="22" ry="28" fill="#3AA0C9" stroke="#1F1D1A" stroke-width="2.5"/>
+  <path d="M58 32 L72 18 L58 40 Z" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M58 88 L72 104 L58 80 Z" fill="#E9A23B" stroke="#1F1D1A" stroke-width="2"/>
+  <path d="M36 60 L18 48 L18 72 Z" fill="#2A9D8F" stroke="#1F1D1A" stroke-width="2"/>
+  <circle cx="68" cy="54" r="3.5" fill="#1F1D1A"/>
+  <path d="M48 52 Q58 58 48 68" fill="none" stroke="#F7F2E8" stroke-width="2"/>
+
+</svg>
