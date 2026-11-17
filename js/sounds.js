@@ -3,7 +3,7 @@ window.SOUNDS = {
   "animals/Ant": {
     "src": "sounds/ant.mp3",
     "title": "Cricket Gryllus bimaculatus Chirps.oga",
-    "page": "https://commons.wikimedia.org/wiki/File%3ACricket_Gryllus_bimaculatus_Chirps.oga",
+    "page": "https://commons.wikimedia.org/wiki/File:Cricket%20Gryllus%20bimaculatus%20Chirps.oga",
     "artist": "Rickjpelleg",
     "license": "CC BY-SA 4.0",
     "real": true,
@@ -12,7 +12,7 @@ window.SOUNDS = {
   "animals/Bee": {
     "src": "sounds/bee.mp3",
     "title": "Bee buzzing sound (animal noises).opus",
-    "page": "https://commons.wikimedia.org/wiki/File:Bee_buzzing_sound_(animal_noises).opus",
+    "page": "https://commons.wikimedia.org/wiki/File:Bee%20buzzing%20sound%20(animal%20noises).opus",
     "artist": "Free Sounds Library User Spanac",
     "license": "CC BY 3.0",
     "real": true
@@ -20,7 +20,7 @@ window.SOUNDS = {
   "animals/Cat": {
     "src": "sounds/cat.mp3",
     "title": "Meow of a pleading cat.oga",
-    "page": "https://commons.wikimedia.org/wiki/File:Meow_of_a_pleading_cat.oga",
+    "page": "https://commons.wikimedia.org/wiki/File:Meow%20of%20a%20pleading%20cat.oga",
     "artist": "Heismark",
     "license": "Public domain",
     "real": true
@@ -28,7 +28,7 @@ window.SOUNDS = {
   "animals/Dog": {
     "src": "sounds/dog.mp3",
     "title": "Barking of a dog.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File:Barking_of_a_dog.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Barking%20of%20a%20dog.ogg",
     "artist": "Amada44",
     "license": "CC BY-SA 3.0",
     "real": true
@@ -36,7 +36,7 @@ window.SOUNDS = {
   "animals/Elephant": {
     "src": "sounds/elephant.mp3",
     "title": "Elephant voice - trumpeting.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File:Elephant_voice_-_trumpeting.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Elephant%20voice%20-%20trumpeting.ogg",
     "artist": "தகவலுழவன்",
     "license": "CC0",
     "real": true
@@ -44,7 +44,7 @@ window.SOUNDS = {
   "animals/Frog": {
     "src": "sounds/frog.mp3",
     "title": "Single Frog Croak.oga",
-    "page": "https://commons.wikimedia.org/wiki/File:Single_Frog_Croak.oga",
+    "page": "https://commons.wikimedia.org/wiki/File:Single%20Frog%20Croak.oga",
     "artist": "MichaeltheFox8621",
     "license": "CC BY-SA 4.0",
     "real": true
@@ -52,7 +52,7 @@ window.SOUNDS = {
   "animals/Goat": {
     "src": "sounds/goat.mp3",
     "title": "Herd of goats bleating.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File:Herd_of_goats_bleating.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Herd%20of%20goats%20bleating.ogg",
     "artist": "stephan",
     "license": "Public domain",
     "real": true
@@ -68,8 +68,8 @@ window.SOUNDS = {
   "animals/Iguana": {
     "src": "sounds/iguana.mp3",
     "title": "Mating call of a male Tokay gecko (Gekko gecko).ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AMating_call_of_a_male_Tokay_gecko_%28Gekko_gecko%29.ogg",
-    "artist": "Richard Ling <wikipedia@rling.com>",
+    "page": "https://commons.wikimedia.org/wiki/File:Mating%20call%20of%20a%20male%20Tokay%20gecko%20(Gekko%20gecko).ogg",
+    "artist": "Richard Ling",
     "license": "Public domain",
     "real": true,
     "note": "Tokay gecko call used as a lizard vocalization (iguanas rarely call)."
@@ -77,7 +77,7 @@ window.SOUNDS = {
   "animals/Jaguar": {
     "src": "sounds/jaguar.mp3",
     "title": "439280 schots angry-tiger.wav",
-    "page": "https://commons.wikimedia.org/wiki/File%3A439280_schots_angry-tiger.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:439280%20schots%20angry-tiger.wav",
     "artist": "schots",
     "license": "CC0",
     "real": true,
@@ -86,7 +86,7 @@ window.SOUNDS = {
   "animals/Kangaroo": {
     "src": "sounds/kangaroo.mp3",
     "title": "Six Horses Galloping By.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ASix_Horses_Galloping_By.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Six%20Horses%20Galloping%20By.ogg",
     "artist": "Freesound Community https://pixabay.com/users/freesound_community-46691455/ Bruno Auzet https://pixabay.com/sound-effects/nature-6-horses-gallopwav-14467/",
     "license": "CC0",
     "real": true,
@@ -103,7 +103,7 @@ window.SOUNDS = {
   "animals/Monkey": {
     "src": "sounds/monkey.mp3",
     "title": "Brown woolly monkey alarm call.wav",
-    "page": "https://commons.wikimedia.org/wiki/File:Brown_woolly_monkey_alarm_call.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Brown%20woolly%20monkey%20alarm%20call.wav",
     "artist": "Kai Medina (Mk170101)",
     "license": "CC BY-SA 4.0",
     "real": true
@@ -111,7 +111,7 @@ window.SOUNDS = {
   "animals/Newt": {
     "src": "sounds/newt.mp3",
     "title": "Victorian smooth froglet call.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AVictorian_smooth_froglet_call.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Victorian%20smooth%20froglet%20call.ogg",
     "artist": "Billinghurst",
     "license": "CC BY-SA 4.0",
     "real": true,
@@ -120,7 +120,7 @@ window.SOUNDS = {
   "animals/Owl": {
     "src": "sounds/owl.mp3",
     "title": "Strix aluco male.oga",
-    "page": "https://commons.wikimedia.org/wiki/File:Strix_aluco_male.oga",
+    "page": "https://commons.wikimedia.org/wiki/File:Strix%20aluco%20male.oga",
     "artist": "Vianney Bajart",
     "license": "CC BY-SA 4.0",
     "real": true
@@ -128,7 +128,7 @@ window.SOUNDS = {
   "animals/Pig": {
     "src": "sounds/pig.mp3",
     "title": "Mudchute pig 1, 2 and 3.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File:Mudchute_pig_1.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mudchute%20pig%201%2C%202%20and%203.ogg",
     "artist": "Secretlondon",
     "license": "CC BY-SA 3.0",
     "real": true
@@ -136,7 +136,7 @@ window.SOUNDS = {
   "animals/Quail": {
     "src": "sounds/quail.mp3",
     "title": "Coturnix coturnix - Common Quail XC549215.mp3",
-    "page": "https://commons.wikimedia.org/wiki/File%3ACoturnix_coturnix_-_Common_Quail_XC549215.mp3",
+    "page": "https://commons.wikimedia.org/wiki/File:Coturnix%20coturnix%20-%20Common%20Quail%20XC549215.mp3",
     "artist": "Benoît Van Hecke",
     "license": "CC BY-SA 4.0",
     "real": true
@@ -144,7 +144,7 @@ window.SOUNDS = {
   "animals/Rooster": {
     "src": "sounds/rooster.mp3",
     "title": "Medium rooster crowing.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File:Medium_rooster_crowing.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Medium%20rooster%20crowing.ogg",
     "artist": "alys",
     "license": "Public domain",
     "real": true
@@ -152,7 +152,7 @@ window.SOUNDS = {
   "animals/Snake": {
     "src": "sounds/snake.mp3",
     "title": "Rattlesnake.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ARattlesnake.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rattlesnake.ogg",
     "artist": "Unknown",
     "license": "Public domain",
     "real": true
@@ -160,7 +160,7 @@ window.SOUNDS = {
   "animals/Turkey": {
     "src": "sounds/turkey.mp3",
     "title": "Meleagris gallopavo - Wild Turkey XC134155.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File:Meleagris_gallopavo_-_Wild_Turkey_XC134155.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Meleagris%20gallopavo%20-%20Wild%20Turkey%20XC134155.ogg",
     "artist": "Jonathon Jongsma",
     "license": "CC BY-SA 3.0",
     "real": true
@@ -177,7 +177,7 @@ window.SOUNDS = {
   "animals/Vulture": {
     "src": "sounds/vulture.mp3",
     "title": "Turkey Vulture.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ATurkey_Vulture.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Turkey%20Vulture.ogg",
     "artist": "G. McGrane",
     "license": "Public domain",
     "real": true
@@ -185,7 +185,7 @@ window.SOUNDS = {
   "animals/Wolf": {
     "src": "sounds/wolf.mp3",
     "title": "Wolf howls.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File:Wolf_howls.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Wolf%20howls.ogg",
     "artist": "Unknown",
     "license": "Public domain",
     "real": true
@@ -193,7 +193,7 @@ window.SOUNDS = {
   "animals/Xerus": {
     "src": "sounds/xerus.mp3",
     "title": "Single squirrel Taiwan.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ASingle_squirrel_Taiwan.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Single%20squirrel%20Taiwan.ogg",
     "artist": "Jidanni",
     "license": "CC BY-SA 4.0",
     "real": true,
@@ -202,7 +202,7 @@ window.SOUNDS = {
   "animals/Yak": {
     "src": "sounds/yak.mp3",
     "title": "Two.european.bison.grunting.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ATwo.european.bison.grunting.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Two.european.bison.grunting.ogg",
     "artist": "LokYYs",
     "license": "CC BY-SA 4.0",
     "real": true,
@@ -211,7 +211,7 @@ window.SOUNDS = {
   "animals/Zebra": {
     "src": "sounds/zebra.mp3",
     "title": "Grévys zebra (Sound Effects).ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AGr%C3%A9vys_zebra_%28Sound_Effects%29.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gr%C3%A9vys%20zebra%20(Sound%20Effects).ogg",
     "artist": "DiegoC472",
     "license": "CC BY-SA 4.0",
     "real": true
@@ -219,7 +219,7 @@ window.SOUNDS = {
   "music/Bell": {
     "src": "sounds/bell.mp3",
     "title": "Zajeci zvony kostel 2025.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3AZajeci_zvony_kostel_2025.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Zajeci%20zvony%20kostel%202025.ogg",
     "artist": "Nostrifikator",
     "license": "CC0",
     "real": true
@@ -227,7 +227,7 @@ window.SOUNDS = {
   "music/Trumpet": {
     "src": "sounds/trumpet.mp3",
     "title": "Natural trumpet B-flat.ogg",
-    "page": "https://commons.wikimedia.org/wiki/File%3ANatural_trumpet_B-flat.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Natural%20trumpet%20B-flat.ogg",
     "artist": "ПростоУчастник",
     "license": "CC0",
     "real": true
@@ -235,7 +235,7 @@ window.SOUNDS = {
   "vehicles/Car": {
     "src": "sounds/car.mp3",
     "title": "Car Horn.wav",
-    "page": "https://commons.wikimedia.org/wiki/File%3ACar_Horn.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:Car%20Horn.wav",
     "artist": "15HPanska_Ruttner_Jan",
     "license": "CC0",
     "real": true
