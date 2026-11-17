@@ -1,0 +1,1872 @@
+[
+  {
+    "id": "alligator-gt-lt",
+    "verdict": "accept",
+    "phrase": "The hungry alligator eats the bigger number.",
+    "exception": "Open mouth faces the larger value. Compare the numbers first — do not memorize left/right shapes alone.",
+    "steps": [
+      "Draw < or > as an open mouth.",
+      "Point the open side at the greater number."
+    ],
+    "grade": "K-1",
+    "topic": "Comparing numbers",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "count-on",
+    "verdict": "accept",
+    "phrase": "Put the big number in your head, then count on.",
+    "exception": "Inefficient for large addends; may encourage counting by ones forever.",
+    "steps": [
+      "Identify the larger addend.",
+      "Count forward the smaller amount."
+    ],
+    "grade": "K-1",
+    "topic": "Addition",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "make-ten",
+    "verdict": "accept",
+    "phrase": "Make a ten, then add the rest.",
+    "exception": "Needs solid number-bond fluency.",
+    "steps": [
+      "Split one addend to complete a ten.",
+      "Add the leftover."
+    ],
+    "grade": "1-2",
+    "topic": "Addition",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "doubles-plus-one",
+    "verdict": "accept",
+    "phrase": "Doubles plus one: double the small number, then add one more.",
+    "exception": "Students sometimes double the larger number instead.",
+    "steps": [
+      "Recognize n+(n+1).",
+      "Double n, then add 1."
+    ],
+    "grade": "1-2",
+    "topic": "Near doubles",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "even-odd-buddies",
+    "verdict": "accept",
+    "phrase": "Even numbers share fair: everyone gets a buddy. Odd numbers leave one out.",
+    "exception": "Confuses with divisible-by-2 for large numbers if pairing is skipped.",
+    "steps": [
+      "Pair objects.",
+      "Even: no leftover; odd: one leftover."
+    ],
+    "grade": "1-2",
+    "topic": "Even and odd",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "rounding-five-or-more",
+    "verdict": "accept_with_fix",
+    "phrase": "Five or more, raise the score. Four or less, let it rest.",
+    "exception": "School rule: 5 or more raises the digit. Carry through 9s (1.96→2.0 at 1 d.p.). Banker's rounding differs and is usually not school policy.",
+    "steps": [
+      "Underline the place.",
+      "Look next door.",
+      "5–9 round up; 0–4 stay."
+    ],
+    "grade": "1-2",
+    "topic": "Rounding",
+    "reason": "High-value mnemonic that is sound only with an explicit exception (common misuse).",
+    "implement": false
+  },
+  {
+    "id": "clock-hands",
+    "verdict": "accept",
+    "phrase": "Hour is a short word: short hand. Minute is a long word: long hand.",
+    "exception": "Digital clocks and 24-hour time break the metaphor.",
+    "steps": [
+      "Short hand = hours.",
+      "Long hand = minutes."
+    ],
+    "grade": "1-2",
+    "topic": "Telling time",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "borrow-rhyme",
+    "verdict": "accept",
+    "phrase": "More on top? No need to stop. More on the floor? Go next door and get ten more.",
+    "exception": "Never flip digits to subtract smaller from larger. Borrow carefully across zeros. 52−27 is 25, not 35.",
+    "steps": [
+      "Compare digits in a place.",
+      "If bottom larger, borrow ten from next place."
+    ],
+    "grade": "1-2",
+    "topic": "Subtraction with regrouping",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "carry-ten",
+    "verdict": "accept",
+    "phrase": "Ten ones make a ten. Carry the one next door.",
+    "exception": "Students carry without writing the ones digit.",
+    "steps": [
+      "Add ones.",
+      "If 10+, write ones digit and carry a ten."
+    ],
+    "grade": "1-2",
+    "topic": "Addition with regrouping",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "month-knuckles",
+    "verdict": "accept",
+    "phrase": "Knuckles are 31-day months; valleys between are shorter.",
+    "exception": "February is 28 days, or 29 in a leap year. After July continue onto the other fist at August.",
+    "steps": [
+      "Make two fists",
+      "Knuckle=31, valley=shorter",
+      "Feb special case"
+    ],
+    "grade": "1-2",
+    "topic": "Calendar",
+    "reason": "Reliable calendar aid with leap-year exception.",
+    "implement": true
+  },
+  {
+    "id": "thirty-days-hath",
+    "verdict": "accept",
+    "phrase": "Thirty days hath September, April, June, and November.",
+    "exception": "All the rest have 31, except February (28, or 29 in a leap year).",
+    "steps": [
+      "Recall four 30-day months",
+      "Others 31 except February"
+    ],
+    "grade": "1-2",
+    "topic": "Calendar",
+    "reason": "Traditional accurate calendar fact.",
+    "implement": true
+  },
+  {
+    "id": "times-means-groups",
+    "verdict": "accept",
+    "phrase": "Times means groups of.",
+    "exception": "Order language can confuse commutative property.",
+    "steps": [
+      "Read a×b as a groups of b.",
+      "Draw arrays if needed."
+    ],
+    "grade": "3-4",
+    "topic": "Multiplication meaning",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "nines-finger-fold",
+    "verdict": "accept",
+    "phrase": "Fold the finger for ×9. Left fingers are tens; right are ones.",
+    "exception": "Works for 9×1 through 9×10. For larger factors use 10n−n.",
+    "steps": [
+      "Number fingers 1–10.",
+      "Fold the nth finger.",
+      "Left count = tens; right = ones."
+    ],
+    "grade": "3-4",
+    "topic": "Times tables",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "five-six-seven-eight",
+    "verdict": "accept",
+    "phrase": "Five, six, seven, eight: fifty-six is seven times eight.",
+    "exception": "Only helps one fact.",
+    "steps": [
+      "Say the rhyme.",
+      "Recall 7×8=56."
+    ],
+    "grade": "3-4",
+    "topic": "Times tables",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "long-div-dmsbr",
+    "verdict": "accept_with_fix",
+    "phrase": "Long division loop: Divide, Multiply, Subtract, Bring down (repeat).",
+    "exception": "Place value matters. Remainder must be < divisor. Chant ≠ understanding remainders as fractions/decimals.",
+    "steps": [
+      "Divide",
+      "Multiply",
+      "Subtract",
+      "Bring down",
+      "Repeat"
+    ],
+    "grade": "3-4",
+    "topic": "Long division",
+    "reason": "Algorithm reminder only if place value is taught.",
+    "implement": false
+  },
+  {
+    "id": "divisibility-2-5-10",
+    "verdict": "accept_with_fix",
+    "phrase": "2–5–10: last digit. 3–9: digit sum. 4–8: last 2/3 digits. 11: alternating sum. 6: both 2 and 3.",
+    "exception": "Omits a clean rule for 7. Digit sum for 9 is repeated until small. Alternating sum for 11 may be 0.",
+    "steps": [
+      "Pick the divisor",
+      "Apply the matching digit test",
+      "For 6 require both 2 and 3"
+    ],
+    "grade": "3-4",
+    "topic": "Divisibility",
+    "reason": "Rules are correct; original chant omitted 6 and overclaimed completeness.",
+    "implement": false
+  },
+  {
+    "id": "area-fence-carpet",
+    "verdict": "accept",
+    "phrase": "Perimeter is the fence around. Area is the carpet inside.",
+    "exception": "Students still swap formulas under time pressure.",
+    "steps": [
+      "Fence → add sides.",
+      "Carpet → cover with unit squares."
+    ],
+    "grade": "3-4",
+    "topic": "Area vs perimeter",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "equiv-frac-top-bottom",
+    "verdict": "accept_with_fix",
+    "phrase": "What you do to the top, you do to the bottom.",
+    "exception": "Multiply or divide top and bottom by the same nonzero number. Never 'do the same' when adding fractions.",
+    "steps": [
+      "Multiply/divide numerator.",
+      "Do the same to denominator."
+    ],
+    "grade": "3-4",
+    "topic": "Equivalent fractions",
+    "reason": "High-value mnemonic that is sound only with an explicit exception (common misuse).",
+    "implement": false
+  },
+  {
+    "id": "fives-half-tens",
+    "verdict": "accept",
+    "phrase": "Fives are half of tens — and they end in 0 or 5.",
+    "exception": "Half-of-tens fails for odd multiples if students forget halves.",
+    "steps": [
+      "Find ×10, then half.",
+      "Or count 5,10,15…"
+    ],
+    "grade": "3-4",
+    "topic": "Times tables",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "double-double",
+    "verdict": "accept",
+    "phrase": "×2 is double. ×4 is double-double. ×8 is double-double-double.",
+    "exception": "One double ×2; two doubles ×4; three doubles ×8. Stopping early halves the answer.",
+    "steps": [
+      "Double once for ×2.",
+      "Double again for ×4/×8."
+    ],
+    "grade": "3-4",
+    "topic": "Times tables",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "elevens-split-park",
+    "verdict": "accept",
+    "phrase": "For ×11: split the digits and park their sum in the middle.",
+    "exception": "If the middle sum ≥10, carry 1 to the left digit.",
+    "steps": [
+      "Write first digit.",
+      "Write digit sum in middle (carry if ≥10).",
+      "Write last digit."
+    ],
+    "grade": "3-4",
+    "topic": "Times tables",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "pemdas-aunt-sally",
+    "verdict": "accept_with_fix",
+    "phrase": "Please Excuse My Dear Aunt Sally — but ×÷ tie and +− tie, left to right.",
+    "exception": "× and ÷ are the same level (left to right): 8 ÷ 2 × 4 = 16, not 1. Same for + and −. Grouping includes brackets, fraction bars, and | | — not only parentheses.",
+    "steps": [
+      "Grouping first",
+      "Exponents",
+      "× and ÷ left to right",
+      "+ and − left to right"
+    ],
+    "grade": "5-6",
+    "topic": "Order of operations",
+    "reason": "Classic acronym usable only if left-to-right ties are taught; letter order alone is a known trap.",
+    "implement": false
+  },
+  {
+    "id": "bodmas",
+    "verdict": "accept_with_fix",
+    "phrase": "BODMAS: Brackets, Orders, then ÷ and × together, then + and − together.",
+    "exception": "Division is not before multiplication — shared precedence, left to right. Same for +/−. 'Orders' means powers and roots.",
+    "steps": [
+      "Brackets/grouping",
+      "Orders (powers & roots)",
+      "÷ and × L→R",
+      "+ and − L→R"
+    ],
+    "grade": "5-6",
+    "topic": "Order of operations",
+    "reason": "Sound Commonwealth variant; must fix the D-before-M myth.",
+    "implement": false
+  },
+  {
+    "id": "bedmas",
+    "verdict": "accept_with_fix",
+    "phrase": "BEDMAS: Brackets, Exponents, then ÷ and × together, then + and − together.",
+    "exception": "Do not do all division before multiplication. Work × and ÷ left to right; + and − left to right.",
+    "steps": [
+      "Brackets",
+      "Exponents",
+      "÷/× L→R",
+      "+/− L→R"
+    ],
+    "grade": "5-6",
+    "topic": "Order of operations",
+    "reason": "Canadian variant; needs the tie-level exception. Concept already covered by PEMDAS/BODMAS in-app.",
+    "implement": false
+  },
+  {
+    "id": "gems-order",
+    "verdict": "accept",
+    "phrase": "GEMS: Grouping, Exponents, Multiply/Divide, Subtract/Add.",
+    "exception": "Within Multiply/Divide and within Subtract/Add, still go left to right. Grouping includes ( ), [ ], { }, fraction bars, and | |.",
+    "steps": [
+      "Grouping symbols",
+      "Exponents",
+      "×÷ together L→R",
+      "+− together L→R"
+    ],
+    "grade": "5-6",
+    "topic": "Order of operations",
+    "reason": "Pairs operations correctly in the acronym itself; clearest order-of-operations family member.",
+    "implement": true
+  },
+  {
+    "id": "keep-change-flip",
+    "verdict": "accept_with_fix",
+    "phrase": "Keep the first fraction, change ÷ to ×, flip the second fraction.",
+    "exception": "Flip only the second fraction. Convert mixed numbers first. Never divide by zero.",
+    "steps": [
+      "Rewrite a÷b as a×(1/b)",
+      "Multiply numerators",
+      "Multiply denominators",
+      "Simplify"
+    ],
+    "grade": "5-6",
+    "topic": "Dividing fractions",
+    "reason": "Correct as multiplying by the reciprocal; bare three-word chant is overgeneralized.",
+    "implement": false
+  },
+  {
+    "id": "frac-add-same-bottom",
+    "verdict": "accept",
+    "phrase": "Same bottom, add the tops.",
+    "exception": "Only when denominators already match. Do not add denominators.",
+    "steps": [
+      "Need common denominator.",
+      "Add numerators.",
+      "Keep denominator."
+    ],
+    "grade": "5-6",
+    "topic": "Adding fractions",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "frac-mul-straight",
+    "verdict": "accept",
+    "phrase": "Straight across: tops times tops, bottoms times bottoms.",
+    "exception": "Denominators need not match for ×. 1/2×1/2=1/4, not 1.",
+    "steps": [
+      "Multiply numerators.",
+      "Multiply denominators.",
+      "Simplify."
+    ],
+    "grade": "5-6",
+    "topic": "Multiplying fractions",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "numerator-up",
+    "verdict": "accept",
+    "phrase": "Numerator up, denominator down.",
+    "exception": "Names parts only — does not tell you how to operate on fractions.",
+    "steps": [
+      "Top = numerator",
+      "Bottom = denominator"
+    ],
+    "grade": "5-6",
+    "topic": "Fraction vocabulary",
+    "reason": "True vocabulary mnemonic.",
+    "implement": false
+  },
+  {
+    "id": "mad-mixed",
+    "verdict": "accept_with_fix",
+    "phrase": "Mixed → improper: Multiply whole × denominator, Add numerator, Denominator stays.",
+    "exception": "Denominator never changes. Multiply by the bottom, not the top. 2 3/4 = 11/4, not 11/8.",
+    "steps": [
+      "whole × denominator",
+      "add numerator",
+      "keep denominator"
+    ],
+    "grade": "5-6",
+    "topic": "Mixed to improper",
+    "reason": "Procedure correct; MAD alone needs a strong Watch out.",
+    "implement": false
+  },
+  {
+    "id": "dec-line-up-dots",
+    "verdict": "accept",
+    "phrase": "Line up the dots.",
+    "exception": "Students right-align like whole numbers.",
+    "steps": [
+      "Align decimal points.",
+      "Add/subtract place by place."
+    ],
+    "grade": "5-6",
+    "topic": "Decimal operations",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "dec-mul-count-places",
+    "verdict": "accept",
+    "phrase": "Ignore the dots, multiply, then count the places back in.",
+    "exception": "Trailing zeros and place-count errors.",
+    "steps": [
+      "Multiply as whole numbers.",
+      "Count decimal places in factors.",
+      "Place point in product."
+    ],
+    "grade": "5-6",
+    "topic": "Decimal multiplication",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "dec-div-hop-dots",
+    "verdict": "accept_with_fix",
+    "phrase": "Make the divisor whole: hop both dots the same number of places.",
+    "exception": "Move both decimal points the same number of places so the divisor is whole. Unequal hops change the quotient.",
+    "steps": [
+      "Move divisor decimal to end.",
+      "Move dividend the same.",
+      "Divide."
+    ],
+    "grade": "5-6",
+    "topic": "Decimal division",
+    "reason": "High-value mnemonic that is sound only with an explicit exception (common misuse).",
+    "implement": false
+  },
+  {
+    "id": "metric-king-henry",
+    "verdict": "accept_with_fix",
+    "phrase": "King Henry Died By Drinking Chocolate Milk — Kilo, Hecto, Deca, Base, Deci, Centi, Milli.",
+    "exception": "'By' is the base unit. Mega/micro/nano are off this ladder. Each step is ×10 or ÷10.",
+    "steps": [
+      "Locate starting prefix",
+      "Count steps",
+      "Move decimal that many places"
+    ],
+    "grade": "5-6",
+    "topic": "Metric prefixes",
+    "reason": "Standard metric ladder; must teach Base and off-ladder prefixes.",
+    "implement": false
+  },
+  {
+    "id": "mean-median-mode-diddle",
+    "verdict": "accept",
+    "phrase": "Hey diddle diddle, the median's the middle; you add and divide for the mean. The mode is the most, and the range is the difference between.",
+    "exception": "Sort before the median. Even n → average of two middles. Multimodal / no mode possible. Range = max − min.",
+    "steps": [
+      "Mean: average",
+      "Median: middle after sorting",
+      "Mode: most frequent",
+      "Range: max−min"
+    ],
+    "grade": "5-6",
+    "topic": "Measures of center",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "mode-most",
+    "verdict": "accept",
+    "phrase": "Mode and most share letters — mode is the most frequent value.",
+    "exception": "A data set can have no mode or more than one mode.",
+    "steps": [
+      "Tally frequencies",
+      "Most frequent value(s) = mode"
+    ],
+    "grade": "5-6",
+    "topic": "Mode",
+    "reason": "Sound definition hook.",
+    "implement": false
+  },
+  {
+    "id": "median-road",
+    "verdict": "accept",
+    "phrase": "The median is the middle value — like a median strip in the road.",
+    "exception": "Sort first. If n is even, average the two middle values.",
+    "steps": [
+      "Sort",
+      "Odd n → middle",
+      "Even n → average of two middles"
+    ],
+    "grade": "5-6",
+    "topic": "Median",
+    "reason": "Good definition mnemonic with even-n exception.",
+    "implement": false
+  },
+  {
+    "id": "signed-friend-enemy",
+    "verdict": "accept_with_fix",
+    "phrase": "For × and ÷ of signs: same signs positive, different signs negative.",
+    "exception": "Applies only to multiplication and division — never to addition or subtraction.",
+    "steps": [
+      "Decide the sign from same/different",
+      "Multiply or divide absolute values"
+    ],
+    "grade": "5-6",
+    "topic": "Multiplying signed numbers",
+    "reason": "Friend/enemy metaphor is easily over-applied to addition; rephrase to the sign rule.",
+    "implement": false
+  },
+  {
+    "id": "friends-positive",
+    "verdict": "accept_with_fix",
+    "phrase": "Same signs are friends (positive product). Different signs are strangers (negative product).",
+    "exception": "Only for × and ÷. For addition use absolute values and direction, not 'friends'.",
+    "steps": [
+      "Same → positive",
+      "Different → negative",
+      "Compute with absolute values"
+    ],
+    "grade": "7",
+    "topic": "Integer signs",
+    "reason": "Metaphor OK for products/quotients if sharply limited.",
+    "implement": false
+  },
+  {
+    "id": "roman-iview",
+    "verdict": "accept_with_fix",
+    "phrase": "I View Xylophones: I=1, V=5, X=10 (extend: L=50, C=100, D=500, M=1000).",
+    "exception": "Subtractive notation: IV=4, IX=9, XL=40, XC=90, CD=400, CM=900.",
+    "steps": [
+      "Learn seven symbols",
+      "Add left to right",
+      "Apply subtractive pairs"
+    ],
+    "grade": "3-4",
+    "topic": "Roman numerals",
+    "reason": "Partial map; needs subtractive notation exception.",
+    "implement": true
+  },
+  {
+    "id": "feet-in-mile-tomatoes",
+    "verdict": "reject",
+    "phrase": "5 tomatoes: 5,280 feet in a mile.",
+    "exception": "",
+    "steps": [],
+    "grade": "5-6",
+    "topic": "Customary units",
+    "reason": "Joke digit scaffold with no mathematical structure; easy to misremember.",
+    "implement": false
+  },
+  {
+    "id": "arithmetic-spelling",
+    "verdict": "reject",
+    "phrase": "A Rat In The House May Eat The Ice Cream.",
+    "exception": "",
+    "steps": [],
+    "grade": "3-4",
+    "topic": "Spelling",
+    "reason": "Spelling mnemonic for the word 'arithmetic', not a mathematical idea or procedure.",
+    "implement": false
+  },
+  {
+    "id": "commutative-commute",
+    "verdict": "accept",
+    "phrase": "Commutative: order can commute — a+b=b+a and a×b=b×a.",
+    "exception": "Subtraction and division are not commutative.",
+    "steps": [
+      "Check if swapping operands keeps the same result"
+    ],
+    "grade": "3-4",
+    "topic": "Properties",
+    "reason": "Correct property mnemonic.",
+    "implement": false
+  },
+  {
+    "id": "associative-group",
+    "verdict": "accept",
+    "phrase": "Associative: how you group (associate) does not change the sum or product.",
+    "exception": "Not true for subtraction or division.",
+    "steps": [
+      "Regroup parentheses",
+      "Verify sum/product unchanged"
+    ],
+    "grade": "3-4",
+    "topic": "Properties",
+    "reason": "Correct property mnemonic.",
+    "implement": false
+  },
+  {
+    "id": "distributive-give",
+    "verdict": "accept",
+    "phrase": "Distributive: give what's outside to every term inside the brackets.",
+    "exception": "Distribute to every term, including signs: 2(x−3)=2x−6, not 2x−3.",
+    "steps": [
+      "Multiply outside by each inside term",
+      "Keep signs",
+      "Simplify"
+    ],
+    "grade": "3-4",
+    "topic": "Properties",
+    "reason": "Correct and high-value.",
+    "implement": false
+  },
+  {
+    "id": "dividend-end",
+    "verdict": "accept_with_fix",
+    "phrase": "Dividend ÷ divisor = quotient (dividend is the amount being divided).",
+    "exception": "In the 'house' diagram the dividend is inside; layouts vary. Remainder ≠ quotient.",
+    "steps": [
+      "Identify dividend, divisor, quotient",
+      "Check: divisor×quotient+remainder=dividend"
+    ],
+    "grade": "3-4",
+    "topic": "Division vocabulary",
+    "reason": "Vocabulary correct; 'at the end' depends on layout, so rephrased.",
+    "implement": false
+  },
+  {
+    "id": "int-add-same-diff",
+    "verdict": "accept",
+    "phrase": "Same signs: add and keep. Different signs: subtract and keep the bigger one's sign.",
+    "exception": "'Bigger' means larger absolute value, not algebraically greater.",
+    "steps": [
+      "Compare signs.",
+      "Same → add absolute values.",
+      "Different → subtract; keep larger magnitude's sign."
+    ],
+    "grade": "7",
+    "topic": "Integer addition",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "keep-change-change",
+    "verdict": "accept_with_fix",
+    "phrase": "Subtracting is adding the opposite: keep the first, change − to +, change the second number's sign.",
+    "exception": "Only for subtraction → addition of the opposite. Do not apply to ×/÷. Do not confuse with Keep-Change-Flip.",
+    "steps": [
+      "Rewrite a−b as a+(−b)",
+      "Then use integer addition rules"
+    ],
+    "grade": "7",
+    "topic": "Integer subtraction",
+    "reason": "Correct if framed as adding the opposite; bare KCC is a known overgeneralization trap.",
+    "implement": false
+  },
+  {
+    "id": "percent-out-of-100",
+    "verdict": "accept_with_fix",
+    "phrase": "Per cent means out of 100. Hop the decimal two places.",
+    "exception": "Percent means per 100. 10% of 10% is 1%, not 20%. More than 100% is allowed.",
+    "steps": [
+      "% → decimal: two places left.",
+      "Decimal → %: two places right."
+    ],
+    "grade": "7",
+    "topic": "Percents",
+    "reason": "High-value mnemonic that is sound only with an explicit exception (common misuse).",
+    "implement": false
+  },
+  {
+    "id": "i-prt-pretty",
+    "verdict": "accept",
+    "phrase": "I = PRT — I am pretty.",
+    "exception": "Rate must match time unit; compound interest different.",
+    "steps": [
+      "Identify P, R, T.",
+      "Multiply."
+    ],
+    "grade": "7",
+    "topic": "Simple interest",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "dirt-distance",
+    "verdict": "accept",
+    "phrase": "d = rt — dirt.",
+    "exception": "Units must match. Average speed ≠ instantaneous speed.",
+    "steps": [
+      "Write d = rt",
+      "Substitute",
+      "Solve",
+      "Check units"
+    ],
+    "grade": "7",
+    "topic": "Distance formula",
+    "reason": "Simple true formula hook.",
+    "implement": true
+  },
+  {
+    "id": "speed-triangle",
+    "verdict": "accept_with_fix",
+    "phrase": "Distance = speed × time; cover up the unknown in the D–S–T relation.",
+    "exception": "Use consistent units. Average speed is total distance ÷ total time — not the average of speeds.",
+    "steps": [
+      "Identify knowns",
+      "Use D=ST / S=D÷T / T=D÷S",
+      "Check units"
+    ],
+    "grade": "7",
+    "topic": "Speed distance time",
+    "reason": "Formula triangle is a rearrangement aid; accept with unit/average-speed exceptions.",
+    "implement": true
+  },
+  {
+    "id": "do-opposite-both-sides",
+    "verdict": "accept_with_fix",
+    "phrase": "Do the opposite to both sides.",
+    "exception": "Apply the inverse to every term on both sides. For inequalities, ×/÷ by a negative flips the inequality.",
+    "steps": [
+      "Undo with inverse ops.",
+      "Keep equation balanced."
+    ],
+    "grade": "7",
+    "topic": "Solving equations",
+    "reason": "High-value mnemonic that is sound only with an explicit exception (common misuse).",
+    "implement": false
+  },
+  {
+    "id": "cherry-apple-pie",
+    "verdict": "accept",
+    "phrase": "Cherry pie's delicious: C = πd. Apple pies are too: A = πr².",
+    "exception": "C=πd uses diameter; A=πr² uses radius. Halve a diameter before area. r² means r×r.",
+    "steps": [
+      "Circumference uses diameter.",
+      "Area uses radius squared."
+    ],
+    "grade": "7",
+    "topic": "Circle formulas",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "apple-pies-square",
+    "verdict": "reject",
+    "phrase": "Apple pies are square: A = π r².",
+    "exception": "",
+    "steps": [],
+    "grade": "7",
+    "topic": "Circle area",
+    "reason": "Duplicate of the cherry/apple pie circle mnemonic; 'square' confuses area with a square shape.",
+    "implement": false
+  },
+  {
+    "id": "prob-want-over-got",
+    "verdict": "accept",
+    "phrase": "What you want, over all you've got.",
+    "exception": "Assumes equally likely outcomes. Compound events need care.",
+    "steps": [
+      "Favorable / total equally likely outcomes."
+    ],
+    "grade": "7",
+    "topic": "Probability",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "butterfly-cross",
+    "verdict": "accept_with_fix",
+    "phrase": "For a proportion a/b = c/d, cross products are equal: a·d = b·c.",
+    "exception": "Only when two ratios are equal. Never cross-multiply to add or multiply fractions. Keep units matched.",
+    "steps": [
+      "Confirm a proportion",
+      "Cross multiply",
+      "Solve",
+      "Check units"
+    ],
+    "grade": "7",
+    "topic": "Proportions",
+    "reason": "Valid for proportions; butterfly drawing often misused on fraction addition.",
+    "implement": false
+  },
+  {
+    "id": "percent-change",
+    "verdict": "accept",
+    "phrase": "New minus old, over old, times 100.",
+    "exception": "Using new as denominator; successive percent changes.",
+    "steps": [
+      "Compute difference.",
+      "Divide by original.",
+      "×100."
+    ],
+    "grade": "7",
+    "topic": "Percent change",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "sale-tax",
+    "verdict": "accept",
+    "phrase": "Sale? Take it off. Tax? Put it on.",
+    "exception": "Sale decreases; tax increases. Successive percents multiply.",
+    "steps": [
+      "Discount: subtract percent of price.",
+      "Tax: add percent of price."
+    ],
+    "grade": "7",
+    "topic": "Percent applications",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "coords-corridor-stairs",
+    "verdict": "accept",
+    "phrase": "Along the corridor, up the stairs.",
+    "exception": "x first (along), then y (up/down).",
+    "steps": [
+      "Move x (horizontal) first.",
+      "Then y (vertical)."
+    ],
+    "grade": "5-6",
+    "topic": "Coordinate plane",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "volume-stack-floors",
+    "verdict": "accept",
+    "phrase": "Cover the floor, then stack the floors: length × width × height.",
+    "exception": "Using slant height; unit cubes vs formula disconnect.",
+    "steps": [
+      "Area of base.",
+      "Times height."
+    ],
+    "grade": "5-6",
+    "topic": "Rectangular prism volume",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "triangle-half-box",
+    "verdict": "accept",
+    "phrase": "A triangle is half the box: base × height ÷ 2.",
+    "exception": "Use perpendicular height, not a slanted side. Parallelogram is base×height (no ÷2).",
+    "steps": [
+      "Identify base and perpendicular height.",
+      "Compute (1/2)bh."
+    ],
+    "grade": "5-6",
+    "topic": "Triangle area",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "slope-rise-run",
+    "verdict": "accept_with_fix",
+    "phrase": "Slope is rise over run.",
+    "exception": "Slope = rise/run. Horizontal → 0; vertical → undefined. Downward means negative rise.",
+    "steps": [
+      "Vertical change / horizontal change.",
+      "m = (y2−y1)/(x2−x1)"
+    ],
+    "grade": "8",
+    "topic": "Slope",
+    "reason": "High-value mnemonic that is sound only with an explicit exception (common misuse).",
+    "implement": false
+  },
+  {
+    "id": "ymxb-begin-move",
+    "verdict": "accept",
+    "phrase": "y = mx + b: Begin at b, then Move with m.",
+    "exception": "b is the y-intercept (x=0). Rearrange into slope-intercept form first if needed. Vertical lines have no y=mx+b form.",
+    "steps": [
+      "Plot b on the y-axis",
+      "From there use rise/run from m",
+      "Draw the line"
+    ],
+    "grade": "8",
+    "topic": "Slope-intercept form",
+    "reason": "Sound graphing hook for slope-intercept form.",
+    "implement": false
+  },
+  {
+    "id": "exp-laws-mas",
+    "verdict": "accept",
+    "phrase": "Multiply → add powers. Divide → subtract. Power of a power → multiply.",
+    "exception": "Different bases; negative exponents forgotten.",
+    "steps": [
+      "a^m·a^n = a^(m+n)",
+      "a^m/a^n = a^(m−n)",
+      "(a^m)^n = a^(mn)"
+    ],
+    "grade": "8",
+    "topic": "Exponent laws",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "neg-exponent-one-over",
+    "verdict": "accept",
+    "phrase": "Negative exponent: take one over with a positive power.",
+    "exception": "x^(−n)=1/x^n for x≠0. A negative exponent does not make the value negative by itself. 2^(−3)=1/8, not −8.",
+    "steps": [
+      "Rewrite a^(−n) as 1/a^n",
+      "Simplify"
+    ],
+    "grade": "8",
+    "topic": "Negative exponents",
+    "reason": "Correct definition mnemonic.",
+    "implement": true
+  },
+  {
+    "id": "sci-one-digit",
+    "verdict": "accept",
+    "phrase": "One digit, then a dot, times a power of ten.",
+    "exception": "Coefficient must satisfy 1 ≤ |a| < 10.",
+    "steps": [
+      "Move decimal to make 1≤|m|<10.",
+      "Count moves for exponent."
+    ],
+    "grade": "8",
+    "topic": "Scientific notation",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "pythag-legs-square",
+    "verdict": "accept",
+    "phrase": "Square the legs, add them, and that is the long side squared.",
+    "exception": "Using a non-hypotenuse as c; converse misuse.",
+    "steps": [
+      "Identify hypotenuse (longest, opposite right angle).",
+      "a²+b²=c²"
+    ],
+    "grade": "8",
+    "topic": "Pythagorean theorem",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "triangle-180",
+    "verdict": "accept",
+    "phrase": "Three corners make a straight line: 180°.",
+    "exception": "Spherical geometry; exterior vs interior confusion.",
+    "steps": [
+      "Interior angles of a triangle sum to 180°."
+    ],
+    "grade": "8",
+    "topic": "Triangle angle sum",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "quad-360",
+    "verdict": "accept",
+    "phrase": "Four corners make a full turn: 360°.",
+    "exception": "Concave quads / complex polygons.",
+    "steps": [
+      "Interior angles of a quadrilateral sum to 360°."
+    ],
+    "grade": "8",
+    "topic": "Quadrilateral angles",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "parallel-f-z-c",
+    "verdict": "accept",
+    "phrase": "F angles copy, Z angles copy, C angles make 180°.",
+    "exception": "Mis-drawing F/Z/C on slanted diagrams.",
+    "steps": [
+      "Identify transversal pattern.",
+      "Apply F/Z/C rules."
+    ],
+    "grade": "8",
+    "topic": "Parallel lines",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "iso-twin",
+    "verdict": "accept",
+    "phrase": "Twin sides, twin angles.",
+    "exception": "Equal sides face equal base angles.",
+    "steps": [
+      "Equal sides → equal base angles."
+    ],
+    "grade": "8",
+    "topic": "Isosceles triangle",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "comp-supp-corner-straight",
+    "verdict": "accept",
+    "phrase": "Complementary = Corner (90°). Supplementary = Straight (180°).",
+    "exception": "Angles need not share a ray — these are about measures, not necessarily adjacent diagrams.",
+    "steps": [
+      "Sum 90° → complementary",
+      "Sum 180° → supplementary"
+    ],
+    "grade": "8",
+    "topic": "Complementary & supplementary",
+    "reason": "Correct definitions.",
+    "implement": false
+  },
+  {
+    "id": "acute-cute",
+    "verdict": "accept",
+    "phrase": "Acute is a 'cute' little angle — greater than 0° and less than 90°.",
+    "exception": "Obtuse: (90°, 180°). Reflex: (180°, 360°). Right: exactly 90°.",
+    "steps": [
+      "Compare the angle to 90° and 180°"
+    ],
+    "grade": "7",
+    "topic": "Angle types",
+    "reason": "Harmless true vocabulary aid.",
+    "implement": false
+  },
+  {
+    "id": "scalene-odd-one",
+    "verdict": "accept",
+    "phrase": "Scalene is the odd one out: no equal sides.",
+    "exception": "Side names ≠ angle names (acute/right/obtuse).",
+    "steps": [
+      "Compare side lengths",
+      "Classify"
+    ],
+    "grade": "7",
+    "topic": "Triangle types",
+    "reason": "Correct classification hook.",
+    "implement": true
+  },
+  {
+    "id": "transform-slide-flip-turn",
+    "verdict": "accept",
+    "phrase": "Slide, flip, or turn: translation, reflection, rotation.",
+    "exception": "Orientation/congruence after composition; glide reflections.",
+    "steps": [
+      "Slide=translate",
+      "Flip=reflect",
+      "Turn=rotate"
+    ],
+    "grade": "8",
+    "topic": "Transformations",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "poly-interior-n-2",
+    "verdict": "accept",
+    "phrase": "Cut the polygon into triangles: (n − 2) × 180°.",
+    "exception": "Using exterior formula by mistake; regular vs irregular.",
+    "steps": [
+      "n sides → n−2 triangles.",
+      "Times 180°."
+    ],
+    "grade": "8",
+    "topic": "Polygon interiors",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "poly-exterior-360",
+    "verdict": "accept",
+    "phrase": "Walk around the shape: exterior angles always add to 360°.",
+    "exception": "One exterior at each vertex, consistent orientation. Interior sum is (n−2)×180°.",
+    "steps": [
+      "One exterior per vertex.",
+      "Sum = 360°."
+    ],
+    "grade": "8",
+    "topic": "Polygon exteriors",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "cone-third-cylinder",
+    "verdict": "accept",
+    "phrase": "A cone is one-third of the cylinder with the same base and height.",
+    "exception": "Same base radius and perpendicular height — not slant height.",
+    "steps": [
+      "V = (1/3)πr²h"
+    ],
+    "grade": "8",
+    "topic": "Cone volume",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "cylinder-circle-floor",
+    "verdict": "accept",
+    "phrase": "Cylinder volume is the circle floor times the height: πr²h.",
+    "exception": "Surface area formula mix-up.",
+    "steps": [
+      "Base area πr²",
+      "Times height"
+    ],
+    "grade": "8",
+    "topic": "Cylinder volume",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "sphere-four-thirds",
+    "verdict": "accept",
+    "phrase": "Sphere volume: (4/3)πr³.",
+    "exception": "Volume (4/3)πr³ vs surface 4πr². Halve a diameter before cubing.",
+    "steps": [
+      "Cube the radius.",
+      "Times 4/3 π."
+    ],
+    "grade": "8",
+    "topic": "Sphere volume",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "foil",
+    "verdict": "accept_with_fix",
+    "phrase": "FOIL: First, Outside, Inside, Last — a checklist for two binomials.",
+    "exception": "Only for (a+b)(c+d). Prefer distribute each-by-each. Watch signs. Longer polynomials need general distribution.",
+    "steps": [
+      "First",
+      "Outside",
+      "Inside",
+      "Last",
+      "Combine like terms"
+    ],
+    "grade": "9",
+    "topic": "Binomial multiplication",
+    "reason": "Correct special case of distribution; not the definition of multiplying polynomials.",
+    "implement": false
+  },
+  {
+    "id": "quadratic-pop-weasel",
+    "verdict": "accept_with_fix",
+    "phrase": "x equals negative b, plus or minus the square root of b squared minus four a c, all over two a.",
+    "exception": "If a=0 it is not quadratic. Δ<0 → no real roots. Divide the entire −b±√… by 2a.",
+    "steps": [
+      "Write ax²+bx+c=0",
+      "x = (−b±√(b²−4ac))/(2a)"
+    ],
+    "grade": "9",
+    "topic": "Quadratic formula",
+    "reason": "High-value mnemonic that is sound only with an explicit exception (common misuse).",
+    "implement": false
+  },
+  {
+    "id": "dos-difference-squares",
+    "verdict": "accept",
+    "phrase": "a² − b² = (a − b)(a + b).",
+    "exception": "Trying a²+b² the same way.",
+    "steps": [
+      "Recognize perfect squares.",
+      "Write conjugate factors."
+    ],
+    "grade": "9",
+    "topic": "Factoring",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "factor-multiply-add",
+    "verdict": "accept_with_fix",
+    "phrase": "Find two numbers that multiply to c and add to b.",
+    "exception": "For x²+bx+c (a=1): two numbers multiply to c and add to b. If a≠1 use AC method or the formula.",
+    "steps": [
+      "For x²+bx+c",
+      "Find p,q with pq=c, p+q=b",
+      "(x+p)(x+q)"
+    ],
+    "grade": "9",
+    "topic": "Factoring trinomials",
+    "reason": "High-value mnemonic that is sound only with an explicit exception (common misuse).",
+    "implement": false
+  },
+  {
+    "id": "inequality-flip",
+    "verdict": "accept",
+    "phrase": "Solve like an equation — but flip the sign when you multiply or divide by a negative.",
+    "exception": "Only ×/÷ by a negative flips. Adding never flips. Swapping sides flips the symbol.",
+    "steps": [
+      "Isolate variable.",
+      "Flip inequality if ×/÷ by negative."
+    ],
+    "grade": "9",
+    "topic": "Inequalities",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "perp-negative-reciprocal",
+    "verdict": "accept",
+    "phrase": "Parallel: same slope. Perpendicular: flip the fraction and change the sign.",
+    "exception": "Perpendicular ⇒ negative reciprocals. Horizontal ⊥ vertical.",
+    "steps": [
+      "m_parallel = m",
+      "m_perp = −1/m"
+    ],
+    "grade": "9",
+    "topic": "Parallel & perpendicular slopes",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "discriminant-roots",
+    "verdict": "accept_with_fix",
+    "phrase": "b² − 4ac: positive two, zero one, negative none (real roots).",
+    "exception": "Δ>0 two distinct real roots; =0 repeated real root; <0 no real roots (complex conjugates exist).",
+    "steps": [
+      "Compute Δ",
+      "Δ>0 two real",
+      "Δ=0 one real",
+      "Δ<0 none real"
+    ],
+    "grade": "9",
+    "topic": "Discriminant",
+    "reason": "High-value mnemonic that is sound only with an explicit exception (common misuse).",
+    "implement": false
+  },
+  {
+    "id": "star-word-problems",
+    "verdict": "reject",
+    "phrase": "STAR: Search, Translate, Answer, Review.",
+    "exception": "",
+    "steps": [],
+    "grade": "9",
+    "topic": "Word problems",
+    "reason": "Generic study heuristic, not a math mnemonic.",
+    "implement": false
+  },
+  {
+    "id": "sohcahtoa",
+    "verdict": "accept",
+    "phrase": "SOH CAH TOA.",
+    "exception": "Wrong opposite/adjacent relative to reference angle.",
+    "steps": [
+      "sin = opp/hyp",
+      "cos = adj/hyp",
+      "tan = opp/adj"
+    ],
+    "grade": "10",
+    "topic": "Trig ratios",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "sohcahtoa-oscar-apples",
+    "verdict": "accept",
+    "phrase": "Oscar Had A Heap Of Apples — Opposite/Hypotenuse, Adjacent/Hypotenuse, Opposite/Adjacent.",
+    "exception": "Opposite/adjacent depend on the reference acute angle. Primary ratios are for right triangles.",
+    "steps": [
+      "Pick reference angle",
+      "Label O, A, H",
+      "Apply SOH CAH TOA"
+    ],
+    "grade": "10",
+    "topic": "Trig ratios",
+    "reason": "Equivalent to SOH CAH TOA; sound if order is taught.",
+    "implement": false
+  },
+  {
+    "id": "astc-all-students",
+    "verdict": "accept_with_fix",
+    "phrase": "All Students Take Calculus — Q1 all +, Q2 sin +, Q3 tan +, Q4 cos +.",
+    "exception": "Different from CAST (starts in Q4). Reciprocals follow partner signs. Tan undefined where cos=0.",
+    "steps": [
+      "Locate quadrant",
+      "Apply ASTC sign",
+      "Compute magnitude from reference angle"
+    ],
+    "grade": "10",
+    "topic": "Trig signs by quadrant",
+    "reason": "Standard and correct with quadrant mapping made explicit.",
+    "implement": false
+  },
+  {
+    "id": "cast-rule",
+    "verdict": "accept_with_fix",
+    "phrase": "CAST (from Quadrant IV, counterclockwise): Cos positive, All, Sin, Tan.",
+    "exception": "Do not mix with ASTC (starts in Quadrant I). Reciprocals match their partner's sign.",
+    "steps": [
+      "Find quadrant",
+      "Read which functions are positive",
+      "Attach correct sign"
+    ],
+    "grade": "10",
+    "topic": "Trig signs by quadrant",
+    "reason": "Correct if starting quadrant is explicit; easily confused with ASTC.",
+    "implement": false
+  },
+  {
+    "id": "trig-reciprocals",
+    "verdict": "accept",
+    "phrase": "Cosec flips sine, sec flips cosine, cot flips tangent.",
+    "exception": "csc=1/sin, sec=1/cos, cot=1/tan — not sec=1/sin.",
+    "steps": [
+      "csc=1/sin",
+      "sec=1/cos",
+      "cot=1/tan"
+    ],
+    "grade": "10",
+    "topic": "Reciprocal trig",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "pythag-trig-ids",
+    "verdict": "accept",
+    "phrase": "sin²θ + cos²θ = 1; divide by cos² or sin² for the tan/cot forms.",
+    "exception": "sin²θ means (sin θ)². sinθ+cosθ is not 1 — only the squares sum to 1. Square roots introduce ±.",
+    "steps": [
+      "Base: sin²+cos²=1",
+      "÷cos² → 1+tan²=sec²",
+      "÷sin² → 1+cot²=csc²"
+    ],
+    "grade": "10",
+    "topic": "Pythagorean identities",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "co-means-complement",
+    "verdict": "accept",
+    "phrase": "'Co' means complement: sin(90°−θ)=cos θ.",
+    "exception": "Using 180° instead of 90°; radian form π/2.",
+    "steps": [
+      "Complementary angles swap sin↔cos, tan↔cot, sec↔csc."
+    ],
+    "grade": "10",
+    "topic": "Cofunctions",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "elevation-depression",
+    "verdict": "accept",
+    "phrase": "Elevation looks up, depression looks down, both from the horizontal.",
+    "exception": "Measuring from vertical; diagram orientation.",
+    "steps": [
+      "From eye-level horizontal.",
+      "Up = elevation; down = depression."
+    ],
+    "grade": "10",
+    "topic": "Angles of elevation",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "sine-is-y",
+    "verdict": "accept",
+    "phrase": "On the unit circle: cosine is x, sine is y.",
+    "exception": "Do not swap x/y. Signs follow the quadrant. Match calculator mode to the problem.",
+    "steps": [
+      "Point (cos θ, sin θ)",
+      "Read coordinates"
+    ],
+    "grade": "10",
+    "topic": "Unit circle",
+    "reason": "Core true definition mnemonic.",
+    "implement": true
+  },
+  {
+    "id": "pi-may-i-have",
+    "verdict": "reject",
+    "phrase": "May I have a large container of coffee? (3.1415926)",
+    "exception": "",
+    "steps": [],
+    "grade": "optional",
+    "topic": "Digits of pi",
+    "reason": "Letter-count entertainment, not a classroom procedure; typos silently corrupt digits.",
+    "implement": false
+  },
+  {
+    "id": "congruent-sss-sas",
+    "verdict": "accept",
+    "phrase": "Same size and shape: SSS, SAS, ASA, RHS.",
+    "exception": "SSS, SAS, ASA, AAS/HL work. SSA is not a congruence theorem (ambiguous case).",
+    "steps": [
+      "Match a valid congruence criterion."
+    ],
+    "grade": "8",
+    "topic": "Triangle congruence",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "power-rule-deriv",
+    "verdict": "accept",
+    "phrase": "Bring the power down in front, then take one off the power.",
+    "exception": "d/dx[x^n]=n x^(n−1). Composites need the chain rule.",
+    "steps": [
+      "d/dx[x^n]=n x^(n−1)"
+    ],
+    "grade": "11-12",
+    "topic": "Power rule",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "product-rule",
+    "verdict": "accept",
+    "phrase": "First d-second plus second d-first.",
+    "exception": "Product rule is u'v+uv', not u'v'.",
+    "steps": [
+      "(uv)' = u'v + uv'"
+    ],
+    "grade": "11-12",
+    "topic": "Product rule",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "quotient-rule-low-d-high",
+    "verdict": "accept",
+    "phrase": "Low d-high minus high d-low, over the low squared.",
+    "exception": "Low d-high minus high d-low, over low squared — subtraction order matters.",
+    "steps": [
+      "(f/g)' = (g f' − f g')/g²"
+    ],
+    "grade": "11-12",
+    "topic": "Quotient rule",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "chain-outside-inside",
+    "verdict": "accept",
+    "phrase": "Derivative of the outside, keep the inside, times derivative of the inside.",
+    "exception": "Must multiply by the inside derivative.",
+    "steps": [
+      "f(g(x))' = f'(g(x))·g'(x)"
+    ],
+    "grade": "11-12",
+    "topic": "Chain rule",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "trig-deriv-cycle",
+    "verdict": "accept",
+    "phrase": "sin → cos → −sin → −cos → sin.",
+    "exception": "Missing negatives; degrees mode on calculators.",
+    "steps": [
+      "Cycle derivatives of sin/cos.",
+      "tan → sec²"
+    ],
+    "grade": "11-12",
+    "topic": "Trig derivatives",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "integral-power",
+    "verdict": "accept",
+    "phrase": "Raise the power by one, divide by the new power, and add C.",
+    "exception": "∫x^n dx = x^(n+1)/(n+1)+C for n≠−1; n=−1 → ln|x|+C.",
+    "steps": [
+      "∫x^n dx = x^(n+1)/(n+1)+C (n≠−1)"
+    ],
+    "grade": "11-12",
+    "topic": "Power rule integration",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "liate-parts",
+    "verdict": "accept_with_fix",
+    "phrase": "LIATE: prefer u from Logarithmic, Inverse trig, Algebraic, Trig, Exponential (earlier wins).",
+    "exception": "Heuristic, not a theorem — some integrals need the opposite choice or cyclic methods.",
+    "steps": [
+      "Choose u via LIATE (flexibly)",
+      "dv = rest",
+      "Apply ∫u dv = uv − ∫v du"
+    ],
+    "grade": "11-12",
+    "topic": "Integration by parts",
+    "reason": "Useful if taught as guidance, not law.",
+    "implement": true
+  },
+  {
+    "id": "u-sub-chain-reverse",
+    "verdict": "accept",
+    "phrase": "If you see f(g(x))·g'(x), let u = g(x) (undo the chain rule).",
+    "exception": "Watch constant factors. For definite integrals, change limits to u-values (or substitute back).",
+    "steps": [
+      "Set u = inner",
+      "du = u' dx",
+      "Rewrite",
+      "Integrate",
+      "Back-substitute or convert limits"
+    ],
+    "grade": "11-12",
+    "topic": "u-substitution",
+    "reason": "Mathematically sound reverse-chain description.",
+    "implement": true
+  },
+  {
+    "id": "log-asks-power",
+    "verdict": "accept",
+    "phrase": "Log asks: what power?",
+    "exception": "Change-of-base errors; log of negative.",
+    "steps": [
+      "log_b a = c means b^c = a"
+    ],
+    "grade": "11-12",
+    "topic": "Logarithms",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "log-laws",
+    "verdict": "accept",
+    "phrase": "Logs turn × into +, ÷ into −, and powers out front.",
+    "exception": "log(xy)=log x+log y; log(x/y)=log x−log y; log(x^k)=k log x. No log(x+y) split. Arguments positive.",
+    "steps": [
+      "log(xy)=log x+log y",
+      "log(x/y)=log x−log y",
+      "log(x^n)=n log x"
+    ],
+    "grade": "11-12",
+    "topic": "Log laws",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "ftc-inverses",
+    "verdict": "accept_with_fix",
+    "phrase": "Differentiation and integration undo each other (Fundamental Theorem).",
+    "exception": "Needs continuity hypotheses. +C for indefinite integrals. √(x²)=|x|. Limits matter for definite integrals.",
+    "steps": [
+      "Recognize antiderivative F of f",
+      "Definite: F(b)−F(a)"
+    ],
+    "grade": "11-12",
+    "topic": "Fundamental theorem",
+    "reason": "Directionally true but oversimplified.",
+    "implement": true
+  },
+  {
+    "id": "perm-vs-comb",
+    "verdict": "accept",
+    "phrase": "Permutations when order matters; combinations when order does not.",
+    "exception": "With/without replacement changes the count. Indistinguishable objects need different formulas.",
+    "steps": [
+      "Decide if order matters",
+      "Choose P or C",
+      "Adjust for replacement/identical items"
+    ],
+    "grade": "11-12",
+    "topic": "Counting",
+    "reason": "Correct high-value distinction.",
+    "implement": false
+  },
+  {
+    "id": "skew-alphabetical",
+    "verdict": "reject",
+    "phrase": "For typical unimodal skew: mean-median-mode alphabetical for left skew; reverse-alphabetical for right skew.",
+    "exception": "Often false (von Hippel and others): mean–median–mode order is not a reliable skewness rule.",
+    "steps": [
+      "Prefer comparing mean to median, or use a plot / skewness statistic."
+    ],
+    "grade": "11-12",
+    "topic": "Skewness",
+    "reason": "Unreliable rule frequently taught as fact; unsafe as a trusted phrase.",
+    "implement": false
+  },
+  {
+    "id": "pvalue-row-boat",
+    "verdict": "accept_with_fix",
+    "phrase": "A p-value is the chance, assuming the null is true, of data at least this extreme.",
+    "exception": "p is not P(H₀ true). Small p suggests incompatibility with H₀ under the model — not proof. Avoid p-hacking.",
+    "steps": [
+      "State H₀",
+      "Compute statistic",
+      "Tail probability under H₀",
+      "Interpret cautiously"
+    ],
+    "grade": "11-12",
+    "topic": "P-values",
+    "reason": "Definition correct; must block 'probability the null is true'.",
+    "implement": true
+  },
+  {
+    "id": "boxplot-iqr-leash",
+    "verdict": "accept_with_fix",
+    "phrase": "Boxplot whiskers reach the furthest point within 1.5 × IQR of the quartiles; beyond that are outliers.",
+    "exception": "Some software/curricula use different fences (or min/max whiskers). Check the convention.",
+    "steps": [
+      "Find Q1, Q3, IQR",
+      "Fences at Q1−1.5IQR and Q3+1.5IQR",
+      "Whiskers to last in-fence points"
+    ],
+    "grade": "11-12",
+    "topic": "Boxplots",
+    "reason": "Tukey rule is standard but not universal.",
+    "implement": true
+  },
+  {
+    "id": "chi-square-old-macdonald",
+    "verdict": "reject",
+    "phrase": "Old MacDonald used chi-square: E, I, E, I, O.",
+    "exception": "",
+    "steps": [],
+    "grade": "11-12",
+    "topic": "Chi-square statistic",
+    "reason": "Letter mash does not map cleanly to Σ(O−E)²/E; teach the formula directly.",
+    "implement": false
+  },
+  {
+    "id": "sine-rule",
+    "verdict": "accept",
+    "phrase": "Each side over the sine of the angle it faces.",
+    "exception": "Ambiguous case (SSA).",
+    "steps": [
+      "Match side to opposite angle.",
+      "Set ratios equal."
+    ],
+    "grade": "10",
+    "topic": "Law of sines",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "cosine-rule",
+    "verdict": "accept",
+    "phrase": "Pythagoras with a correction: a² = b² + c² − 2bc cos A.",
+    "exception": "Sign of cosine in obtuse triangles; wrong opposite side.",
+    "steps": [
+      "Identify included/opposite angle.",
+      "Apply cosine rule."
+    ],
+    "grade": "10",
+    "topic": "Law of cosines",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "area-sas-sine",
+    "verdict": "accept",
+    "phrase": "Half of two sides times the sine of the included angle.",
+    "exception": "The angle must be included between the two sides.",
+    "steps": [
+      "A = (1/2)ab sin C"
+    ],
+    "grade": "10",
+    "topic": "Triangle area trig",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "compound-sin-cos",
+    "verdict": "accept",
+    "phrase": "sin cos cos sin, sign stays. cos cos sin sin, sign swaps.",
+    "exception": "Wrong sign patterns; tan formula separate.",
+    "steps": [
+      "sin(A±B)=sinA cosB ± cosA sinB",
+      "cos(A±B)=cosA cosB ∓ sinA sinB"
+    ],
+    "grade": "11-12",
+    "topic": "Compound angles",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "double-angle-sin",
+    "verdict": "accept",
+    "phrase": "Double the angle: sin 2A = 2 sin A cos A.",
+    "exception": "Mixing cos double-angle forms.",
+    "steps": [
+      "sin 2A = 2sinA cosA",
+      "cos 2A = cos²A−sin²A (and variants)"
+    ],
+    "grade": "11-12",
+    "topic": "Double angle",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "radian-pi-180",
+    "verdict": "accept",
+    "phrase": "π is 180°. To radians × π/180; to degrees × 180/π.",
+    "exception": "π rad = 180°. Multiply by π/180 for radians; by 180/π for degrees.",
+    "steps": [
+      "deg → rad: ×π/180",
+      "rad → deg: ×180/π"
+    ],
+    "grade": "10",
+    "topic": "Radians",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "scale-factors-k",
+    "verdict": "accept",
+    "phrase": "Lengths × k, areas × k², volumes × k³.",
+    "exception": "Applying k to area directly.",
+    "steps": [
+      "Linear scale k",
+      "Area scales k²",
+      "Volume scales k³"
+    ],
+    "grade": "9",
+    "topic": "Similarity scale",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "diameter-right-angle",
+    "verdict": "accept",
+    "phrase": "A diameter always sees a right angle.",
+    "exception": "Using a non-diameter chord.",
+    "steps": [
+      "Endpoint angle on diameter is right."
+    ],
+    "grade": "9",
+    "topic": "Circle theorems",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "tangent-radius-90",
+    "verdict": "accept",
+    "phrase": "A tangent meets the radius at a right angle.",
+    "exception": "Confusing with alternate segment theorem.",
+    "steps": [
+      "Radius ⊥ tangent at contact point."
+    ],
+    "grade": "9",
+    "topic": "Circle theorems",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "central-double-rim",
+    "verdict": "accept",
+    "phrase": "The center angle is double the rim angle (same arc).",
+    "exception": "Same arc required. Center angle is twice the inscribed angle on that arc.",
+    "steps": [
+      "∠ at center = 2 × ∠ at circumference on same arc."
+    ],
+    "grade": "10",
+    "topic": "Circle theorems",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "cyclic-opp-180",
+    "verdict": "accept",
+    "phrase": "Opposite corners in a circle add to 180°.",
+    "exception": "Applying to non-cyclic quads.",
+    "steps": [
+      "Opposite angles of cyclic quad are supplementary."
+    ],
+    "grade": "10",
+    "topic": "Cyclic quadrilaterals",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "ap-sum-n-over-2",
+    "verdict": "accept",
+    "phrase": "AP sum = n/2 × (first + last).",
+    "exception": "Off-by-one in n; confusing AP with GP.",
+    "steps": [
+      "Find n, first, last (or use 2a+(n−1)d form)."
+    ],
+    "grade": "10",
+    "topic": "Arithmetic series",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "gp-multiply-ratio",
+    "verdict": "accept",
+    "phrase": "Each term multiplies by the same ratio r.",
+    "exception": "r negative; |r|<1 infinite sum conditions.",
+    "steps": [
+      "Identify first term and ratio.",
+      "Apply formula."
+    ],
+    "grade": "10",
+    "topic": "Geometric sequences",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "sector-pizza",
+    "verdict": "accept",
+    "phrase": "A sector is a pizza slice: θ/360 of the whole circle.",
+    "exception": "Mixing degrees and radians.",
+    "steps": [
+      "Fraction θ/360 (or rad/2π) of circumference/area."
+    ],
+    "grade": "10",
+    "topic": "Circle sectors",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "elimination-wipe",
+    "verdict": "accept",
+    "phrase": "Elimination: make one letter match, then add or subtract to wipe it out.",
+    "exception": "Adding when signs same; arithmetic slips.",
+    "steps": [
+      "Scale equations",
+      "Add/subtract to eliminate",
+      "Back-substitute"
+    ],
+    "grade": "9",
+    "topic": "Systems of equations",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  },
+  {
+    "id": "midpoint-average",
+    "verdict": "accept",
+    "phrase": "Midpoint averages the coordinates. Distance is Pythagoras on the grid.",
+    "exception": "Midpoint averages coordinates. Distance uses Pythagoras on Δx, Δy.",
+    "steps": [
+      "Mid = ((x1+x2)/2,(y1+y2)/2)",
+      "Dist = √[(Δx)²+(Δy)²]"
+    ],
+    "grade": "9",
+    "topic": "Coordinate geometry",
+    "reason": "Mathematically sound; already present in the app.",
+    "implement": false
+  }
+]

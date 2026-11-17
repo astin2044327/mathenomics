@@ -70,6 +70,10 @@ Check the catalog:
 node tools/check.js
 ```
 
+## Deploy (Google Cloud)
+
+Recommended stack is **Firebase Hosting**. Full plan, headers, cost, and rollback: [docs/ops/GCP_DEPLOY.md](./docs/ops/GCP_DEPLOY.md). Helper script: `./docs/ops/deploy.sh` (set `FIREBASE_PROJECT_ID` first; nothing ships until you run it on purpose).
+
 ## License notes
 
 App code is yours to use under the repository’s license terms. Animal sound clips keep their original Wikimedia Commons licences; credits appear on each kids page and in `sounds/CREDITS.md`.

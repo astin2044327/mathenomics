@@ -6,8 +6,60 @@
   const ROUNDS = 5;
   const HEARTS = 3;
 
-  const S = Object.assign({ coins: 0, best: {}, last: null, walkFrom: {} }, JSON.parse(localStorage.getItem(KEY) || "{}"));
+  const S = Object.assign({
+    coins: 0, best: {}, last: null, walkFrom: {},
+    metrics: { totalMs: 0, gamesPlayed: 0, puzzlesPlayed: 0, roundsPlayed: 0, sessions: 0 }
+  }, JSON.parse(localStorage.getItem(KEY) || "{}"));
+  if (!S.metrics) S.metrics = { totalMs: 0, gamesPlayed: 0, puzzlesPlayed: 0, roundsPlayed: 0, sessions: 0 };
+  ["totalMs", "gamesPlayed", "puzzlesPlayed", "roundsPlayed", "sessions"].forEach((k) => {
+    if (S.metrics[k] == null) S.metrics[k] = 0;
+  });
   const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+
+  /* ---------- usage metrics (device-local) ---------- */
+  S.metrics.sessions += 1;
+  save();
+  let activeMs = 0;
+  let tickOn = !document.hidden;
+  let lastTick = Date.now();
+  function flushTime() {
+    if (!tickOn) { lastTick = Date.now(); return; }
+    const now = Date.now();
+    const dt = Math.min(now - lastTick, 60000);
+    if (dt > 0) {
+      activeMs += dt;
+      S.metrics.totalMs += dt;
+      save();
+    }
+    lastTick = now;
+  }
+  window.setInterval(() => { if (tickOn) flushTime(); }, 15000);
+  document.addEventListener("visibilitychange", () => {
+    flushTime();
+    tickOn = !document.hidden;
+    lastTick = Date.now();
+  });
+  window.addEventListener("beforeunload", flushTime);
+
+  function fmtTime(ms) {
+    const s = Math.floor(ms / 1000);
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const r = s % 60;
+    if (h) return `${h}h ${m}m`;
+    if (m) return `${m}m ${r}s`;
+    return `${r}s`;
+  }
+
+  function metricsStrip() {
+    const M = S.metrics;
+    return `<aside class="metrics" aria-label="Your activity">
+      <div><b>${fmtTime(M.totalMs)}</b><span>time learning</span></div>
+      <div><b>${M.gamesPlayed}</b><span>games finished</span></div>
+      <div><b>${M.puzzlesPlayed}</b><span>table puzzles</span></div>
+      <div><b>${M.roundsPlayed}</b><span>rounds answered</span></div>
+    </aside>`;
+  }
 
   const course = (id) => C.find((c) => c.id === id);
   const lessonOf = (c, id) => c && c.lessons.find((l) => l.id === id);
@@ -114,7 +166,7 @@
   }
 
   const coin = `<svg viewBox="0 0 20 20" class="coin-ico" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="#F2B134" stroke="#1F1D1A" stroke-width="1.8"/><path d="M10 5.5v9M7.5 7.5h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3h4" stroke="#1F1D1A" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`;
-  const heart = (on) => `<svg viewBox="0 0 24 22" class="heart ${on ? "" : "lost"}" aria-hidden="true"><path d="M12 20 C4 14 1 10 1 6.5 A5.5 5.5 0 0 1 12 4 A5.5 5.5 0 0 1 23 6.5 C23 10 20 14 12 20Z" fill="${on ? "#E4572E" : "none"}" stroke="#1F1D1A" stroke-width="2"/></svg>`;
+  const heart = (on) => `<svg viewBox="0 0 24 22" class="heart ${on ? "" : "lost"}" aria-hidden="true"><path d="M12 20 C4 14 1 10 1 6.5 A5.5 5.5 0 0 1 12 4 A5.5 5.5 0 0 1 23 6.5 C23 10 20 14 12 20Z" fill="${on ? "#C84F2E" : "none"}" stroke="#1F1D1A" stroke-width="2"/></svg>`;
   const star = (on) => `<svg viewBox="0 0 24 24" class="star ${on ? "on" : ""}" aria-hidden="true"><path d="M12 2 L14.9 8.6 L22 9.3 L16.6 14 L18.2 21 L12 17.3 L5.8 21 L7.4 14 L2 9.3 L9.1 8.6 Z" fill="${on ? "#F2B134" : "none"}" stroke="#1F1D1A" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
   const stars = (n) => `<span class="stars">${[0, 1, 2].map((i) => star(i < n)).join("")}</span>`;
 
@@ -131,7 +183,7 @@
   }
 
   function paint(active, accent, html) {
-    document.body.style.setProperty("--accent", accent || "#E4572E");
+    document.body.style.setProperty("--accent", accent || "#C84F2E");
     app.innerHTML = bar(active) + `<main class="view">${html}</main>`;
     window.scrollTo(0, 0);
   }
@@ -140,13 +192,12 @@
   function home() {
     const last = S.last && course(S.last.c);
     const lastLesson = last && lessonOf(last, S.last.l);
-    paint("learn", "#E4572E", `
+    paint("learn", "#C84F2E", `
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Math, one phrase at a time</p>
-          <h1>Pick a grade.<br><em>Any</em> grade.</h1>
-          <p class="lede">Every lesson is a short game. Learn the phrase, see it in a picture, then play five rounds and earn your mark. Start wherever you are.</p>
-          ${lastLesson ? `<a class="btn primary" href="#/l/${last.id}/${lastLesson.id}">Keep going: ${lastLesson.name}</a>` : `<a class="btn primary" href="#/g/g3">Try times tables</a>`}
+          <h1 class="brand-hero">Mathenomics</h1>
+          <p class="lede">Math, one phrase at a time. Learn it, see it, play five rounds — then earn your mark. Start wherever you are.</p>
+          ${lastLesson ? `<a class="btn primary big" href="#/l/${last.id}/${lastLesson.id}">Keep going: ${lastLesson.name}</a>` : `<a class="btn primary big" href="#/g/g3">Try times tables</a>`}
         </div>
         <div class="hero-scene">
           <div class="bubble">Hi, I’m Mio. Choose a grade and I’ll walk it with you.</div>
@@ -171,7 +222,7 @@
         }).join("")}
       </section>
       <a class="kids-band" href="#/kids">
-        <span class="kids-emoji">🐶🍎🚒🥁</span>
+        ${fox("mini")}
         <span><strong>Kids’ corner</strong><em>Pictures to name, sounds to hear. Tap Next to keep going.</em></span>
         <span class="btn">Open</span>
       </a>
@@ -420,6 +471,8 @@
     const prev = S.best[k];
     S.best[k] = prev == null ? pct : Math.max(prev, pct);
     S.walkFrom[c.id] = c.lessons.indexOf(l);
+    S.metrics.gamesPlayed += 1;
+    S.metrics.roundsPlayed += run.qs.length;
     save();
     run.result = { pct, prev };
     location.hash = `#/done/${c.id}/${l.id}`;
@@ -556,6 +609,8 @@
           if (!next) {
             status.textContent = `Done — ${right} right on the ${n}× table. Try another table above.`;
             picks.innerHTML = "";
+            S.metrics.puzzlesPlayed += 1;
+            save();
             sfx("win");
             return;
           }
@@ -583,14 +638,16 @@
   }
 
   function report() {
+    flushTime();
     paint("report", "#2E4057", `
       <header class="course-head">
         <div>
           <p class="eyebrow">Report card</p>
           <h1>Your marks</h1>
-          <p class="lede">Each lesson keeps your best round. A grade’s mark is the average of the lessons you have played.</p>
+          <p class="lede">Each lesson keeps your best round. A grade’s mark is the average of the lessons you have played. Activity stays on this device only.</p>
         </div>
       </header>
+      ${metricsStrip()}
       <section class="report">
         ${C.map((c) => {
           const m = courseMark(c);
@@ -615,7 +672,7 @@
 
   /* ---------- kids ---------- */
   function kidsHome() {
-    paint("kids", "#E4572E", `
+    paint("kids", "#C84F2E", `
       <header class="course-head">
         <div>
           <p class="eyebrow">Kids’ corner</p>
@@ -652,7 +709,7 @@
           <h1 class="flash-name">${name}</h1>
           <p class="flash-letters">${name.toUpperCase().split("").map((ch) => `<span>${ch === " " ? "&nbsp;" : ch}</span>`).join("")}</p>
           <p class="flash-line"><span>${set.verb}</span>${line}</p>
-          <button type="button" class="btn primary big" id="hear">🔊 Hear it</button>
+          <button type="button" class="btn primary big" id="hear">Hear it</button>
           ${snd ? `<p class="credit">${snd.real ? "Real recording" : "Recording"}: <a href="${snd.page}" target="_blank" rel="noopener">${snd.title}</a>, ${snd.artist}, ${snd.license}</p>` : ""}
         </div>
       </section>
