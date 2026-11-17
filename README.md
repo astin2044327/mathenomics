@@ -9,21 +9,23 @@ Open `index.html` with any static server (for example `python3 -m http.server 87
 Nobody logs in. There is no account, password, or server-side user.
 
 - Progress (coins, best marks, last lesson) is saved in the browser under `localStorage` key `mathenomics-save`.
-- Your own voice recordings stay in IndexedDB on that same device (`mathenomics-voice`).
-- Clearing site data for this origin wipes progress and recordings.
+- Clearing site data for this origin wipes that progress.
+- Spoken phrases come from files the **project owner** drops into `voices/` (recorded with `tools/record-owner.html`). Learners do not log in to record, and the app does not use device TTS for lesson phrases.
 
 ## Who can play
 
-Anyone who opens the app on that device can play every grade, every lesson, the report card, and Kids’ corner. There are no roles, locks, or paywalls. Every map stop is open from the start.
+Anyone who opens the app on that device can play every grade, every lesson, the report card, Kids’ corner, cheatsheets, and the table puzzle. There are no roles, locks, or paywalls. Every map stop is open from the start. Recording narration is an owner workflow outside the learner UI.
 
 ## How it works
 
 1. **Home** — pick a grade band (K–1 through grades 11–12, plus Advanced trigonometry).
 2. **Map** — Mio the fox walks a trail of lessons. Jump to any stop.
-3. **Lesson** — see a diagram, hear the phrase (device voice or your recording), read the steps and the “Watch out” exception. Many lessons also have **Solve it with me** worked problems, revealed one step at a time.
+3. **Lesson** — see a diagram, hear the phrase (owner clip from `voices/` when present), read the steps and the “Watch out” exception. Many lessons also have **Solve it with me** worked problems, revealed one step at a time.
 4. **Play** — five generated rounds, three hearts, +10 coins per correct answer. Wrong answers show why.
 5. **Mark** — letter grade and stars from that round; the report card averages played lessons per grade.
-6. **Kids’ corner** — picture pages (animals, fruits, vehicles, music). Hear the name, a real animal sound where available, or your own voice; tap Next to keep going.
+6. **Kids’ corner** — picture pages (animals, fruits, vehicles, music). Hear the owner’s recorded name when a clip exists, then a real animal sound where available; tap Next to keep going.
+7. **Cheatsheet** — each grade map links to a one-page sheet of that grade’s mnemonics.
+8. **Table puzzle** — fill blanks on the 2–12 times tables.
 
 ## Design
 
@@ -37,10 +39,9 @@ See [DESIGN.md](./DESIGN.md) for the product design, visual language, content so
 | Hash router (`#/…`) | Screens without a backend |
 | `manifest.webmanifest` + `sw.js` | Installable PWA, network-first offline cache |
 | `localStorage` | Coins, marks, last lesson |
-| IndexedDB (`js/voice.js`) | Own-voice clips |
-| Web Speech API | Device voice for phrases and kids names |
+| `voices/` + `js/narration.js` | Owner-recorded phrase audio (no learner mic, no TTS for phrases) |
+| `tools/record-owner.html` | Local helper for the owner to record and download clips |
 | Web Audio API | Short game sound effects |
-| MediaRecorder | Microphone capture for “Record my voice” |
 | SVG / HTML diagrams (`js/pics.js`) | Lesson pictures |
 | Wikimedia Commons clips (`sounds/`) | Real animal recordings (see `sounds/CREDITS.md`) |
 | `js/courses.js` + `js/more/*.js` | Lesson catalog and question generators |
@@ -48,11 +49,11 @@ See [DESIGN.md](./DESIGN.md) for the product design, visual language, content so
 
 ## Where AI is used
 
-**At runtime in the shipped app: nowhere.** There is no OpenAI (or other) API call, no cloud tutor, and no account that talks to a model. Graded answers come only from the local lesson generators. Speech is either the browser’s built-in voice, your recording, or a fixed animal MP3.
+**At runtime in the shipped app: nowhere.** There is no OpenAI (or other) API call, no cloud tutor, and no account that talks to a model. Graded answers come only from the local lesson generators. Lesson “Hear the phrase” plays **your** (the owner’s) files from `voices/` when present — not device TTS and not a learner microphone. Kids animal sounds are fixed MP3s from Wikimedia Commons.
 
 **During building this project:** Cursor AI agents helped design the UI, write lesson packs and mnemonics, draw diagram helpers, and assemble the PWA. The resulting phrases and worked problems are checked into the repo as ordinary JavaScript, not generated on the fly for the learner.
 
-An earlier experimental “optional cloud mnemonic lab” was removed and is not part of this build.
+An earlier user “Record my voice” feature and optional cloud mnemonic lab were removed and are not part of this build.
 
 ## Run locally
 

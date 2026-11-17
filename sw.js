@@ -1,4 +1,4 @@
-const CACHE = "mathenomics-v5";
+const CACHE = "mathenomics-v6";
 const SHELL = [
   "./",
   "./index.html",
@@ -8,8 +8,12 @@ const SHELL = [
   "./js/more/arith.js",
   "./js/more/geo.js",
   "./js/more/trig.js",
+  "./js/more/cheats.js",
+  "./js/more/pabson.js",
+  "./js/more/expand.js",
+  "./js/more/tables.js",
   "./js/sounds.js",
-  "./js/voice.js",
+  "./js/narration.js",
   "./js/kids.js",
   "./js/app.js",
   "./manifest.webmanifest",

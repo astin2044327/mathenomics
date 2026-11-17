@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mathenomics — record owner narration</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; line-height: 1.45; color: #1F1D1A; background: #F4EEE3; }
+    h1 { font-size: 1.6rem; }
+    label { display: block; font-weight: 600; margin-top: 16px; }
+    input, select, button { font: inherit; padding: 8px 12px; margin-top: 6px; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: end; }
+    .hint { color: #5B554C; font-size: 0.95rem; }
+    .box { margin-top: 20px; padding: 16px; border: 2px solid #1F1D1A; border-radius: 14px; background: #FFFBF4; }
+    .live { background: #E4572E; color: #fff; }
+    code { background: #fff; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Record your narration (owner only)</h1>
+  <p class="hint">This page is for you, the project owner — not for learners. Record a clip, download it, and put the file in the <code>voices/</code> folder of Mathenomics. Lesson “Hear the phrase” will play it instead of any device voice.</p>
+
+  <div class="box">
+    <label>Kind
+      <select id="kind">
+        <option value="lesson">Lesson phrase</option>
+        <option value="kid">Kids picture name</option>
+      </select>
+    </label>
+    <div id="lessonFields">
+      <label>Course id <input id="course" placeholder="g3" value="g3"></label>
+      <label>Lesson id <input id="lesson" placeholder="nines" value="nines"></label>
+    </div>
+    <div id="kidFields" hidden>
+      <label>Set id <input id="set" placeholder="animals" value="animals"></label>
+      <label>Name <input id="name" placeholder="Dog" value="Dog"></label>
+    </div>
+    <p class="hint">File will download as <code id="fname">g3-nines.webm</code> → save into <code>voices/</code>.</p>
+    <div class="row">
+      <button type="button" id="rec">Record</button>
+      <button type="button" id="play" disabled>Play</button>
+      <button type="button" id="save" disabled>Download</button>
+    </div>
+    <p id="status" class="hint"></p>
+  </div>
+
+  <script>
+    const kind = document.getElementById("kind");
+    const status = document.getElementById("status");
+    let rec = null, parts = [], blob = null, audio = null;
+
+    function stem() {
+      if (kind.value === "kid") {
+        return `kids-${document.getElementById("set").value.trim()}-${document.getElementById("name").value.trim().replace(/\s+/g, "-")}`;
+      }
+      return `${document.getElementById("course").value.trim()}-${document.getElementById("lesson").value.trim()}`;
+    }
+    function refreshName() {
+      document.getElementById("fname").textContent = stem() + ".webm";
+      document.getElementById("lessonFields").hidden = kind.value !== "lesson";
+      document.getElementById("kidFields").hidden = kind.value !== "kid";
+    }
+    kind.addEventListener("change", refreshName);
+    ["course", "lesson", "set", "name"].forEach((id) => document.getElementById(id).addEventListener("input", refreshName));
+    refreshName();
+
+    document.getElementById("rec").addEventListener("click", async () => {
+      const btn = document.getElementById("rec");
+      if (rec) {
+        rec.stop();
+        return;
+      }
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mime = ["audio/webm;codecs=opus", "audio/webm"].find((t) => MediaRecorder.isTypeSupported(t));
+      rec = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined);
+      parts = [];
+      rec.ondataavailable = (e) => e.data.size && parts.push(e.data);
+      rec.onstop = () => {
+        stream.getTracks().forEach((t) => t.stop());
+        blob = new Blob(parts, { type: rec.mimeType || "audio/webm" });
+        rec = null;
+        btn.textContent = "Record";
+        btn.classList.remove("live");
+        document.getElementById("play").disabled = false;
+        document.getElementById("save").disabled = false;
+        status.textContent = `Recorded ${(blob.size / 1024).toFixed(1)} KB. Download and move into voices/.`;
+      };
+      rec.start();
+      btn.textContent = "Stop";
+      btn.classList.add("live");
+      status.textContent = "Recording… speak the phrase clearly.";
+    });
+
+    document.getElementById("play").addEventListener("click", () => {
+      if (!blob) return;
+      if (audio) audio.pause();
+      audio = new Audio(URL.createObjectURL(blob));
+      audio.play();
+    });
+
+    document.getElementById("save").addEventListener("click", () => {
+      if (!blob) return;
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = stem() + ".webm";
+      a.click();
+    });
+  </script>
+</body>
+</html>

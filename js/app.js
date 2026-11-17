@@ -56,75 +56,33 @@
 
   let clip = null;
   function hush() {
-    if (window.speechSynthesis) window.speechSynthesis.cancel();
     if (clip) { clip.pause(); clip = null; }
-    window.VOICE.stop();
+    if (window.NARRATION) window.NARRATION.stop();
   }
 
-  function speak(text, opts = {}) {
+  function playFile(src, onend) {
     hush();
-    if (!window.speechSynthesis) { if (opts.onend) opts.onend(); return; }
-    const u = new SpeechSynthesisUtterance(text);
-    u.rate = opts.rate || 0.9;
-    u.pitch = opts.pitch || 1.1;
-    if (opts.onend) {
-      let done = false;
-      const end = () => { if (!done) { done = true; opts.onend(); } };
-      u.addEventListener("end", end);
-      u.addEventListener("error", end);
-      window.setTimeout(end, 600 + text.length * 120);
-    }
-    window.speechSynthesis.speak(u);
-  }
-
-  function playFile(src) {
-    if (clip) clip.pause();
     clip = new Audio(src);
-    clip.play().catch(() => {});
+    if (onend) {
+      clip.addEventListener("ended", onend, { once: true });
+      clip.addEventListener("error", onend, { once: true });
+    }
+    return clip.play().catch(() => { if (onend) onend(); });
   }
 
-  /** Hear button that plays the learner’s own recording when there is one, plus record and delete controls. */
-  function voiceButton(btn, vkey, fallback) {
+  /** Hear uses the owner’s pre-recorded clip from /voices — never device TTS, never learner mic. */
+  function bindHear(btn, playFn) {
     btn.addEventListener("click", async () => {
       hush();
-      if (!(await window.VOICE.play(vkey))) fallback();
-    });
-    if (!window.VOICE.supported()) return;
-    const row = document.createElement("span");
-    row.className = "voice-row";
-    btn.after(row);
-    let live = null;
-    const draw = async () => {
-      const mine = await window.VOICE.has(vkey);
-      row.innerHTML = `<button type="button" class="btn rec">🎙 ${mine ? "Record again" : "Record my voice"}</button>
-        ${mine ? `<span class="voice-tag">✓ Plays your voice</span><button type="button" class="voice-del">Use the device voice</button>` : ""}`;
-      row.querySelector(".rec").addEventListener("click", toggle);
-      const del = row.querySelector(".voice-del");
-      if (del) del.addEventListener("click", async () => { await window.VOICE.remove(vkey); draw(); });
-    };
-    const toggle = async (e) => {
-      const b = e.currentTarget;
-      if (live) { live.stop(); live = null; return; }
-      hush();
-      try {
-        live = await window.VOICE.record(vkey, (blob) => {
-          live = null;
-          draw().then(() => blob && window.VOICE.playBlob(blob));
-        });
-      } catch (err) {
-        row.innerHTML = `<span class="voice-tag" style="color:var(--bad)">Microphone is blocked. Allow it in the browser to record.</span>`;
-        return;
+      const ok = await playFn();
+      if (!ok) {
+        btn.classList.add("miss");
+        const tip = btn.parentElement.querySelector(".voice-miss") || Object.assign(document.createElement("span"), { className: "voice-miss" });
+        tip.textContent = "Voice clip not added yet. The owner records phrases into the voices/ folder.";
+        if (!tip.parentElement) btn.after(tip);
+        window.setTimeout(() => btn.classList.remove("miss"), 1200);
       }
-      b.classList.add("live");
-      let left = window.VOICE.MAX_SECONDS;
-      b.textContent = `■ Stop (${left}s)`;
-      const tick = window.setInterval(() => {
-        left -= 1;
-        if (!live || left <= 0) { window.clearInterval(tick); return; }
-        b.textContent = `■ Stop (${left}s)`;
-      }, 1000);
-    };
-    draw();
+    });
   }
 
   /* ---------- character ---------- */
@@ -250,6 +208,8 @@
         <div class="course-mark">
           <span class="stamp big ${m.pct == null ? "blank" : ""}">${m.letter}</span>
           <span>${m.pct == null ? "No mark yet" : `${m.pct}% average`}<br>${m.done} of ${n} played</span>
+          ${c.cheat && c.cheat.length ? `<a class="btn ghost" href="#/cheat/${c.id}">Grade cheatsheet</a>` : ""}
+          ${c.id === "tables" ? `<a class="btn primary" href="#/puzzle/2">Table puzzle</a>` : ""}
         </div>
       </header>
       <section class="map" style="height:${H}px">
@@ -296,6 +256,7 @@
           <p class="eyebrow">${l.name}</p>
           <h1 class="phrase">“${l.phrase}”</h1>
           <button type="button" class="btn ghost" id="hear">▶ Hear the phrase</button>
+          <span class="voice-hint">Owner voice when a clip is in voices/</span>
           ${l.also ? `<p class="also"><span>Also said as</span>${l.also}</p>` : ""}
           <h3 class="small-title">How it works</h3>
           <ol class="steps">${l.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
@@ -315,7 +276,7 @@
         <div class="worked-body"></div>
       </section>` : ""}
     `);
-    voiceButton(app.querySelector("#hear"), `phrase:${key(c, l)}`, () => speak(l.phrase));
+    bindHear(app.querySelector("#hear"), () => window.NARRATION.playLesson(c.id, l.id));
     if (l.worked && l.worked.length) workedBox(l.worked);
   }
 
@@ -494,6 +455,133 @@
     if (pct >= 60) sfx("win");
   }
 
+  function cheatScreen(c) {
+    const sheets = c.cheat || [];
+    paint("learn", c.color, `
+      <a class="crumb" href="#/g/${c.id}">← ${c.grade} · ${c.title}</a>
+      <header class="course-head">
+        <div>
+          <p class="eyebrow">${c.grade} cheatsheet</p>
+          <h1>Say it. Spot the trap.</h1>
+          <p class="lede">Every mnemonic for this grade on one page. Use it before a test, then play the map to lock it in.</p>
+        </div>
+      </header>
+      <section class="cheat">
+        ${sheets.map((block) => `
+          <article class="cheat-card">
+            <h2>${block.title}</h2>
+            <table><tbody>
+              ${block.rows.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("")}
+            </tbody></table>
+          </article>`).join("") || `<p class="lede">Cheatsheet coming for this grade.</p>`}
+      </section>
+    `);
+  }
+
+  function randInt(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+  function shuffleOf(list) {
+    const copy = list.slice();
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function puzzleScreen(n) {
+    n = Math.max(2, Math.min(12, Number(n) || 2));
+    const size = 12;
+    const missing = [];
+    while (missing.length < 6) {
+      const key = `${randInt(1, size)}x${n}`;
+      if (!missing.includes(key)) missing.push(key);
+    }
+    const asked = new Set(missing);
+    let focus = missing[0];
+    let right = 0;
+    paint("learn", "#2A9D8F", `
+      <a class="crumb" href="#/g/tables">← Times tables</a>
+      <header class="course-head">
+        <div>
+          <p class="eyebrow">Table puzzle</p>
+          <h1>Fill the ${n}× table</h1>
+          <p class="lede">Six blanks on the ${n} times table. Tap a yellow cell, then pick the product.</p>
+          <div class="worked-tabs">${[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((k) => `<a class="tab ${k === n ? "on" : ""}" href="#/puzzle/${k}">×${k}</a>`).join("")}</div>
+        </div>
+      </header>
+      <section class="puzzle">
+        <div class="puzzle-grid" id="pgrid" style="grid-template-columns: repeat(13, minmax(0, 1fr))"></div>
+        <div class="puzzle-choices" id="picks"></div>
+        <p class="lede" id="pstatus"></p>
+      </section>
+    `);
+    const grid = app.querySelector("#pgrid");
+    const picks = app.querySelector("#picks");
+    const status = app.querySelector("#pstatus");
+    const cell = (html, cls, data) => `<button type="button" class="cell ${cls || ""}" ${data || ""}>${html}</button>`;
+    let html = cell("×", "head") + Array.from({ length: size }, (_, i) => cell(String(i + 1), "head")).join("");
+    for (let a = 1; a <= size; a += 1) {
+      html += cell(String(a), "head");
+      for (let c = 1; c <= size; c += 1) {
+        if (c !== n) {
+          html += cell("", "");
+          continue;
+        }
+        const key = `${a}x${n}`;
+        html += asked.has(key)
+          ? cell("?", `ask${key === focus ? " on" : ""}`, `data-k="${key}"`)
+          : cell(String(a * n), "ok");
+      }
+    }
+    grid.innerHTML = html;
+
+    const showChoices = () => {
+      const a = Number(focus.split("x")[0]);
+      const ans = a * n;
+      const wrongs = new Set([ans]);
+      while (wrongs.size < 4) wrongs.add(ans + pick([-n, n, -1, 1, 2, -2, 10, -10]));
+      picks.innerHTML = shuffleOf([...wrongs]).map((v) => `<button type="button" class="answer" data-v="${v}"><span>${v}</span></button>`).join("");
+      picks.querySelectorAll(".answer").forEach((b) => b.addEventListener("click", () => {
+        const ok = Number(b.dataset.v) === ans;
+        const cellEl = grid.querySelector(`[data-k="${focus}"]`);
+        if (ok) {
+          cellEl.textContent = String(ans);
+          cellEl.classList.remove("ask", "on");
+          cellEl.classList.add("ok");
+          cellEl.disabled = true;
+          asked.delete(focus);
+          right += 1;
+          sfx("ok");
+          const next = [...asked][0];
+          if (!next) {
+            status.textContent = `Done — ${right} right on the ${n}× table. Try another table above.`;
+            picks.innerHTML = "";
+            sfx("win");
+            return;
+          }
+          focus = next;
+          grid.querySelectorAll(".ask").forEach((el) => el.classList.toggle("on", el.dataset.k === focus));
+          status.textContent = `Nice. ${asked.size} blank${asked.size === 1 ? "" : "s"} left.`;
+          showChoices();
+        } else {
+          cellEl.classList.add("no");
+          window.setTimeout(() => cellEl.classList.remove("no"), 400);
+          sfx("no");
+          status.textContent = "Not that one — say the table mnemonic, then try again.";
+        }
+      }));
+    };
+
+    grid.querySelectorAll(".ask").forEach((el) => el.addEventListener("click", () => {
+      focus = el.dataset.k;
+      grid.querySelectorAll(".ask").forEach((x) => x.classList.toggle("on", x === el));
+      status.textContent = `What is ${focus.replace("x", " × ")}?`;
+      showChoices();
+    }));
+    status.textContent = `What is ${focus.replace("x", " × ")}?`;
+    showChoices();
+  }
+
   function report() {
     paint("report", "#2E4057", `
       <header class="course-head">
@@ -532,7 +620,7 @@
         <div>
           <p class="eyebrow">Kids’ corner</p>
           <h1>Look, say, listen.</h1>
-          <p class="lede">Pick a set. Each page shows one picture. Tap <b>Hear it</b> for the name and the real animal sound, then tap <b>Next</b>. Tap <b>Record my voice</b> to say it in your own voice instead.</p>
+          <p class="lede">Pick a set. Each page shows one picture. Tap <b>Hear it</b> for the name (owner voice when recorded) and the real animal sound, then tap <b>Next</b>.</p>
         </div>
         <div class="kids-fox">${fox("idle")}</div>
       </header>
@@ -553,7 +641,6 @@
     const [name, emoji, line] = set.items[i];
     const setIdx = K.indexOf(set);
     const snd = (window.SOUNDS || {})[`${set.id}/${name}`];
-    const vkey = `kid:${set.id}/${name}`;
     paint("kids", set.color, `
       <div class="kid-top">
         <a class="crumb" href="#/kids">← All sets</a>
@@ -582,13 +669,17 @@
       void pic.offsetWidth;
       pic.classList.add("wiggle");
     };
-    const deviceVoice = () => {
-      if (snd) speak(name, { rate: 0.85, pitch: 1.2, onend: () => playFile(snd.src) });
-      else speak(`${name}. ${line}`, { rate: 0.85, pitch: 1.2 });
-    };
     const hearBtn = app.querySelector("#hear");
-    voiceButton(hearBtn, vkey, deviceVoice);
-    hearBtn.addEventListener("click", wiggle);
+    bindHear(hearBtn, async () => {
+      wiggle();
+      const said = await window.NARRATION.playKid(set.id, name);
+      if (snd) {
+        if (said) await new Promise((r) => window.setTimeout(r, 200));
+        await playFile(snd.src);
+        return true;
+      }
+      return said;
+    });
     const hear = () => hearBtn.click();
     const go = (to) => {
       if (to < 0) {
@@ -665,6 +756,8 @@
     if (view === "play" && l) { startRun(c, l); return playScreen(); }
     if (view === "done" && l) return doneScreen(c, l);
     if (view === "report") return report();
+    if (view === "cheat" && c) return cheatScreen(c);
+    if (view === "puzzle") return puzzleScreen(a);
     if (view === "kids" && !a) return kidsHome();
     if (view === "kids") {
       const set = K.find((s) => s.id === a);

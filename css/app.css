@@ -425,15 +425,32 @@ p { margin: 0; }
 .worked-answer { margin: 18px 0 0; padding: 14px 18px; border: 2px solid var(--ink); border-radius: 14px; background: #E6F3EA; font-family: var(--display); font-size: 1.35rem; font-weight: 700; animation: stamp 0.4s ease both; }
 .worked-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
 
-/* own voice */
-.voice-row { display: inline-flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 10px 0 0 10px; vertical-align: middle; }
-.flash-copy .voice-row { display: flex; margin: 12px 0 0; }
-.btn.rec { min-height: 40px; padding: 6px 14px; font-size: 0.9rem; box-shadow: none; }
-.btn.rec.live { background: var(--bad); color: #fff; animation: pulse 1s ease-in-out infinite; }
-.voice-tag { font-size: 0.82rem; font-weight: 700; color: var(--good); }
-.voice-del { border: 0; background: none; padding: 0; font-size: 0.82rem; color: var(--ink-2); text-decoration: underline; cursor: pointer; }
+.voice-hint { display: block; margin-top: 6px; font-size: 0.8rem; color: var(--ink-2); }
+.voice-miss { display: block; margin-top: 8px; font-size: 0.85rem; color: var(--ink-hot); font-weight: 600; }
+.btn.miss { outline: 2px dashed var(--ink-hot); }
 .credit { font-size: 0.75rem; color: var(--ink-2); margin: 10px 0 0; }
 .credit a { color: inherit; }
+
+/* cheatsheet */
+.cheat { display: grid; gap: 18px; margin-top: 12px; }
+.cheat-card { padding: 18px 20px; background: var(--paper2); border: 2px solid var(--ink); border-radius: 18px; box-shadow: var(--lift); }
+.cheat-card h2 { font-size: 1.35rem; margin-bottom: 10px; }
+.cheat-card table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.cheat-card th, .cheat-card td { text-align: left; padding: 7px 8px; border-bottom: 1px solid #E0D8CB; vertical-align: top; }
+.cheat-card th { width: 42%; font-family: var(--display); font-size: 1.02rem; }
+.cheat-card td { color: var(--ink-2); }
+.cheat-card tr:last-child th, .cheat-card tr:last-child td { border-bottom: 0; }
+
+/* times-table puzzle */
+.puzzle { max-width: 720px; margin: 0 auto; }
+.puzzle-grid { display: grid; gap: 6px; margin: 18px 0; }
+.puzzle-grid .cell { min-height: 48px; display: grid; place-items: center; border: 2px solid var(--ink); border-radius: 10px; background: var(--paper2); font-weight: 700; font-variant-numeric: tabular-nums; }
+.puzzle-grid .head { background: var(--ink); color: var(--paper2); }
+.puzzle-grid .ask { background: #FFF1C9; cursor: pointer; }
+.puzzle-grid .ask.on { outline: 3px solid var(--accent); }
+.puzzle-grid .ok { background: #E6F3EA; }
+.puzzle-grid .no { background: #F8E0DC; }
+.puzzle-choices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

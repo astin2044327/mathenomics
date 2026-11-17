@@ -12,7 +12,7 @@ A single place for math mnemonics, organised by grade, played like a short game.
 
 ## Access model
 
-No login. No roles. Anyone with the URL (or the installed PWA) can play every lesson and Kids’ corner. Progress and voice clips never leave the device unless the learner exports them somehow outside the app.
+No login. No roles. Anyone with the URL (or the installed PWA) can play every lesson and Kids’ corner. Progress never leaves the device. Owner narration files live in the shipped `voices/` folder (or are added by the owner before deploy).
 
 ## Play loop
 
@@ -29,7 +29,7 @@ No login. No roles. Anyone with the URL (or the installed PWA) can play every le
 - Grade colour bands on maps and report cards
 - Mio: an original fox guide (not a licensed film or comic character)
 - Diagrams are drawn SVG/HTML, not stock photos
-- Kids pages use large emoji art plus letter tiles
+- Kids pages use large emoji art plus letter tiles; Hear plays an owner clip when present, then a real animal MP3 when available
 
 ## Content rules
 
@@ -58,7 +58,7 @@ About 128 lessons across:
 
 ## Kids’ corner
 
-Separate from marks. Sets: animals, fruits, things that go, music. One picture per page; Next / Back / swipe / arrows. Animals play real recordings when present; otherwise the device voice says the line. Learners can record their own voice for any picture or math phrase.
+Separate from marks. Sets: animals, fruits, things that go, music. One picture per page; Next / Back / swipe / arrows. Owner-recorded names play from `voices/` when present; animals then play real Commons MP3s. Learners do not record.
 
 ## Technical design
 
@@ -66,6 +66,7 @@ Separate from marks. Sets: animals, fruits, things that go, music. One picture p
 - Hash routes: `#/`, `#/g/:course`, `#/l/:course/:lesson`, `#/play/…`, `#/done/…`, `#/report`, `#/kids`, `#/kids/:set/:i`
 - Service worker cache name bumps when shell assets change; fetch is network-first with cache fallback
 - Save key: `mathenomics-save` → `{ coins, best, last, walkFrom }`
+- Owner narration: `voices/{course}-{lesson}.webm` (see `voices/README.md`)
 - Marks: A+ (100), A ≥90, B ≥80, C ≥70, D ≥60, else Retry; stars 3 / 2 / 1 / 0 on the same thresholds
 
 ## Intelligence / AI
@@ -83,8 +84,13 @@ Runtime grading and speech do not call AI services. Content was authored with AI
 | `js/pics.js` | Diagram library |
 | `js/kids.js` | Kids sets |
 | `js/sounds.js` | Animal sound index |
-| `js/voice.js` | Own-voice storage |
-| `js/app.js` | UI, game, marks, kids pager |
+| `js/narration.js` | Plays owner clips from `voices/` |
+| `js/more/tables.js` | Times tables 2–12 + puzzle entry |
+| `js/more/expand.js` | Extra classroom mnemonics per grade |
+| `js/more/pabson.js` | Grade 12 PABSON-style hard set |
+| `js/more/cheats.js` | Per-grade cheatsheets |
+| `js/app.js` | UI, game, marks, kids pager, cheatsheet, table puzzle |
+| `tools/record-owner.html` | Owner-only narration recorder |
 | `sounds/` | Trimmed animal MP3s + `CREDITS.md` |
 | `tools/check.js` | Catalog fuzz checker |
 

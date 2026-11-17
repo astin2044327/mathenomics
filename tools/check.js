@@ -3,7 +3,11 @@ const fs = require("fs");
 const path = require("path");
 const root = path.join(__dirname, "..");
 global.window = {};
-for (const f of ["js/pics.js", "js/courses.js", "js/more/arith.js", "js/more/geo.js", "js/more/trig.js"]) {
+const load = ["js/pics.js", "js/courses.js"];
+for (const f of fs.readdirSync(path.join(root, "js/more")).sort()) {
+  if (f.endsWith(".js")) load.push("js/more/" + f);
+}
+for (const f of load) {
   if (fs.existsSync(path.join(root, f))) require(path.join(root, f));
 }
 const only = process.argv[2];
