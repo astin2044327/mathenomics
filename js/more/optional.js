@@ -172,7 +172,7 @@
           if (form === 1) {
             const r = R(2, 4), c = R(2, 4);
             return Q(`A matrix with ${r} rows and ${c} columns is called`, `${r}×${c}`, [`${c}×${r}`, `${r}+${c}`, `${r}${c}`],
-              `Rows first, then columns: ${r}×${c}.`, matPic(1, 0, 0, 1, `${r}×${c}`));
+              `Rows first, then columns: ${r}×${c}.`, matPic(1, 0, 0, 1, "rows × columns"));
           }
           if (form === 2) {
             const a = R(1, 5), b = R(1, 5), c = R(1, 5), d = R(1, 5);
@@ -180,7 +180,7 @@
             const ans = a + e;
             return Q(`[[${a},${b}],[${c},${d}]] + [[${e},${f}],[${g},${h}]]. Top-left entry?`, ans,
               near(ans, [a * e, a + b, b + f]),
-              `Add matching entries: ${a}+${e}=${ans}.`, matPic(a + e, b + f, c + g, d + h, "sum"));
+              `Add matching entries: ${a}+${e}=${ans}.`, P.roof(`[[${a},?],[?,?]]`, `+ [[${e},?],[?,?]]`, "add matching entries"));
           }
           const k = R(2, 5), a = R(1, 6);
           return Q(`2×2 matrix has a₁₁ = ${a}. After multiplying by scalar ${k}, that entry is`, k * a,

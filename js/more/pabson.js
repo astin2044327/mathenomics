@@ -21,8 +21,9 @@
     return P.table(["", "col 1", "col 2"], [["row 1", String(a), String(b)], ["row 2", String(c), String(d)]], { note: note || "2 × 2 matrix" });
   }
 
-  function detPic(a, b, c, d) {
-    return P.formula(`${a}·${d} − ${b}·${c}`, "ad − bc", `det = ${a * d - b * c}`);
+  function detPic(a, b, c, d, hideResult) {
+    const det = hideResult ? "det = ?" : `det = ${a * d - b * c}`;
+    return P.formula(`${a}·${d} − ${b}·${c}`, "ad − bc", det);
   }
 
   function parabolaPic() {
@@ -39,25 +40,22 @@
     return box(320, 210, body, "Parabola y² = 4ax opens right; focus at (a, 0)");
   }
 
-  function vecPic(ax, ay, bx, by) {
-    const O = [160, 140];
-    const A = [O[0] + ax * 18, O[1] - ay * 18];
-    const B = [O[0] + bx * 18, O[1] - by * 18];
-    const S = [O[0] + (ax + bx) * 18, O[1] - (ay + by) * 18];
-    let body = line(40, 140, 280, 140, { w: 1.4 }) + line(160, 30, 160, 210, { w: 1.4 });
+  function vecPic() {
+    const O = [160, 140], A = [232, 104], B = [88, 122], S = [160, 86];
+    let body = line(40, 140, 280, 140, { w: 1.4 }) + line(160, 30, 160, 206, { w: 1.4 });
     body += line(O[0], O[1], A[0], A[1], { stroke: ACC, w: 3 }) + line(O[0], O[1], B[0], B[1], { w: 3 });
     body += line(O[0], O[1], S[0], S[1], { dash: "6 4", w: 2.5 });
-    body += T(A[0] + 8, A[1], "a", { size: 13 }) + T(B[0] + 8, B[1], "b", { size: 13 }) + T(S[0] + 8, S[1], "a+b", { size: 13 });
+    body += T(A[0] + 8, A[1], "a", { size: 12 }) + T(B[0] + 8, B[1], "b", { size: 12 }) + T(S[0] + 8, S[1], "a+b", { size: 12 });
     return box(320, 230, body, "Vector addition tip-to-tail");
   }
 
-  function projPic() {
-    const O = [36, 180], peak = [160, 70], land = [284, 180];
-    let body = line(20, 180, 300, 180, { w: 2 });
+  function projPic(hideRange) {
+    const gY = 186, O = [36, gY], peak = [160, 68], land = [284, gY];
+    let body = line(20, gY, 300, gY, { w: 2 });
     body += `<path d="M${O.join(",")} Q${peak.join(",")} ${land.join(",")}" fill="none" stroke="${ACC}" stroke-width="3"/>`;
     body += line(O[0], O[1], O[0] + 70, O[1] - 40, { w: 2, stroke: ACC });
-    body += T(O[0] + 78, O[1] - 44, "u, θ", { size: 13, anchor: "start" });
-    body += T(160, 200, "range = (u² sin 2θ)/g", { size: 13 });
+    body += T(O[0] + 78, O[1] - 44, "u, θ", { size: 12, anchor: "start" });
+    body += T(160, 200, hideRange ? "R = ?" : "range = (u² sin 2θ)/g", { size: 12 });
     return box(320, 220, body, "Projectile path");
   }
 
@@ -143,10 +141,10 @@
           if (Math.random() < 0.4) {
             const s = (a + b + c) / 2;
             return Q(`SEE: sides ${a}, ${b}, ${c}. Write s.`, s, near(s, [a + b + c, (a + b + c) / 3]),
-              `s = (${a}+${b}+${c})/2 = ${s}.`, P.roof("s", String(s)));
+              `s = (${a}+${b}+${c})/2 = ${s}.`, P.roof("s", "?"));
           }
           return Q(`SEE: sides ${a}, ${b}, ${c}. Area (Heron)?`, area, near(area, [(a + b + c) / 2, a * b / 2]),
-            `s=${(a + b + c) / 2}; area=${area}.`, P.roof("Heron", String(area)));
+            `s=${(a + b + c) / 2}; area=${area}.`, P.roof("Heron", "?"));
         },
         worked: [
           {
@@ -177,7 +175,7 @@
           ]);
           const [ang, d, , exact] = pack;
           return Q(`Elevation ${ang}°, distance ${d} m. Tower height?`, exact, [String(d), String(2 * d), "10"],
-            `tan ${ang}° = h/${d} ⇒ h = ${exact}.`, seeElevPic(`${ang}°`, d, "?"));
+            `tan ${ang}° = h/${d} ⇒ h = ${exact}.`, seeElevPic(`${ang}°`, String(exact) === String(d) ? "d" : d, "?"));
         },
         worked: [
           {
@@ -209,7 +207,7 @@
           const a = R(60, 120);
           return Q(`SEE: cyclic quad angle ${a}°. Opposite angle?`, `${180 - a}°`,
             [`${a}°`, `90°`, `${360 - a}°`],
-            `Opposites sum to 180° → ${180 - a}°.`, P.cyclic(`${a}°`, "?"));
+            `Opposites sum to 180° → ${180 - a}°.`, P.cyclic(a === 90 ? "?" : `${a}°`, "?"));
         },
         worked: [
           {
@@ -234,7 +232,7 @@
         gen() {
           const ad = R(2, 5), k = R(2, 3), db = ad * k, ae = R(3, 7), ec = ae * k;
           return Q(`SEE: DE∥BC, AD=${ad}, DB=${db}, AE=${ae}. EC?`, ec, near(ec, [ae, ad]),
-            `AD/DB=AE/EC ⇒ EC=${ec}.`, P.bpt(ad, db, ae, "?"));
+            `AD/DB=AE/EC ⇒ EC=${ec}.`, P.bpt(ad === ec ? "?" : ad, db === ec ? "?" : db, ae === ec ? "?" : ae, "?"));
         },
         worked: [
           {
@@ -295,7 +293,7 @@
           const r = R(2, Math.min(4, n - 1));
           const ans = Pnr(n, r);
           return Q(`Compute ${n}P${r}.`, ans, near(ans, [Cnr(n, r), fact(n), Pnr(n, r - 1)]),
-            `${n}P${r} = ${n}!/(${n - r})! = ${ans}. Order matters.`, P.roof(`${n}P${r}`, String(ans), "line them up"));
+            `${n}P${r} = ${n}!/(${n - r})! = ${ans}. Order matters.`, P.roof(`${n}P${r}`, "?", "line them up"));
         },
         worked: [
           {
@@ -332,7 +330,7 @@
           const r = R(2, Math.min(4, Math.floor(n / 2)));
           const ans = Cnr(n, r);
           return Q(`Compute ${n}C${r}.`, ans, near(ans, [Pnr(n, r), Cnr(n, r - 1), Cnr(n, r + 1)]),
-            `${n}C${r} = ${n}!/(${r}!(${n - r})!) = ${ans}.`, P.roof(`${n}C${r}`, String(ans), "bag, not line"));
+            `${n}C${r} = ${n}!/(${r}!(${n - r})!) = ${ans}.`, P.roof(`${n}C${r}`, "?", "bag, not line"));
         },
         worked: [
           {
@@ -370,7 +368,7 @@
           const ans = Cnr(n, r);
           return Q(`In (x + 1)^${n}, the coefficient of x^${n - r} is`, ans, near(ans, [Cnr(n, r - 1), Cnr(n, r + 1), Pnr(n, r)]),
             `T with r = ${r}: C(${n},${r}) x^${n - r} (1)^${r} → coefficient ${ans}.`,
-            P.roof(`C(${n},${r})`, String(ans), `power of x is ${n - r}`));
+            P.roof(`C(${n},${r})`, "?", `power of x is ${n - r}`));
         },
         worked: [
           {
@@ -409,18 +407,18 @@
             const c = R(2, 4);
             const a = b ** c;
             return Q(`Solve: log_${b} x = ${c}.`, a, near(a, [b * c, b + c, c ** b]),
-              `log_${b} x = ${c} means ${b}^${c} = x, so x = ${a}.`, P.roof(`log_${b} x = ${c}`, `x = ${a}`));
+              `log_${b} x = ${c} means ${b}^${c} = x, so x = ${a}.`, P.roof(`log_${b} x = ${c}`, "x = ?"));
           }
           if (form === 2) {
             const b = pick([2, 3, 10]);
             const n = R(2, 5);
             return Q(`Simplify: log_${b}(${b}^${n}).`, n, near(n, [b, n * b, 1]),
-              `log_b(bⁿ) = n, so the answer is ${n}.`, P.roof(`log_${b}(${b}^${n})`, String(n)));
+              `log_b(bⁿ) = n, so the answer is ${n}.`, P.roof(`log_${b}(${b}^${n})`, "?"));
           }
           const a = R(2, 6);
           const b = R(2, 6);
           return Q(`log  ${a} + log  ${b}  (same base) equals log of`, a * b, [a + b, a - b, a / b, a ** b].filter((x) => x !== a * b),
-            `Product rule: log A + log B = log(AB) = log ${a * b}.`, P.roof(`log ${a} + log ${b}`, `log ${a * b}`));
+            `Product rule: log A + log B = log(AB) = log ${a * b}.`, P.roof(`log ${a} + log ${b}`, "log ?"));
         },
         worked: [
           {
@@ -465,7 +463,7 @@
           const ans = { "(1,1)": p, "(1,2)": q, "(2,1)": r, "(2,2)": s }[which];
           return Q(`A = [[${a},${b}],[${c},${d}]], B = [[${e},${f}],[${g},${h}]]. Entry ${which} of AB?`, ans,
             near(ans, [a * e, p + 1, a * e + b * f, c * f + d * h]),
-            `Row·column for ${which}: ${ans}.`, mat2(p, q, r, s, "AB"));
+            `Row·column for ${which}: ${ans}.`, mat2(a, b, c, d, `A · B → ${which} = ?`));
         },
         worked: [
           {
@@ -503,7 +501,7 @@
           const a = R(1, 6), b = R(0, 5), c = R(0, 5), d = R(1, 6);
           const ans = a * d - b * c;
           return Q(`det [[${a},${b}],[${c},${d}]]`, ans, near(ans, [a * d + b * c, a * d, b * c, a + d - b - c]),
-            `ad − bc = ${a}·${d} − ${b}·${c} = ${ans}.`, detPic(a, b, c, d));
+            `ad − bc = ${a}·${d} − ${b}·${c} = ${ans}.`, detPic(a, b, c, d, true));
         },
         worked: [
           {
@@ -545,7 +543,7 @@
             ["x² + 4y² = 16", "ellipse", ["circle", "hyperbola", "parabola"]]
           ]);
           return Q(`Identify the conic: ${kind[0]}.`, kind[1], kind[2],
-            `Look at squares and signs: ${kind[0]} is a ${kind[1]}.`, P.roof(kind[0], kind[1]));
+            `Look at squares and signs: ${kind[0]} is a ${kind[1]}.`, P.roof(kind[0], "?"));
         },
         worked: [
           {
@@ -590,7 +588,7 @@
             ["arccos(0)", "90°", ["0°", "180°", "−90°"]]
           ];
           const [p, a, w] = pick(items);
-          return Q(`Principal value of ${p}`, a, w, `${p} in its principal range is ${a}.`, P.roof(p, a));
+          return Q(`Principal value of ${p}`, a, w, `${p} in its principal range is ${a}.`, P.roof(p, "?"));
         },
         worked: [
           {
@@ -628,7 +626,7 @@
           if (form === 1) {
             const ans = 2 * a;
             return Q(`lim x→${a} (x² − ${a * a})/(x − ${a})`, ans, near(ans, [a, 0, a * a]),
-              `Factor: (x−${a})(x+${a})/(x−${a}) → x+${a} → ${ans}.`, P.roof(`(x²−${a * a})/(x−${a})`, `x+${a}`));
+              `Factor: (x−${a})(x+${a})/(x−${a}) → x+${a} → ${ans}.`, P.roof(`(x²−${a * a})/(x−${a})`, "?"));
           }
           if (form === 2) {
             const ans = 3 * a * a;
@@ -681,10 +679,10 @@
           const form = R(1, 2);
           if (form === 1) {
             return Q(`y = x² − ${2 * a}x + ${b}. x-coordinate of the stationary point?`, a, near(a, [2 * a, -a, b]),
-              `y′ = 2x − ${2 * a} = 0 → x = ${a}.`, P.roof("y′ = 0", `x = ${a}`));
+              `y′ = 2x − ${2 * a} = 0 → x = ${a}.`, P.roof("y′ = 0", "x = ?"));
           }
           return Q(`y = x² − ${2 * a}x + ${b}. Minimum value?`, ymin, near(ymin, [b, a, -ymin]),
-            `At x = ${a}, y = ${a}² − ${2 * a}·${a} + ${b} = ${ymin}. y′′ = 2 > 0 → min.`, P.roof("min y", String(ymin)));
+            `At x = ${a}, y = ${a}² − ${2 * a}·${a} + ${b} = ${ymin}. y′′ = 2 > 0 → min.`, P.roof("min y", "?"));
         },
         worked: [
           {
@@ -729,7 +727,7 @@
           const ans = fr(ansN / g, ansD / g);
           return Q(`∫ from ${a} to ${b} of ${pow(n)} dx`, ans,
             [fr(ansN, ansD + 1), fr(b ** (n + 1), n + 1), String(b ** n - a ** n), fr(ansN + ansD, ansD)],
-            `F = ${pow(n + 1)}/${n + 1}. F(${b})−F(${a}) = ${ans}.`, P.roof(`∫_${a}^{${b}} ${pow(n)}`, ans));
+            `F = ${pow(n + 1)}/${n + 1}. F(${b})−F(${a}) = ${ans}.`, P.roof(`∫_${a}^{${b}} ${pow(n)}`, "?"));
         },
         worked: [
           {
@@ -769,14 +767,14 @@
             const yAns = k % 2 === 0 ? `${k / 2}${pow(2)}` : `${k}${pow(2)}/2`;
             return Q(`Solve dy/dx = ${k}x. Particular solution through (0,0) is y =`, yAns,
               [`${k}${pow(2)}`, `${k}x`, `${k}${pow(2)}/2`, "0"].filter((x) => x !== yAns),
-              `∫ dy = ∫ ${k}x dx → y = ${k}x²/2 + C. Through origin C=0.`, P.roof("dy = kx dx", `y = ${k}x²/2`));
+              `∫ dy = ∫ ${k}x dx → y = ${k}x²/2 + C. Through origin C=0.`, P.roof("dy = kx dx", "y = ?"));
           }
           if (form === 2) {
             return Q(`If dy/dx = y and y(0) = ${k}, then y =`, `${k}eˣ`, [`eˣ`, `${k}x`, `e^{${k}x}`, `${k}`],
-              `dy/y = dx → ln|y| = x + C → y = Aeˣ. y(0)=${k} → A=${k}.`, P.roof("dy/y = dx", `y = ${k}eˣ`));
+              `dy/y = dx → ln|y| = x + C → y = Aeˣ. y(0)=${k} → A=${k}.`, P.roof("dy/y = dx", "y = ?"));
           }
           return Q(`Separating dy/dx = x/y gives`, "y dy = x dx", ["y dx = x dy", "dy/x = y dx", "x dy = y dx"],
-            "Cross: y dy = x dx.", P.roof("dy/dx = x/y", "y dy = x dx"));
+            "Cross: y dy = x dx.", P.roof("dy/dx = x/y", "?"));
         },
         worked: [
           {
@@ -817,7 +815,7 @@
             const fav = R(2, n - 1);
             return Q(`A fair ${n}-sided die. P(rolling a number ≤ ${fav})?`, sfr(fav, n),
               [sfr(fav - 1, n), sfr(fav + 1, n), sfr(1, fav), sfr(fav, n - 1)].filter((x, i, a) => a.indexOf(x) === i && x !== sfr(fav, n)),
-              `${fav} favorable over ${n}: ${sfr(fav, n)}.`, P.roof(`≤${fav}`, sfr(fav, n)));
+              `${fav} favorable over ${n}: ${sfr(fav, n)}.`, P.roof(`≤${fav}`, "?"));
           }
           if (form === 2) {
             const a = R(3, 6), b = R(3, 6);
@@ -829,7 +827,7 @@
               P.formula(`${sfr(a, 10)}+${sfr(b, 10)}−${sfr(both, 10)}`, "P(A∪B)"));
           }
           return Q("A fair coin. P(heads then heads) in two flips?", "1/4", ["1/2", "1/3", "1", "1/8"],
-            "Independent: (1/2)×(1/2)=1/4.", P.roof("(1/2)(1/2)", "1/4"));
+            "Independent: (1/2)×(1/2)=1/4.", P.roof("(1/2)(1/2)", "?"));
         },
         worked: [
           {
@@ -876,7 +874,7 @@
           return Q(`n=${n}, p=${sfr(pNum, pDen)}. P(exactly ${k} successes)?`, ans,
             [fr(ansNum, ansDen * 2), fr(coeff, ansDen), fr(ansNum + 1, ansDen), sfr(pNum, pDen)].map((x) => x.replace("-", "−")).filter((x, i, a) => a.indexOf(x) === i && x !== ans),
             `C(${n},${k})·(${sfr(pNum, pDen)})^${k}·(${sfr(qNum, pDen)})^${n - k} = ${ans}.`,
-            P.roof(`C(${n},${k}) p^${k} q^${n - k}`, ans));
+            P.roof(`C(${n},${k}) p^${k} q^${n - k}`, "?"));
         },
         worked: [
           {
@@ -907,7 +905,7 @@
           "Perpendicular ⇔ dot product 0."
         ],
         exception: "Dot product is a scalar, not a vector. |a+b| ≠ |a|+|b| in general. Unit vector is a/|a|, not 1/a componentwise without care.",
-        pic: () => vecPic(3, 1, 1, 2),
+        pic: () => vecPic(),
         gen() {
           const form = R(1, 3);
           if (form === 1) {
@@ -915,18 +913,18 @@
             const x = pair[0], y = pair[1];
             const exact = String(Math.round(Math.sqrt(x * x + y * y)));
             return Q(`|⟨${x}, ${y}⟩|`, exact, [String(x + y), String(x * x + y * y), String(Math.abs(x - y)), String(x * y)],
-              `√(${x}²+${y}²) = ${exact}.`, vecPic(x / 3, y / 3, 0, 0));
+              `√(${x}²+${y}²) = ${exact}.`, vecPic());
           }
           if (form === 2) {
             const a1 = R(1, 5), a2 = R(1, 5), b1 = R(1, 5), b2 = R(-3, 3);
             const ans = a1 * b1 + a2 * b2;
             return Q(`⟨${a1},${a2}⟩ · ⟨${b1},${b2}⟩`, ans, near(ans, [a1 * b1, a1 * b2 + a2 * b1, a1 + a2 + b1 + b2]),
-              `${a1}·${b1} + ${a2}·${b2} = ${ans}.`, vecPic(a1, a2, b1, b2));
+              `${a1}·${b1} + ${a2}·${b2} = ${ans}.`, vecPic());
           }
           const a1 = R(1, 4), a2 = R(1, 4);
           const b1 = a2, b2 = -a1;
           return Q(`⟨${a1},${a2}⟩ · ⟨${b1},${b2}⟩ equals`, 0, near(0, [a1 * b1, 1, a1 + a2]),
-            "Perpendicular pair: dot product 0.", vecPic(a1, a2, b1, b2));
+            "Perpendicular pair: dot product 0.", vecPic());
         },
         worked: [
           {
@@ -962,17 +960,17 @@
           const form = R(1, 3);
           if (form === 1) {
             return Q("For fixed u on flat ground, maximum range occurs at", "45°", ["30°", "60°", "90°", "0°"],
-              "sin2θ ≤ 1, equality at 2θ=90° → θ=45°.", projPic());
+              "sin2θ ≤ 1, equality at 2θ=90° → θ=45°.", projPic(true));
           }
           if (form === 2) {
             const u = pick([10, 14, 20]);
             const g = 10;
             const ans = (u * u) / g;
             return Q(`u=${u} m/s, g=${g}, θ=45°. Range?`, ans, near(ans, [u, u * u, ans / 2]),
-              `R = u²/g at 45° → ${u}²/${g} = ${ans}.`, projPic());
+              `R = u²/g at 45° → ${u}²/${g} = ${ans}.`, projPic(true));
           }
           return Q("Range formula (flat ground) is", "(u² sin 2θ)/g", ["(u² sin θ)/g", "(2u sin θ)/g", "(u cos θ)/g"],
-            "R = (u² sin 2θ)/g.", projPic());
+            "R = (u² sin 2θ)/g.", projPic(true));
         },
         worked: [
           {
@@ -1018,7 +1016,7 @@
             const f = R(5, 12) * 2;
             const ans = f / 2;
             return Q(`A force ${f} N at 60° to the x-axis. x-component?`, ans, near(ans, [f, f * Math.sqrt(3) / 2, f / 3].map((x) => Math.round(x * 100) / 100)),
-              `F cos60° = ${f}·1/2 = ${ans}.`, P.roof(`${f} cos 60°`, String(ans)));
+              `F cos60° = ${f}·1/2 = ${ans}.`, P.roof(`${f} cos 60°`, "?"));
           }
           if (form === 2) {
             const w = R(10, 30);
@@ -1068,7 +1066,7 @@
           if (form === 2) {
             // f(x)=x²−4, x0=3 → x1 = 3 − 5/6 = 13/6
             return Q("f(x)=x²−4, x₀=3. One Newton step gives x₁ =", "13/6", ["5/6", "3", "2", "11/6"],
-              "f(3)=5, f′(x)=2x, f′(3)=6 → 3−5/6=13/6.", P.roof("3 − 5/6", "13/6"));
+              "f(3)=5, f′(x)=2x, f′(3)=6 → 3−5/6=13/6.", P.roof("3 − 5/6", "?"));
           }
           return Q("Newton–Raphson fails at a guess where", "f′(x₀) = 0", ["f(x₀) = 0", "f(x₀) > 0", "x₀ = 1"],
             "Division by zero in f/f′.", nrPic());
@@ -1112,7 +1110,7 @@
           if (form === 2) {
             // 1/[(x-1)(x-2)] = -1/(x-1) + 1/(x-2) → A=-1,B=1; ask A
             return Q("1/[(x−1)(x−2)] = A/(x−1) + B/(x−2). Find A.", "−1", ["1", "2", "0", "−2"],
-              "Cover x=1: 1/(1−2)=A → A=−1.", P.roof("x=1 cover-up", "A=−1"));
+              "Cover x=1: 1/(1−2)=A → A=−1.", P.roof("x=1 cover-up", "A = ?"));
           }
           return Q("Before partial fractions, if deg(numerator) ≥ deg(denominator),", "divide polynomials first", ["factor the top only", "differentiate", "use L'Hôpital"],
             "Make the fraction proper first.", P.roof("improper", "divide, then decompose"));
@@ -1155,14 +1153,14 @@
           if (form === 1) {
             return Q(`d/dx (x² + 1)^${n}`, `${n}(x² + 1)^${n - 1} · 2x`,
               [`${n}(x² + 1)^${n - 1}`, `(x² + 1)^${n - 1}`, `${n}(x² + 1)^${n} · 2x`, `2x(x² + 1)^${n}`],
-              `Outside power ${n}, inside derivative 2x.`, P.roof(`( )^${n}`, `${n}( )^${n - 1}·2x`));
+              `Outside power ${n}, inside derivative 2x.`, P.roof(`( )^${n}`, "?"));
           }
           if (form === 2) {
             return Q(`d/dx sin(${k}x)`, `${k} cos(${k}x)`, [`cos(${k}x)`, `${k} sin(${k}x)`, `−${k} cos(${k}x)`, `cos x`],
-              `Outside cos, inside ${k}x → multiply by ${k}.`, P.roof(`sin(${k}x)`, `${k} cos(${k}x)`));
+              `Outside cos, inside ${k}x → multiply by ${k}.`, P.roof(`sin(${k}x)`, "?"));
           }
           return Q(`d/dx e^{${k}x}`, `${k}e^{${k}x}`, [`e^{${k}x}`, `${k}e^x`, `e^{${k}}`, `${k}x e^{${k}x}`],
-            "Derivative of e^u is e^u · u′.", P.roof(`e^{${k}x}`, `${k}e^{${k}x}`));
+            "Derivative of e^u is e^u · u′.", P.roof(`e^{${k}x}`, "?"));
         },
         worked: [
           {
@@ -1200,7 +1198,7 @@
           const b = R(2, 5);
           const ans = fr(b ** 3, 3);
           return Q(`Area under y = x² from x = 0 to x = ${b}?`, ans, [fr(b ** 2, 2), String(b ** 3), fr(b ** 3, 2), fr(b ** 3, 6)],
-            `∫₀^${b} x² dx = [x³/3] = ${ans}.`, P.roof(`∫_0^{${b}} x²`, ans));
+            `∫₀^${b} x² dx = [x³/3] = ${ans}.`, P.roof(`∫_0^{${b}} x²`, "?"));
         },
         worked: [
           {
@@ -1238,17 +1236,17 @@
             const a = R(2, 8), d = R(2, 5), n = R(5, 10);
             const ans = a + (n - 1) * d;
             return Q(`AP: a=${a}, d=${d}. Find term ${n}.`, ans, near(ans, [a + n * d, a + (n + 1) * d, n * d]),
-              `a+(n−1)d = ${a}+${n - 1}·${d} = ${ans}.`, P.roof(`T_${n}`, String(ans)));
+              `a+(n−1)d = ${a}+${n - 1}·${d} = ${ans}.`, P.roof(`T_${n}`, "?"));
           }
           if (form === 2) {
             const a = R(2, 5), r = R(2, 3), n = R(3, 5);
             const ans = a * (r ** (n - 1));
             return Q(`GP: a=${a}, r=${r}. Find term ${n}.`, ans, near(ans, [a * r * n, a * (r ** n), a + (n - 1) * r]),
-              `arⁿ⁻¹ = ${a}·${r}^${n - 1} = ${ans}.`, P.roof(`T_${n}`, String(ans)));
+              `arⁿ⁻¹ = ${a}·${r}^${n - 1} = ${ans}.`, P.roof(`T_${n}`, "?"));
           }
           const a = R(2, 6);
           return Q(`Infinite GP a=${a}, r=1/2. Sum?`, 2 * a, near(2 * a, [a, a / 2, a / (1 / 2)]),
-            `S=a/(1−r)=${a}/(1/2)=${2 * a}.`, P.roof("S=a/(1−r)", String(2 * a)));
+            `S=a/(1−r)=${a}/(1/2)=${2 * a}.`, P.roof("S=a/(1−r)", "?"));
         },
         worked: [
           {
@@ -1286,7 +1284,7 @@
             const p = R(1, 8);
             const cycle = ["1", "i", "−1", "−i"][p % 4];
             return Q(`Simplify i^${p}.`, cycle, ["1", "i", "−1", "−i"].filter((x) => x !== cycle),
-              `i^${p}: reduce ${p} mod 4 → ${cycle}.`, P.roof(`i^${p}`, cycle));
+              `i^${p}: reduce ${p} mod 4 → ${cycle}.`, P.roof(`i^${p}`, "?"));
           }
           if (form === 2) {
             const a = R(1, 4), b = R(1, 4), c = R(1, 4), d = R(1, 4);
@@ -1300,13 +1298,13 @@
               `${re - 1}+${im}i`
             ].filter((x) => x !== ans);
             return Q(`(${a}+${b}i)(${c}+${d}i)`, ans, wrongs,
-              `FOIL then i²=−1 → ${ans}.`, P.roof("FOIL", ans));
+              `FOIL then i²=−1 → ${ans}.`, P.roof("FOIL", "?"));
           }
           const pair = pick([[3, 4], [5, 12], [8, 15], [6, 8]]);
           const a = pair[0], b = pair[1];
           const exact = String(Math.round(Math.sqrt(a * a + b * b)));
           return Q(`|${a}+${b}i|`, exact, [String(a + b), String(a * a + b * b), String(Math.abs(a - b)), `√${a * a + b * b}`].filter((x) => x !== exact),
-            `√(${a}²+${b}²)=${exact}.`, P.roof(`|${a}+${b}i|`, exact));
+            `√(${a}²+${b}²)=${exact}.`, P.roof(`|${a}+${b}i|`, "?"));
         },
         worked: [
           {

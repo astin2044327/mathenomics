@@ -35,7 +35,7 @@
         const clue = pick(["altogether", "in all", "in total"]);
         return Q(`Mia has ${a} apples and ${b} pears. How many ${clue}?`, a + b,
           wrongs(a + b, [a + b + 1, a + b - 1, Math.abs(a - b), a * b]),
-          `"${clue}" means add: ${a} + ${b} = ${a + b}.`, P.groups(1, a + b > 12 ? 8 : a + b));
+          `"${clue}" means add: ${a} + ${b} = ${a + b}.`, P.chain([String(a), String(b), "?"], ["+", "="]));
       },
       worked: [
         { problem: "Sam has 4 cars and 5 trucks. How many vehicles in all?", steps: [["Clue", "“In all” means add."], ["Write", "4 + 5."], ["Add", "9."]], answer: "9" },
@@ -53,7 +53,7 @@
         return Q(`${whole} birds. ${take} fly away. How many ${clue}?`, whole - take,
           wrongs(whole - take, [whole + take, take, whole - take + 1, whole]),
           `"${clue}" means subtract: ${whole} − ${take} = ${whole - take}.`,
-          P.numberLine(Math.max(0, whole - take - 1), whole + 1, whole, [-take]));
+          P.numberLine(Math.max(0, whole - take - 1), whole + 1, whole, [-take], { hideTicks: [whole - take], hideHops: true }));
       },
       worked: [
         { problem: "10 cookies. 3 eaten. How many left?", steps: [["Clue", "“Left” means subtract."], ["Write", "10 − 3."], ["Subtract", "7."]], answer: "7" },
@@ -123,7 +123,7 @@
         const a = R(6, 15), b = R(2, 4);
         const seq = Array.from({ length: b }, (_, i) => a - i - 1).join(", ");
         return Q(`${a} − ${b}`, a - b, wrongs(a - b, [a - b + 1, a - b - 1, a + b]),
-          `Hold ${a}. Count back: ${seq}.`, P.numberLine(a - b - 1, a + 1, a, Array(b).fill(-1)));
+          `Hold ${a}. Count back: ${seq}.`, P.numberLine(a - b - 1, a + 1, a, Array(b).fill(-1), { hideTicks: [a - b], hideHops: true }));
       },
       worked: [
         { problem: "8 − 3", steps: [["Hold 8", "Big number in your head."], ["Count back", "7, 6, 5."]], answer: "5" },
@@ -158,7 +158,7 @@
         return Q(`About how many is ${n}? (nearest 10)`, ans,
           wrongs(ans, [ans + 10, ans - 10, n, n + 1]),
           `${n % 10 >= 5 ? "5 or more, raise" : "4 or less, rest"}: ${n} ≈ ${ans}.`,
-          P.numberLine(ans - 10, ans + 10, n, []));
+          P.numberLine(Math.floor(n / 10) * 10 - 10, Math.floor(n / 10) * 10 + 20, n, [], { labelEvery: 10, hideTicks: [ans] }));
       },
       worked: [
         { problem: "About how many is 37?", steps: [["Look at ones", "7 ≥ 5."], ["Raise", "Nearest ten is 40."]], answer: "40" },
@@ -177,7 +177,7 @@
         const ans = askMore ? Math.max(a, b) : Math.min(a, b);
         return Q(`Which is ${askMore ? "more" : "fewer"}: ${a} or ${b}?`, ans,
           wrongs(ans, [a + b, Math.abs(a - b), askMore ? Math.min(a, b) : Math.max(a, b)]),
-          `${askMore ? "More" : "Fewer"} picks ${ans}.`, P.gator(a, b, { hide: true }));
+          `${askMore ? "More" : "Fewer"} picks ${ans}.`, P.gator(a, b, { hide: true, maskSides: true }));
       },
       worked: [
         { problem: "Which is more: 6 or 9?", steps: [["Compare", "9 is bigger."], ["More", "9."]], answer: "9" },
@@ -217,7 +217,7 @@
         if (ans < 0 || ans > 99) return this.gen();
         return Q(`${more ? "Ten more than" : "Ten less than"} ${n}?`, ans,
           wrongs(ans, [n + 1, n - 1, more ? n - 10 : n + 10, n]),
-          `${more ? "+10" : "−10"} changes the tens seat: ${n} → ${ans}.`, P.placeValue(n));
+          `${more ? "+10" : "−10"} changes the tens seat: ${n} → ${ans}.`, P.placeValue(n, true));
       },
       worked: [
         { problem: "Ten more than 34?", steps: [["Tens bump", "3 tens → 4 tens."], ["Ones stay", "4."], ["Result", "44."]], answer: "44" },
@@ -255,7 +255,7 @@
       gen() {
         const a = R(4, 9), b = R(1, 5);
         return Q(`${a} + ${b}`, a + b, wrongs(a + b, [a + b + 1, a + b - 1, a - b]),
-          `Hold ${a}. Count on ${b} fingers to ${a + b}.`, P.fingers(Math.min(b, 9)));
+          `Hold ${a}. Count on ${b} fingers to ${a + b}.`, P.fingers(Math.min(b, 9), { hideLabels: true }));
       },
       worked: [
         { problem: "6 + 3", steps: [["Step", "Hold 6"], ["Three fingers", "7, 8, 9."]], answer: "9" },
@@ -274,7 +274,7 @@
         return Q(`What number comes ${after ? "after" : "before"} ${n}?`, ans,
           wrongs(ans, [n, after ? n - 1 : n + 1, n + 2]),
           `${after ? "After" : "Before"} ${n} is ${ans}.`,
-          P.numberLine(Math.max(0, n - 2), n + 2, n, []));
+          P.numberLine(Math.max(0, n - 2), n + 2, n, [], { hideTicks: [ans] }));
       },
       worked: [
         { problem: "What comes after 7?", steps: [["One more", "8."]], answer: "8" },
@@ -293,7 +293,7 @@
         const hi = Math.max(a, b), lo = Math.min(a, b);
         return Q(`${hi} is how many more than ${lo}?`, hi - lo,
           wrongs(hi - lo, [hi + lo, hi, lo, hi - lo + 1]),
-          `Compare: ${hi} − ${lo} = ${hi - lo}.`, P.numberLine(lo - 1, hi + 1, lo, [hi - lo]));
+          `Compare: ${hi} − ${lo} = ${hi - lo}.`, P.numberLine(lo - 1, hi + 1, lo, [hi - lo], { hideTicks: [hi, hi - lo], hideHops: true, labelEvery: Math.max(1, hi - lo) }));
       },
       worked: [
         { problem: "9 is how many more than 4?", steps: [["Subtract", "9 − 4 = 5."]], answer: "5" },
@@ -435,7 +435,7 @@
         const a = R(11, 40), b = R(11, 40);
         return Q(`A class has ${a} girls and ${b} boys. How many students in all?`, a + b,
           wrongs(a + b, [a + b + 10, Math.abs(a - b), a, b]),
-          `In all → add: ${a} + ${b} = ${a + b}.`, P.colAdd(a, b, true));
+          `In all → add: ${a} + ${b} = ${a + b}.`, P.colAdd(a, b));
       },
       worked: [
         { problem: "24 red and 18 blue balloons combined?", steps: [["Clue", "Combined → add."], ["Add", "42."]], answer: "42" },
@@ -452,7 +452,7 @@
         const clue = pick(["left", "remain", "are left"]);
         return Q(`${a} stickers. ${b} are used. How many ${clue}?`, a - b,
           wrongs(a - b, [a + b, b, a - b + 10]),
-          `${clue} → subtract: ${a} − ${b} = ${a - b}.`, P.colSub(a, b, true));
+          `${clue} → subtract: ${a} − ${b} = ${a - b}.`, P.chain([String(a), `− ${b}`, "?"], ["", "="]));
       },
       worked: [
         { problem: "63 − 27 left?", steps: [["Borrow if needed", "Ones need help."], ["Subtract", "36."]], answer: "36" },
@@ -648,7 +648,7 @@
         return Q(`Skip-count by ${step}, ${times} times (from 0). Land on?`, ans,
           wrongs(ans, [ans + step, ans - step, step + times]),
           `${times} hops of ${step}: ${ans}.`,
-          P.chain(["0", String(step), String(2 * step), String(ans)], [`+${step}`, `+${step}`, "…"]));
+          P.chain(["0", String(step), String(2 * step), "?"], [`+${step}`, `+${step}`, "…"]));
       },
       worked: [
         { problem: "Skip by 5, four times from 0?", steps: [["Step", "5, 10, 15, 20"], ["Land", "20."]], answer: "20" },
@@ -850,7 +850,7 @@
       id: "kinghenry3", name: "King Henry metric", phrase: "King Henry Died By Drinking Chocolate Milk.",
       also: "Kilo, Hecto, Deca, Base, Deci, Centi, Milli — each step is ×10 or ÷10.",
       steps: ["Line up the King Henry words with prefixes.", "Count hops between units.", "Move the decimal that many places."],
-      exception: "The ladder is for metric prefixes. Miles and inches need different bridges.",
+      exception: "“By” is the base unit. Mega/micro/nano are off this ladder. Each hop is ×10 or ÷10. Miles and inches need different bridges.",
       pic: () => P.chain(["kilo", "hecto", "deca", "unit", "deci", "centi", "milli"], ["×10 each →"]),
       gen() {
         const form = R(1, 3);
@@ -912,10 +912,10 @@
       ]
     },
     {
-      id: "tomatoes", name: "Feet in a mile", phrase: "Five tomatoes: 5-2-8-0 feet in a mile.",
-      also: "5 to-mate-o-es → 5,280.",
-      steps: ["Picture five tomatoes.", "Hear 5, 2, 8, 0.", "That’s 5,280 feet per mile."],
-      exception: "It’s a memory hook for 5,280 — not a produce fact!",
+      id: "tomatoes", name: "Feet in a mile", phrase: "Silly optional hook: “five tomatoes” sounds like 5-2-8-0 (feet in a mile).",
+      also: "Joke only — always confirm 5,280 ft/mi.",
+      steps: ["Picture five tomatoes (optional silly picture).", "Hear 5, 2, 8, 0 as a sound-alike.", "Check the real fact: 5,280 feet per mile."],
+      exception: "Not a math procedure — a joke scaffold with no structure. Digits scramble easily; verify 5,280 feet per mile.",
       pic: () => P.formula("1 mile", "5,280 feet", "Five tomatoes"),
       gen() {
         const form = R(1, 3);
@@ -932,7 +932,7 @@
       id: "orderops3", name: "× before +", phrase: "My Dear before Aunt Sally: multiply before you add.",
       also: "A early peek at order of operations.",
       steps: ["Scan for × or ÷.", "Do those first (left to right).", "Then + and −."],
-      exception: "Brackets still beat everything. Without brackets, × wins over +.",
+      exception: "Brackets still beat everything. × and ÷ tie left to right when both appear; without brackets, ×÷ beat +−.",
       pic: () => P.pemdas(),
       gen() {
         const a = R(2, 9), b = R(2, 8), c = R(2, 8);
@@ -1081,7 +1081,7 @@
     {
       id: "kinghenry5", name: "Metric ladder hops", phrase: "King Henry Died By Drinking Chocolate Milk — hop the decimal.",
       steps: ["Find start and end prefixes.", "Count hops on King Henry’s ladder.", "Move the decimal one place per hop."],
-      exception: "Hops toward milli make the number look bigger (more small pieces). Hops toward kilo make it look smaller.",
+      exception: "“By” is the base unit. Mega/micro/nano are off this ladder. Hops toward milli use more small pieces; toward kilo, fewer.",
       pic: () => P.chain(["k", "h", "da", "u", "d", "c", "m"], ["King Henry ladder"]),
       gen() {
         const form = R(1, 3);
@@ -1599,7 +1599,7 @@
         const old = R(4, 12), k = pick([2, 3, 4]);
         return Q(`Length ${old} scaled by ${k}. New length?`, old * k,
           wrongs(old * k, [old + k, old * k * k, old]),
-          `${old} × ${k} = ${old * k}.`, P.similar(String(old), String(old * k)));
+          `${old} × ${k} = ${old * k}.`, P.similar(String(old), "?"));
       },
       worked: [
         { problem: "5 cm map, scale ×3?", steps: [["Step", "15 cm"]], answer: "15" },
@@ -2066,7 +2066,7 @@
         const a = R(2, 8), k = R(2, 5), b = a * k, c = R(2, 8), d = c * k;
         return Q(`Sides ${a}/${b} = ${c}/x. x?`, d,
           wrongs(d, [c * a, b, c + b]),
-          `Butterfly: ${a}x = ${b * c} → x = ${d}.`, P.similar(String(a), String(b)));
+          `Butterfly: ${a}x = ${b * c} → x = ${d}.`, P.similar(String(a), "?"));
       },
       worked: [
         { problem: "3/9 = 4/x", steps: [["Step", "3x=36"], ["Step", "x=12"]], answer: "12" },

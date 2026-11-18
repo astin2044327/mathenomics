@@ -113,8 +113,10 @@
     let body = "";
     for (let k = 0; k <= 6; k += 1) {
       body += K.line(X(k), Y(0), X(k), Y(6), { w: 0.8, stroke: "#CFC8BC" }) + K.line(X(0), Y(k), X(6), Y(k), { w: 0.8, stroke: "#CFC8BC" });
-      body += K.T(X(k), O[1] + 18, k, { size: 11, weight: 500 });
-      if (k) body += K.T(O[0] - 12, Y(k) + 4, k, { size: 11, weight: 500 });
+      if (!o.hideNums) {
+        body += K.T(X(k), O[1] + 18, k, { size: 11, weight: 500 });
+        if (k) body += K.T(O[0] - 12, Y(k) + 4, k, { size: 11, weight: 500 });
+      }
     }
     body += K.line(X(0), Y(0), X(6) + 12, Y(0)) + K.line(X(0), Y(0), X(0), Y(6) - 12);
     if (o.seg) body += K.line(X(o.seg[0][0]), Y(o.seg[0][1]), X(o.seg[1][0]), Y(o.seg[1][1]), { stroke: ACC, w: 3 });
@@ -156,14 +158,15 @@
     return K.box(320, 214, body, "Tangent-secant");
   }
 
-  function twoTangPic(a) {
+  function twoTangPic(a, b) {
     const O = [180, 100], r = 64, P = [50, 180];
     const T1 = [130, 140], T2 = [150, 50];
     let body = K.circle(O[0], O[1], r, { fill: "var(--paper2)" });
     body += K.line(P[0], P[1], T1[0], T1[1], { stroke: ACC, w: 3 }) + K.line(P[0], P[1], T2[0], T2[1], { stroke: ACC, w: 3 });
     body += K.line(O[0], O[1], T1[0], T1[1], { dash: "5 5" }) + K.line(O[0], O[1], T2[0], T2[1], { dash: "5 5" });
     body += K.dot(P, "P", -12, 14) + K.dot(T1, "T", 10, 12) + K.dot(T2, "S", -14, -4) + K.dot(O, "O", 10, -8);
-    body += K.T(80, 150, a, { size: 14, fill: ACC }) + K.T(90, 100, a, { size: 14, fill: ACC });
+    const bLbl = b !== undefined ? b : a;
+    body += K.T(80, 150, a, { size: 14, fill: ACC }) + K.T(90, 100, bLbl, { size: 14, fill: ACC });
     return K.box(320, 214, body, "Two tangents from a point");
   }
 
@@ -621,7 +624,7 @@
         const ang = (x) => `${x}°`;
         if (Math.random() < 0.55) {
           return Q(`Find the sum of the interior angles of a ${n}-gon.`, ang(sum), [ang((n - 1) * 180), ang(n * 180), ang((n - 2) * 90), ang(360)],
-            `(${n} − 2) × 180 = ${n - 2} × 180 = ${sum}.`, polyPic(n, `(${n} − 2) × 180°`));
+            `(${n} − 2) × 180 = ${n - 2} × 180 = ${sum}.`, polyPic(n, "sum = ?"));
         }
         const each = sum / n;
         if (each % 1 !== 0) {
@@ -629,7 +632,7 @@
             `(${n} − 2) × 180 = ${sum}.`, polyPic(n));
         }
         return Q(`Each interior angle of a regular ${n}-gon?`, ang(each), [ang(sum), ang(360 / n), ang(180 - 360 / n), ang(each + 10)],
-          `Sum ${(n - 2) * 180}°, then ÷ ${n} = ${each}.`, polyPic(n, `each = ${each}°`));
+          `Sum ${(n - 2) * 180}°, then ÷ ${n} = ${each}.`, polyPic(n, "each = ?"));
       },
       worked: [
         {
@@ -660,7 +663,7 @@
         const each = 360 / n;
         if (Math.random() < 0.5) {
           return Q(`Each exterior angle of a regular ${n}-gon?`, `${each}°`, [deg((n - 2) * 180 / n), deg(180 - each), deg(360 - each), deg(n)],
-            `Exteriors sum to 360°. Each = 360 ÷ ${n} = ${each}.`, polyPic(n, `each exterior ${each}°`));
+            `Exteriors sum to 360°. Each = 360 ÷ ${n} = ${each}.`, polyPic(n, "each exterior = ?"));
         }
         return Q(`A regular polygon has exterior angle ${each}°. How many sides?`, n, [360 - each, (n - 2) * 180 / each, n + 1, 180 / each],
           `n = 360 ÷ ${each} = ${n}.`, polyPic(n));
@@ -704,7 +707,7 @@
         }
         const a = R(20, 160);
         return Q(`Two lines cross. One angle is ${a}°. Find the vertically opposite angle.`, `${a}°`, [deg(180 - a), deg(360 - a), deg(90)],
-          `Vertically opposite angles are equal: ${a}°.`, lineAngles({ a: `${a}°`, c: "?" }));
+          `Vertically opposite angles are equal: ${a}°.`, lineAngles({ c: "?" }));
       },
       worked: [
         {
@@ -861,7 +864,7 @@
         const ans = `${front} × 10${sup(exp)}`;
         return Q(`Write ${n.toLocaleString("en-US")} in scientific notation.`, ans,
           [`${front} × 10${sup(exp - 1)}`, `${lead}${tenths ? tenths : ""} × 10${sup(exp)}`, `${front} × 10${sup(exp + 1)}`, `${dp(lead * 10 + tenths, 1)} × 10${sup(exp)}`],
-          `Dot jumps ${exp} places left: ${ans}.`, P.chain([String(n), ans], [`${exp} places`]));
+          `Dot jumps ${exp} places left: ${ans}.`, P.chain([String(n), "?"], [`${exp} places`]));
       },
       worked: [
         {
@@ -1258,7 +1261,7 @@
         if (Math.random() < 0.5) {
           return Q(`Distance from (${x1}, ${y1}) to (${x2}, ${y2})`, c,
             [a + b, a, b, c + 1],
-            `√(${a}² + ${b}²) = √${a * a + b * b} = ${c}.`, gridPts([[x1, y1, "A"], [Math.min(x2, 6), Math.min(y2, 6), "B"]]));
+            `√(${a}² + ${b}²) = √${a * a + b * b} = ${c}.`, gridPts([[x1, y1, "A"], [x2, y2, "B"]], { seg: [[x1, y1], [x2, y2]], hideNums: true }));
         }
         const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
         if (mx % 1 !== 0 || my % 1 !== 0) {
@@ -1469,7 +1472,7 @@
         const t = R(4, 15);
         if (Math.random() < 0.6) {
           return Q(`Two tangents from P. One is ${t}. Find the other.`, t, [t + 1, 2 * t, t - 1],
-            `Two tangents from the same point are equal: ${t}.`, twoTangPic(t));
+            `Two tangents from the same point are equal: ${t}.`, twoTangPic(t, "?"));
         }
         const r = R(3, 8);
         return Q(`Tangents from P are equal. Triangle OPT is right-angled at T with OP = ${Math.round(Math.hypot(t, r) * 10) / 10 || t}. If OT = ${r} and PT = ${t}, find angle at P is acute — find OT² + PT².`, r * r + t * t,
@@ -1504,10 +1507,10 @@
         const a = R(25, 70);
         if (Math.random() < 0.5) {
           return Q(`Tangent-chord angle is ${a}°. Find the angle in the alternate segment.`, `${a}°`, [deg(90 - a), deg(180 - a), deg(2 * a)],
-            `Alternate segment: they match — ${a}°.`, altSegPic(`${a}°`, "?"));
+            `Alternate segment: they match — ${a}°.`, altSegPic("θ", "?"));
         }
         return Q(`Angle in the alternate segment is ${a}°. Find the tangent-chord angle.`, `${a}°`, [deg(90 - a), deg(180 - a), deg(a + 10)],
-          `They are equal: ${a}°.`, altSegPic("?", `${a}°`));
+          `They are equal: ${a}°.`, altSegPic("?", "θ"));
       },
       worked: [
         {
@@ -1541,7 +1544,7 @@
         const d = (a * b) / c;
         return Q(`Chords cross: pieces ${a} and ${b} on one, ${c} and ? on the other. Find ?.`, d,
           [a * b, a + b - c, d + 1, a * c].filter((x) => x !== d && x > 0),
-          `${a} × ${b} = ${c} × ${d}.`, chordCross(a, b, c, "?"));
+          `${a} × ${b} = ${c} × ${d}.`, chordCross(a === d ? "?" : a, b === d ? "?" : b, c === d ? "?" : c, "?"));
       },
       worked: [
         {
@@ -1608,7 +1611,7 @@
         const a = R(25, 75);
         return Q(`Two angles in the same segment stand on the same arc. One is ${a}°. Find the other.`, `${a}°`,
           [deg(180 - a), deg(2 * a), deg(90 - a)],
-          `Same segment, same arc: equal — ${a}°.`, sameSegPic(`${a}°`, "?"));
+          `Same segment, same arc: equal — ${a}°.`, sameSegPic("θ", "?"));
       },
       worked: [
         {

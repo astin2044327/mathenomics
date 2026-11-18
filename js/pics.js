@@ -77,7 +77,9 @@
   const P = {};
 
   P.gator = (a, b, o = {}) => {
-    let body = T(62, 94, a, { size: 56, weight: 700 }) + T(258, 94, b, { size: 56, weight: 700 });
+    const la = o.maskSides ? "?" : a;
+    const lb = o.maskSides ? "?" : b;
+    let body = T(62, 94, la, { size: 56, weight: 700 }) + T(258, 94, lb, { size: 56, weight: 700 });
     if (o.hide) {
       body += `<rect x="128" y="44" width="64" height="64" rx="14" fill="var(--paper2)" stroke="${INK}" stroke-width="2.5" stroke-dasharray="6 5"/>` + T(160, 90, "?", { size: 34 });
       return box(320, 150, body, `Compare ${a} and ${b}`);
@@ -105,7 +107,7 @@
     return box(320, 150, body, `Alligator comparing ${a} and ${b}`);
   };
 
-  P.tenFrame = (k) => {
+  P.tenFrame = (k, o = {}) => {
     let body = "";
     for (let i = 0; i < 10; i += 1) {
       const x = 60 + (i % 5) * 40;
@@ -115,15 +117,23 @@
         ? `<circle cx="${x + 20}" cy="${y + 20}" r="13" fill="var(--accent)"/>`
         : `<circle cx="${x + 20}" cy="${y + 20}" r="12" fill="none" stroke="${INK}" stroke-width="1.6" stroke-dasharray="4 4"/>`;
     }
-    body += T(160, 128, `${k} filled · ${10 - k} empty`, { size: 14, weight: 500 });
+    if (!o.hideCaption) body += T(160, 128, `${k} filled · ${10 - k} empty`, { size: 14, weight: 500 });
     return box(320, 140, body, `Ten frame with ${k} filled`);
   };
 
-  P.numberLine = (from, to, start, hops) => {
+  P.numberLine = (from, to, start, hops, o = {}) => {
+    const hideTick = new Set((o.hideTicks || []).map((v) => String(v)));
+    const hideHops = !!o.hideHops;
+    const labelStep = o.labelEvery || 1;
     const x = (v) => 24 + ((v - from) * 272) / (to - from);
     let body = line(16, 96, 304, 96);
     for (let v = from; v <= to; v += 1) {
-      body += line(x(v), 90, x(v), 102, { w: 2 }) + T(x(v), 122, v < 0 ? `−${-v}` : v, { size: 12, weight: 500 });
+      body += line(x(v), 90, x(v), 102, { w: 2 });
+      const showLabel = (v - from) % labelStep === 0 || v === start;
+      if (showLabel) {
+        const lab = hideTick.has(String(v)) ? "?" : v < 0 ? `−${-v}` : v;
+        body += T(x(v), 122, lab, { size: 12, weight: 500 });
+      }
     }
     let cur = start;
     hops.forEach((h) => {
@@ -131,10 +141,15 @@
       const b = x(cur + h);
       const lift = Math.min(60, 26 + Math.abs(b - a) * 0.25);
       body += `<path d="M${a} 90 Q${(a + b) / 2} ${90 - lift} ${b} 90" fill="none" stroke="var(--accent)" stroke-width="2.5"/>`;
-      body += T((a + b) / 2, 86 - lift * 0.55, h > 0 ? `+${h}` : `−${-h}`, { size: 12, fill: "var(--accent)" });
+      if (!hideHops) {
+        body += T((a + b) / 2, 86 - lift * 0.55, h > 0 ? `+${h}` : `−${-h}`, { size: 12, fill: "var(--accent)" });
+      }
       cur += h;
     });
     body += `<circle cx="${x(start)}" cy="96" r="6" fill="${INK}"/>`;
+    if (hops.length) {
+      body += `<circle cx="${x(cur)}" cy="96" r="5" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3"/>`;
+    }
     return box(320, 136, body, "Number line");
   };
 
@@ -184,16 +199,16 @@
     return box(320, H, body, `${g} groups of ${n}`);
   };
 
-  P.fingers = (n) => {
+  P.fingers = (n, o = {}) => {
     let body = "";
     for (let i = 0; i < 10; i += 1) {
       const x = 22 + i * 27 + (i >= 5 ? 14 : 0);
       const folded = i === n - 1;
       const h = folded ? 26 : 74;
       body += `<rect x="${x}" y="${112 - h}" width="20" height="${h}" rx="10" fill="${folded ? "var(--accent)" : "var(--paper2)"}" stroke="${INK}" stroke-width="2"/>`;
-      body += T(x + 10, 132, i + 1, { size: 11, weight: 500 });
+      if (!o.hideLabels) body += T(x + 10, 132, i + 1, { size: 11, weight: 500 });
     }
-    if (n >= 1 && n <= 10) {
+    if (n >= 1 && n <= 10 && !o.hideLabels) {
       body += T(82, 162, `${n - 1} tens`, { size: 16 }) + T(244, 162, `${10 - n} ones`, { size: 16 });
     }
     return box(320, 172, body, `Fingers for 9 times ${n}`);

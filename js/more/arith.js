@@ -1108,7 +1108,7 @@
             `Cover the floor: ${l} × ${w} = ${l * w} cubes. Stack ${h} floors: ${l * w} × ${h} = ${V}.`, boxPic(l, w, h));
         }
         return Q(`A box has volume ${V}. Its floor is ${l} by ${w}. How tall is it?`, h, [V - l * w, l * w, V - l - w, h + 1],
-          `The floor holds ${l} × ${w} = ${l * w} cubes. ${V} ÷ ${l * w} = ${h} floors.`, boxPic(l, w, "?"));
+          `The floor holds ${l} × ${w} = ${l * w} cubes. ${V} ÷ ${l * w} = ${h} floors.`, boxPic("length", "width", "?"));
       },
       worked: [
         {
@@ -1146,7 +1146,8 @@
         const names = ["A", "B", "C", "D"];
         const ans = names[order.findIndex((p) => p[0] === x && p[1] === y)];
         return Q(`Which point is at ${pt(x, y)}?`, ans, names.filter((n) => n !== ans),
-          `Along the corridor ${x}, then up the stairs ${y}. That is point ${ans}.`, plane(order.map((p, i) => ({ x: p[0], y: p[1], label: names[i] }))));
+          `Along the corridor ${x}, then up the stairs ${y}. That is point ${ans}.`,
+          plane(order.map((p, i) => ({ x: p[0], y: p[1], label: names[i] === ans ? "?" : names[i] }))));
       },
       worked: [
         {

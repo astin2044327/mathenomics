@@ -63,7 +63,8 @@
     const A = [40, 184], B = [286, 184], C = [196, 46];
     const mid = [174, 140];
     let body = poly([A, B, C]) + T(26, 202, "A") + T(302, 202, "B") + T(196, 32, "C");
-    if (o.A) body += arc(A, B, C, 30, o.A, { size: 13 });
+    if (o.A === "90°") body += right(A, B, C);
+    else if (o.A) body += arc(A, B, C, 30, o.A, { size: 13 });
     if (o.B) body += arc(B, A, C, 30, o.B, { size: 13 });
     if (o.C) body += arc(C, A, B, 24, o.C, { size: 13 });
     if (o.a != null) body += side(B, C, mid, o.a);
@@ -72,12 +73,14 @@
     return box(320, 214, body, "Triangle ABC");
   }
 
-  function twoTangPic(t) {
+  function twoTangPic(t, u) {
     const O = [160, 120], A = [90, 70], B = [230, 70], Pp = [160, 30];
     let body = circle(O[0], O[1], 55) + line(Pp[0], Pp[1], A[0], A[1]) + line(Pp[0], Pp[1], B[0], B[1]);
     body += line(O[0], O[1], A[0], A[1], { dash: "5 4" }) + line(O[0], O[1], B[0], B[1], { dash: "5 4" });
     body += right(A, O, Pp) + right(B, O, Pp) + dot(O, "O", 0, 16) + dot(Pp, "P", 0, -12);
-    body += T(160, 210, t != null ? `PA = PB = ${t}` : "PA = PB", { size: 13 });
+    const pb = u !== undefined ? u : t;
+    const lbl = t == null ? "PA = PB" : pb !== t ? `PA = ${t}, PB = ${pb}` : `PA = PB = ${t}`;
+    body += T(160, 210, lbl, { size: 13 });
     return box(320, 226, body, "Equal tangents");
   }
 
@@ -167,7 +170,7 @@
           const ans = Number.isInteger(area) ? area : Math.round(area * 100) / 100;
           return Q(`Sides ${a}, ${b}, ${c}. Find the area (Heron).`, ans,
             near(Math.round(area), [s, a + b + c, Math.round(area) + 2]),
-            `s = ${s}. Area = √[${s}(${s - a})(${s - b})(${s - c})] = ${ans}.`, heronPic(a, b, c, s));
+            `s = ${s}. Area = √[${s}(${s - a})(${s - b})(${s - c})] = ${ans}.`, heronPic(a, b, c, "?"));
         },
         worked: [
           {
@@ -193,7 +196,7 @@
           "Depreciation / decay: multiply by (1 − r/100) each period.",
           "Raise to n, then multiply by P."
         ],
-        exception: "Simple interest is P + Prt/100 — no power. Depreciation uses minus, not plus. n is the number of compounding periods, not always calendar years if compounded half-yearly.",
+        exception: "Simple interest is I = Prt/100; simple amount is P + Prt/100 — no power. Compound uses (1±r/100)^n. Depreciation uses minus, not plus. n is the number of compounding periods, not always calendar years if compounded half-yearly.",
         pic: () => P.roof("P", "P(1±r/100)^n", "grow + · decay −"),
         gen() {
           const form = R(1, 3);
@@ -204,7 +207,7 @@
             const ans = Math.round(P0 * Math.pow(1 + r / 100, n));
             return Q(`Principal ${P0} at ${r}% compound for ${n} year${n > 1 ? "s" : ""}. Find amount.`, ans,
               near(ans, [P0 + (P0 * r * n) / 100, P0 * (1 + r / 100), P0]),
-              `A = ${P0}(1+${r}/100)^${n} = ${ans}.`, P.roof(`${P0}`, String(ans), "compound growth"));
+              `A = ${P0}(1+${r}/100)^${n} = ${ans}.`, P.roof(`${P0}`, "?", "compound growth"));
           }
           if (form === 2) {
             const P0 = pick([10000, 20000, 50000]);
@@ -213,7 +216,7 @@
             const ans = Math.round(P0 * Math.pow(1 - r / 100, n));
             return Q(`Machine worth ${P0} depreciates ${r}% per year for ${n} year${n > 1 ? "s" : ""}. Value now?`, ans,
               near(ans, [P0 - (P0 * r * n) / 100, P0 * (1 - r / 100), P0]),
-              `A = ${P0}(1−${r}/100)^${n} = ${ans}.`, P.roof(`${P0}`, String(ans), "depreciation"));
+              `A = ${P0}(1−${r}/100)^${n} = ${ans}.`, P.roof(`${P0}`, "?", "depreciation"));
           }
           const P0 = pick([2000, 5000, 10000]);
           const r = pick([2, 5, 10]);
@@ -221,7 +224,7 @@
           const ans = Math.round(P0 * Math.pow(1 + r / 100, n));
           return Q(`Population ${P0} grows ${r}% per year for ${n} years. New population?`, ans,
             near(ans, [P0 + (P0 * r * n) / 100, P0 * (1 + r / 100)]),
-            `Same as compound: ${P0}(1+${r}/100)^${n} = ${ans}.`, P.roof("population", String(ans), "+r each year"));
+            `Same as compound: ${P0}(1+${r}/100)^${n} = ${ans}.`, P.roof("population", "?", "+r each year"));
         },
         worked: [
           {
@@ -319,13 +322,13 @@
             const ans = now + n;
             return Q(`A child is ${now} now. How old after ${n} years?`, ans,
               near(ans, [now - n, now * n, n]),
-              `${now} + ${n} = ${ans}.`, P.roof(String(now), String(ans), `+${n}`));
+              `${now} + ${n} = ${ans}.`, P.roof(String(now), "?", `+${n}`));
           }
           const a = R(8, 14), b = a + R(4, 10), n = R(2, 5);
           const ans = (a + n) + (b + n);
           return Q(`Ages ${a} and ${b}. Sum of ages after ${n} years?`, ans,
             near(ans, [a + b, a + b + n, a + b + 2 * n + 1]),
-            `(${a}+${n})+(${b}+${n}) = ${ans}.`, P.roof(`${a}+${b}`, String(ans), `each +${n}`));
+            `(${a}+${n})+(${b}+${n}) = ${ans}.`, P.roof(`${a}+${b}`, "?", `each +${n}`));
         },
         worked: [
           {
@@ -360,20 +363,20 @@
             const ans = onlyA + both + onlyB;
             return Q(`n(A)=${nA}, n(B)=${nB}, n(A∩B)=${both}. Find n(A∪B).`, ans,
               near(ans, [nA + nB, onlyA + onlyB, nA + nB + both]),
-              `${nA}+${nB}−${both} = ${ans}.`, vennPic(`∪ = ${ans}`));
+              `${nA}+${nB}−${both} = ${ans}.`, vennPic("n(A∪B) = ?"));
           }
           if (form === 2) {
             const both = R(5, 10), nA = both + R(4, 10);
             const ans = nA - both;
             return Q(`n(A)=${nA}, n(A∩B)=${both}. How many in only A?`, ans,
               near(ans, [nA, both, nA + both]),
-              `only A = ${nA}−${both} = ${ans}.`, vennPic(`only A = ${ans}`));
+              `only A = ${nA}−${both} = ${ans}.`, vennPic("only A = ?"));
           }
           const uni = R(40, 60), total = uni + R(10, 25);
           const ans = total - uni;
           return Q(`In a survey of ${total}, n(A∪B)=${uni}. How many in neither?`, ans,
             near(ans, [total, uni, total + uni]),
-            `neither = ${total}−${uni} = ${ans}.`, vennPic(`neither = ${ans}`));
+            `neither = ${total}−${uni} = ${ans}.`, vennPic("neither = ?"));
         },
         worked: [
           {
@@ -407,7 +410,7 @@
             const ans = usd * rate;
             return Q(`${usd} USD at Rs ${rate} per USD. Value in Rs?`, ans,
               near(ans, [usd + rate, usd * (rate - 2), Math.floor(usd / rate)]),
-              `${usd} × ${rate} = ${ans}.`, P.roof(`${usd} USD`, `Rs ${ans}`, `× ${rate}`));
+              `${usd} × ${rate} = ${ans}.`, P.roof(`${usd} USD`, "Rs ?", `× ${rate}`));
           }
           if (form === 2) {
             const sales = pick([20000, 50000, 80000]);
@@ -415,14 +418,14 @@
             const ans = (sales * r) / 100;
             return Q(`Sales Rs ${sales}. Commission ${r}%. Find commission.`, ans,
               near(ans, [sales + r, sales * r, sales - ans]),
-              `${sales} × ${r}/100 = ${ans}.`, P.roof("sales", String(ans), `${r}% commission`));
+              `${sales} × ${r}/100 = ${ans}.`, P.roof("sales", "?", `${r}% commission`));
           }
           const price = pick([1000, 2000, 5000]);
           const r = pick([10, 13, 15]);
           const ans = price + (price * r) / 100;
           return Q(`Price Rs ${price}. Add VAT ${r}%. Total?`, ans,
             near(ans, [price - (price * r) / 100, (price * r) / 100, price * r]),
-            `${price}(1+${r}/100) = ${ans}.`, P.roof(String(price), String(ans), `+${r}% VAT`));
+            `${price}(1+${r}/100) = ${ans}.`, P.roof(String(price), "?", `+${r}% VAT`));
         },
         worked: [
           {
@@ -454,21 +457,21 @@
             const ans = l * w * h;
             return Q(`Cuboid ${l}×${w}×${h}. Find the volume.`, ans,
               near(ans, [l * w, l * w + h, 2 * (l * w + w * h + h * l)]),
-              `V = ${l}×${w}×${h} = ${ans}.`, P.roof("Bh", String(ans), "prism / cuboid"));
+              `V = ${l}×${w}×${h} = ${ans}.`, P.roof("Bh", "?", "prism / cuboid"));
           }
           if (form === 2) {
             const B = pick([12, 18, 24, 30]), h = R(4, 9);
             const ans = (B * h) / 3;
             return Q(`Pyramid base area ${B}, height ${h}. Find volume.`, ans,
               near(ans, [B * h, B * h * 3, B + h]),
-              `V = (1/3)×${B}×${h} = ${ans}.`, pyramidPic(`V = ${ans}`));
+              `V = (1/3)×${B}×${h} = ${ans}.`, pyramidPic("V = ?"));
           }
           const brick = pick([24, 30, 40]);
           const wall = brick * R(20, 50);
           const ans = wall / brick;
           return Q(`Wall volume ${wall}. Each brick volume ${brick} (no gap). How many bricks?`, ans,
             near(ans, [wall - brick, wall + brick, brick]),
-            `${wall} ÷ ${brick} = ${ans}.`, P.roof("wall ÷ brick", String(ans), "packing"));
+            `${wall} ÷ ${brick} = ${ans}.`, P.roof("wall ÷ brick", "?", "packing"));
         },
         worked: [
           {
@@ -573,11 +576,11 @@
           if (Math.random() < 0.5) {
             return Q(`BPT: AD=${ad}, DB=${db}, AE=${ae}. Find EC.`, ec,
               near(ec, [ae, ad, ae * ad]),
-              `${ad}/${db} = ${ae}/EC → EC = ${ec}.`, P.bpt(ad, db, ae, "?"));
+              `${ad}/${db} = ${ae}/EC → EC = ${ec}.`, P.bpt(ad === ec ? "?" : ad, db === ec ? "?" : db, ae === ec ? "?" : ae, "?"));
           }
           return Q(`BPT: AD=${ad}, DB=${db}, EC=${ec}. Find AE.`, ae,
             near(ae, [ec, ad, ec * k]),
-            `${ad}/${db} = AE/${ec} → AE = ${ae}.`, P.bpt(ad, db, "?", ec));
+            `${ad}/${db} = AE/${ec} → AE = ${ae}.`, P.bpt(ad === ae ? "?" : ad, db === ae ? "?" : db, "?", ec === ae ? "?" : ec));
         },
         worked: [
           {
@@ -635,7 +638,7 @@
           const k = R(2, 4), small = R(3, 8), big = small * k;
           return Q(`Similar triangles. Side ${small} matches side ${big}. A side ${small + 1} matches?`, (small + 1) * k,
             near((small + 1) * k, [small + 1, big + 1, (small + 1) * (k + 1)]),
-            `Scale ${big}/${small} = ${k}. Missing = ${small + 1}×${k}.`, P.similar(small, big));
+            `Scale ${big}/${small} = ${k}. Missing = ${small + 1}×${k}.`, P.similar(small, "?"));
         },
         worked: [
           {
@@ -661,7 +664,7 @@
           const a = R(2, 6), k = R(2, 3), b = a * k, c = R(2, 5), d = c * k;
           return Q(`Bisector: adjacent sides ${a} and ${b}; one segment ${c}. Other segment?`, d,
             near(d, [c, a, c * a]),
-            `${a}/${b} = ${c}/x → x = ${d}.`, bisectorPic(a, b, c, "?"));
+            `${a}/${b} = ${c}/x → x = ${d}.`, bisectorPic(a === d ? "?" : a, b === d ? "?" : b, c, "?"));
         },
         worked: [
           {
@@ -718,7 +721,7 @@
           const a = R(50, 130);
           return Q(`Cyclic quad. One angle ${a}°. Opposite angle?`, deg(180 - a),
             [deg(a), deg(90), deg(360 - a)],
-            `Opposite sum to 180° → ${180 - a}°.`, P.cyclic(`${a}°`, "?"));
+            `Opposite sum to 180° → ${180 - a}°.`, P.cyclic(a === 90 ? "?" : `${a}°`, "?"));
         },
         worked: [
           {
@@ -750,7 +753,7 @@
               `OT ⊥ tangent → OP = √(${r}²+${t}²) = ${hyp}.`, P.tangent(`${t}`, "90°"));
           }
           return Q(`Radius meets tangent at T. Angle OT–tangent?`, "90°", ["45°", "60°", "180°"],
-            "Radius ⊥ tangent at contact.", P.tangent("α", "90°"));
+            "Radius ⊥ tangent at contact.", P.tangent("α", "?"));
         },
         worked: [
           {
@@ -776,7 +779,7 @@
           const a = R(25, 70);
           return Q(`Tangent–chord angle ${a}°. Angle in the alternate segment?`, deg(a),
             [deg(90 - a), deg(180 - a), deg(2 * a)],
-            `They match: ${a}°.`, altSegPic(`${a}°`, "?"));
+            `They match: ${a}°.`, altSegPic("θ", "?"));
         },
         worked: [
           {
@@ -802,7 +805,7 @@
           const t = R(6, 15);
           return Q(`Tangents from P: one is ${t}. Find the other.`, t,
             near(t, [t + 1, 2 * t, t - 1]),
-            `Equal tangents: ${t}.`, twoTangPic(t));
+            `Equal tangents: ${t}.`, twoTangPic(t, "?"));
         },
         worked: [
           {
@@ -890,16 +893,16 @@
           if (form === 1) {
             return Q(`Right triangle: opp=${a}, hyp=${c}. sin θ?`, sfr(a, c),
               [sfr(b, c), sfr(a, b), sfr(c, a)],
-              `sin = opp/hyp = ${a}/${c}.`, P.rightTri({ opp: a, adj: b, hyp: c, theta: "θ" }));
+              `sin = opp/hyp = ${a}/${c}.`, P.rightTri({ opp: a, adj: "?", hyp: c, theta: "θ" }));
           }
           if (form === 2) {
             return Q(`Right triangle: adj=${b}, hyp=${c}. cos θ?`, sfr(b, c),
               [sfr(a, c), sfr(b, a), sfr(c, b)],
-              `cos = adj/hyp = ${b}/${c}.`, P.rightTri({ opp: a, adj: b, hyp: c, theta: "θ" }));
+              `cos = adj/hyp = ${b}/${c}.`, P.rightTri({ opp: "?", adj: b, hyp: c, theta: "θ" }));
           }
           return Q(`Right triangle: opp=${a}, adj=${b}. tan θ?`, sfr(a, b),
             [sfr(b, a), sfr(a, c), sfr(b, c)],
-            `tan = opp/adj = ${a}/${b}.`, P.rightTri({ opp: a, adj: b, hyp: c, theta: "θ" }));
+            `tan = opp/adj = ${a}/${b}.`, P.rightTri({ opp: a, adj: b, hyp: "?", theta: "θ" }));
         },
         worked: [
           {
@@ -996,7 +999,7 @@
         gen() {
           if (Math.random() < 0.4) {
             return Q("Simplify sin²θ + cos²θ", "1", ["0", "2", "sin 2θ"],
-              "Pythagorean identity.", P.rightTri({ opp: "sin θ", adj: "cos θ", hyp: "1", theta: "θ" }));
+              "Pythagorean identity.", P.rightTri({ opp: "sin θ", adj: "cos θ", hyp: "?", theta: "θ" }));
           }
           const [a, b, c] = pick([[3, 4, 5], [5, 12, 13], [8, 15, 17]]);
           return Q(`θ acute, sin θ = ${a}/${c}. Find cos θ.`, sfr(b, c),
@@ -1064,7 +1067,7 @@
           const [b, c, a] = pick([[3, 4, 5], [5, 12, 13], [6, 8, 10]]);
           return Q(`A=90°, b=${b}, c=${c}. Find a (cosine rule / Pythagoras).`, a,
             near(a, [b + c, b * c, a + 1]),
-            `cos 90°=0 → a²=b²+c² → a=${a}.`, abc({ A: "90°", a: "?", b, c }));
+            `cos 90°=0 → a²=b²+c² → a=${a}.`, abc({ A: "90°", a: "?", b: "b", c: "c" }));
         },
         worked: [
           {
@@ -1095,7 +1098,7 @@
           return Q(`sin A=3/5, cos A=4/5, sin B=5/13, cos B=12/13 (acute). sin(A+B)?`, ans,
             [sfr(16, 65), sfr(33, 65), sfr(63, 65), "1"],
             `sin A cos B + cos A sin B = 36/65 + 20/65 = 56/65.`,
-            P.roof("sin(A+B)", ans, "sin cos + cos sin"));
+            P.roof("sin(A+B)", "?", "sin cos + cos sin"));
         },
         worked: [
           {
@@ -1126,7 +1129,7 @@
           const ans = (a * b * sinC) / 2;
           return Q(`Sides ${a} and ${b} include ${C}°. Find the area.`, ans,
             near(ans, [a * b * sinC, a * b / 2, a + b]),
-            `½×${a}×${b}×sin ${C}° = ${ans}.`, abc({ C: `${C}°`, a, b }));
+            `½×${a}×${b}×sin ${C}° = ${ans}.`, abc({ C: "C", a: "a", b: "b" }));
         },
         worked: [
           {

@@ -88,7 +88,7 @@
             const b = Math.random() < 0.2 ? a : R(0, 20);
             const s = a > b ? ">" : a < b ? "<" : "=";
             return Q(`Which sign goes between ${a} and ${b}?`, s, ["<", ">", "="],
-              a === b ? `They are the same, so it is ${a} = ${b}.` : `The mouth opens toward ${Math.max(a, b)}: ${a} ${s} ${b}.`, P.gator(a, b, { hide: true }));
+              a === b ? `They are the same, so it is ${a} = ${b}.` : `The mouth opens toward ${Math.max(a, b)}: ${a} ${s} ${b}.`, P.gator(a, b, { hide: true, maskSides: true }));
           }
         }),
         L({
@@ -98,7 +98,7 @@
           pic: () => P.tenFrame(7),
           gen() {
             const k = R(0, 10);
-            return Q(`${k} + ? = 10`, 10 - k, [11 - k, 9 - k, k, 10 + k], `${k} filled, ${10 - k} empty. ${k} and ${10 - k} make ten.`, P.tenFrame(k));
+            return Q(`${k} + ? = 10`, 10 - k, [11 - k, 9 - k, k, 10 + k], `${k} filled, ${10 - k} empty. ${k} and ${10 - k} make ten.`, P.tenFrame(k, { hideCaption: true }));
           }
         }),
         L({
@@ -110,7 +110,7 @@
             const a = R(6, 14);
             const b = R(2, 4);
             const seq = Array.from({ length: b }, (_, i) => a + i + 1).join(", ");
-            return Q(`${a} + ${b}`, a + b, [a + b - 1, a + b + 1, a + b + 2], `Hold ${a}. Count on: ${seq}.`, P.numberLine(a - 1, a + b + 1, a, Array(b).fill(1)));
+            return Q(`${a} + ${b}`, a + b, [a + b - 1, a + b + 1, a + b + 2], `Hold ${a}. Count on: ${seq}.`, P.numberLine(a - 1, a + b + 1, a, Array(b).fill(1), { hideTicks: [a + b], hideHops: true }));
           }
         })
       ]
@@ -485,7 +485,7 @@
             const ans = kind === "C" ? 180 - x : x;
             const word = { F: "corresponding (F)", Z: "alternate (Z)", C: "co-interior (C)" }[kind];
             return Q(`On parallel lines, find the ${word} angle to ${x}°.`, `${ans}°`, [deg(kind === "C" ? x : 180 - x), deg(360 - x), deg(Math.abs(90 - x))],
-              kind === "C" ? `C angles add to 180: 180 − ${x} = ${ans}.` : `${kind} angles copy: ${ans}°.`, P.parallel(kind, `${x}°`, "?"));
+              kind === "C" ? `C angles add to 180: 180 − ${x} = ${ans}.` : `${kind} angles copy: ${ans}°.`, P.parallel(kind, kind === "C" ? `${x}°` : "θ", "?"));
           }
         }),
         L({

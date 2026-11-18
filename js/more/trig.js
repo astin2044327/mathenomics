@@ -473,7 +473,8 @@
       gen() {
         if (Math.random() < 0.35) {
           const [expr, ans, wrongs, why] = pick(PYID);
-          return Q(`Simplify ${expr}`, ans, wrongs, why, P.rightTri({ opp: "sin θ", adj: "cos θ", hyp: "1", theta: "θ" }));
+          const tri = ans === "1" ? { opp: "sin θ", adj: "cos θ", hyp: "?", theta: "θ" } : { opp: "sin θ", adj: "cos θ", hyp: "1", theta: "θ" };
+          return Q(`Simplify ${expr}`, ans, wrongs, why, P.rightTri(tri));
         }
         let [a, b, c] = pick(PRIM);
         if (Math.random() < 0.5) [a, b] = [b, a];
@@ -1024,14 +1025,14 @@
             const ans = S(a * b, 4, k);
             return QV(`a = ${a}, b = ${b}, and the angle C between them is ${C}°. Find the area.`, ans,
               [S(a * b, 2, k), [sfr(a * b, 2), (a * b) / 2], k === 4 ? null : S(a * b, 4, 4 - k), [String(a * b), a * b], S(a + b, 4, k), S(a * b, 8, k), [String(a + b), a + b]],
-              `Area = ½ × ${a} × ${b} × sin ${C}° = ½ × ${a * b} × ${SIN[C]} = ${ans[0]}.`, abc({ C: `${C}°`, a, b }));
+              `Area = ½ × ${a} × ${b} × sin ${C}° = ½ × ${a * b} × ${SIN[C]} = ${ans[0]}.`, abc({ C: "C", a: "a", b: "b" }));
           }
           const C = pick([30, 45, 60, 90]);
           let a, b;
           do { a = R(2, 12); b = R(2, 12); } while (C === 30 && (a * b) % 4);
           const area = S(a * b, 4, KS[C])[0];
           return Q(`The area is ${area}, a = ${a}, and b = ${b}. C is not obtuse. Find C.`, `${C}°`, [...[30, 45, 60, 90].map(deg), deg(180 - C)],
-            `sin C = 2 × area ÷ ab = ${SIN[C]}, so C = ${C}°.`, abc({ C: "?", a, b }));
+            `sin C = 2 × area ÷ ab = ${SIN[C]}, so C = ${C}°.`, abc({ C: "?", a: "a", b: "b" }));
         },
         worked: [
           {
@@ -1373,7 +1374,7 @@
               ["tan⁻¹(tan 120°)", -60, [120, 60, 300], "tan 120° = −√3, and the angle from −90° to 90° with that tangent is −60°."],
               ["tan⁻¹(tan 225°)", 45, [225, -45, 135], "tan 225° = 1, and the angle from −90° to 90° with tangent 1 is 45°."]
             ]);
-            return Q(`Find ${expr}`, dg(ans), wrongs.map(dg), why, wheel([ans]));
+            return Q(`Find ${expr}`, dg(ans), wrongs.map(dg), why, wheel([], { note: "principal range" }));
           }
           const f = pick(["sin", "cos", "tan"]);
           const i = R(0, f === "tan" ? 3 : 4);
@@ -1562,13 +1563,15 @@
       gen() {
         if (Math.random() < 0.7) {
           const i = R(0, 3), k = R(1, 4);
+          const ans = CYC[(i + k) % 4];
           const path = Array.from({ length: k + 1 }, (_, j) => CYC[(i + j) % 4]).join(" → ");
-          return Q(k === 1 ? `d/dx of ${CYC[i]}` : `The ${ORD[k]}derivative of ${CYC[i]}`, CYC[(i + k) % 4], CYC,
-            `${k} step${k > 1 ? "s" : ""} round the cycle: ${path}.`, P.chain(CYC.concat(CYC[0]), ["d/dx", "d/dx", "d/dx", "d/dx"]));
+          const start = CYC[i] === ans ? "f(x)" : CYC[i];
+          return Q(k === 1 ? `d/dx of ${CYC[i]}` : `The ${ORD[k]}derivative of ${CYC[i]}`, ans, CYC,
+            `${k} step${k > 1 ? "s" : ""} round the cycle: ${path}.`, P.chain([start, ...Array(k).fill("→"), "?"], ["d/dx", ...Array(k).fill("")]));
         }
         const a = R(2, 9), b = R(2, 9);
         return Q(`d/dx of ${a} sin x + ${b} cos x`, `${a} cos x − ${b} sin x`, [`${a} cos x + ${b} sin x`, `−${a} cos x + ${b} sin x`, `${b} cos x − ${a} sin x`],
-          `sin x → cos x, and cos x → −sin x. The ${a} and ${b} come along.`);
+          `sin x → cos x, and cos x → −sin x. The ${a} and ${b} come along.`, P.roof(`${a} sin x + ${b} cos x`, "?", "d/dx"));
       },
       worked: [
         {

@@ -1,4 +1,4 @@
-const CACHE = "mathenomics-v21";
+const CACHE = "mathenomics-v23";
 const SHELL = [
   "./",
   "./index.html",
