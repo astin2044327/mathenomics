@@ -1,0 +1,493 @@
+{
+  "grade": "Grado 7",
+  "title": "Enteros y porcentaje",
+  "blurb": "Números positivos y negativos, y todo lo que es «de cada cien».",
+  "lessons": {
+    "signs": {
+      "name": "Multiplicar signos",
+      "phrase": "Amigos dan positivo. Desconocidos dan negativo.",
+      "also": "Mismos signos dan +. Distintos dan −.",
+      "steps": [
+        "Ignora los signos y multiplica.",
+        "Mismos signos (amigos): respuesta positiva.",
+        "Distintos (desconocidos): respuesta negativa."
+      ],
+      "exception": "Solo para × y ÷. Sumar es distinto: −3 + −4 es −7, no +7. Cualquier cosa × 0 es 0, sin signo.",
+      "tag": ""
+    },
+    "intadd": {
+      "name": "Sumar enteros",
+      "phrase": "Mismos signos: suma y conserva. Distintos: resta y conserva el signo del mayor.",
+      "also": "",
+      "steps": [
+        "Mira los dos signos.",
+        "Iguales: suma magnitudes, conserva el signo.",
+        "Distintos: resta la menor de la mayor y conserva el signo de la mayor."
+      ],
+      "exception": "No uses la regla de amigos aquí. −3 + −4 es −7, porque dos deudas hacen una deuda mayor.",
+      "tag": ""
+    },
+    "percent": {
+      "name": "Porcentaje de un número",
+      "phrase": "Por ciento significa de cada 100. Mueve el punto dos lugares y multiplica.",
+      "also": "",
+      "steps": [
+        "Escribe el porcentaje de 100: 25% es 0,25.",
+        "Multiplica por la cantidad.",
+        "En un cambio, compara siempre con el valor inicial."
+      ],
+      "exception": "10% del 10% es 1%, no 20%. Más de 100% vale: 150% de 40 es 60.",
+      "tag": ""
+    },
+    "intsub": {
+      "name": "Restar enteros",
+      "phrase": "Keep, Change, Change (Conserva, Cambia, Cambia).",
+      "also": "Restar un número es sumar su opuesto.",
+      "steps": [
+        "Conserva el primer número.",
+        "Cambia − por +.",
+        "Cambia el signo del segundo.",
+        "Suma con las reglas de suma."
+      ],
+      "exception": "Cambia las dos cosas: el signo del medio y el segundo número. Nunca cambies el primero. No lo mezcles con Keep, Change, Flip de fracciones.",
+      "tag": ""
+    },
+    "intdiv": {
+      "name": "Dividir enteros",
+      "phrase": "Divide magnitudes. Mismos signos, positivo. Distintos, negativo.",
+      "also": "La misma regla de signos que en ×.",
+      "steps": [
+        "Ignora signos y divide.",
+        "Mismos signos: positivo.",
+        "Distintos: negativo."
+      ],
+      "exception": "Nunca divides entre 0. 0 entre cualquier otro es 0, sin signo. Dos negativos dan positivo solo en × y ÷, no en + o −.",
+      "tag": ""
+    },
+    "equations": {
+      "name": "Resolver ecuaciones",
+      "phrase": "Haz lo contrario en ambos lados.",
+      "also": "Deshaz en orden inverso: + y − primero, luego × y ÷.",
+      "steps": [
+        "Mira qué le hacen a x.",
+        "Deshaz + o − primero: lo contrario en ambos lados.",
+        "Luego deshaz × o ÷ igual.",
+        "Comprueba: sustituye tu respuesta."
+      ],
+      "exception": "Lo que hagas a un lado, hazlo al otro o dejan de ser iguales. Deshaz +/− antes que ×: en 3x + 4 = 19, no dividas 19 entre 3 primero.",
+      "tag": ""
+    },
+    "circle": {
+      "name": "Circunferencia y área del círculo",
+      "phrase": "Cherry pie’s delicious: C = πd. Apple pies are too: A = πr².",
+      "also": "El diámetro va de lado a lado. El radio es la mitad: d = 2 × r.",
+      "steps": [
+        "Halla r o d. d = 2 × r.",
+        "Alrededor (circunferencia): C = π × d.",
+        "Dentro (área): A = π × r × r.",
+        "Usa π ≈ 3,14."
+      ],
+      "exception": "El área usa el radio, no el diámetro. Si dan d, divídelo entre dos primero. r² es r × r, no r × 2.",
+      "tag": ""
+    },
+    "interest": {
+      "name": "Interés simple",
+      "phrase": "I = PRT: Interés = Principal × Tasa × Tiempo.",
+      "also": "Principal: dinero inicial. Tasa: porcentaje por año. Tiempo en años.",
+      "steps": [
+        "Escribe la tasa como decimal: 5% = 0,05.",
+        "Escribe el tiempo en años: 6 meses = 0,5.",
+        "Multiplica P × R × T.",
+        "Para el total, suma el interés al principal."
+      ],
+      "exception": "Tasa como decimal, no entero: 5% es 0,05, no 5. El interés simple es igual cada año; no crece sobre sí mismo (eso es compuesto).",
+      "tag": ""
+    },
+    "pchange": {
+      "name": "Aumento y disminución porcentual",
+      "phrase": "Nuevo menos viejo, entre viejo, por 100.",
+      "also": "",
+      "steps": [
+        "Halla el cambio: nuevo − viejo.",
+        "Divide entre el viejo (inicial).",
+        "Multiplica por 100. Positivo es aumento, negativo disminución."
+      ],
+      "exception": "Siempre divide entre el viejo, no el nuevo. Subir 50% y bajar 50% no te devuelve: 100 → 150 → 75.",
+      "tag": ""
+    },
+    "discount": {
+      "name": "Descuento e impuesto",
+      "phrase": "¿Oferta? Quítalo. ¿Impuesto? Ponlo encima.",
+      "also": "20% off pagas 80%. 5% de impuesto pagas 105%.",
+      "steps": [
+        "Halla el porcentaje del precio.",
+        "Descuento: réstalo del precio.",
+        "Impuesto: súmalo.",
+        "Ambos: descuento primero, impuesto sobre el precio nuevo."
+      ],
+      "exception": "El impuesto va sobre el precio de oferta, no el antiguo. 20% off y 5% tax no es 15% off.",
+      "tag": ""
+    },
+    "prob": {
+      "name": "Probabilidad",
+      "phrase": "Lo que quieres, sobre todo lo que tienes.",
+      "also": "P(evento) = casos favorables ÷ casos totales.",
+      "steps": [
+        "Cuenta los casos que quieres (favorables).",
+        "Cuenta todos los posibles.",
+        "Escribe quiero ÷ total y simplifica."
+      ],
+      "exception": "El total incluye los favorables. Con 3 rojos y 5 azules, P(rojo) es 3/8, no 3/5. Probabilidad entre 0 (imposible) y 1 (seguro).",
+      "tag": ""
+    },
+    "proportion": {
+      "name": "Proporciones",
+      "phrase": "Multiplica en cruz: método mariposa.",
+      "also": "Multiplica cada diagonal. Las dos alas son iguales. Luego divide junto a x.",
+      "steps": [
+        "Monta dos fracciones iguales con el mismo orden en ambos lados.",
+        "Multiplica en cruz: alas de mariposa.",
+        "Iguala las alas y divide para hallar x."
+      ],
+      "exception": "Solo multiplica en cruz cuando dos fracciones son iguales. Nunca para sumar fracciones. Mismo orden: millas sobre horas = millas sobre horas.",
+      "tag": ""
+    },
+    "dirt-distance": {
+      "name": "Distancia = rapidez × tiempo",
+      "phrase": "d = rt — dirt.",
+      "also": "Distancia, rapidez y tiempo comparten un triángulo de fórmulas.",
+      "steps": [
+        "Escribe d = rt.",
+        "Sustituye lo conocido.",
+        "Resuelve lo desconocido.",
+        "Comprueba que las unidades coincidan."
+      ],
+      "exception": "Las unidades deben coincidir. Rapidez media ≠ rapidez instantánea.",
+      "tag": ""
+    },
+    "speed-triangle": {
+      "name": "Cubrir D–R–T",
+      "phrase": "Distancia = rapidez × tiempo; tapa la incógnita en D–R–T.",
+      "also": "",
+      "steps": [
+        "Identifica cuál de D, R, T necesitas.",
+        "Tapa esa letra: las otras dos muestran × o ÷.",
+        "Usa D = RT, R = D ÷ T o T = D ÷ R.",
+        "Comprueba unidades."
+      ],
+      "exception": "Unidades coherentes. Rapidez media es distancia total ÷ tiempo total — no el promedio de rapideces.",
+      "tag": ""
+    },
+    "scalene-odd-one": {
+      "name": "Triángulos escalenos",
+      "phrase": "Escaleno es el raro: sin lados iguales.",
+      "also": "Equilátero: todos iguales. Isósceles: al menos dos iguales.",
+      "steps": [
+        "Compara las tres longitudes.",
+        "Ningún par igual → escaleno.",
+        "Dos iguales → isósceles; tres → equilátero."
+      ],
+      "exception": "Nombres de lados ≠ nombres de ángulos. Un escaleno puede ser agudo, recto u obtuso.",
+      "tag": ""
+    },
+    "kcc": {
+      "name": "Keep Change Change",
+      "phrase": "KCC: conserva el primero, cambia − por +, cambia el signo del siguiente.",
+      "also": "Restar un negativo es sumar: a − (−b) = a + b.",
+      "steps": [
+        "Conserva el primer número.",
+        "Cambia la resta en suma.",
+        "Cambia el signo del segundo.",
+        "Luego suma enteros."
+      ],
+      "exception": "KCC es para resta de enteros. No KCC en una multiplicación.",
+      "tag": ""
+    },
+    "arithspell": {
+      "name": "Deletrear arithmetic",
+      "phrase": "A Rat In The House May Eat The Ice Cream.",
+      "also": "A-R-I-T-H-M-E-T-I-C.",
+      "steps": [
+        "Usa las iniciales de la oración.",
+        "Escribe A R I T H M E T I C.",
+        "Eso es «arithmetic»."
+      ],
+      "exception": "Es gancho de deletreo — no un método de cálculo.",
+      "tag": ""
+    },
+    "commute7": {
+      "name": "Propiedades con enteros",
+      "phrase": "Voltear y reagrupar sigue valiendo con negativos en + y ×.",
+      "also": "",
+      "steps": [
+        "Conmutativa: el orden puede voltearse en + y ×.",
+        "Asociativa: reagrupa + o ×.",
+        "Cuida signos al distribuir."
+      ],
+      "exception": "La resta no es conmutativa aunque uses KCC — primero reescribe como suma del opuesto.",
+      "tag": ""
+    },
+    "distrib7": {
+      "name": "Distribuir con signos",
+      "phrase": "Reparte el factor de afuera — con su signo — a cada término.",
+      "also": "",
+      "steps": [
+        "Escribe a(b + c) como ab + ac.",
+        "Si afuera es negativo, cada término cambia de signo.",
+        "Simplifica."
+      ],
+      "exception": "−(x − 3) = −x + 3, no −x − 3.",
+      "tag": ""
+    },
+    "wordkeys7": {
+      "name": "Pistas de palabras con enteros",
+      "phrase": "En total sigue sumando; queda sigue restando — ahora los signos pueden ser negativos.",
+      "also": "",
+      "steps": [
+        "Traduce palabras clave a operaciones.",
+        "Pon signos del cuento (deuda, abajo, pérdida).",
+        "Calcula con reglas de enteros."
+      ],
+      "exception": "«Más que» en la recta puede ser movimiento positivo aunque empezaras negativo.",
+      "tag": ""
+    },
+    "estimate7": {
+      "name": "Estimar porcentajes",
+      "phrase": "Redondea la cantidad, usa un porcentaje amigo y ajusta.",
+      "also": "",
+      "steps": [
+        "Redondea el número base.",
+        "Toma 10% o 50% como ancla.",
+        "Escala al porcentaje que necesitas."
+      ],
+      "exception": "Para propinas/impuestos basta estimar; interés bancario pide exacto.",
+      "tag": ""
+    },
+    "absval": {
+      "name": "Valor absoluto",
+      "phrase": "Valor absoluto es distancia a cero — siempre positivo (o cero).",
+      "also": "",
+      "steps": [
+        "Mira qué tan lejos está del 0.",
+        "Quita el signo.",
+        "Escribe |n| para esa distancia."
+      ],
+      "exception": "|−3| = 3, pero eso no hace −3 positivo en toda ecuación — importa el contexto.",
+      "tag": ""
+    },
+    "unitrate7": {
+      "name": "Tasa unitaria",
+      "phrase": "Halla la tasa de uno y ya terminaste.",
+      "also": "",
+      "steps": [
+        "Divide total entre la cantidad.",
+        "Etiqueta «por uno».",
+        "Multiplica la tasa unitaria para más."
+      ],
+      "exception": "Unidades coherentes: millas por hora, no mezclar millas por minuto.",
+      "tag": ""
+    },
+    "cross7": {
+      "name": "Resolver con multiplicación en cruz",
+      "phrase": "Mariposa: multiplica en cruz, divide para liberar x.",
+      "also": "",
+      "steps": [
+        "Monta razones iguales.",
+        "Multiplica en cruz.",
+        "Divide entre el coeficiente de x."
+      ],
+      "exception": "Solo cuando dos razones son iguales — no para sumar fracciones.",
+      "tag": ""
+    },
+    "scale7": {
+      "name": "Factor de escala",
+      "phrase": "Nuevo = viejo × escala. Escala >1 crece; entre 0 y 1 encoge.",
+      "also": "",
+      "steps": [
+        "Identifica el factor k.",
+        "Multiplica cada longitud por k.",
+        "Las áreas escalan por k² (¡cuidado!)."
+      ],
+      "exception": "Escala 2 duplica longitudes, pero el área queda ×4.",
+      "tag": ""
+    },
+    "opposites7": {
+      "name": "Inversos aditivos",
+      "phrase": "Un número más su opuesto da cero.",
+      "also": "",
+      "steps": [
+        "Halla el opuesto (cambia el signo).",
+        "Súmalos.",
+        "La suma es 0."
+      ],
+      "exception": "El opuesto de 0 es 0. Opuesto no es lo mismo que recíproco.",
+      "tag": ""
+    },
+    "taxest7": {
+      "name": "Impuesto y propina mental",
+      "phrase": "10% mueve el punto; 20% es el doble; 15% es 10% + mitad del 10%.",
+      "also": "",
+      "steps": [
+        "Halla 10% moviendo el punto una a la izquierda.",
+        "Arma 5%, 15%, 20% desde ahí.",
+        "Suma a la cuenta para propina/impuesto."
+      ],
+      "exception": "Tasas exactas pueden ser 6,25% — estima primero, luego calcula si hace falta.",
+      "tag": ""
+    },
+    "orderint7": {
+      "name": "Orden con negativos",
+      "phrase": "En la recta, más a la izquierda es menor — aunque los dígitos parezcan mayores.",
+      "also": "",
+      "steps": [
+        "Imagina la recta numérica.",
+        "Más a la izquierda = menor.",
+        "−10 es menor que −2."
+      ],
+      "exception": "|−10| > |−2|, pero −10 < −2.",
+      "tag": ""
+    },
+    "convert7": {
+      "name": "Fracción–decimal–porcentaje",
+      "phrase": "Porcentaje son centésimas; mueve el punto dos lugares.",
+      "also": "",
+      "steps": [
+        "Fracción → divide arriba entre abajo.",
+        "Decimal → porcentaje: ×100 (dos saltos).",
+        "Porcentaje → decimal: ÷100."
+      ],
+      "exception": "1/3 es 0,333… repetido — porcentaje ≈ 33,3%, no decimal exacto que termine.",
+      "tag": ""
+    },
+    "mental7": {
+      "name": "Cadenas mentales de enteros",
+      "phrase": "Saltos fáciles en la recta: +10, −10, luego lo que sobra.",
+      "also": "",
+      "steps": [
+        "Parte el segundo número en saltos amigos.",
+        "Muévete en la recta.",
+        "Llega a la respuesta."
+      ],
+      "exception": "No inviertas la dirección del salto si los signos se enredan — con resta usa KCC primero.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Enteros",
+      "rows": [
+        [
+          "× / ÷ signos",
+          "Amigos (+): positivo; desconocidos (−): negativo"
+        ],
+        [
+          "Sumar enteros",
+          "Iguales: suma y conserva; distintos: resta, signo del mayor"
+        ],
+        [
+          "Restar (KCC)",
+          "Keep, Change, Change"
+        ],
+        [
+          "÷ enteros",
+          "Mismas reglas de signo que ×"
+        ],
+        [
+          "Resolver ecuaciones",
+          "Haz lo contrario en ambos lados"
+        ],
+        [
+          "Valor absoluto",
+          "|−5| = 5 — distancia a cero"
+        ],
+        [
+          "Orden con negativos",
+          "Más a la izquierda en la recta es menor"
+        ]
+      ]
+    },
+    {
+      "title": "Porcentaje y dinero",
+      "rows": [
+        [
+          "Porcentaje de",
+          "Mueve el punto dos lugares y multiplica"
+        ],
+        [
+          "% cambio",
+          "(nuevo − viejo) ÷ viejo × 100"
+        ],
+        [
+          "Oferta / descuento",
+          "Quita el porcentaje del precio"
+        ],
+        [
+          "Impuesto / propina",
+          "Suma el porcentaje encima"
+        ],
+        [
+          "I = PRT",
+          "Interés simple: P × tasa × tiempo (tasa decimal)"
+        ],
+        [
+          "Tasa unitaria",
+          "Divide para precio por un artículo"
+        ]
+      ]
+    },
+    {
+      "title": "Azar y círculo",
+      "rows": [
+        [
+          "Probabilidad",
+          "Lo que quieres ÷ todo lo que tienes"
+        ],
+        [
+          "Proporciones",
+          "Multiplica en cruz (mariposa)"
+        ],
+        [
+          "Escala",
+          "Distancia mapa × escala = distancia real"
+        ],
+        [
+          "Cherry pie",
+          "C = πd"
+        ],
+        [
+          "Apple pies",
+          "A = πr²"
+        ]
+      ]
+    },
+    {
+      "title": "Distancia y atajos",
+      "rows": [
+        [
+          "d = rt",
+          "Distancia = rapidez × tiempo; tapa la letra que necesitas"
+        ],
+        [
+          "Triángulo velocidad",
+          "Rapidez = distancia ÷ tiempo; unidades coherentes"
+        ],
+        [
+          "King Henry",
+          "Escalera kilo→milli; «By» = base; mueve el punto"
+        ],
+        [
+          "Distributiva",
+          "a(b + c) = ab + ac también con negativos"
+        ],
+        [
+          "+/− mental",
+          "Compensación: 199 + 57 ≈ 200 + 56"
+        ],
+        [
+          "Signos opuestos",
+          "−(−3) = +3; opuestos suman 0"
+        ]
+      ]
+    }
+  ]
+}

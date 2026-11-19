@@ -1,0 +1,366 @@
+{
+  "grade": "Grado 9",
+  "title": "Semejanza, círculos y cuadráticas",
+  "blurb": "Misma forma, hechos del círculo y la fórmula cuadrática.",
+  "lessons": {
+    "similar": {
+      "name": "Triángulos semejantes",
+      "phrase": "Mismos ángulos, misma forma. Cada lado crece con la misma escala.",
+      "also": "",
+      "steps": [
+        "Empareja los ángulos iguales.",
+        "Hallar la escala: lado grande ÷ lado pequeño que corresponde.",
+        "Multiplica cualquier lado pequeño por la escala."
+      ],
+      "exception": "Semejante no es igual que congruente. Los tamaños pueden ser distintos. Siempre empareja un lado con el que enfrenta el mismo ángulo.",
+      "tag": ""
+    },
+    "bpt": {
+      "name": "Corte paralelo en un triángulo",
+      "phrase": "Una recta paralela a la base corta ambos lados en la misma razón.",
+      "also": "",
+      "steps": [
+        "Lee los dos trozos en un lado.",
+        "Iguala su razón a los dos trozos del otro lado.",
+        "Resuelve."
+      ],
+      "exception": "Solo si el corte es paralelo a la base. Una recta inclinada no conserva la razón.",
+      "tag": ""
+    },
+    "midseg": {
+      "name": "Mediana media",
+      "phrase": "Une los puntos medios: mitad de la base, y paralela a ella.",
+      "also": "",
+      "steps": [
+        "Hallar el punto medio de dos lados.",
+        "Únelos.",
+        "Esa recta mide la mitad del tercer lado."
+      ],
+      "exception": "Ambos extremos deben ser puntos medios. Si uno no es el medio, la regla de la mitad no aplica.",
+      "tag": ""
+    },
+    "semicircle": {
+      "name": "Ángulo en un semicírculo",
+      "phrase": "Un diámetro siempre ve un ángulo recto.",
+      "also": "",
+      "steps": [
+        "Comprueba que un lado es diámetro.",
+        "El ángulo en la circunferencia frente a él es 90°.",
+        "Los otros dos ángulos suman 90°."
+      ],
+      "exception": "Los 90° están en la circunferencia, no en el centro. El ángulo central sobre un diámetro es línea recta, 180°.",
+      "tag": ""
+    },
+    "tangent": {
+      "name": "Tangente y radio",
+      "phrase": "La tangente se encuentra con el radio en ángulo recto.",
+      "also": "Dos tangentes desde el mismo punto tienen la misma longitud.",
+      "steps": [
+        "Traza el radio al punto de contacto.",
+        "Esa esquina es 90°.",
+        "Usa la suma de ángulos del triángulo para el resto."
+      ],
+      "exception": "Una recta que corta el círculo no es tangente. La tangente solo toca una vez.",
+      "tag": ""
+    },
+    "quadratic": {
+      "name": "Fórmula cuadrática",
+      "phrase": "Menos b, más o menos la raíz de b² − 4ac, todo entre 2a.",
+      "also": "",
+      "steps": [
+        "Lee a, b y c de ax² + bx + c = 0.",
+        "Calcula b² − 4ac.",
+        "Usa + y − para ambas respuestas. Divide entre 2a."
+      ],
+      "exception": "Si a es 0, no es cuadrática. Si b² − 4ac es negativo, no hay soluciones reales. Si es 0, ambas soluciones son iguales.",
+      "tag": ""
+    },
+    "foil": {
+      "name": "Expandir FOIL",
+      "phrase": "First, Outside, Inside, Last.",
+      "also": "",
+      "steps": [
+        "First: los dos primeros términos.",
+        "Outside: los dos términos exteriores.",
+        "Inside: los dos términos interiores.",
+        "Last: los dos últimos términos.",
+        "Súmalos y ordena términos semejantes."
+      ],
+      "exception": "Cuidado los signos: (x − 3)(x + 2) sigue usando FOIL, pero inside y last arrastran menos. FOIL es para dos paréntesis; tres piden más pasos.",
+      "tag": ""
+    },
+    "dos": {
+      "name": "Diferencia de dos cuadrados",
+      "phrase": "a² − b² = (a − b)(a + b).",
+      "also": "",
+      "steps": [
+        "Detecta dos cuadrados con menos entre ellos.",
+        "Escribe (√primero − √segundo)(√primero + √segundo).",
+        "Comprueba con FOIL: los términos centrales se cancelan."
+      ],
+      "exception": "Debe ser menos. a² + b² no factoriza así sobre los reales. Y 9x² − 4 es (3x − 2)(3x + 2), no (9x − 2)(x + 2).",
+      "tag": ""
+    },
+    "factor": {
+      "name": "Factorizar cuadráticas",
+      "phrase": "Busca dos números que multipliquen a c y sumen b.",
+      "also": "",
+      "steps": [
+        "Para x² + bx + c, busca dos números con producto c y suma b.",
+        "Escribe (x + p)(x + q).",
+        "Comprueba expandiendo."
+      ],
+      "exception": "Si los números que necesitas no existen como enteros, quizá no factoriza bien. Coeficiente principal distinto de 1 pide otra búsqueda (o la fórmula cuadrática).",
+      "tag": ""
+    },
+    "ineq": {
+      "name": "Desigualdades",
+      "phrase": "Resuelve como ecuación — pero invierte el signo al × o ÷ por un negativo.",
+      "also": "",
+      "steps": [
+        "Mueve términos igual que con =.",
+        "Si multiplicas o divides ambos lados por un negativo, voltea < ↔ >.",
+        "Comprueba con un número de prueba."
+      ],
+      "exception": "Sumar o restar nunca invierte el signo. Solo multiplicar o dividir por negativo. Intercambiar lados también invierte la desigualdad.",
+      "tag": ""
+    },
+    "simul": {
+      "name": "Sistemas de ecuaciones",
+      "phrase": "Eliminación: iguala un literal, luego suma o resta para borrarlo.",
+      "also": "",
+      "steps": [
+        "Alinea las dos ecuaciones.",
+        "Multiplica para que un literal tenga el mismo (u opuesto) coeficiente.",
+        "Suma o resta para eliminar ese literal.",
+        "Resuelve el otro y sustituye de vuelta."
+      ],
+      "exception": "Si ambos literales desaparecen y queda 0 = 5, no hay solución. Si queda 0 = 0, hay infinitas. Comprueba sustituyendo ambas respuestas.",
+      "tag": ""
+    },
+    "distmid": {
+      "name": "Distancia y punto medio",
+      "phrase": "Distancia es Pitágoras en la cuadrícula. Punto medio promedia coordenadas.",
+      "also": "",
+      "steps": [
+        "Distancia: √((x₂ − x₁)² + (y₂ − y₁)²).",
+        "Punto medio: ((x₁ + x₂)/2, (y₁ + y₂)/2).",
+        "Cuenta recorrido y subida primero si es más fácil."
+      ],
+      "exception": "No sumes coordenadas para distancia. Punto medio usa el promedio, no la diferencia.",
+      "tag": ""
+    },
+    "perpgrad": {
+      "name": "Pendientes paralelas y perpendiculares",
+      "phrase": "Paralelas: misma pendiente. Perpendiculares: invierte la fracción y cambia el signo.",
+      "also": "",
+      "steps": [
+        "Rectas paralelas tienen pendientes iguales.",
+        "Perpendicular: toma la pendiente, inviértela y multiplica por −1.",
+        "Comprueba: m₁ × m₂ = −1 para perpendiculares."
+      ],
+      "exception": "Horizontal (pendiente 0) es perpendicular a vertical (pendiente indefinida). Pendiente negativa invertida: cuidado con dos menos.",
+      "tag": ""
+    },
+    "discr": {
+      "name": "Discriminante",
+      "phrase": "b² − 4ac dice cuántas raíces reales: positivo dos, cero una, negativo ninguna.",
+      "also": "",
+      "steps": [
+        "De ax² + bx + c = 0, calcula Δ = b² − 4ac.",
+        "Δ > 0: dos raíces reales distintas.",
+        "Δ = 0: una raíz real repetida.",
+        "Δ < 0: ninguna raíz real."
+      ],
+      "exception": "El discriminante no da las raíces — solo cuántas. Raíces complejas existen si Δ < 0, pero esta lección se queda en reales.",
+      "tag": ""
+    },
+    "scaleAV": {
+      "name": "Áreas y volúmenes semejantes",
+      "phrase": "Longitudes × k, áreas × k², volúmenes × k³.",
+      "also": "",
+      "steps": [
+        "Hallar el factor de escala k en longitudes.",
+        "Las áreas escalan con k².",
+        "Los volúmenes escalan con k³.",
+        "Si te dan áreas, k = √(escala de área)."
+      ],
+      "exception": "No escales área con k ni volumen con k². Longitud al doble hace área ×4 y volumen ×8.",
+      "tag": ""
+    },
+    "bisector": {
+      "name": "Teorema de la bisectriz",
+      "phrase": "La bisectriz corta el lado opuesto en la razón de los dos lados adyacentes.",
+      "also": "",
+      "steps": [
+        "Confirma que el rayo bisecta el ángulo.",
+        "Escribe lado adyacente ÷ lado adyacente = segmento ÷ segmento.",
+        "Haz regla de tres y resuelve."
+      ],
+      "exception": "Es el lado opuesto el que se parte. La razón coincide con los dos lados del ángulo, no con la longitud de la bisectriz.",
+      "tag": ""
+    },
+    "wordkeys9": {
+      "name": "Traducir palabras a álgebra",
+      "phrase": "En total → +; diferencia → −; producto → ×; cociente → ÷; de → ×.",
+      "also": "",
+      "steps": [
+        "Subraya palabras clave.",
+        "Elige variable para la incógnita.",
+        "Construye la expresión o ecuación."
+      ],
+      "exception": "«Menos que» invierte el orden: 3 menos que x es x − 3, no 3 − x.",
+      "tag": ""
+    },
+    "estimate9": {
+      "name": "Estimar raíces irracionales",
+      "phrase": "Aprieta entre cuadrados perfectos para estimar √n.",
+      "also": "",
+      "steps": [
+        "Busca cuadrados enteros alrededor de n.",
+        "Mira cuál está más cerca.",
+        "Estima √n cerca de ese entero."
+      ],
+      "exception": "√n es exacto solo para cuadrados perfectos.",
+      "tag": ""
+    },
+    "commute9": {
+      "name": "Reordenar álgebra",
+      "phrase": "Los términos conmutan; los factores conmutan — los signos van pegados a su término.",
+      "also": "",
+      "steps": [
+        "Junta términos semejantes.",
+        "Suma coeficientes.",
+        "Escribe en orden limpio (a menudo potencias de mayor a menor)."
+      ],
+      "exception": "El signo menos pertenece al término que le sigue al conmutar.",
+      "tag": ""
+    },
+    "distrib9": {
+      "name": "Mentalidad FOIL",
+      "phrase": "FOIL: First, Outside, Inside, Last — luego ordena.",
+      "also": "",
+      "steps": [
+        "First × first.",
+        "Par exterior.",
+        "Par interior.",
+        "Last × last.",
+        "Combina términos semejantes."
+      ],
+      "exception": "FOIL es dos binomios. Más términos → usa una cuadrícula.",
+      "tag": ""
+    },
+    "compsupp9": {
+      "name": "Pares de ángulos en álgebra",
+      "phrase": "Complemento → suman 90. Suplemento → suman 180. Resuelve x.",
+      "also": "",
+      "steps": [
+        "Traduce a x + y = 90 o 180.",
+        "Sustituye expresiones.",
+        "Resuelve."
+      ],
+      "exception": "No asumas adyacentes — el problema debe decir complementarios/suplementarios (o mostrar la figura).",
+      "tag": ""
+    },
+    "zero9": {
+      "name": "Propiedad del producto cero",
+      "phrase": "Si un producto es cero, al menos un factor es cero.",
+      "also": "",
+      "steps": [
+        "Pon la ecuación en = 0.",
+        "Factoriza si hace falta.",
+        "Cada factor = 0 y resuelve."
+      ],
+      "exception": "Solo funciona con cero al otro lado. ab = 6 no implica a=6.",
+      "tag": ""
+    },
+    "complete9": {
+      "name": "Gancho completar el cuadrado",
+      "phrase": "Parte por dos el término medio, cuadra, equilibra en ambos lados.",
+      "also": "",
+      "steps": [
+        "Mueve la constante.",
+        "Toma la mitad del coeficiente de x.",
+        "Cuadra esa mitad y suma en ambos lados.",
+        "Escribe un binomio al cuadrado."
+      ],
+      "exception": "El coeficiente principal debe ser 1 (divide primero si no lo es).",
+      "tag": ""
+    },
+    "quadform9": {
+      "name": "Canción de la fórmula cuadrática",
+      "phrase": "x es menos b, más o menos la raíz de b al cuadrado menos 4ac, todo entre 2a.",
+      "also": "",
+      "steps": [
+        "Identifica a, b, c.",
+        "Calcula el discriminante b² − 4ac.",
+        "Sustituye en (−b ± √Δ)/(2a)."
+      ],
+      "exception": "Si Δ < 0 no hay raíces reales. No olvides que «todo entre 2a» aplica a todo.",
+      "tag": ""
+    },
+    "prop9": {
+      "name": "Razones de semejanza",
+      "phrase": "Misma forma: lados que corresponden en proporción — mariposa si hace falta.",
+      "also": "",
+      "steps": [
+        "Empareja lados correspondientes.",
+        "Escribe una proporción.",
+        "Regla de tres para resolver."
+      ],
+      "exception": "La correspondencia importa — no emparejes corto con largo al azar.",
+      "tag": ""
+    },
+    "exp9": {
+      "name": "Movimientos mentales de exponentes",
+      "phrase": "Multiplicar → sumar potencias. Dividir → restar. Potencia de potencia → multiplicar.",
+      "also": "",
+      "steps": [
+        "¿Misma base? Aplica la ley.",
+        "Suma/resta/multiplica exponentes según la ley.",
+        "Simplifica coeficientes aparte."
+      ],
+      "exception": "Bases distintas no se combinan con estas leyes (salvo que reescribas).",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Semejanza y círculos",
+      "rows": [
+        ["Triángulos semejantes", "Mismos ángulos; lados × misma escala"],
+        ["BPT (corte paralelo)", "Corta ambos lados en la misma razón"],
+        ["Mediana media", "Une medios: mitad de la base, paralela"],
+        ["Semicírculo", "Ángulo en semicírculo es 90°"],
+        ["Tangente ⊥ radio", "Se encuentran en ángulo recto"],
+        ["Longitudes / áreas / volúmenes", "×k, ×k², ×k³"],
+        ["Bisectriz", "Parte el opuesto en razón de los lados"]
+      ]
+    },
+    {
+      "title": "Caja de herramientas álgebra",
+      "rows": [
+        ["FOIL", "First, Outside, Inside, Last"],
+        ["Diferencia de cuadrados", "a² − b² = (a − b)(a + b)"],
+        ["Factorizar x²+bx+c", "Dos números: producto c, suma b"],
+        ["Producto cero", "AB = 0 → A = 0 o B = 0"],
+        ["Completar cuadrado", "Mitad b, cuadra, equilibra ambos lados"],
+        ["Fórmula cuadrática", "x = (−b ± √(b²−4ac)) / 2a"],
+        ["Desigualdades", "Voltea el signo al × o ÷ por negativo"],
+        ["Sistemas", "Iguala un literal, suma/resta para borrarlo"],
+        ["Discriminante", "b²−4ac: +, 0, − → 2, 1, 0 raíces reales"]
+      ]
+    },
+    {
+      "title": "Geometría analítica",
+      "rows": [
+        ["Distancia", "Pitágoras en la cuadrícula"],
+        ["Punto medio", "Promedia coordenadas"],
+        ["Pendientes paralelas", "Misma m"],
+        ["Perpendicular", "Invierte fracción, cambia signo (m₁m₂ = −1)"],
+        ["Proporción", "a/b = c/d → regla de tres"],
+        ["Expandir potencias", "(ab)ⁿ = aⁿbⁿ"]
+      ]
+    }
+  ]
+}

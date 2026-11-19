@@ -1,0 +1,432 @@
+{
+  "grade": "Grades 1–2",
+  "title": "Place value & regrouping",
+  "blurb": "Where a digit sits, and how tens trade with ones.",
+  "lessons": {
+    "place": {
+      "name": "Place value",
+      "phrase": "The seat gives the size.",
+      "also": "",
+      "steps": [
+        "Ones sit on the right.",
+        "Tens sit next door.",
+        "Hundreds sit one more seat to the left."
+      ],
+      "exception": "The digit alone is not the value. The 4 in 340 means 4 tens, which is 40.",
+      "tag": ""
+    },
+    "carry": {
+      "name": "Adding with regrouping",
+      "phrase": "Ten ones make a ten. Carry the one next door.",
+      "also": "",
+      "steps": [
+        "Add the ones.",
+        "If you get 10 or more, keep the ones digit and carry 1 ten.",
+        "Add the tens, plus the carried ten."
+      ],
+      "exception": "Only carry when the ones make 10 or more. 23 + 14 has nothing to carry.",
+      "tag": ""
+    },
+    "borrow": {
+      "name": "Subtracting with regrouping",
+      "phrase": "More on top? No need to stop. More on the floor? Go next door and get ten more.",
+      "also": "Numbers the same? Zero’s the game.",
+      "steps": [
+        "Look at the ones column.",
+        "If the bottom digit is bigger, borrow a ten from next door.",
+        "The top ones digit gets 10 more. The tens digit goes down by 1."
+      ],
+      "exception": "Never flip the ones to subtract the small digit from the big one. 52 − 27 is 25, not 35.",
+      "tag": ""
+    },
+    "evenodd": {
+      "name": "Even and odd",
+      "phrase": "Even numbers share fair: everyone gets a buddy. Odd numbers leave one out.",
+      "also": "Only the last digit decides: 0, 2, 4, 6, 8 are even. 1, 3, 5, 7, 9 are odd.",
+      "steps": [
+        "Look at the last digit only.",
+        "0, 2, 4, 6, or 8: even.",
+        "1, 3, 5, 7, or 9: odd."
+      ],
+      "exception": "Ignore the other digits: 58 is even, even though 5 is odd. And 0 is even, because zero splits into two equal teams of nothing.",
+      "tag": ""
+    },
+    "round": {
+      "name": "Rounding to 10 and 100",
+      "phrase": "Five or more, raise the score. Four or less, let it rest.",
+      "also": "",
+      "steps": [
+        "Find the digit you are rounding to.",
+        "Look at the digit just to its right.",
+        "5 or more: your digit goes up 1. 4 or less: it stays.",
+        "Every digit after it becomes 0."
+      ],
+      "exception": "Look only at the very next digit. 349 to the nearest hundred is 300, because the tens digit is 4. Don’t round twice (349 → 350 → 400). A 9 that goes up rolls over: 97 rounds to 100.",
+      "tag": ""
+    },
+    "clock": {
+      "name": "Telling time",
+      "phrase": "Hour is a short word: short hand. Minute is a long word: long hand.",
+      "also": "The long hand counts by 5s: the number it points to × 5 is the minutes.",
+      "steps": [
+        "Short hand: the last number it has passed is the hour.",
+        "Long hand: the number it points to × 5 is the minutes.",
+        "Say the hour, then the minutes: 3:25."
+      ],
+      "exception": "After half past, the short hand is close to the next number, but the hour hasn’t changed yet: at 2:50 it is almost at 3, and it is still 2. The long hand on 12 means 0 minutes, o’clock.",
+      "tag": ""
+    },
+    "add3": {
+      "name": "Adding three numbers",
+      "phrase": "Hunt for a ten first, then add the last one.",
+      "also": "",
+      "steps": [
+        "Look for two numbers that make 10.",
+        "Add those two first.",
+        "Add the third number to 10."
+      ],
+      "exception": "You can add in any order, but use all three numbers. If no pair makes 10, look for a double, or just add from left to right.",
+      "tag": ""
+    },
+    "month-knuckles": {
+      "name": "Knuckle months",
+      "phrase": "Knuckles are 31-day months; valleys between are shorter.",
+      "also": "Fist calendar: peak = 31, dent = 30 (or February).",
+      "steps": [
+        "Make two fists side by side.",
+        "Knuckle months have 31 days; valleys between are shorter.",
+        "After July, continue on the other fist starting at August.",
+        "February is the special short month."
+      ],
+      "exception": "February is 28 days, or 29 in a leap year. After July continue onto the other fist at August.",
+      "tag": ""
+    },
+    "thirty-days-hath": {
+      "name": "Thirty days hath…",
+      "phrase": "Thirty days hath September, April, June, and November.",
+      "also": "",
+      "steps": [
+        "Remember the four 30-day months: September, April, June, November.",
+        "All the rest have 31.",
+        "Except February: 28, or 29 in a leap year."
+      ],
+      "exception": "All the rest have 31, except February (28, or 29 in a leap year).",
+      "tag": ""
+    },
+    "commute2": {
+      "name": "Commutative property",
+      "phrase": "Commuting either way: a + b = b + a, and a × b = b × a.",
+      "also": "",
+      "steps": [
+        "Swap the order.",
+        "For + or × the answer stays the same.",
+        "Use the swap to start with a friendlier number."
+      ],
+      "exception": "Subtraction and division do not commute.",
+      "tag": ""
+    },
+    "assoc2": {
+      "name": "Associative property",
+      "phrase": "Associate means regroup: (a + b) + c = a + (b + c).",
+      "also": "Same idea for multiply: group friendly factors first.",
+      "steps": [
+        "Look for a pair that makes 10 or a known fact.",
+        "Regroup those first.",
+        "Then finish the sum or product."
+      ],
+      "exception": "You may regroup, but don’t change the numbers. And − / ÷ are not associative.",
+      "tag": ""
+    },
+    "wordadd2": {
+      "name": "Story problems: add",
+      "phrase": "Altogether, in all, combined, sum — add the parts.",
+      "also": "",
+      "steps": [
+        "Underline the clue word.",
+        "Write part + part.",
+        "Add."
+      ],
+      "exception": "“Sum” is addition. “Difference” is subtraction — don’t mix the words.",
+      "tag": ""
+    },
+    "wordsub2": {
+      "name": "Story problems: subtract",
+      "phrase": "Left, remain, fewer, take away, difference — subtract.",
+      "also": "",
+      "steps": [
+        "Underline the clue.",
+        "Write whole − part (or bigger − smaller).",
+        "Subtract."
+      ],
+      "exception": "“Fewer than” compares. “Left” takes away from a whole. Line up ones under ones.",
+      "tag": ""
+    },
+    "wordmul2": {
+      "name": "Story problems: multiply",
+      "phrase": "Each, groups of, rows of, times — multiply equal groups.",
+      "also": "",
+      "steps": [
+        "Find equal groups.",
+        "Count groups × size of a group.",
+        "Or skip-count."
+      ],
+      "exception": "Unequal groups are addition, not a single multiply.",
+      "tag": ""
+    },
+    "worddiv2": {
+      "name": "Story problems: divide",
+      "phrase": "Share, split equally, how many in each, how many groups — divide.",
+      "also": "",
+      "steps": [
+        "Find the total.",
+        "Find how many groups or how many per group.",
+        "Divide."
+      ],
+      "exception": "Ask which question: size of each share, or number of shares?",
+      "tag": ""
+    },
+    "estimate2": {
+      "name": "Estimate sums",
+      "phrase": "Round both, then add — a friendly estimate.",
+      "also": "",
+      "steps": [
+        "Round each number to the nearest ten.",
+        "Add the rounded numbers.",
+        "Say “about.”"
+      ],
+      "exception": "Both rounding up can overshoot. Use estimate to check exact work, not replace it when you need exact.",
+      "tag": ""
+    },
+    "mental10": {
+      "name": "Mental math with tens",
+      "phrase": "Add tens to tens, ones to ones — then combine.",
+      "also": "",
+      "steps": [
+        "Split each number into tens and ones.",
+        "Add tens. Add ones.",
+        "Put them back together."
+      ],
+      "exception": "If ones make 10 or more, regroup into an extra ten.",
+      "tag": ""
+    },
+    "expanded": {
+      "name": "Expanded form",
+      "phrase": "Expanded form shows what each seat is worth.",
+      "also": "352 = 300 + 50 + 2.",
+      "steps": [
+        "Read each digit’s seat.",
+        "Write its value.",
+        "Add the values with plus signs."
+      ],
+      "exception": "Don’t write 352 = 3 + 5 + 2. The seats matter: 300 + 50 + 2.",
+      "tag": ""
+    },
+    "factfam": {
+      "name": "Fact families",
+      "phrase": "A fact family: two adds and two subtracts from the same three numbers.",
+      "also": "",
+      "steps": [
+        "List the three numbers (two parts and a whole).",
+        "Write both addition facts.",
+        "Write both subtraction facts."
+      ],
+      "exception": "If two numbers match (doubles), the family is smaller — fewer unique sentences.",
+      "tag": ""
+    },
+    "half2": {
+      "name": "Halves",
+      "phrase": "Half means split into two equal shares.",
+      "also": "",
+      "steps": [
+        "Make two equal groups.",
+        "Each group is one half.",
+        "Half of an even number is a whole number."
+      ],
+      "exception": "Half of an odd count leaves a remainder — you can’t split 7 apples into two equal whole apples without cutting.",
+      "tag": ""
+    },
+    "compare3": {
+      "name": "Comparing three-digit numbers",
+      "phrase": "Compare from the left: hundreds first, then tens, then ones.",
+      "also": "",
+      "steps": [
+        "Look at hundreds.",
+        "If tied, look at tens.",
+        "If still tied, look at ones."
+      ],
+      "exception": "A bigger digit on the right doesn’t win if a left seat already decided it: 199 < 201.",
+      "tag": ""
+    },
+    "moneycent": {
+      "name": "Coins to a dollar",
+      "phrase": "100 cents make a dollar. Count coin jumps.",
+      "also": "",
+      "steps": [
+        "Know values: quarter 25, dime 10, nickel 5, penny 1.",
+        "Count up by coin values.",
+        "Stop at 100 for a dollar."
+      ],
+      "exception": "Four quarters make a dollar — not four dimes.",
+      "tag": ""
+    },
+    "skip2": {
+      "name": "Skip-count to multiply",
+      "phrase": "Skip-counting is multiplying by hops.",
+      "also": "",
+      "steps": [
+        "Pick the hop size.",
+        "Hop that many times.",
+        "The landing number is the product."
+      ],
+      "exception": "Keep every hop the same size. Uneven hops break the multiply story.",
+      "tag": ""
+    },
+    "identity2": {
+      "name": "Identity properties",
+      "phrase": "Add 0, stay you. Multiply by 1, stay you.",
+      "also": "",
+      "steps": [
+        "+ 0 leaves a number unchanged.",
+        "× 1 leaves a number unchanged.",
+        "Those are identity rules."
+      ],
+      "exception": "× 0 is not identity — it wipes the number to 0.",
+      "tag": ""
+    },
+    "distrib2": {
+      "name": "Distributive sneak peek",
+      "phrase": "Distribute means give to everyone inside the brackets.",
+      "also": "a × (b + c) = a × b + a × c.",
+      "steps": [
+        "See a number outside brackets with a sum inside.",
+        "Multiply the outside by each inside part.",
+        "Add those products."
+      ],
+      "exception": "Distribute over + or − inside. Don’t distribute a sum outside like (a + b) × c by adding first wrongly into multiply — actually (a+b)×c is fine either way, but a+(b×c) is not a(b+c).",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Place value",
+      "rows": [
+        [
+          "The seat gives the size",
+          "Ones right, tens next, hundreds left"
+        ],
+        [
+          "Digit ≠ value",
+          "4 in 340 means 4 tens = 40"
+        ],
+        [
+          "Expanded form",
+          "352 = 300 + 50 + 2"
+        ],
+        [
+          "Even / odd",
+          "Last digit even → even; odd leaves one out"
+        ]
+      ]
+    },
+    {
+      "title": "Regrouping",
+      "rows": [
+        [
+          "Carry",
+          "Ten ones make a ten — carry next door"
+        ],
+        [
+          "Borrow rhyme",
+          "More on the floor? Go next door, get ten more"
+        ],
+        [
+          "Add three numbers",
+          "Hunt for a ten first"
+        ],
+        [
+          "Compare three digits",
+          "Start hundreds, then tens, then ones"
+        ]
+      ]
+    },
+    {
+      "title": "Round, time & calendar",
+      "rows": [
+        [
+          "Round",
+          "5 or more, raise the score; 4 or less, let it rest"
+        ],
+        [
+          "Short hand",
+          "Hour (short word → short hand)"
+        ],
+        [
+          "Long hand",
+          "Minute; number it points to × 5"
+        ],
+        [
+          "Month knuckles",
+          "High knuckle months have 31 days"
+        ],
+        [
+          "Thirty days hath",
+          "…April, June, November… (except February)"
+        ]
+      ]
+    },
+    {
+      "title": "Facts & properties",
+      "rows": [
+        [
+          "Commute (+)",
+          "3 + 5 = 5 + 3 — flip addends"
+        ],
+        [
+          "Associate",
+          "Group any two addends first"
+        ],
+        [
+          "Distribute",
+          "a×(b+c) = a×b + a×c"
+        ],
+        [
+          "Fact family",
+          "3, 4, 7 → 3+4, 4+3, 7−3, 7−4"
+        ],
+        [
+          "Half of even",
+          "Split into two equal piles"
+        ],
+        [
+          "Identity",
+          "+0 and ×1 leave the number alone"
+        ]
+      ]
+    },
+    {
+      "title": "Words & money",
+      "rows": [
+        [
+          "Word: add / subtract",
+          "Match clue words to + or −"
+        ],
+        [
+          "Word: each / share",
+          "Each → ×; share → ÷"
+        ],
+        [
+          "Mental +10",
+          "Tens digit +1; ones stay"
+        ],
+        [
+          "Cents",
+          "100¢ = $1; count by 25s for quarters"
+        ],
+        [
+          "Estimate",
+          "Round to nearest ten, then compute"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,414 @@
+{
+  "grade": "Grado 10",
+  "title": "Trigonometría y teoremas del círculo",
+  "blurb": "sin, cos, tan, el opcional cosec, sec y cot, y los hechos del círculo.",
+  "lessons": {
+    "soh": {
+      "name": "sin, cos, tan",
+      "phrase": "SOH CAH TOA.",
+      "also": "Some People Have Curly Brown Hair Through Proper Brushing: perpendicular, base, hipotenusa.",
+      "steps": [
+        "Seno = Opuesto ÷ Hipotenusa.",
+        "Coseno = Adyacente ÷ Hipotenusa.",
+        "Tangente = Opuesto ÷ Adyacente."
+      ],
+      "exception": "Nombra los lados desde el ángulo que usas, nunca desde el ángulo recto. Tangente no tiene valor en 90°.",
+      "tag": ""
+    },
+    "recip": {
+      "name": "cosec, sec, cot (opcional)",
+      "phrase": "Invierte las tres principales: cosec invierte sin, sec invierte cos, cot invierte tan.",
+      "also": "Cada par lleva exactamente un «co»: sin con cosec, cos con sec, tan con cot.",
+      "steps": [
+        "Hallar la razón principal.",
+        "Inviértela.",
+        "cosec θ = hipotenusa ÷ opuesto."
+      ],
+      "exception": "Indefinida donde la razón principal es 0. cosec 0° no existe. Nota el emparejamiento: cosec va con sin, no con cos.",
+      "tag": ""
+    },
+    "astc": {
+      "name": "Signos en cada cuadrante",
+      "phrase": "Add Sugar To Coffee.",
+      "also": "All Students Take Calculus.",
+      "steps": [
+        "Cuadrante I, All: todas las razones positivas.",
+        "II, Sugar: solo sen positivo.",
+        "III, To: solo tan positivo.",
+        "IV, Coffee: solo cos positivo."
+      ],
+      "exception": "Empieza arriba a la derecha y ve en sentido antihorario. La frase da solo signos; tan sigue sin valor en 90° y 270°.",
+      "tag": ""
+    },
+    "hand": {
+      "name": "Valores de ángulos especiales",
+      "phrase": "Dedos antes de ÷ 2 bajo raíz da sin. Dedos después da cos.",
+      "also": "",
+      "steps": [
+        "Etiqueta dedos 0°, 30°, 45°, 60°, 90°.",
+        "Dobla el dedo del ángulo.",
+        "sin = √(dedos antes) ÷ 2. cos = √(dedos después) ÷ 2."
+      ],
+      "exception": "Solo funciona para esos cinco ángulos. Para tan, divide sin entre cos; tan 90° no existe.",
+      "tag": ""
+    },
+    "table": {
+      "name": "La tabla estándar de ángulos",
+      "phrase": "Escribe 0, 1, 2, 3, 4. Divide entre 4. Saca raíz. Eso es sin.",
+      "also": "cos es la fila sin al revés. tan es sin ÷ cos. cosec, sec y cot las invierten.",
+      "steps": [
+        "Escribe los ángulos 0°, 30°, 45°, 60°, 90°.",
+        "Debajo escribe 0, 1, 2, 3, 4.",
+        "Divide cada uno entre 4 y saca raíz: 0, 1/2, 1/√2, √3/2, 1. Esa es la fila sin.",
+        "Escribe sin al revés para cos: 1, √3/2, 1/√2, 1/2, 0.",
+        "tan = sin ÷ cos: 0, 1/√3, 1, √3, no definido.",
+        "Fila opcional: invierte sin para cosec, cos para sec, tan para cot."
+      ],
+      "exception": "tan 90°, sec 90°, cosec 0° y cot 0° no existen porque dividirías entre 0. La tabla está en grados; en radianes 30° es π/6. Y sin 60° no es 2 × sin 30°: doblar el ángulo no duplica el seno.",
+      "tag": ""
+    },
+    "pyid": {
+      "name": "Identidades pitagóricas",
+      "phrase": "sin² + cos² = 1. Divide entre cos² para 1 + tan² = sec². Divide entre sin² para 1 + cot² = cosec².",
+      "also": "Es Pitágoras en un triángulo con hipotenusa 1.",
+      "steps": [
+        "En un triángulo con hipotenusa 1, los catetos son sin θ y cos θ.",
+        "Pitágoras: sin²θ + cos²θ = 1.",
+        "Divide cada término entre cos²θ: tan²θ + 1 = sec²θ.",
+        "Divide cada término entre sin²θ: 1 + cot²θ = cosec²θ.",
+        "Dada una razón, usa la identidad para hallar las demás."
+      ],
+      "exception": "sin²θ significa (sin θ)², no sin(θ²). sin θ + cos θ no es 1; solo los cuadrados suman 1. Raíz cuadrada da ±; ASTC elige el signo.",
+      "tag": ""
+    },
+    "comp": {
+      "name": "Ángulos complementarios",
+      "phrase": "«Co» significa complemento: sin(90° − θ) = cos θ.",
+      "also": "Cambia el nombre, cambia el ángulo: tan ↔ cot y sec ↔ cosec igual.",
+      "steps": [
+        "Dos ángulos que suman 90° son complementos.",
+        "El lado opuesto a un ángulo agudo es adyacente al otro.",
+        "Así sin(90° − θ) = cos θ y cos(90° − θ) = sin θ.",
+        "Igual tan(90° − θ) = cot θ y sec(90° − θ) = cosec θ.",
+        "Para sin 70° ÷ cos 20°, nota 70 + 20 = 90: arriba y abajo coinciden, vale 1."
+      ],
+      "exception": "Los ángulos deben sumar 90°, no 180°. sin 70° ÷ cos 70° es tan 70°, no 1. El cambio altera el nombre: sin(90° − θ) es cos θ, no sin θ.",
+      "tag": ""
+    },
+    "heights": {
+      "name": "Alturas y distancias",
+      "phrase": "Elevación mira arriba, depresión abajo, y ambas desde la horizontal.",
+      "also": "¿Altura y distancia horizontal? tan. ¿Escalera o cuerda inclinada? sin o cos.",
+      "steps": [
+        "Dibuja: suelo plano, altura vertical, ángulo recto en la base.",
+        "Marca el ángulo en el ojo, medido desde la horizontal.",
+        "Elige la razón (SOH CAH TOA) que une el lado conocido con el buscado.",
+        "Resuelve con valores exactos: tan 30° = 1/√3, tan 45° = 1, tan 60° = √3."
+      ],
+      "exception": "El ángulo de depresión se mide abajo desde la horizontal arriba, no desde la pared. Iguala al de elevación desde el suelo (ángulos Z). Si dan altura del ojo, súmala al final.",
+      "tag": ""
+    },
+    "central": {
+      "name": "Ángulo en el centro",
+      "phrase": "El ángulo central es el doble del del arco.",
+      "also": "Ángulos en el mismo arco son iguales.",
+      "steps": [
+        "Comprueba que ambos ángulos abarcan el mismo arco.",
+        "Ángulo central = 2 × ángulo en el arco.",
+        "Ángulo en el arco = ángulo central ÷ 2."
+      ],
+      "exception": "Ambos ángulos deben usar los mismos extremos en el círculo. Otro arco da otro ángulo.",
+      "tag": ""
+    },
+    "cyclic": {
+      "name": "Cuadrilátero cíclico",
+      "phrase": "Ángulos opuestos en un círculo suman 180°.",
+      "also": "",
+      "steps": [
+        "Comprueba que las cuatro esquinas están en el círculo.",
+        "Elige un par de opuestos.",
+        "180° menos uno da el otro."
+      ],
+      "exception": "Si una esquina no está en el círculo, falla. Esquinas vecinas no tienen que sumar 180°.",
+      "tag": ""
+    },
+    "chord": {
+      "name": "Cuerda desde el centro",
+      "phrase": "Una recta del centro que golpea una cuerda en 90° la parte por la mitad.",
+      "also": "",
+      "steps": [
+        "Baja perpendicular del centro a la cuerda.",
+        "Cae en el punto medio de la cuerda.",
+        "Radio, recta del centro y mitad de cuerda forman triángulo recto."
+      ],
+      "exception": "La recta debe salir del centro. Una perpendicular desde otro punto no parte la cuerda por la mitad.",
+      "tag": ""
+    },
+    "twotang": {
+      "name": "Dos tangentes desde un punto",
+      "phrase": "Dos tangentes desde el mismo punto exterior son iguales.",
+      "also": "",
+      "steps": [
+        "Marca los dos puntos de contacto.",
+        "Las longitudes tangentes desde el punto exterior son iguales.",
+        "La recta del centro al punto exterior bisecta el ángulo."
+      ],
+      "exception": "Las longitudes iguales son los segmentos tangentes, no las cuerdas entre contactos. Una secante es otro teorema.",
+      "tag": ""
+    },
+    "altseg": {
+      "name": "Teorema del segmento alterno",
+      "phrase": "El ángulo entre tangente y cuerda iguala al del segmento alterno.",
+      "also": "",
+      "steps": [
+        "Hallar el ángulo entre la tangente y una cuerda.",
+        "Mira al otro lado de la cuerda (segmento alterno).",
+        "El ángulo en el arco allí coincide."
+      ],
+      "exception": "«Alterno» es el segmento al otro lado de la cuerda, no el adyacente. La tangente debe tocar en el extremo de la cuerda.",
+      "tag": ""
+    },
+    "intchord": {
+      "name": "Cuerdas que se cortan",
+      "phrase": "Cuando dos cuerdas se cruzan, los productos de los trozos son iguales.",
+      "also": "",
+      "steps": [
+        "Etiqueta los cuatro trozos.",
+        "Escribe (trozo₁ × trozo₂) en una cuerda = (trozo₃ × trozo₄) en la otra.",
+        "Resuelve el trozo que falta."
+      ],
+      "exception": "Usa los dos trozos de la misma cuerda en cada producto. No multipliques extremos de cuerdas distintas como pareja.",
+      "tag": ""
+    },
+    "tansec": {
+      "name": "Teorema tangente-secante",
+      "phrase": "Tangent² = exterior × toda la secante.",
+      "also": "",
+      "steps": [
+        "Desde el punto exterior, una recta es tangente, la otra corta el círculo (secante).",
+        "Eleva al cuadrado la longitud tangente.",
+        "Eso iguala (trozo exterior de secante) × (secante entera)."
+      ],
+      "exception": "Toda significa el segmento secante completo desde el punto exterior hasta el lado lejano — no solo la cuerda interior.",
+      "tag": ""
+    },
+    "sameseg": {
+      "name": "Ángulos en el mismo segmento",
+      "phrase": "Ángulos en el mismo segmento sobre el mismo arco son iguales.",
+      "also": "",
+      "steps": [
+        "Hallar el arco que abarcan ambos ángulos.",
+        "Si ambos están en el mismo segmento, son iguales.",
+        "Úsalo para completar ángulos en el arco."
+      ],
+      "exception": "Ángulos en segmentos opuestos no son iguales (a menudo suman 180° en un cíclico). El mismo arco importa.",
+      "tag": ""
+    },
+    "ap": {
+      "name": "Progresiones aritméticas",
+      "phrase": "Cada término suma la misma d: aₙ = a + (n − 1)d. Suma = n/2 × (primero + último).",
+      "also": "",
+      "steps": [
+        "a es el primer término, d la diferencia común.",
+        "Término n: a + (n − 1)d.",
+        "Suma de n términos: n/2 × (primero + último), o n/2 × (2a + (n − 1)d)."
+      ],
+      "exception": "n cuenta cuántos términos, no solo el último índice. Las geométricas multiplican por una razón — fórmulas distintas.",
+      "tag": ""
+    },
+    "gp": {
+      "name": "Progresiones geométricas",
+      "phrase": "Cada término multiplica por la misma razón r: aₙ = a · rⁿ⁻¹.",
+      "also": "",
+      "steps": [
+        "a es el primer término, r la razón común.",
+        "Término n: a × rⁿ⁻¹.",
+        "Divide un término entre el anterior para hallar r."
+      ],
+      "exception": "Si r es negativo, los signos alternan. No mezcles fórmulas AP (sumar d) con GP (multiplicar por r).",
+      "tag": ""
+    },
+    "sector": {
+      "name": "Longitud de arco y área de sector",
+      "phrase": "Un sector es una porción de pizza: θ/360 del círculo entero.",
+      "also": "",
+      "steps": [
+        "Longitud de arco = (θ/360) × 2πr = (θ/360) × πd.",
+        "Área de sector = (θ/360) × πr².",
+        "Usa π ≈ 3,14, o deja en términos de π si piden."
+      ],
+      "exception": "θ debe estar en grados para la forma θ/360. Usar el radio en longitud de arco sin la fracción da toda la circunferencia.",
+      "tag": ""
+    },
+    "sine-is-y": {
+      "name": "Coordenadas del círculo unitario",
+      "phrase": "En el círculo unitario: coseno es x, seno es y.",
+      "also": "Punto (cos θ, sin θ) — x luego y; cos↔x, sin↔y.",
+      "steps": [
+        "Sitúa el ángulo en el círculo unitario.",
+        "Lee el punto como (cos θ, sin θ).",
+        "Coordenada x es coseno; y es seno."
+      ],
+      "exception": "No intercambies x/y. Los signos siguen el cuadrante. Iguala el modo de la calculadora al problema.",
+      "tag": ""
+    },
+    "sohcahtoa": {
+      "name": "Canto SOH CAH TOA",
+      "phrase": "SOH CAH TOA: seno opp/hyp, coseno adj/hyp, tangente opp/adj.",
+      "also": "Some Old Horse Came A-Hopping Through Our Alley.",
+      "steps": [
+        "Etiqueta opuesto, adyacente, hipotenusa desde θ.",
+        "Elige SOH, CAH o TOA.",
+        "Escribe la razón y resuelve."
+      ],
+      "exception": "La hipotenusa es siempre el lado más largo, opuesta al ángulo recto — nunca opuesta a θ.",
+      "tag": ""
+    },
+    "astc10": {
+      "name": "All Students Take Calculus",
+      "phrase": "ASTC: All, Sin, Tan, Cos — cuáles son positivas, cuadrante a cuadrante.",
+      "also": "All Students Take Calculus (antihorario desde QI).",
+      "steps": [
+        "QI: todas positivas.",
+        "QII: Sin (y cosec) positivo.",
+        "QIII: Tan (y cot) positivo.",
+        "QIV: Cos (y sec) positivo."
+      ],
+      "exception": "ASTC nombra las positivas; las demás son negativas en ese cuadrante.",
+      "tag": ""
+    },
+    "wordkeys10": {
+      "name": "Problemas de palabras trig",
+      "phrase": "Elevación mira arriba, depresión abajo — ambas desde la horizontal.",
+      "also": "",
+      "steps": [
+        "Esquematiza el triángulo rectángulo.",
+        "Marca ángulo de elevación/depresión.",
+        "Usa SOHCAHTOA para el lado o ángulo que falta."
+      ],
+      "exception": "Ángulo de depresión desde arriba iguala elevación desde abajo (ángulos alternos internos).",
+      "tag": ""
+    },
+    "arith10": {
+      "name": "Aritmética con valores exactos",
+      "phrase": "Mantén surds ordenados: multiplica, luego simplifica la raíz.",
+      "also": "",
+      "steps": [
+        "Escribe valores exactos (√2, √3, 1/2…).",
+        "Multiplica o divide fracciones.",
+        "Simplifica surds."
+      ],
+      "exception": "No sustituyas √2 por 1,4 en preguntas de valor exacto.",
+      "tag": ""
+    },
+    "recip10": {
+      "name": "Nombres trig recíprocos",
+      "phrase": "Co-recíprocas: cosec invierte sin, sec invierte cos, cot invierte tan.",
+      "also": "",
+      "steps": [
+        "cosec θ = 1/sin θ.",
+        "sec θ = 1/cos θ.",
+        "cot θ = 1/tan θ."
+      ],
+      "exception": "sec no es 1/sin — ese error es clásico.",
+      "tag": ""
+    },
+    "estimate10": {
+      "name": "Estimar lados trig",
+      "phrase": "Comprobación rápida: en θ agudo, el opuesto es más corto que la hipotenusa.",
+      "also": "",
+      "steps": [
+        "Dibuja y etiqueta.",
+        "Pregunta si la respuesta puede superar la hipotenusa.",
+        "Usa SOHCAHTOA y haz sentido común."
+      ],
+      "exception": "Seno y coseno de un ángulo agudo están siempre entre 0 y 1.",
+      "tag": ""
+    },
+    "commute10": {
+      "name": "Reordenar razones",
+      "phrase": "Si sin θ = opp/hyp, entonces opp = hyp × sin θ — multiplica ambos lados.",
+      "also": "",
+      "steps": [
+        "Parte de la definición de la razón.",
+        "Multiplica ambos lados por el denominador.",
+        "Resuelve el lado desconocido."
+      ],
+      "exception": "Mantén las etiquetas opp/adj de θ consistentes con el ángulo que marcaste.",
+      "tag": ""
+    },
+    "distrib10": {
+      "name": "Expandir paréntesis trig",
+      "phrase": "Distribuye constantes en expresiones trig como en álgebra.",
+      "also": "",
+      "steps": [
+        "Multiplica la constante en cada término.",
+        "Conserva etiquetas sin/cos.",
+        "Simplifica números."
+      ],
+      "exception": "sin(2θ) no es 2 sin θ — es otra identidad.",
+      "tag": ""
+    },
+    "cast10": {
+      "name": "CAST vs ASTC",
+      "phrase": "CAST empieza en QIV; ASTC en QI — mismas positivas, distinto inicio.",
+      "also": "",
+      "steps": [
+        "Prefiere un mnemónico y mantenlo.",
+        "ASTC: All-Sin-Tan-Cos desde QI antihorario.",
+        "Comprueba un ángulo conocido (p. ej. 120°)."
+      ],
+      "exception": "No mezcles orden CAST con inicio ASTC a mitad de problema.",
+      "tag": ""
+    },
+    "mental10": {
+      "name": "Mental 3-4-5 y 5-12-13",
+      "phrase": "Memoriza las ternas rectas famosas — aceleran razones trig.",
+      "also": "",
+      "steps": [
+        "Detecta 3-4-5 o 5-12-13 (o múltiplos).",
+        "Escribe sin/cos/tan desde los lados.",
+        "Escala ternas por el mismo factor."
+      ],
+      "exception": "6-8-10 es 3-4-5 ×2 — reduce antes de leer la razón si quieres forma simple.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Trig del triángulo rectángulo",
+      "rows": [
+        ["SOH CAH TOA", "sin opp/hyp; cos adj/hyp; tan opp/adj"],
+        ["Recíprocas", "cosec↔sin, sec↔cos, cot↔tan"],
+        ["ASTC / CAST", "ASTC desde QI: All→Sin→Tan→Cos; no mezclar con inicio CAST"],
+        ["Ángulos especiales", "0,1,2,3,4 → ÷4 → √ = sin; cos al revés"],
+        ["Ternas mano", "Usa 3-4-5 y primas para razones exactas"],
+        ["Seno es y", "En el círculo unitario, sin θ = coordenada y"],
+        ["Alturas", "Elevación arriba, depresión abajo desde horizontal"]
+      ]
+    },
+    {
+      "title": "Teoremas del círculo",
+      "rows": [
+        ["Centro vs arco", "Ángulo central = 2 × ángulo en arco (mismo arco)"],
+        ["Cíclico", "Ángulos opuestos suman 180°"],
+        ["Cuerda desde centro", "⊥ desde centro bisecta la cuerda"],
+        ["Dos tangentes", "Desde un punto exterior: longitudes iguales"],
+        ["Segmento alterno", "Ángulo tangente–cuerda = ángulo en seg. alterno"],
+        ["Mismo segmento", "Ángulos en el mismo arco son iguales"],
+        ["Cuerdas que se cortan", "Productos de trozos iguales"],
+        ["Tangente–secante", "tangente² = exterior × secante entera"]
+      ]
+    },
+    {
+      "title": "Sucesiones y sectores",
+      "rows": [
+        ["PA", "aₙ = a+(n−1)d; suma = n/2(primero+último)"],
+        ["PG", "aₙ = a·rⁿ⁻¹"],
+        ["Sector / arco", "θ/360 del círculo entero"],
+        ["Identidad pitagórica", "sin²θ + cos²θ = 1"],
+        ["Trig complementaria", "sin(90°−θ) = cos θ"]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,542 @@
+{
+  "grade": "Grados 5–6",
+  "title": "Fracciones y orden",
+  "blurb": "El signo entre las fracciones elige el movimiento.",
+  "lessons": {
+    "fadd": {
+      "name": "Sumar fracciones",
+      "phrase": "Mismo denominador, suma los numeradores.",
+      "also": "",
+      "steps": [
+        "Si los denominadores difieren, renombra ambas fracciones hasta que coincidan.",
+        "Suma los numeradores.",
+        "Conserva el denominador común y simplifica."
+      ],
+      "exception": "Nunca sumes los denominadores. 1/2 + 1/3 no es 2/5. Medios y tercios pasan a sextos: 3/6 + 2/6 = 5/6.",
+      "tag": ""
+    },
+    "fsub": {
+      "name": "Restar fracciones",
+      "phrase": "Mismo denominador, quita los numeradores.",
+      "also": "",
+      "steps": [
+        "Haz coincidir los denominadores.",
+        "Resta los numeradores.",
+        "Conserva el denominador."
+      ],
+      "exception": "No restes los denominadores. 3/5 − 1/5 es 2/5, no 2/0.",
+      "tag": ""
+    },
+    "fmul": {
+      "name": "Multiplicar fracciones",
+      "phrase": "En línea recta: numerador×numerador, denominador×denominador.",
+      "also": "",
+      "steps": [
+        "Multiplica los numeradores.",
+        "Multiplica los denominadores.",
+        "Simplifica."
+      ],
+      "exception": "Los denominadores no tienen que coincidir para ×. Eso es solo para sumar. 1/2 × 1/2 es 1/4, no 1.",
+      "tag": ""
+    },
+    "fdiv": {
+      "name": "Dividir fracciones",
+      "phrase": "Conserva, cambia, voltea.",
+      "also": "",
+      "steps": [
+        "Conserva la primera fracción.",
+        "Cambia ÷ por ×.",
+        "Voltea solo la segunda fracción y multiplica en línea recta."
+      ],
+      "exception": "Voltea solo la segunda fracción. Voltear la primera, o ambas, da mal. Nunca divides entre cero.",
+      "tag": ""
+    },
+    "pemdas": {
+      "name": "Orden de operaciones",
+      "phrase": "Please Excuse My Dear Aunt Sally (PEMDAS).",
+      "also": "",
+      "steps": [
+        "Primero paréntesis y agrupación.",
+        "Luego potencias.",
+        "Luego × y ÷, de izquierda a derecha.",
+        "Luego + y −, de izquierda a derecha."
+      ],
+      "exception": "× y ÷ empatan: ve de izquierda a derecha: 8 ÷ 2 × 4 = 16, no 1. Lo mismo con + y −.",
+      "tag": ""
+    },
+    "ndd": {
+      "name": "Fracción a decimal",
+      "phrase": "N.D.D.: Numerador Dividido por Denominador.",
+      "also": "",
+      "steps": [
+        "El numerador va dentro de la «casita» de división.",
+        "Divídelo entre el denominador.",
+        "Añade punto decimal y ceros según hagan falta."
+      ],
+      "exception": "No dividas denominador entre numerador: eso da la fracción volteada. 3/4 es 0,75, no 1,33.",
+      "tag": ""
+    },
+    "decadd": {
+      "name": "Sumar y restar decimales",
+      "phrase": "Alinea los puntos.",
+      "also": "Los huecos llevan cero. Luego suma o resta como enteros y baja el punto.",
+      "steps": [
+        "Escribe los números en columna con los puntos en una línea.",
+        "Rellena huecos con ceros. Un entero lleva punto al final: 7 = 7,00.",
+        "Suma o resta columna por columna.",
+        "Baja el punto recto."
+      ],
+      "exception": "No alinees solo la última cifra: 2,45 + 1,3 es 3,75, no 2,58. Solo para + y −. En × no alineas puntos.",
+      "tag": ""
+    },
+    "decmul": {
+      "name": "Multiplicar decimales",
+      "phrase": "Ignora los puntos, multiplica, luego cuenta lugares.",
+      "also": "Cuenta las cifras tras el punto en ambos números. La respuesta lleva esa cantidad.",
+      "steps": [
+        "Quita los puntos y multiplica los enteros.",
+        "Cuenta las cifras tras el punto en cada número y súmalas.",
+        "Desde la derecha, pon el punto en esa cantidad de lugares."
+      ],
+      "exception": "No alinees puntos en ×: eso es solo + y −. Cuenta antes de acomodar: 0,5 × 0,4 = 0,20 = 0,2, no 0,02.",
+      "tag": ""
+    },
+    "decdiv": {
+      "name": "Dividir entre un decimal",
+      "phrase": "Haz entero el divisor: mueve ambos puntos la misma cantidad.",
+      "also": "Luego divide normal. El punto de la respuesta va encima del del dividendo.",
+      "steps": [
+        "Mueve el punto del divisor a la derecha hasta que sea entero.",
+        "Mueve el del otro número la misma cantidad. Añade ceros si faltan cifras.",
+        "Divide como siempre."
+      ],
+      "exception": "Ambos puntos deben moverse igual o cambia la respuesta. Si solo el dividendo tiene punto, no muevas: divide y coloca el punto arriba.",
+      "tag": ""
+    },
+    "mixed": {
+      "name": "Números mixtos y fracciones impropias",
+      "phrase": "Cara Enojada (MAD): Multiplica, suma, el Denominador queda.",
+      "also": "De vuelta: divide. El cociente son los enteros, el resto arriba, el denominador igual.",
+      "steps": [
+        "Multiplica el entero por el denominador.",
+        "Suma el numerador.",
+        "Conserva el mismo denominador.",
+        "De vuelta: numerador ÷ denominador da enteros y el resto va arriba."
+      ],
+      "exception": "El denominador no cambia: 2 3/4 es 11/4, no 11/8. Multiplica el entero por el de abajo, no por el de arriba.",
+      "tag": ""
+    },
+    "lcmgcf": {
+      "name": "MCM y MCD (MCD)",
+      "phrase": "Sube la escalera. El lado izquierdo es el MCD. Multiplica la L grande para el MCM.",
+      "also": "MCD (HCF): el mayor que divide a ambos. MCM: el menor múltiplo común.",
+      "steps": [
+        "Escribe los dos números lado a lado.",
+        "Divide ambos por un primo que los divide. Escribe abajo.",
+        "Para cuando ninguno común quede.",
+        "MCD: multiplica el lado izquierdo. MCM: multiplica la L, lado izquierdo y fila de abajo."
+      ],
+      "exception": "El MCD no puede ser mayor que el menor número, ni el MCM menor que el mayor. Si no hay común, MCD=1 y MCM es el producto.",
+      "tag": ""
+    },
+    "ratio": {
+      "name": "Razones y tasas unitarias",
+      "phrase": "Halla la tasa de uno y ya terminaste.",
+      "also": "Divide para obtener la cantidad de 1. Multiplica para cualquier cantidad.",
+      "steps": [
+        "Escribe lo que sabes: 12 dólares por 4 bolígrafos.",
+        "Divide para la tasa unitaria: 12 ÷ 4 = 3 dólares por bolígrafo.",
+        "Multiplica por cuántos quieras."
+      ],
+      "exception": "Conserva el orden del enunciado: 3 gatos a 5 perros es 3 : 5, no 5 : 3. No sumes la diferencia: 2 bolígrafos a $6, 4 cuestan $12, no $8. Para la mejor compra, compara precio por uno.",
+      "tag": ""
+    },
+    "mmmr": {
+      "name": "Media, mediana, moda, rango",
+      "phrase": "La mediana es el del medio; la media es sumar y dividir. La moda es la que más ves; el rango es la diferencia entre extremos.",
+      "also": "",
+      "steps": [
+        "Media: súmalos todos y divide entre cuántos hay.",
+        "Mediana: ordénalos y encuentra el centro.",
+        "Moda: el número que más se repite.",
+        "Rango: máximo − mínimo."
+      ],
+      "exception": "Ordena antes de la mediana. Con cantidad par, la mediana está entre los dos del medio. Puede no haber moda, o varias.",
+      "tag": ""
+    },
+    "expo": {
+      "name": "Exponentes",
+      "phrase": "El exponente dice cuántas veces aparece la base.",
+      "also": "En 2⁴, 2 es la base y 4 el exponente: 2 × 2 × 2 × 2.",
+      "steps": [
+        "El número grande es la base.",
+        "El número pequeño arriba es el exponente.",
+        "Escribe la base tantas veces con × entre ellas y multiplica."
+      ],
+      "exception": "No es base × exponente: 2³ es 2 × 2 × 2 = 8, no 6. Cualquier número a la 1 es él mismo; (salvo 0) a la 0 es 1.",
+      "tag": ""
+    },
+    "triarea": {
+      "name": "Área de triángulos y paralelogramos",
+      "phrase": "Un triángulo es media caja: base × altura ÷ 2.",
+      "also": "Un paralelogramo es caja inclinada: base × altura, sin partir.",
+      "steps": [
+        "Halla la base.",
+        "Halla la altura: la línea recta perpendicular a la base.",
+        "Triángulo: base × altura ÷ 2.",
+        "Paralelogramo: base × altura."
+      ],
+      "exception": "Usa la altura vertical, no el lado inclinado. Solo el triángulo se parte a la mitad.",
+      "tag": ""
+    },
+    "volume": {
+      "name": "Volumen de una caja",
+      "phrase": "Cubre el piso, luego apila pisos: largo × ancho × alto.",
+      "also": "",
+      "steps": [
+        "Piso: largo × ancho dice cuántos cubos cubren abajo.",
+        "Apila: multiplica por la altura.",
+        "El volumen va en unidades cúbicas, como cm³."
+      ],
+      "exception": "No sumes los tres lados: 2×3×4 caben 24 cubos, no 9. Volumen (interior) no es área de superficie (envoltorio).",
+      "tag": ""
+    },
+    "coords": {
+      "name": "Plano cartesiano",
+      "phrase": "Por el pasillo, sube la escalera.",
+      "also": "(x, y): x primero, como en el abecedario.",
+      "steps": [
+        "Empieza en (0, 0), donde se cruzan las rectas.",
+        "Primer número: camina por el eje x.",
+        "Segundo número: sube por y."
+      ],
+      "exception": "El orden importa: (2, 5) y (5, 2) son distintos. Siempre horizontal antes que vertical. Negativos: izquierda o abajo.",
+      "tag": ""
+    },
+    "gems-order": {
+      "name": "Orden GEMS",
+      "phrase": "GEMS: Grouping, Exponents, Multiply/Divide, Subtract/Add.",
+      "also": "× con ÷, − con + — izquierda a derecha en cada par.",
+      "steps": [
+        "Primero símbolos de agrupación: ( ), [ ], { }, barras de fracción, | |.",
+        "Luego exponentes (y raíces).",
+        "Luego × y ÷ juntos, izquierda a derecha.",
+        "Luego + y − juntos, izquierda a derecha."
+      ],
+      "exception": "En Multiply/Divide y en Subtract/Add sigue izquierda a derecha. Agrupación incluye ( ), [ ], { }, barras y | |.",
+      "tag": ""
+    },
+    "kcf": {
+      "name": "Kentucky Chicken Fried (KCF)",
+      "phrase": "KCF: Keep, Change, Flip — Conserva, Cambia, Voltea.",
+      "also": "Conserva la primera fracción, cambia ÷ por ×, voltea la segunda.",
+      "steps": [
+        "Conserva la primera fracción.",
+        "Cambia ÷ en ×.",
+        "Voltea la segunda fracción (recíproco).",
+        "Multiplica en línea recta."
+      ],
+      "exception": "No voltees la primera. Cancela factores comunes después del volteo, no antes de cambiar el signo.",
+      "tag": ""
+    },
+    "bodmas": {
+      "name": "BODMAS / BIDMAS",
+      "phrase": "BODMAS: Brackets, Orders, Division/Multiplication, Addition/Subtraction.",
+      "also": "Mismo orden que PEMDAS — ×÷ y +− empatan izquierda a derecha.",
+      "steps": [
+        "Primero corchetes/paréntesis.",
+        "Orders (potencias).",
+        "÷ y × de izquierda a derecha.",
+        "+ y − de izquierda a derecha."
+      ],
+      "exception": "La división no va «antes» que la multiplicación — comparten nivel.",
+      "tag": ""
+    },
+    "kinghenry5": {
+      "name": "Saltos en la escalera métrica",
+      "phrase": "King Henry Died By Drinking Chocolate Milk — mueve el punto decimal.",
+      "also": "",
+      "steps": [
+        "Encuentra prefijos de inicio y fin.",
+        "Cuenta saltos en la escalera de King Henry.",
+        "Mueve el decimal un lugar por salto."
+      ],
+      "exception": "«By» es la unidad base. Mega/micro/nano quedan fuera de esta escalera. Hacia milli más piezas pequeñas; hacia kilo, menos.",
+      "tag": ""
+    },
+    "gallon5": {
+      "name": "Capacidad customary (EE. UU.)",
+      "phrase": "Gallon Man: 4 quart, 2 pint cada uno, 2 cups cada uno — 16 cups en un galón.",
+      "also": "",
+      "steps": [
+        "Dibuja a Gallon Man.",
+        "Convierte con 4, 2 y 2.",
+        "Multiplica saltos al ir a unidades más pequeñas."
+      ],
+      "exception": "Pint y cup son customary de EE. UU.; el pint del Reino Unido difiere.",
+      "tag": ""
+    },
+    "commute5": {
+      "name": "Repaso de propiedades",
+      "phrase": "Commute (voltea), associate (reagrupa), distribute (reparte a cada uno).",
+      "also": "",
+      "steps": [
+        "Nombra la propiedad.",
+        "Reescribe volteando, reagrupando o distribuyendo.",
+        "Calcula por el camino fácil."
+      ],
+      "exception": "Son para + y × (distribuir mezcla × sobre +). No para − sola.",
+      "tag": ""
+    },
+    "wordkeys5": {
+      "name": "Palabras clave de operaciones",
+      "phrase": "En total suma, queda resta, cada una multiplica, reparte divide.",
+      "also": "",
+      "steps": [
+        "Encuentra la palabra clave.",
+        "Tradúcela a +, −, × o ÷.",
+        "Resuelve y comprueba con el cuento."
+      ],
+      "exception": "Historias de varios pasos pueden necesitar dos palabras clave.",
+      "tag": ""
+    },
+    "estimate5": {
+      "name": "Estimar con decimales",
+      "phrase": "Redondea a enteros, calcula — más o menos.",
+      "also": "",
+      "steps": [
+        "Redondea cada decimal a un entero cercano.",
+        "Suma, resta o multiplica los enteros.",
+        "Llámalo una estimación."
+      ],
+      "exception": "Con dinero, a veces redondea a centavos, no a enteros.",
+      "tag": ""
+    },
+    "benchmark": {
+      "name": "Referencias de fracciones",
+      "phrase": "Compara con 0, 1/2 y 1 — las referencias amigas.",
+      "also": "",
+      "steps": [
+        "Pregunta: ¿menor que 1/2, cerca de 1/2 o mayor?",
+        "Usa referencias para comparar dos fracciones.",
+        "Confirma con denominadores comunes si hace falta."
+      ],
+      "exception": "Las referencias dan idea rápida; el desempate aún requiere comparación exacta.",
+      "tag": ""
+    },
+    "recip5": {
+      "name": "Recíprocos",
+      "phrase": "El recíproco voltea la fracción — el producto es 1.",
+      "also": "",
+      "steps": [
+        "Voltea numerador y denominador.",
+        "Comprueba: original × volteada = 1.",
+        "El entero n tiene recíproco 1/n."
+      ],
+      "exception": "Cero no tiene recíproco. No voltees solo una parte del mixto — convierte primero.",
+      "tag": ""
+    },
+    "cancel5": {
+      "name": "Simplificar antes de multiplicar",
+      "phrase": "Cancela factores comunes entre numeradores y denominadores antes de multiplicar.",
+      "also": "",
+      "steps": [
+        "Escribe el producto de fracciones.",
+        "Busca un factor común entre cualquier numerador y denominador.",
+        "Divídelo y luego multiplica lo que queda."
+      ],
+      "exception": "Solo cancela numerador con denominador — nunca dos numeradores juntos.",
+      "tag": ""
+    },
+    "butterfly5": {
+      "name": "Comparar con mariposa",
+      "phrase": "Para comparar fracciones, multiplica en cruz — alas de mariposa.",
+      "also": "",
+      "steps": [
+        "Escribe las dos fracciones.",
+        "Multiplica en cruz ambas diagonales.",
+        "La ala mayor queda bajo la fracción mayor."
+      ],
+      "exception": "La mariposa pide positivos. Si son iguales, las alas coinciden.",
+      "tag": ""
+    },
+    "madface5": {
+      "name": "Recordatorio cara Enojada (MAD)",
+      "phrase": "MAD: Multiplica, suma, Denominador queda — mixto → impropia.",
+      "also": "",
+      "steps": [
+        "Multiplica entero × denominador.",
+        "Suma el numerador.",
+        "Conserva el mismo denominador."
+      ],
+      "exception": "De impropia a mixta es dividir, no MAD. MAD solo es mixto a impropia.",
+      "tag": ""
+    },
+    "mental5": {
+      "name": "Referencias mentales de porcentaje",
+      "phrase": "10% es ÷10. 50% es la mitad. 25% es un cuarto.",
+      "also": "",
+      "steps": [
+        "Memoriza 10%, 25%, 50%, 75% como anclas.",
+        "Arma otros desde trozos del 10%.",
+        "Comprueba: porcentaje significa /100."
+      ],
+      "exception": "5% es mitad del 10%, no mitad del 50%.",
+      "tag": ""
+    },
+    "leftright5": {
+      "name": "Empates de izquierda a derecha",
+      "phrase": "Cuando × y ÷ comparten nivel, camina de izquierda a derecha — no saltes.",
+      "also": "",
+      "steps": [
+        "Busca una racha de ×/÷ sin paréntesis.",
+        "Haz primero la operación más a la izquierda.",
+        "Luego la siguiente."
+      ],
+      "exception": "Paréntesis y potencias van antes. Solo rachas puras de ×÷ (o +−) usan izquierda a derecha.",
+      "tag": ""
+    },
+    "simplify5": {
+      "name": "Simplificar fracciones",
+      "phrase": "Divide arriba y abajo por el mismo factor — lo que hagas arriba, haz abajo.",
+      "also": "",
+      "steps": [
+        "Encuentra un factor común de numerador y denominador.",
+        "Divide ambos entre él.",
+        "Repite hasta que solo 1 sea común."
+      ],
+      "exception": "Debes dividir ambos. Dividir solo arriba cambia el valor.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Fracciones",
+      "rows": [
+        [
+          "Sumar / restar",
+          "Mismo denominador, suma (o quita) numeradores"
+        ],
+        [
+          "Multiplicar",
+          "En línea: num×num, den×den"
+        ],
+        [
+          "Dividir (KCF)",
+          "Keep, Change, Flip"
+        ],
+        [
+          "Equivalentes",
+          "Lo que hagas arriba, haz abajo"
+        ],
+        [
+          "Cara MAD",
+          "Mixto → impropia: Multiplica, suma, denom. igual"
+        ],
+        [
+          "N.D.D.",
+          "Numerador ÷ denominador → decimal"
+        ],
+        [
+          "Simplificar",
+          "Divide arriba y abajo por el mismo MCD"
+        ],
+        [
+          "Recíproco",
+          "Voltea la fracción para dividir"
+        ]
+      ]
+    },
+    {
+      "title": "Orden y decimales",
+      "rows": [
+        [
+          "PEMDAS / BODMAS",
+          "Grupos primero, luego ×÷, luego +−"
+        ],
+        [
+          "Orden GEMS",
+          "Group, Exponent, Multiply/Divide, Subtract/Add"
+        ],
+        [
+          "Alinea los puntos",
+          "Sumar/restar decimales"
+        ],
+        [
+          "× decimales",
+          "Ignora puntos, multiplica, cuenta lugares"
+        ],
+        [
+          "÷ entre decimal",
+          "Mueve ambos puntos hasta divisor entero"
+        ],
+        [
+          "×10 / 100 / 1000",
+          "Cada cero deslaza una cifra"
+        ],
+        [
+          "Fracciones referencia",
+          "½, ¼, ¾ comparadas con 1"
+        ],
+        [
+          "King Henry",
+          "Escalera kilo→milli; «By» = base; mueve el punto"
+        ]
+      ]
+    },
+    {
+      "title": "Razón, estadística y figuras",
+      "rows": [
+        [
+          "Tasa unitaria",
+          "Halla la tasa de uno y listo"
+        ],
+        [
+          "Escalera MCM / MCD",
+          "Izquierda = MCD; L grande × = MCM"
+        ],
+        [
+          "Media / mediana / moda / rango",
+          "Suma÷n; centro; más frecuente; máx−mín"
+        ],
+        [
+          "Mariposa (proporción)",
+          "Multiplica en cruz solo si dos razones son iguales"
+        ],
+        [
+          "Área triángulo",
+          "½ × base × altura"
+        ],
+        [
+          "Volumen caja",
+          "l × a × h (piso, luego apila)"
+        ],
+        [
+          "Coordenadas",
+          "Por el pasillo, sube la escalera"
+        ]
+      ]
+    },
+    {
+      "title": "Exponentes y atajos",
+      "rows": [
+        [
+          "Exponentes",
+          "Multiplicación repetida: 2³ = 2×2×2"
+        ],
+        [
+          "Izq. a der. ×÷",
+          "Mismo nivel, de izquierda a derecha"
+        ],
+        [
+          "Simplifica antes de ×",
+          "Reduce fracciones antes de multiplicar"
+        ],
+        [
+          "× mental",
+          "Parte: 48×5 = 48×10 ÷ 2"
+        ]
+      ]
+    }
+  ]
+}

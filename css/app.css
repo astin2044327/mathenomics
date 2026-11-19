@@ -9,8 +9,8 @@
   --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
   --good: #2A7A52;
   --bad: #C63C3C;
-  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: "Source Sans 3", "Avenir Next", "Avenir", "Segoe UI", system-ui, sans-serif;
+  --display: "Fraunces", "Noto Serif Devanagari", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: "Source Sans 3", "Noto Sans Devanagari", "Avenir Next", "Avenir", "Segoe UI", system-ui, sans-serif;
   --lift: 3px 3px 0 var(--ink);
   --lift-lg: 7px 7px 0 var(--ink);
   --radius: 14px;
@@ -60,6 +60,70 @@ p { margin: 0; }
   font-size: 1.28rem;
   font-weight: 700;
   letter-spacing: -0.025em;
+}
+
+/* ---------- language picker (home) ---------- */
+.lang-picker {
+  margin: 18px 0 8px;
+  padding: 14px 16px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper2) 92%, var(--accent));
+  box-shadow: var(--lift);
+}
+.lang-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+.lang-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lang-btn {
+  appearance: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 14px;
+  min-width: 7.5rem;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  background: var(--paper2);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.12s ease;
+}
+.lang-btn strong { font-size: 1.05rem; line-height: 1.2; }
+.lang-btn em { font-style: normal; font-size: 0.78rem; color: var(--ink-2); }
+.lang-btn:hover { transform: translate(-1px, -1px); }
+.lang-btn.on {
+  background: var(--ink);
+  color: var(--paper2);
+}
+.lang-btn.on em { color: color-mix(in srgb, var(--paper2) 75%, transparent); }
+.lang-hint {
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  line-height: 1.4;
+}
+.quiz-note {
+  margin: 12px 0 4px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+html[data-lang="ne"] body {
+  font-size: 16.5px;
+  line-height: 1.6;
 }
 .fox.mini { width: 32px; height: 35px; }
 .bar nav {

@@ -1,0 +1,489 @@
+{
+  "grade": "Grado 8",
+  "title": "Teoremas de triángulos y ángulos",
+  "blurb": "Cada teorema es un movimiento. Reconoce la figura y haz el movimiento.",
+  "lessons": {
+    "anglesum": {
+      "name": "Suma de ángulos de un triángulo",
+      "phrase": "Tres esquinas forman una línea recta: 180°.",
+      "also": "",
+      "steps": [
+        "Suma los ángulos que conoces.",
+        "Resta eso de 180°.",
+        "Lo que queda es el ángulo que falta."
+      ],
+      "exception": "Esto es en papel plano. Un triángulo en una bola puede sumar más de 180°. Los ángulos exteriores, uno en cada esquina, suman 360°.",
+      "tag": ""
+    },
+    "exterior": {
+      "name": "Ángulo exterior",
+      "phrase": "El ángulo exterior iguala los dos interiores lejanos.",
+      "also": "",
+      "steps": [
+        "Encuentra el ángulo exterior en una esquina.",
+        "Suma los dos ángulos interiores que no lo tocan.",
+        "Coinciden."
+      ],
+      "exception": "No uses el ángulo interior vecino. Ese par está en una línea recta y hace 180°.",
+      "tag": ""
+    },
+    "iso": {
+      "name": "Triángulo isósceles",
+      "phrase": "Lados gemelos, ángulos gemelos.",
+      "also": "",
+      "steps": [
+        "Encuentra los dos lados iguales (las marcas).",
+        "Los ángulos en la base de esos lados son iguales.",
+        "Usa 180° para el resto."
+      ],
+      "exception": "Los ángulos gemelos están frente a los lados gemelos, en la base. El ángulo entre los lados gemelos suele ser distinto, salvo que los tres lados sean iguales.",
+      "tag": ""
+    },
+    "pythag": {
+      "name": "Pitágoras",
+      "phrase": "Eleva al cuadrado los catetos, súmalos, y eso es el lado largo al cuadrado.",
+      "also": "a² + b² = c², y c está frente al ángulo recto.",
+      "steps": [
+        "Encuentra el ángulo recto. El lado frente a él es c.",
+        "Eleva al cuadrado los dos catetos y súmalos.",
+        "Saca la raíz. Para un cateto, resta: c² − a²."
+      ],
+      "exception": "Solo en triángulos rectángulos. Y c está frente al ángulo recto, no solo el lado que parece más largo.",
+      "tag": ""
+    },
+    "parallel": {
+      "name": "Rectas paralelas",
+      "phrase": "Ángulos F se copian, Z se copian, C suman 180°.",
+      "also": "",
+      "steps": [
+        "Traza la letra que forman los dos ángulos con las rectas.",
+        "F (correspondientes) o Z (alternos): los ángulos son iguales.",
+        "C (co-interiores): los ángulos suman 180°."
+      ],
+      "exception": "Solo cuando las rectas son paralelas (marcas de flecha). Sin paralelas, los ángulos no están forzados a coincidir.",
+      "tag": ""
+    },
+    "congruent": {
+      "name": "Triángulos congruentes",
+      "phrase": "Mismo tamaño y forma: SSS, SAS, ASA, RHS.",
+      "also": "",
+      "steps": [
+        "SSS: tres lados coinciden.",
+        "SAS: dos lados y el ángulo entre ellos.",
+        "ASA: dos ángulos y el lado entre ellos.",
+        "RHS: ángulo recto, hipotenusa y un lado más."
+      ],
+      "exception": "SSA no es prueba: dos lados y un ángulo que no está entre ellos pueden dar dos triángulos. AAA da la misma forma pero no el mismo tamaño.",
+      "tag": ""
+    },
+    "quad": {
+      "name": "Ángulos del cuadrilátero",
+      "phrase": "Cuatro esquinas dan una vuelta completa: 360°.",
+      "also": "",
+      "steps": [
+        "Suma los tres ángulos que conoces.",
+        "Resta eso de 360°."
+      ],
+      "exception": "Los ángulos opuestos solo son iguales en un paralelogramo. No asumas un cuadrado solo porque tiene cuatro lados.",
+      "tag": ""
+    },
+    "polyint": {
+      "name": "Ángulos interiores del polígono",
+      "phrase": "Parte el polígono en triángulos: (n − 2) × 180°.",
+      "also": "",
+      "steps": [
+        "Cuenta los lados n.",
+        "Un polígono se parte en n − 2 triángulos desde una esquina.",
+        "Cada triángulo es 180°, así que la suma interior es (n − 2) × 180°.",
+        "En un polígono regular, cada ángulo interior es esa suma ÷ n."
+      ],
+      "exception": "n debe ser al menos 3. Los ángulos exteriores son otra historia: siempre suman 360°, no (n − 2) × 180°.",
+      "tag": ""
+    },
+    "polyext": {
+      "name": "Ángulos exteriores del polígono",
+      "phrase": "Recorre la figura: los exteriores siempre suman 360°.",
+      "also": "",
+      "steps": [
+        "En cada esquina, el exterior es el giro que das.",
+        "Todos los giros hacen una vuelta: 360°.",
+        "En un n-ágono regular, cada exterior es 360° ÷ n.",
+        "Interior y exterior en una esquina están en línea recta: suman 180°."
+      ],
+      "exception": "Es un exterior en cada vértice, siempre en el mismo sentido. No mezcles sumas interiores con exteriores.",
+      "tag": ""
+    },
+    "straight": {
+      "name": "Ángulos en una recta y alrededor de un punto",
+      "phrase": "En una recta: 180°. Alrededor de un punto: 360°. Opuestos por el vértice: iguales.",
+      "also": "",
+      "steps": [
+        "Los ángulos en una línea recta suman 180°.",
+        "Los ángulos alrededor de un punto suman 360°.",
+        "Cuando dos rectas se cruzan, los opuestos por el vértice son iguales."
+      ],
+      "exception": "Los ángulos adyacentes en una cruz no son iguales — hacen 180°. Solo los que están frente a frente coinciden.",
+      "tag": ""
+    },
+    "slope": {
+      "name": "Pendiente",
+      "phrase": "La pendiente es subida entre avance.",
+      "also": "",
+      "steps": [
+        "Elige dos puntos de la recta.",
+        "Subida = cambio en y (arriba es positivo).",
+        "Avance = cambio en x (derecha es positivo).",
+        "Pendiente m = subida ÷ avance."
+      ],
+      "exception": "Recta horizontal: pendiente 0 (subida 0). Vertical: sin pendiente (avance 0 — no divides entre 0). Hacia abajo implica subida negativa.",
+      "tag": ""
+    },
+    "ymxb": {
+      "name": "Forma pendiente–intersección",
+      "phrase": "y = mx + b: m es la pendiente, b es donde corta el eje y.",
+      "also": "",
+      "steps": [
+        "Lee m: el número delante de x (pendiente).",
+        "Lee b: el término constante (intersección con y).",
+        "Para hallar y, sustituye x. Para hallar x, sustituye y y resuelve."
+      ],
+      "exception": "Si la ecuación no está despejada en y, reordena primero. La intersección está en el eje y (x = 0), no en el eje x.",
+      "tag": ""
+    },
+    "expLaws": {
+      "name": "Leyes de los exponentes",
+      "phrase": "Multiplicar → sumar potencias. Dividir → restar. Potencia de potencia → multiplicar.",
+      "also": "",
+      "steps": [
+        "xᵃ × xᵇ = xᵃ⁺ᵇ.",
+        "xᵃ ÷ xᵇ = xᵃ⁻ᵇ.",
+        "(xᵃ)ᵇ = xᵃᵇ.",
+        "x⁰ = 1 (para x ≠ 0)."
+      ],
+      "exception": "Las bases deben coincidir antes de sumar o restar potencias. (x²)³ es x⁶, no x⁵. Y 2³ × 2⁴ = 2⁷, no 4⁷.",
+      "tag": ""
+    },
+    "sci": {
+      "name": "Notación científica",
+      "phrase": "Un dígito, luego punto, por una potencia de diez.",
+      "also": "",
+      "steps": [
+        "Mueve el punto hasta que un solo dígito no nulo quede delante.",
+        "Cuenta cuántos lugares moviste: esa es la potencia de 10.",
+        "Mover a la izquierda da exponente positivo; a la derecha, negativo."
+      ],
+      "exception": "El número inicial debe ser al menos 1 y menor que 10. 34 × 10³ no es notación científica — escribe 3.4 × 10⁴.",
+      "tag": ""
+    },
+    "cylvol": {
+      "name": "Volumen del cilindro",
+      "phrase": "Volumen del cilindro: base circular por altura: πr²h.",
+      "also": "",
+      "steps": [
+        "Halla el radio r de la base circular.",
+        "Área de la base: πr².",
+        "Multiplica por la altura h.",
+        "Usa π ≈ 3.14."
+      ],
+      "exception": "Usa radio, no diámetro. Si dan el diámetro, divídelo entre dos primero. Volumen no es área de superficie.",
+      "tag": ""
+    },
+    "conevol": {
+      "name": "Volumen del cono",
+      "phrase": "Un cono es un tercio del cilindro con la misma base y altura.",
+      "also": "",
+      "steps": [
+        "La misma base y altura que un cilindro darían πr²h.",
+        "Un cono llena solo un tercio: V = (1/3)πr²h.",
+        "Usa π ≈ 3.14."
+      ],
+      "exception": "No olvides el 1/3. Comparar con un cilindro solo funciona cuando r y h coinciden.",
+      "tag": ""
+    },
+    "spherevol": {
+      "name": "Volumen de la esfera",
+      "phrase": "Volumen de la esfera: (4/3)πr³.",
+      "also": "",
+      "steps": [
+        "Eleva al cubo el radio: r³.",
+        "Multiplica por π.",
+        "Multiplica por 4/3.",
+        "Usa π ≈ 3.14."
+      ],
+      "exception": "r³ significa r × r × r, no 3r. Divide el diámetro entre dos antes de empezar.",
+      "tag": ""
+    },
+    "pythagConv": {
+      "name": "Recíproco de Pitágoras",
+      "phrase": "Si a² + b² = c², el triángulo es rectángulo en la esquina entre a y b.",
+      "also": "",
+      "steps": [
+        "Eleva al cuadrado los tres lados.",
+        "Comprueba si los dos cuadrados menores suman al mayor.",
+        "Si sí, es rectángulo. Si la suma es muy pequeña o grande, no lo es."
+      ],
+      "exception": "c debe ser el lado más largo. Tomar el lado equivocado como «hipotenusa» engaña.",
+      "tag": ""
+    },
+    "transform": {
+      "name": "Transformaciones",
+      "phrase": "Desliza, voltea o gira: traslación, reflexión, rotación.",
+      "also": "",
+      "steps": [
+        "Traslación: suma el mismo (a, b) a cada punto.",
+        "Reflexión en el eje x: (x, y) → (x, −y). En el eje y: (x, y) → (−x, y).",
+        "Rotación 90° antihorario sobre el origen: (x, y) → (−y, x).",
+        "Rotación 180°: (x, y) → (−x, −y)."
+      ],
+      "exception": "90° horario es (x, y) → (y, −x), al revés. Reflexiones en otras rectas tienen reglas distintas. Las traslaciones no voltean ni giran la figura.",
+      "tag": ""
+    },
+    "neg-exponent-one-over": {
+      "name": "Exponentes negativos",
+      "phrase": "Exponente negativo: pasa a uno entre con potencia positiva.",
+      "also": "a^(−n) = 1/a^n — el signo menos da el recíproco, no un valor negativo.",
+      "steps": [
+        "Reescribe a^(−n) como 1/a^n.",
+        "Simplifica la potencia positiva en el denominador.",
+        "Simplifica factores si puedes."
+      ],
+      "exception": "x^(−n)=1/x^n para x≠0. Un exponente negativo no hace negativo el valor por sí solo. 2^(−3)=1/8, no −8.",
+      "tag": ""
+    },
+    "compsupp": {
+      "name": "Complementarios y suplementarios",
+      "phrase": "C antes de S: complementarios 90°, suplementarios 180°. Esquina luego Recta.",
+      "also": "C de esquina (90). S de recta (180).",
+      "steps": [
+        "Complementarios: dos ángulos suman 90°.",
+        "Suplementarios: dos ángulos suman 180°.",
+        "C va antes que S; 90 antes que 180."
+      ],
+      "exception": "No tienen que ser adyacentes — solo deben sumar 90 o 180.",
+      "tag": ""
+    },
+    "riserun": {
+      "name": "Subida entre avance",
+      "phrase": "La pendiente es subida entre avance — primero arriba, luego a lo largo.",
+      "also": "",
+      "steps": [
+        "Cuenta el cambio vertical (subida).",
+        "Cuenta el cambio horizontal (avance).",
+        "Pendiente = subida/avance."
+      ],
+      "exception": "Recta horizontal: subida 0 → pendiente 0. Vertical: avance 0 → indefinida.",
+      "tag": ""
+    },
+    "wordkeys8": {
+      "name": "Aritmética en historias de geometría",
+      "phrase": "Perímetro junta lados; área son grupos de unidades cuadradas; comparte ángulos con 180°.",
+      "also": "",
+      "steps": [
+        "Traduce la historia a +, −, × o ÷.",
+        "Usa el dato de geometría (180°, cerca vs alfombra).",
+        "Resuelve."
+      ],
+      "exception": "«Alrededor» es perímetro; «cubre» es área — no intercambies fórmulas.",
+      "tag": ""
+    },
+    "estimate8": {
+      "name": "Estimar raíces y cuadrados",
+      "phrase": "Eleva un entero cercano; mira si tu número queda entre dos cuadrados.",
+      "also": "",
+      "steps": [
+        "Lista cuadrados perfectos cercanos.",
+        "Encierra el número entre ellos.",
+        "Estima la raíz entre esos enteros."
+      ],
+      "exception": "√50 es un poco más de 7 porque 7²=49.",
+      "tag": ""
+    },
+    "acuteobtuse": {
+      "name": "Nombres de ángulos",
+      "phrase": "Un ángulo «lindo» es pequeño (agudo <90). Obtuso es «gordo» (entre 90 y 180).",
+      "also": "",
+      "steps": [
+        "Agudo: menos de 90°.",
+        "Recto: exactamente 90°.",
+        "Obtuso: entre 90° y 180°.",
+        "Llano: 180°."
+      ],
+      "exception": "Los reflexos son mayores de 180° — más allá de una recta.",
+      "tag": ""
+    },
+    "distrib8": {
+      "name": "Distribuir en expresiones",
+      "phrase": "El factor de afuera llega a cada término — como el hermano pequeño de FOIL.",
+      "also": "",
+      "steps": [
+        "Multiplica el de afuera por cada término de adentro.",
+        "Cuida los signos.",
+        "Combina términos semejantes si hay."
+      ],
+      "exception": "Si dos paréntesis se multiplican, usa FOIL / cuadrícula — no una sola distribución.",
+      "tag": ""
+    },
+    "commute8": {
+      "name": "Reordenar mentalmente",
+      "phrase": "Commute y reagrupa para hacer dieces y productos fáciles.",
+      "also": "",
+      "steps": [
+        "Busca números que hagan 10 o un producto conocido.",
+        "Commute/asocia para emparejarlos.",
+        "Termina mentalmente."
+      ],
+      "exception": "Con resta en la cadena, reescribe como suma de opuestos antes de reagrupar libremente.",
+      "tag": ""
+    },
+    "pythagleg": {
+      "name": "Hallar un cateto",
+      "phrase": "Cateto² = hip² − otro cateto² — sigue siendo Pitágoras.",
+      "also": "",
+      "steps": [
+        "Eleva al cuadrado la hipotenusa.",
+        "Resta el otro cateto al cuadrado.",
+        "Raíz cuadrada para el cateto que falta."
+      ],
+      "exception": "La hipotenusa es la más larga — no restes un cuadrado mayor de uno menor y esperes un cateto real.",
+      "tag": ""
+    },
+    "vertopp": {
+      "name": "Opuestos por el vértice",
+      "phrase": "La X marca el sitio: los opuestos por el vértice son iguales.",
+      "also": "",
+      "steps": [
+        "Encuentra la X de dos rectas que se cruzan.",
+        "Los ángulos frente a frente coinciden.",
+        "Los vecinos en una recta suman 180°."
+      ],
+      "exception": "Solo el par opuesto coincide — los adyacentes son suplementarios, no iguales (salvo 90).",
+      "tag": ""
+    },
+    "scinote8": {
+      "name": "Sentido de la notación científica",
+      "phrase": "Un dígito, luego punto, por una potencia de diez.",
+      "also": "",
+      "steps": [
+        "Pon el punto después del primer dígito distinto de cero.",
+        "Cuenta los saltos hasta el punto original — ese es el exponente.",
+        "Exponente positivo → grande; negativo → diminuto."
+      ],
+      "exception": "El número inicial debe ser ≥1 y <10 (forma estándar).",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Triángulos y paralelas",
+      "rows": [
+        [
+          "Suma de ángulos",
+          "Tres esquinas → línea recta: 180°"
+        ],
+        [
+          "Ángulo exterior",
+          "Exterior = dos interiores lejanos"
+        ],
+        [
+          "Isósceles",
+          "Lados gemelos → ángulos gemelos"
+        ],
+        [
+          "Pitágoras",
+          "a² + b² = c² (catetos → hipotenusa)"
+        ],
+        [
+          "Paralelas (F, Z, C)",
+          "F/Z copian; C (co-interior) → 180°"
+        ],
+        [
+          "Congruencia",
+          "SSS, SAS, ASA, RHS"
+        ],
+        [
+          "Agudo / obtuso / recto",
+          "Menos, más o igual a 90°"
+        ]
+      ]
+    },
+    {
+      "title": "Polígonos y espacio",
+      "rows": [
+        [
+          "Ángulos del cuadrilátero",
+          "Cuatro esquinas → vuelta completa: 360°"
+        ],
+        [
+          "Suma interior",
+          "(n − 2) × 180°"
+        ],
+        [
+          "Suma exterior",
+          "Siempre 360°"
+        ],
+        [
+          "Complementarios",
+          "Dos ángulos que suman 90° (no tienen que tocarse)"
+        ],
+        [
+          "Suplementarios",
+          "Dos ángulos que suman 180°"
+        ],
+        [
+          "Opuestos por el vértice",
+          "En una X — pares iguales"
+        ],
+        [
+          "Recta / punto",
+          "En una recta 180°; alrededor de un punto 360°"
+        ]
+      ]
+    },
+    {
+      "title": "Sólidos 3-D",
+      "rows": [
+        [
+          "Cilindro",
+          "πr²h"
+        ],
+        [
+          "Cono",
+          "⅓πr²h"
+        ],
+        [
+          "Esfera",
+          "(4/3)πr³"
+        ],
+        [
+          "Transformar",
+          "Deslizar, voltear, girar"
+        ]
+      ]
+    },
+    {
+      "title": "Lineal y exponentes",
+      "rows": [
+        [
+          "Pendiente",
+          "Subida entre avance"
+        ],
+        [
+          "y = mx + b",
+          "m = pendiente; b = intersección con y"
+        ],
+        [
+          "Leyes de exponentes",
+          "× → suma; ÷ → resta; potencia→potencia multiplica"
+        ],
+        [
+          "Exponente negativo",
+          "a⁻ⁿ = 1/aⁿ"
+        ],
+        [
+          "Notación científica",
+          "Un dígito, luego punto, × 10ⁿ"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,493 @@
+{
+  "grade": "Grade 12 · SEE",
+  "title": "PABSON / send-up & NEB hard set",
+  "blurb": "Send-up (SEE Groups) geo+trig drills plus the Class-12 NEB hard set. Cards tagged SEE send-up sit first; Class-12 calculus/algebra follow.",
+  "lessons": {
+    "see-heron": {
+      "name": "SEE · Heron area",
+      "phrase": "Group A move: write s = (a+b+c)/2, then area = √[s(s−a)(s−b)(s−c)].",
+      "also": "",
+      "steps": [
+        "Add the three sides; divide by 2 for s.",
+        "Build s(s−a)(s−b)(s−c).",
+        "Take the square root."
+      ],
+      "exception": "Triangle inequality first. Using the full perimeter instead of s is the classic send-up trap.",
+      "tag": "SEE send-up"
+    },
+    "see-elev": {
+      "name": "SEE · Angle of elevation",
+      "phrase": "Send-up heights: sketch, mark elevation θ, then tan θ = opposite/adjacent.",
+      "also": "",
+      "steps": [
+        "Draw ground line, tower, and sight line from the observer.",
+        "Mark θ at the eye looking up.",
+        "Usually tan θ = height / distance; solve."
+      ],
+      "exception": "Depression is looking down. Don’t use SOHCAHTOA on a non-right figure without dropping a perpendicular.",
+      "tag": "SEE send-up"
+    },
+    "see-circle": {
+      "name": "SEE · Center & cyclic",
+      "phrase": "Group D circle hooks: center = 2×rim; cyclic opposites sum to 180°.",
+      "also": "",
+      "steps": [
+        "Same arc: double a rim angle for the center (or halve a central).",
+        "Cyclic quad: opposite angles → 180°.",
+        "Tangent ⊥ radius when a tangent appears."
+      ],
+      "exception": "Rim and center must share the same arc. Adjacent cyclic angles are not forced to 180°.",
+      "tag": "SEE send-up"
+    },
+    "see-bpt": {
+      "name": "SEE · BPT / similarity",
+      "phrase": "Parallel cut → equal ratios; AAA → proportional sides.",
+      "also": "",
+      "steps": [
+        "Spot DE ∥ BC (or equal angles for AAA).",
+        "Write AD/DB = AE/EC (BPT) or corresponding sides (similar).",
+        "Cross-multiply."
+      ],
+      "exception": "Match corresponding pieces. AAA is similarity, not congruence.",
+      "tag": "SEE send-up"
+    },
+    "see-soh": {
+      "name": "SEE · SOHCAHTOA drill",
+      "phrase": "Right-triangle send-up: label opp/adj/hyp, then SOH CAH TOA.",
+      "also": "",
+      "steps": [
+        "Confirm the right angle.",
+        "Relative to θ, mark opp, adj, hyp.",
+        "Pick the ratio that uses the known and unknown."
+      ],
+      "exception": "Oblique triangles need sine/cosine rules — not plain SOHCAHTOA.",
+      "tag": "SEE send-up"
+    },
+    "perm": {
+      "name": "Permutations nPr",
+      "phrase": "Order matters: line them up. nPr = n! / (n−r)!.",
+      "also": "",
+      "steps": [
+        "Ask: does order matter? Yes → permutation.",
+        "Write nPr = n! / (n−r)!, or n × (n−1) × … for r factors.",
+        "Cancel the unused factorial in the bottom."
+      ],
+      "exception": "If order does not matter (a committee, a set of books), use nCr instead. Also nP0 = 1, and you cannot choose more than n.",
+      "tag": ""
+    },
+    "comb": {
+      "name": "Combinations nCr",
+      "phrase": "Order does not matter: bags, not lines. nCr = n! / (r!(n−r)!).",
+      "also": "",
+      "steps": [
+        "Ask: does order matter? No → combination.",
+        "Write nCr = n! / (r!(n−r)!), or nPr / r!.",
+        "Use C(n,r) = C(n,n−r) to pick the smaller r."
+      ],
+      "exception": "If seats are numbered or passwords are ordered, use nPr. C(n,0) = C(n,n) = 1. Never leave r! out of the bottom.",
+      "tag": ""
+    },
+    "binoms": {
+      "name": "Binomial term",
+      "phrase": "Pick r of the second factors: C(n,r) aⁿ⁻ʳ bʳ.",
+      "also": "",
+      "steps": [
+        "Expand (a+b)ⁿ by choosing how many b’s appear: r = 0,1,…,n.",
+        "The general term is T_{r+1} = C(n,r) aⁿ⁻ʳ bʳ.",
+        "For a specific power of x, set the exponent equal and solve for r."
+      ],
+      "exception": "The first term is T₁ (r = 0), not T₀. Signs flip when b is negative. Do not forget the binomial coefficient.",
+      "tag": ""
+    },
+    "logs": {
+      "name": "Log equations",
+      "phrase": "log asks: what power? Change to exponential, then check the domain.",
+      "also": "",
+      "steps": [
+        "Rewrite log_b a = c as bᶜ = a.",
+        "Use product → sum, quotient → difference, power → front when needed.",
+        "Solve, then reject any root that makes a log argument ≤ 0."
+      ],
+      "exception": "Arguments must be positive and bases > 0, ≠ 1. log(A) + log(B) = log(AB) only when both A and B are positive.",
+      "tag": ""
+    },
+    "matmul": {
+      "name": "Matrix multiply 2×2",
+      "phrase": "Row-dot-column: each entry is a row of A dotted with a column of B.",
+      "also": "",
+      "steps": [
+        "Check sizes: A is m×n, B is n×p → AB is m×p.",
+        "Entry (i,j) = row i of A · column j of B.",
+        "Write all four entries for 2×2 carefully."
+      ],
+      "exception": "AB ≠ BA in general. You cannot multiply if the inner sizes disagree. Scalar multiply is entrywise — matrix multiply is not.",
+      "tag": ""
+    },
+    "det2": {
+      "name": "Determinant 2×2",
+      "phrase": "Main diagonal product minus other diagonal: ad − bc.",
+      "also": "",
+      "steps": [
+        "For [[a,b],[c,d]], compute ad − bc.",
+        "If det = 0, the matrix is singular (no inverse).",
+        "For inverse: (1/det) [[d,−b],[−c,a]]."
+      ],
+      "exception": "Do not add the diagonals. Sign of bc is subtracted. For 3×3 use cofactor expansion, not a fake “diagonal rule” without care.",
+      "tag": ""
+    },
+    "conic": {
+      "name": "Conics quick ID",
+      "phrase": "Circle x²+y², parabola one square, ellipse both positive, hyperbola opposite signs.",
+      "also": "",
+      "steps": [
+        "Put the equation in standard-ish form (complete the square if needed).",
+        "Both x² and y², same sign, equal coeffs → circle; unequal → ellipse.",
+        "Opposite signs → hyperbola. Only one squared variable → parabola."
+      ],
+      "exception": "xy terms rotate axes. Degenerate cases (like x² − y² = 0) factor into lines. Radius squared must be positive for a real circle.",
+      "tag": ""
+    },
+    "invtrig": {
+      "name": "Inverse trig values",
+      "phrase": "arcsin range [−90°,90°]; arccos [0°,180°]; arctan (−90°,90°).",
+      "also": "",
+      "steps": [
+        "Read the inverse as “the angle in the principal range whose trig is …”.",
+        "Use special angles: 0, 30, 45, 60, 90.",
+        "Watch the range: arccos(−1/2) is 120°, not −60°."
+      ],
+      "exception": "Calculator in radians vs degrees. arcsin and arccos are not defined outside [−1,1]. arctan(−1) is −45°, not 135°.",
+      "tag": ""
+    },
+    "limits": {
+      "name": "Limits (0/0)",
+      "phrase": "Plug in first. If 0/0, factor, cancel, then plug in again.",
+      "also": "",
+      "steps": [
+        "Substitute the approach value.",
+        "If you get a number, that is the limit (for a rational with cancelable hole).",
+        "If 0/0, factor numerator and denominator, cancel the common (x−a), then substitute."
+      ],
+      "exception": "Canceling changes the function at one point but not the limit. ∞/∞ needs a different tool (divide by highest power). Left and right limits can disagree.",
+      "tag": ""
+    },
+    "diffapp": {
+      "name": "Max / min with y′",
+      "phrase": "Stationary: y′ = 0. Concavity: y′′ > 0 min, y′′ < 0 max.",
+      "also": "",
+      "steps": [
+        "Differentiate y to get y′.",
+        "Solve y′ = 0 for candidate x-values.",
+        "Use y′′ (or first-derivative sign chart) to classify max/min, then find y."
+      ],
+      "exception": "Endpoints of a closed interval can be extrema even if y′ ≠ 0. y′ = 0 is necessary on an open set, not always sufficient (flat inflection).",
+      "tag": ""
+    },
+    "integ": {
+      "name": "Definite integrals",
+      "phrase": "Antiderivative F, then F(top) − F(bottom). No +C.",
+      "also": "",
+      "steps": [
+        "Find an antiderivative F of the integrand.",
+        "Evaluate F(b) − F(a) for ∫_a^b.",
+        "Simplify the number (fraction OK)."
+      ],
+      "exception": "Do not add C on a definite integral. If you substitute, change the limits. Absolute value for ∫1/x when crossing 0 is subtle — avoid that case here.",
+      "tag": ""
+    },
+    "de1": {
+      "name": "Separable DEs",
+      "phrase": "dy/dx = f(x)g(y) → pile y’s with dy, x’s with dx, then integrate.",
+      "also": "",
+      "steps": [
+        "Rewrite so g(y) dy and f(x) dx sit on opposite sides (or  dy/g = f dx).",
+        "Integrate both sides.",
+        "Solve for y if asked; keep +C."
+      ],
+      "exception": "Dividing by g(y) loses solutions where g(y)=0 — check constant solutions. Not every DE is separable.",
+      "tag": ""
+    },
+    "prob": {
+      "name": "Probability basics",
+      "phrase": "P(A∪B) = P(A)+P(B)−P(A∩B). Independent: multiply.",
+      "also": "",
+      "steps": [
+        "List the sample space size when outcomes are equally likely.",
+        "For “or”, add and subtract the overlap.",
+        "For independent “and”, multiply the probabilities."
+      ],
+      "exception": "Mutually exclusive means P(A∩B)=0 — then just add. Independent is not the same as mutually exclusive. Probabilities stay in [0,1].",
+      "tag": ""
+    },
+    "binomprob": {
+      "name": "Binomial probability",
+      "phrase": "C(n,k) pᵏ (1−p)ⁿ⁻ᵏ: choose who succeeds, then multiply.",
+      "also": "",
+      "steps": [
+        "Confirm n independent trials, success probability p each time.",
+        "Choose which k trials succeed: C(n,k).",
+        "Multiply by pᵏ (1−p)ⁿ⁻ᵏ."
+      ],
+      "exception": "Not for dependent trials. “At least one” is often 1 − P(none). p is success probability, not a count.",
+      "tag": ""
+    },
+    "vectors": {
+      "name": "Vector length & dot",
+      "phrase": "|a| = √(a₁²+a₂²). a·b = a₁b₁+a₂b₂ = |a||b|cosθ.",
+      "also": "",
+      "steps": [
+        "Magnitude: square, add, root.",
+        "Dot: multiply matching components and add.",
+        "Perpendicular ⇔ dot product 0."
+      ],
+      "exception": "Dot product is a scalar, not a vector. |a+b| ≠ |a|+|b| in general. Unit vector is a/|a|, not 1/a componentwise without care.",
+      "tag": ""
+    },
+    "projectile": {
+      "name": "Projectile range",
+      "phrase": "Range = (u² sin 2θ)/g. Max range at 45°.",
+      "also": "",
+      "steps": [
+        "Resolve: uₓ = u cos θ, uᵧ = u sin θ.",
+        "Time of flight 2 u sinθ / g; range = uₓ × time = u² sin2θ / g.",
+        "sin2θ max at 2θ=90° → θ=45°."
+      ],
+      "exception": "Formula assumes flat ground and no air resistance. Complementary angles θ and 90°−θ share the same range. Height uses a different formula.",
+      "tag": ""
+    },
+    "statics": {
+      "name": "Statics: resolve forces",
+      "phrase": "ΣFₓ = 0 and ΣFᵧ = 0 for equilibrium. Resolve into components.",
+      "also": "",
+      "steps": [
+        "Draw a free-body diagram.",
+        "Resolve every force into x and y: F cosθ, F sinθ.",
+        "Set sum of components in each direction to zero; solve."
+      ],
+      "exception": "Moments: Στ = 0 about a point if rotation can occur. Signs for direction must stay consistent. Weight acts at the center of mass.",
+      "tag": ""
+    },
+    "newtonraphson": {
+      "name": "Newton–Raphson idea",
+      "phrase": "Next guess: x₁ = x₀ − f(x₀)/f′(x₀). Tangent hits the axis.",
+      "also": "",
+      "steps": [
+        "Start with a rough root guess x₀.",
+        "Compute f(x₀) and f′(x₀).",
+        "Update x₁ = x₀ − f(x₀)/f′(x₀); repeat."
+      ],
+      "exception": "Fails if f′(x₀)=0 (horizontal tangent). Bad guesses can diverge. This finds a root of f(x)=0, not a maximum.",
+      "tag": ""
+    },
+    "partial": {
+      "name": "Partial fractions setup",
+      "phrase": "Factor the bottom; linear factors get A/(x−r), repeats get A/(x−r)+B/(x−r)².",
+      "also": "",
+      "steps": [
+        "Factor the denominator completely.",
+        "Write a template: each distinct linear factor gets a constant over it.",
+        "Clear denominators and solve for the constants by substituting roots or equating coeffs."
+      ],
+      "exception": "If the top degree ≥ bottom degree, divide first (polynomial + proper fraction). Irreducible quadratics need (Bx+C)/(quadratic).",
+      "tag": ""
+    },
+    "chainhard": {
+      "name": "Chain rule in exams",
+      "phrase": "Outside derivative, times inside derivative: f′(g(x)) · g′(x).",
+      "also": "",
+      "steps": [
+        "Name the outside function and the inside.",
+        "Differentiate the outside, leave the inside alone.",
+        "Multiply by the inside’s derivative."
+      ],
+      "exception": "Forgetting to multiply by the inside derivative is the classic error. Products of two composite functions need product + chain.",
+      "tag": ""
+    },
+    "areaunder": {
+      "name": "Area under a curve",
+      "phrase": "Area = ∫_a^b y dx when y ≥ 0. Below the axis, take absolute value.",
+      "also": "",
+      "steps": [
+        "Sketch or check the sign of y on [a,b].",
+        "Integrate to get a signed area.",
+        "If the curve crosses the axis, split the integral at roots."
+      ],
+      "exception": "A single integral from a to b gives net signed area — cancellations happen. For total geometric area, split where y=0.",
+      "tag": ""
+    },
+    "seqseries": {
+      "name": "AP / GP exam moves",
+      "phrase": "AP: a+(n−1)d. GP: arⁿ⁻¹. Sum AP n/2(2a+(n−1)d); GP a(rⁿ−1)/(r−1).",
+      "also": "",
+      "steps": [
+        "Identify arithmetic (common difference) or geometric (common ratio).",
+        "Write the nth term formula.",
+        "Use the matching sum formula; for |r|<1 infinite GP, S=a/(1−r)."
+      ],
+      "exception": "GP sum formula changes for r=1 (then S=na). Infinite sum needs |r|<1. Do not mix AP and GP formulas.",
+      "tag": ""
+    },
+    "complex": {
+      "name": "Complex numbers i",
+      "phrase": "i² = −1. Multiply like binomials; replace i² with −1.",
+      "also": "",
+      "steps": [
+        "Write z = a + bi.",
+        "Add/subtract components; multiply with FOIL then i²→−1.",
+        "Modulus |z|=√(a²+b²); conjugate a−bi."
+      ],
+      "exception": "i³ = −i, i⁴ = 1 — reduce powers mod 4. Division: multiply by the conjugate of the bottom. √(−1) is i, not a real.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "SEE Group patterns (send-up)",
+      "rows": [
+        [
+          "Group A",
+          "One-liners: Heron s=(a+b+c)/2, depreciation, quartile class, sphere vol"
+        ],
+        [
+          "Group B",
+          "Short apps: sets/Venn, CI/population, VAT/FX, mensuration"
+        ],
+        [
+          "Group C",
+          "Algebra + solids: factor, quadratic, AP/GP, cylinder/cone"
+        ],
+        [
+          "Group D",
+          "Longer: circle theorems, similarity/BPT, heights & distances, stats/prob"
+        ],
+        [
+          "Heron",
+          "s first, then √[s(s−a)(s−b)(s−c)]"
+        ],
+        [
+          "Elevation",
+          "Sketch → tan θ = h/d (often)"
+        ],
+        [
+          "Center/rim",
+          "∠center = 2 × ∠rim (same arc)"
+        ],
+        [
+          "Cyclic",
+          "Opposite angles sum 180°"
+        ],
+        [
+          "SOHCAHTOA",
+          "Right △ only; oblique → sine/cosine rule"
+        ]
+      ]
+    },
+    {
+      "title": "Hard-set hooks (NEB / Class 12)",
+      "rows": [
+        [
+          "nPr",
+          "Order matters: n! / (n−r)!"
+        ],
+        [
+          "nCr",
+          "Order does not: n! / (r!(n−r)!)"
+        ],
+        [
+          "Binomial",
+          "(a+b)ⁿ: choose r of the b’s → C(n,r) aⁿ⁻ʳ bʳ"
+        ],
+        [
+          "Log",
+          "log asks: what power?"
+        ],
+        [
+          "det 2×2",
+          "ad − bc"
+        ],
+        [
+          "Limits",
+          "Plug in; if 0/0, factor or cancel"
+        ],
+        [
+          "Max/min",
+          "y′ = 0, then y′′ test"
+        ],
+        [
+          "DE separable",
+          "dy/dx = f(x)g(y) → ∫ dy/g = ∫ f dx"
+        ],
+        [
+          "Newton–Raphson",
+          "x₁ = x₀ − f(x₀)/f′(x₀)"
+        ],
+        [
+          "Range",
+          "(u² sin 2θ)/g"
+        ]
+      ]
+    },
+    {
+      "title": "Vectors & probability",
+      "rows": [
+        [
+          "Dot product",
+          "a·b = |a||b| cos θ = a₁b₁ + a₂b₂"
+        ],
+        [
+          "Cross (2D mag)",
+          "|a×b| = |a₁b₂ − a₂b₁|"
+        ],
+        [
+          "P(A∪B)",
+          "P(A)+P(B)−P(A∩B)"
+        ],
+        [
+          "Binomial P",
+          "C(n,k) pᵏ (1−p)ⁿ⁻ᵏ"
+        ]
+      ]
+    },
+    {
+      "title": "More hard-set hooks",
+      "rows": [
+        [
+          "Matrix multiply",
+          "Row × column; sizes must match"
+        ],
+        [
+          "LIATE",
+          "Pick u: Log, Inverse trig, Algebraic, Trig, Exp"
+        ],
+        [
+          "nPr",
+          "Order matters: n! / (n−r)!"
+        ],
+        [
+          "nCr",
+          "Order does not: n! / (r!(n−r)!)"
+        ],
+        [
+          "Partial fractions",
+          "Split one fraction into simpler pieces"
+        ],
+        [
+          "Area under curve",
+          "Definite ∫ between bounds"
+        ],
+        [
+          "Complex i",
+          "i² = −1; powers cycle every 4"
+        ],
+        [
+          "Statics moments",
+          "Force × perpendicular distance"
+        ],
+        [
+          "Sequence sum",
+          "AP: n/2(first+last); GP: a(rⁿ−1)/(r−1)"
+        ]
+      ]
+    }
+  ]
+}

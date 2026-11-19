@@ -1,0 +1,163 @@
+{
+  "grade": "Opcional · 7–12",
+  "title": "Matemática opcional",
+  "blurb": "Ruta extra: conjuntos, matrices, límites, identidades trig y vectores — estilo opcional Nepal/CBSE.",
+  "lessons": {
+    "setlang": {
+      "name": "Lenguaje de conjuntos",
+      "phrase": "∈ significa «en el club». ∪ es o, ∩ es y, ′ es no.",
+      "also": "",
+      "steps": [
+        "Las llaves listan elementos: {1,2,3}.",
+        "x ∈ A significa que x es miembro; x ∉ A significa que no lo es.",
+        "Unión ∪ = o; intersección ∩ = ambos; complemento A′ = no está en A (dentro del universo)."
+      ],
+      "exception": "El orden y las repeticiones no importan en un conjunto: {1,2} = {2,1,1}. ∅ es vacío — nada es ∈ ∅. No confundas ⊂ (subconjunto) con ∈ (elemento).",
+      "tag": ""
+    },
+    "setcount": {
+      "name": "Conteo con conjuntos",
+      "phrase": "n(A∪B) = n(A)+n(B)−n(A∩B). Resta la intersección contada dos veces.",
+      "also": "",
+      "steps": [
+        "Suma los tamaños de A y B.",
+        "Resta n(A∩B) una vez (se contó dos veces).",
+        "Para tres conjuntos, usa la fórmula completa de inclusión–exclusión."
+      ],
+      "exception": "Si A y B son disjuntos, n(A∩B)=0 y solo sumas. n(A) cuenta elementos, no una probabilidad — divide entre n(U) solo cuando pidan probabilidad.",
+      "tag": ""
+    },
+    "matintro": {
+      "name": "Forma de matriz y suma",
+      "phrase": "Filas por columnas: m×n. Suma entrada por entrada — solo mismo tamaño.",
+      "also": "",
+      "steps": [
+        "Lee el tamaño como filas × columnas.",
+        "Suma: suma posiciones que coinciden; los tamaños deben coincidir.",
+        "Multiplicación escalar: multiplica cada entrada por el número."
+      ],
+      "exception": "No puedes sumar una 2×3 con una 3×2. La multiplicación de matrices no es suma entrada por entrada — eso viene después.",
+      "tag": ""
+    },
+    "matdet": {
+      "name": "Determinante e idea de inversa",
+      "phrase": "det = ad − bc. La inversa existe solo si det ≠ 0.",
+      "also": "",
+      "steps": [
+        "Para [[a,b],[c,d]], calcula ad − bc.",
+        "Si det ≠ 0, A⁻¹ = (1/det) [[d,−b],[−c,a]].",
+        "Comprueba: A A⁻¹ = I."
+      ],
+      "exception": "det = 0 significa singular — no hay inversa. No cambies el patrón de signos en la diagonal secundaria por error.",
+      "tag": ""
+    },
+    "limintro": {
+      "name": "Introducción a límites",
+      "phrase": "Un límite pregunta: ¿a qué se acercan las salidas cuando x se acerca a a?",
+      "also": "",
+      "steps": [
+        "Intenta sustituir x = a en f(x).",
+        "Si obtienes un número normal, ese suele ser el límite (en piezas continuas).",
+        "Si obtienes 0/0, factoriza o simplifica, y sustituye otra vez."
+      ],
+      "exception": "Un hueco o salto puede hacer que el límite difiera de f(a), o que los límites izquierdo/derecho no coincidan. «Se acerca» no es lo mismo que «iguala» en a.",
+      "tag": ""
+    },
+    "trigid": {
+      "name": "Identidades trig extra",
+      "phrase": "sin²θ + cos²θ = 1. Divide entre cos² → 1 + tan²θ = sec²θ.",
+      "also": "",
+      "steps": [
+        "Parte de sin² + cos² = 1 en el círculo unitario.",
+        "Divide entre cos²θ: tan² + 1 = sec².",
+        "Divide entre sin²θ: 1 + cot² = cosec²."
+      ],
+      "exception": "Estas asumen cos θ ≠ 0 cuando creas formas tan/sec (y sin ≠ 0 para cot/cosec). Las identidades valen donde las funciones están definidas.",
+      "tag": ""
+    },
+    "trigcomp": {
+      "name": "Cofunción y signos",
+      "phrase": "sin(90°−θ)=cos θ. ASTC: All Sugar Tea Coffee para los signos.",
+      "also": "",
+      "steps": [
+        "Complemento: sin↔cos, tan↔cot, sec↔cosec con 90°−θ.",
+        "Para ángulos mayores de 90°, reduce a un ángulo de referencia.",
+        "ASTC indica qué funciones son positivas en cada cuadrante."
+      ],
+      "exception": "Las identidades de cofunción necesitan el complemento (90°−θ), no 180°−θ (eso mantiene el nombre para el seno). Conoce el modo de tu calculadora.",
+      "tag": ""
+    },
+    "vecintro": {
+      "name": "Introducción a vectores",
+      "phrase": "Un vector tiene magnitud y dirección. ⟨a,b⟩ se suma componente a componente; longitud √(a²+b²).",
+      "also": "",
+      "steps": [
+        "Escribe un vector del plano como ⟨a,b⟩ o ai + bj.",
+        "Suma/resta componentes que coinciden; multiplica por un escalar en cada una.",
+        "Magnitud |⟨a,b⟩| = √(a²+b²)."
+      ],
+      "exception": "Vector de posición vs libre: el mismo ⟨a,b⟩ puede empezar en cualquier punto. |a+b| no suele ser |a|+|b|. Un escalar no tiene dirección.",
+      "tag": ""
+    },
+    "vecdot": {
+      "name": "Introducción al producto punto",
+      "phrase": "a·b = a₁b₁ + a₂b₂. Producto punto cero significa perpendicular.",
+      "also": "",
+      "steps": [
+        "Multiplica componentes que coinciden y suma.",
+        "También a·b = |a||b| cos θ.",
+        "Si a·b = 0 (y ninguno es cero), los vectores son perpendiculares."
+      ],
+      "exception": "El producto punto es un número, no un vector. Vectores paralelos tienen cos θ = ±1, no necesariamente producto punto cero.",
+      "tag": ""
+    },
+    "setops": {
+      "name": "Subconjunto y conjunto potencia",
+      "phrase": "A ⊆ B si cada elemento de A está en B. Conjunto potencia: todos los subconjuntos — 2ⁿ de ellos.",
+      "also": "",
+      "steps": [
+        "Comprueba subconjunto: cada miembro de A debe estar en B.",
+        "Subconjunto propio ⊂ suele significar ⊆ pero no igual.",
+        "Un conjunto finito con n elementos tiene 2ⁿ subconjuntos (incluidos ∅ y él mismo)."
+      ],
+      "exception": "∈ es para elementos; ⊆ es para conjuntos. {1} ∈ {{1}} es verdadero, pero 1 ∈ {{1}} es falso. ∅ es subconjunto de todo conjunto.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Conjuntos y matrices",
+      "rows": [
+        ["∈ / ∉", "es / no es un elemento"],
+        ["∪", "unión — en A o B (o ambos)"],
+        ["∩", "intersección — en ambos"],
+        ["A′", "complemento — no está en A"],
+        ["n(A∪B)", "n(A)+n(B)−n(A∩B)"],
+        ["det 2×2", "ad − bc"],
+        ["I₂", "[[1,0],[0,1]] identidad"]
+      ]
+    },
+    {
+      "title": "Límites, trig y vectores",
+      "rows": [
+        ["Límite", "las salidas se acercan a L cuando x se acerca a a"],
+        ["sin²+cos²", "= 1"],
+        ["1+tan²", "= sec²"],
+        ["|a|", "√(a₁²+a₂²)"],
+        ["a·b", "a₁b₁+a₂b₂"]
+      ]
+    },
+    {
+      "title": "Matrices, límites y vectores",
+      "rows": [
+        ["Suma de matrices", "Mismo tamaño; suma entradas que coinciden"],
+        ["Multiplicación de matrices", "Fila × columna; tamaños internos deben coincidir"],
+        ["Escalar × matriz", "Multiplica cada entrada por el escalar"],
+        ["Leyes de límites", "Suma/producto de límites cuando existen"],
+        ["tan = sin/cos", "Identidad cociente de la tangente"],
+        ["Vector unitario", "Divide entre la longitud: v/|v|"],
+        ["Punto da el ángulo", "cos θ = a·b / (|a||b|)"]
+      ]
+    }
+  ]
+}

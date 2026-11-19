@@ -1,0 +1,489 @@
+{
+  "grade": "Grade 8",
+  "title": "Triangle & angle theorems",
+  "blurb": "Each theorem is one move. Spot the shape, then make the move.",
+  "lessons": {
+    "anglesum": {
+      "name": "Angle sum of a triangle",
+      "phrase": "Three corners make a straight line: 180°.",
+      "also": "",
+      "steps": [
+        "Add the angles you know.",
+        "Take that from 180°.",
+        "What is left is the missing angle."
+      ],
+      "exception": "This is for flat paper. A triangle drawn on a ball can add to more than 180°. The outside angles, one at each corner, add to 360°.",
+      "tag": ""
+    },
+    "exterior": {
+      "name": "Exterior angle",
+      "phrase": "The outside angle equals the two far insides.",
+      "also": "",
+      "steps": [
+        "Find the outside angle at one corner.",
+        "Add the two inside angles that do not touch it.",
+        "They match."
+      ],
+      "exception": "Do not use the inside angle next to it. That pair sits on a straight line and makes 180°.",
+      "tag": ""
+    },
+    "iso": {
+      "name": "Isosceles triangle",
+      "phrase": "Twin sides, twin angles.",
+      "also": "",
+      "steps": [
+        "Find the two equal sides (the tick marks).",
+        "The angles at the bottom of those sides are equal.",
+        "Use 180° for the rest."
+      ],
+      "exception": "The twin angles sit across from the twin sides, at the base. The angle between the twin sides is usually different, unless all three sides match.",
+      "tag": ""
+    },
+    "pythag": {
+      "name": "Pythagoras",
+      "phrase": "Square the legs, add them, and that is the long side squared.",
+      "also": "a² + b² = c², and c is across from the square corner.",
+      "steps": [
+        "Find the right angle. The side across from it is c.",
+        "Square the two legs and add them.",
+        "Take the square root. To find a leg, subtract instead: c² − a²."
+      ],
+      "exception": "Only for right triangles. And c is across from the right angle, not just the side that looks longest.",
+      "tag": ""
+    },
+    "parallel": {
+      "name": "Parallel lines",
+      "phrase": "F angles copy, Z angles copy, C angles make 180°.",
+      "also": "",
+      "steps": [
+        "Trace the letter the two angles make with the lines.",
+        "F (corresponding) or Z (alternate): the angles are equal.",
+        "C (co-interior): the angles add to 180°."
+      ],
+      "exception": "Only when the lines are parallel (the arrow marks). Without parallel lines, the angles are not forced to match.",
+      "tag": ""
+    },
+    "congruent": {
+      "name": "Congruent triangles",
+      "phrase": "Same size and shape: SSS, SAS, ASA, RHS.",
+      "also": "",
+      "steps": [
+        "SSS: three sides match.",
+        "SAS: two sides and the angle between them.",
+        "ASA: two angles and the side between them.",
+        "RHS: right angle, hypotenuse, and one more side."
+      ],
+      "exception": "SSA is not a test: two sides and an angle that is not between them can make two different triangles. AAA shows the same shape but not the same size.",
+      "tag": ""
+    },
+    "quad": {
+      "name": "Quadrilateral angles",
+      "phrase": "Four corners make a full turn: 360°.",
+      "also": "",
+      "steps": [
+        "Add the three angles you know.",
+        "Take that from 360°."
+      ],
+      "exception": "Opposite angles are only equal in a parallelogram. Do not assume a shape is a square because it has four sides.",
+      "tag": ""
+    },
+    "polyint": {
+      "name": "Polygon interior angles",
+      "phrase": "Cut the polygon into triangles: (n − 2) × 180°.",
+      "also": "",
+      "steps": [
+        "Count the sides n.",
+        "A polygon splits into n − 2 triangles from one corner.",
+        "Each triangle is 180°, so the interior sum is (n − 2) × 180°.",
+        "For a regular polygon, each interior angle is that sum ÷ n."
+      ],
+      "exception": "n must be at least 3. Exterior angles are a different story: they always sum to 360°, not (n − 2) × 180°.",
+      "tag": ""
+    },
+    "polyext": {
+      "name": "Exterior angles of a polygon",
+      "phrase": "Walk around the shape: exterior angles always add to 360°.",
+      "also": "",
+      "steps": [
+        "At each corner, the exterior is the turn you make.",
+        "All the turns make one full spin: 360°.",
+        "For a regular n-gon, each exterior angle is 360° ÷ n.",
+        "Interior and exterior at a corner sit on a straight line: they add to 180°."
+      ],
+      "exception": "This is one exterior at each vertex, all the same way around. Do not mix interior sums with exterior sums.",
+      "tag": ""
+    },
+    "straight": {
+      "name": "Angles on a line and around a point",
+      "phrase": "On a line: 180°. Around a point: 360°. Vertically opposite: equal.",
+      "also": "",
+      "steps": [
+        "Angles on a straight line add to 180°.",
+        "Angles around a point add to 360°.",
+        "When two lines cross, vertically opposite angles are equal."
+      ],
+      "exception": "Adjacent angles on a cross are not equal — they make 180°. Only the ones across from each other match.",
+      "tag": ""
+    },
+    "slope": {
+      "name": "Slope",
+      "phrase": "Slope is rise over run.",
+      "also": "",
+      "steps": [
+        "Pick two points on the line.",
+        "Rise = change in y (up is positive).",
+        "Run = change in x (right is positive).",
+        "Slope m = rise ÷ run."
+      ],
+      "exception": "A horizontal line has slope 0 (rise 0). A vertical line has no slope (run 0 — you cannot divide by 0). Count the direction: down means negative rise.",
+      "tag": ""
+    },
+    "ymxb": {
+      "name": "Slope-intercept form",
+      "phrase": "y = mx + b: m is the slope, b is where it hits the y-axis.",
+      "also": "",
+      "steps": [
+        "Read m: the number in front of x (slope).",
+        "Read b: the constant term (y-intercept).",
+        "To find y, plug in x. To find x, plug in y and solve."
+      ],
+      "exception": "If the equation is not solved for y, rearrange first. The intercept is on the y-axis (x = 0), not the x-axis.",
+      "tag": ""
+    },
+    "expLaws": {
+      "name": "Laws of exponents",
+      "phrase": "Multiply → add powers. Divide → subtract. Power of a power → multiply.",
+      "also": "",
+      "steps": [
+        "xᵃ × xᵇ = xᵃ⁺ᵇ.",
+        "xᵃ ÷ xᵇ = xᵃ⁻ᵇ.",
+        "(xᵃ)ᵇ = xᵃᵇ.",
+        "x⁰ = 1 (for x ≠ 0)."
+      ],
+      "exception": "The bases must match before you add or subtract powers. (x²)³ is x⁶, not x⁵. And 2³ × 2⁴ = 2⁷, not 4⁷.",
+      "tag": ""
+    },
+    "sci": {
+      "name": "Scientific notation",
+      "phrase": "One digit, then a dot, times a power of ten.",
+      "also": "",
+      "steps": [
+        "Move the dot until one non-zero digit sits in front.",
+        "Count how many places you moved: that is the power of 10.",
+        "Left moves give a positive power; right moves give a negative power."
+      ],
+      "exception": "The front number must be at least 1 and less than 10. 34 × 10³ is not scientific notation — write 3.4 × 10⁴.",
+      "tag": ""
+    },
+    "cylvol": {
+      "name": "Cylinder volume",
+      "phrase": "Cylinder volume is the circle floor times the height: πr²h.",
+      "also": "",
+      "steps": [
+        "Find the radius r of the circular base.",
+        "Area of the base: πr².",
+        "Multiply by the height h.",
+        "Use π ≈ 3.14."
+      ],
+      "exception": "Use radius, not diameter. If you are given the diameter, halve it first. Volume is not surface area.",
+      "tag": ""
+    },
+    "conevol": {
+      "name": "Cone volume",
+      "phrase": "A cone is one-third of the cylinder with the same base and height.",
+      "also": "",
+      "steps": [
+        "Same base and height as a cylinder would give πr²h.",
+        "A cone fills only one-third of that: V = (1/3)πr²h.",
+        "Use π ≈ 3.14."
+      ],
+      "exception": "Do not forget the 1/3. Comparing a cone to a cylinder only works when r and h match.",
+      "tag": ""
+    },
+    "spherevol": {
+      "name": "Sphere volume",
+      "phrase": "Sphere volume: (4/3)πr³.",
+      "also": "",
+      "steps": [
+        "Cube the radius: r³.",
+        "Multiply by π.",
+        "Multiply by 4/3.",
+        "Use π ≈ 3.14."
+      ],
+      "exception": "r³ means r × r × r, not 3r. Diameter must be halved before you start.",
+      "tag": ""
+    },
+    "pythagConv": {
+      "name": "Converse of Pythagoras",
+      "phrase": "If a² + b² = c², then the triangle is right-angled at the corner between a and b.",
+      "also": "",
+      "steps": [
+        "Square all three sides.",
+        "Check whether the two smaller squares add to the biggest square.",
+        "If yes, it is right-angled. If the sum is too small or too big, it is not."
+      ],
+      "exception": "c must be the longest side. Checking the wrong side as “hypotenuse” can fool you.",
+      "tag": ""
+    },
+    "transform": {
+      "name": "Transformations",
+      "phrase": "Slide, flip, or turn: translation, reflection, rotation.",
+      "also": "",
+      "steps": [
+        "Translation: add the same (a, b) to every point.",
+        "Reflection in the x-axis: (x, y) → (x, −y). In the y-axis: (x, y) → (−x, y).",
+        "Rotation 90° anticlockwise about the origin: (x, y) → (−y, x).",
+        "Rotation 180°: (x, y) → (−x, −y)."
+      ],
+      "exception": "Clockwise 90° is (x, y) → (y, −x), the other way. Reflections in other lines need different rules. Translations do not flip or turn the shape.",
+      "tag": ""
+    },
+    "neg-exponent-one-over": {
+      "name": "Negative exponents",
+      "phrase": "Negative exponent: take one over with a positive power.",
+      "also": "a^(−n) = 1/a^n — the minus flips to a reciprocal, not a negative value.",
+      "steps": [
+        "Rewrite a^(−n) as 1/a^n.",
+        "Simplify the positive power in the denominator.",
+        "Cancel if possible."
+      ],
+      "exception": "x^(−n)=1/x^n for x≠0. A negative exponent does not make the value negative by itself. 2^(−3)=1/8, not −8.",
+      "tag": ""
+    },
+    "compsupp": {
+      "name": "Complementary & supplementary",
+      "phrase": "C before S: complementary 90°, supplementary 180°. Corner then Straight.",
+      "also": "C for corner (90). S for straight (180).",
+      "steps": [
+        "Complementary: two angles add to 90°.",
+        "Supplementary: two angles add to 180°.",
+        "C comes before S; 90 comes before 180."
+      ],
+      "exception": "They need not be adjacent — they only need to add to 90 or 180.",
+      "tag": ""
+    },
+    "riserun": {
+      "name": "Rise over run",
+      "phrase": "Slope is rise over run — up then along.",
+      "also": "",
+      "steps": [
+        "Count vertical change (rise).",
+        "Count horizontal change (run).",
+        "Slope = rise/run."
+      ],
+      "exception": "Horizontal line: rise 0 → slope 0. Vertical line: run 0 → undefined.",
+      "tag": ""
+    },
+    "wordkeys8": {
+      "name": "Arithmetic in geometry stories",
+      "phrase": "Perimeter altogether adds sides; area is groups of square units; share angles with 180°.",
+      "also": "",
+      "steps": [
+        "Translate the story to +, −, ×, or ÷.",
+        "Use the geometry fact (180°, fence vs carpet).",
+        "Solve."
+      ],
+      "exception": "“Around” is perimeter; “covers” is area — don’t swap formulas.",
+      "tag": ""
+    },
+    "estimate8": {
+      "name": "Estimate roots & squares",
+      "phrase": "Square a nearby whole; see if your number sits between two squares.",
+      "also": "",
+      "steps": [
+        "List nearby perfect squares.",
+        "Sandwich the number.",
+        "Estimate the root between those integers."
+      ],
+      "exception": "√50 is a bit more than 7 because 7²=49.",
+      "tag": ""
+    },
+    "acuteobtuse": {
+      "name": "Angle names",
+      "phrase": "A cute angle is small (acute <90). Obtuse is obese (between 90 and 180).",
+      "also": "",
+      "steps": [
+        "Acute: less than 90°.",
+        "Right: exactly 90°.",
+        "Obtuse: between 90° and 180°.",
+        "Straight: 180°."
+      ],
+      "exception": "Reflex angles are bigger than 180° — past a straight line.",
+      "tag": ""
+    },
+    "distrib8": {
+      "name": "Distribute into expressions",
+      "phrase": "Outside factor hits every term — like FOIL’s little sibling.",
+      "also": "",
+      "steps": [
+        "Multiply the outside by each inside term.",
+        "Keep signs careful.",
+        "Combine like terms if any."
+      ],
+      "exception": "If two brackets multiply, use FOIL / grid — not single distribute.",
+      "tag": ""
+    },
+    "commute8": {
+      "name": "Mental rearrange",
+      "phrase": "Flip and regroup to make tens and easy products.",
+      "also": "",
+      "steps": [
+        "Spot numbers that make 10 or a known product.",
+        "Commute/associate to pair them.",
+        "Finish mentally."
+      ],
+      "exception": "With subtraction sitting in the chain, rewrite as adding opposites before regrouping freely.",
+      "tag": ""
+    },
+    "pythagleg": {
+      "name": "Find a leg",
+      "phrase": "Leg² = hyp² − other leg² — still Pythagoras.",
+      "also": "",
+      "steps": [
+        "Square the hypotenuse.",
+        "Subtract the other leg squared.",
+        "Square-root to get the missing leg."
+      ],
+      "exception": "Hypotenuse is the longest — never subtract a longer square from a shorter and expect a real leg.",
+      "tag": ""
+    },
+    "vertopp": {
+      "name": "Vertically opposite",
+      "phrase": "X marks the spot: vertically opposite angles are equal.",
+      "also": "",
+      "steps": [
+        "Find the X made by two crossing lines.",
+        "Angles across from each other match.",
+        "Neighbors on a straight line add to 180°."
+      ],
+      "exception": "Only the opposite pair matches — adjacent angles are supplementary, not equal (unless 90).",
+      "tag": ""
+    },
+    "scinote8": {
+      "name": "Scientific notation sense",
+      "phrase": "One digit, then a dot, times a power of ten.",
+      "also": "",
+      "steps": [
+        "Put the point after the first nonzero digit.",
+        "Count hops to the original point — that is the exponent.",
+        "Positive exponent → big; negative → tiny."
+      ],
+      "exception": "The leading number must be ≥1 and <10 (for standard form).",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Triangles & parallels",
+      "rows": [
+        [
+          "Angle sum",
+          "Three corners → straight line: 180°"
+        ],
+        [
+          "Exterior angle",
+          "Outside = two far insides"
+        ],
+        [
+          "Isosceles",
+          "Twin sides → twin angles"
+        ],
+        [
+          "Pythagoras",
+          "a² + b² = c² (legs → hypotenuse)"
+        ],
+        [
+          "Parallel (F, Z, C)",
+          "F/Z copy; C (co-interior) → 180°"
+        ],
+        [
+          "Congruence",
+          "SSS, SAS, ASA, RHS"
+        ],
+        [
+          "Acute / obtuse / right",
+          "Less, more, or equal to 90°"
+        ]
+      ]
+    },
+    {
+      "title": "Polygons & space",
+      "rows": [
+        [
+          "Quad angles",
+          "Four corners → full turn: 360°"
+        ],
+        [
+          "Interior sum",
+          "(n − 2) × 180°"
+        ],
+        [
+          "Exterior sum",
+          "Always 360°"
+        ],
+        [
+          "Complements",
+          "Two angles that add to 90° (need not touch)"
+        ],
+        [
+          "Supplements",
+          "Two angles that add to 180°"
+        ],
+        [
+          "Vertical angles",
+          "Across an X — equal pairs"
+        ],
+        [
+          "Line / point",
+          "On a line 180°; around a point 360°"
+        ]
+      ]
+    },
+    {
+      "title": "3-D solids",
+      "rows": [
+        [
+          "Cylinder",
+          "πr²h"
+        ],
+        [
+          "Cone",
+          "⅓πr²h"
+        ],
+        [
+          "Sphere",
+          "(4/3)πr³"
+        ],
+        [
+          "Transform",
+          "Slide, flip, turn"
+        ]
+      ]
+    },
+    {
+      "title": "Linear & exponents",
+      "rows": [
+        [
+          "Slope",
+          "Rise over run"
+        ],
+        [
+          "y = mx + b",
+          "m = slope; b = y-intercept"
+        ],
+        [
+          "Exponent laws",
+          "× → add; ÷ → subtract; power→power multiply"
+        ],
+        [
+          "Negative exponent",
+          "a⁻ⁿ = 1/aⁿ"
+        ],
+        [
+          "Scientific notation",
+          "One digit, then a dot, × 10ⁿ"
+        ]
+      ]
+    }
+  ]
+}

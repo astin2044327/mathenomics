@@ -1,0 +1,401 @@
+{
+  "grade": "Secundaria",
+  "title": "Teoremas y demostraciones",
+  "blurb": "Mnemónicos SEE send-up y tarjetas de teoremas: movimientos de prueba, excepciones y ejercicios tipo examen en geo + trig.",
+  "lessons": {
+    "heron": {
+      "name": "Fórmula de Herón",
+      "phrase": "s = (a+b+c)/2. Área = √[s(s−a)(s−b)(s−c)].",
+      "also": "Semiperímetro primero — luego el producto bajo la raíz.",
+      "steps": [
+        "Suma los tres lados y divide entre dos: s = (a+b+c)/2.",
+        "Escribe s−a, s−b, s−c.",
+        "Área = √[s(s−a)(s−b)(s−c)]. Toma la raíz positiva."
+      ],
+      "exception": "Los lados deben formar un triángulo (desigualdad triangular). s es la mitad del perímetro, no el área. No omitas la raíz.",
+      "tag": "SEE"
+    },
+    "compound": {
+      "name": "Interés compuesto / depreciación / población",
+      "phrase": "Crecer: A = P(1 + r/100)^n. Depreciar: A = P(1 − r/100)^n.",
+      "also": "Población e interés compuesto comparten la forma de crecimiento.",
+      "steps": [
+        "Escribe P (inicio), r% por período, n períodos.",
+        "Crecimiento / compuesto / población: multiplica por (1 + r/100) cada período.",
+        "Depreciación / decaimiento: multiplica por (1 − r/100) cada período.",
+        "Eleva a n, luego multiplica por P."
+      ],
+      "exception": "Interés simple es I = Prt/100; monto simple P + Prt/100 — sin potencia. Compuesto usa (1±r/100)^n. Depreciación usa menos, no más. n es el número de períodos de capitalización, no siempre años calendario si capitaliza semestralmente.",
+      "tag": "SEE"
+    },
+    "grouped": {
+      "name": "Media / mediana / cuartil agrupados",
+      "phrase": "Media: Σfm / Σf. Mediana y cuartiles: L + ((N/k − cf)/f)·h.",
+      "also": "Para mediana k=2 (N/2); para Q₁ usa N/4; para Q₃ usa 3N/4.",
+      "steps": [
+        "Hallar frecuencia total N = Σf.",
+        "Media: puntos medios × frecuencias, suma, divide entre N.",
+        "Clase mediana: primera clase cuya frecuencia acumulada llega a N/2.",
+        "Mediana = L + ((N/2 − cf)/f)·h. Cuartiles cambian N/2 por N/4 o 3N/4."
+      ],
+      "exception": "L es el límite inferior de la clase mediana/cuartil; cf es frecuencia acumulada antes de esa clase; f y h pertenecen solo a esa clase. No uses atajos de mediana en listas crudas en tablas agrupadas.",
+      "tag": "SEE"
+    },
+    "ages": {
+      "name": "Edades después de n años",
+      "phrase": "Tras n años, cada edad gana n. Reescribe la relación con +n en cada persona.",
+      "also": "",
+      "steps": [
+        "Deja las edades presentes como variables (o usa números dados).",
+        "Tras n años: suma n a cada edad del enunciado.",
+        "Escribe la ecuación con las nuevas edades y resuelve el presente."
+      ],
+      "exception": "«Hace n años» resta n. No sumes n solo a una persona. Razones tras n años usan (edad+n), no edad×n.",
+      "tag": "SEE"
+    },
+    "sets": {
+      "name": "Conjuntos y Venn (SEE)",
+      "phrase": "n(A∪B)=n(A)+n(B)−n(A∩B). Solo A = n(A)−n(A∩B).",
+      "also": "Ni uno ni otro = total − n(A∪B).",
+      "steps": [
+        "Dibuja dos círculos; etiqueta solo A, ambos, solo B, ni uno ni otro.",
+        "Ambos = n(A∩B). Solo A = n(A) − ambos.",
+        "Unión = solo A + ambos + solo B = n(A)+n(B)−ambos.",
+        "Ni uno ni otro = total de encuesta − unión."
+      ],
+      "exception": "n(A) ya incluye la intersección — no sumes n(A∩B) otra vez al formar la unión. «Solo A» no es n(A).",
+      "tag": "SEE"
+    },
+    "money": {
+      "name": "Divisa / comisión / IVA",
+      "phrase": "Porcentaje de la base indicada. Divisa: × tasa. Comisión/IVA: % del monto.",
+      "also": "",
+      "steps": [
+        "Nombra la base: precio etiquetado, precio de venta o monto de cambio.",
+        "Divisa: multiplica o divide por la tasa dada.",
+        "Comisión o IVA: monto × tasa/100.",
+        "Precio con IVA: monto × (1 + tasa/100)."
+      ],
+      "exception": "Revertir IVA inclusivo usa ÷(1+r/100), no ×(1−r/100). La comisión suele ser sobre ventas, no sobre ganancia salvo que digan.",
+      "tag": "SEE"
+    },
+    "menspack": {
+      "name": "Prisma / pirámide / empaque",
+      "phrase": "Prisma: V = Bh. Pirámide: V = (1/3)Bh. Empaque: total ÷ una unidad.",
+      "also": "",
+      "steps": [
+        "Prisma / ortoedro: área de base × altura.",
+        "Pirámide / idea de cono: un tercio del área de base × altura.",
+        "Ladrillo / empaque: volumen de muro o caja ÷ volumen de una unidad (mira huecos de mortero si dan)."
+      ],
+      "exception": "La pirámide necesita el 1/3 — olvidarlo triplica el volumen. Empaque cuenta unidades enteras; el espacio sobrante no es un ladrillo extra salvo que digan.",
+      "tag": "SEE"
+    },
+    "probtree": {
+      "name": "Árboles de probabilidad",
+      "phrase": "Multiplica a lo largo de una rama. Suma caminos distintos. Sin reemplazo: cambia la segunda fracción.",
+      "also": "",
+      "steps": [
+        "Dibuja las ramas de la primera etapa con sus probabilidades.",
+        "Desde cada resultado, dibuja la siguiente etapa (actualiza si sin reemplazo).",
+        "Un camino completo: multiplica las fracciones de ese camino.",
+        "«O» entre caminos: suma las probabilidades de camino."
+      ],
+      "exception": "Con reemplazo el segundo sorteo sigue igual; sin reemplazo bajan los totales. No sumes probabilidades que están en el mismo camino.",
+      "tag": "SEE"
+    },
+    "pythag": {
+      "name": "Pitágoras",
+      "phrase": "Catetos al cuadrado suman hipotenusa al cuadrado: a² + b² = c².",
+      "also": "",
+      "steps": [
+        "Confirma el ángulo recto; c es el lado opuesto.",
+        "Escribe a² + b² = c².",
+        "Resuelve el lado que falta (raíz al final)."
+      ],
+      "exception": "Solo triángulos rectángulos. c debe ser el lado más largo. Recíproco: si a²+b²=c², el ángulo entre a y b es 90°.",
+      "tag": "Geo"
+    },
+    "bpt": {
+      "name": "Proporcionalidad básica (BPT)",
+      "phrase": "Una recta paralela a un lado corta los otros dos en la misma razón.",
+      "also": "",
+      "steps": [
+        "Confirma que el corte es paralelo al tercer lado.",
+        "Escribe AD/DB = AE/EC (o la forma de lado completo AD/AB = AE/AC).",
+        "Haz regla de tres y resuelve."
+      ],
+      "exception": "Se requiere paralelismo — una transversal cualquiera no da razones iguales. Empareja segmentos correspondientes en cada lado.",
+      "tag": "Geo"
+    },
+    "midseg": {
+      "name": "Teorema de la mediana",
+      "phrase": "Une los puntos medios: la mediana es paralela al tercer lado y mide la mitad.",
+      "also": "",
+      "steps": [
+        "Marca puntos medios de dos lados.",
+        "El segmento que los une ∥ el tercer lado.",
+        "Longitud = mitad de ese tercer lado."
+      ],
+      "exception": "Ambos extremos deben ser puntos medios. Mitad de la base — no igual a la base.",
+      "tag": "Geo"
+    },
+    "similar": {
+      "name": "Semejanza AAA",
+      "phrase": "AAA: ángulos que coinciden → triángulos semejantes → lados con un factor de escala.",
+      "also": "",
+      "steps": [
+        "Muestra tres ángulos iguales (dos suelen implicar el tercero).",
+        "Escribe lados correspondientes en el mismo orden.",
+        "Monta una proporción con un factor de escala y resuelve."
+      ],
+      "exception": "AAA da semejanza, no congruencia (SSS/SAS/ASA/RHS). Mantén correspondencia: el lado mayor enfrenta al ángulo mayor.",
+      "tag": "Geo"
+    },
+    "bisector": {
+      "name": "Teorema de la bisectriz",
+      "phrase": "La bisectriz corta el lado opuesto en la razón de los lados adyacentes.",
+      "also": "",
+      "steps": [
+        "Confirma que el rayo bisecta el ángulo.",
+        "Escribe (lado)/(lado) = (segmento)/(segmento).",
+        "Regla de tres."
+      ],
+      "exception": "Parte el lado opuesto — no la longitud propia de la bisectriz. La razón usa los dos lados del ángulo.",
+      "tag": "Geo"
+    },
+    "central": {
+      "name": "Centro = 2 × arco",
+      "phrase": "El ángulo en el centro es el doble del del arco en el mismo arco.",
+      "also": "",
+      "steps": [
+        "Identifica el arco compartido.",
+        "Ángulo central = 2 × ángulo en el arco (mismo arco).",
+        "Resuelve la incógnita."
+      ],
+      "exception": "Ambos ángulos deben apoyarse en el mismo arco. El ángulo en el arco mayor es distinto. El centro está en el centro del círculo, no en cualquier punto interior.",
+      "tag": "Geo"
+    },
+    "cyclic": {
+      "name": "Ángulos opuestos cíclicos",
+      "phrase": "Un cuadrilátero es cíclico iff los opuestos suman 180°.",
+      "also": "",
+      "steps": [
+        "Detecta un cuadrilátero cíclico (vértices en un círculo).",
+        "Opuestos: A + C = 180°, B + D = 180°.",
+        "Resuelve el ángulo desconocido."
+      ],
+      "exception": "Los adyacentes no están forzados a 180° (sería caso trapezoide con paralelos). Ángulo interior ≠ exterior salvo que digan.",
+      "tag": "Geo"
+    },
+    "tangent": {
+      "name": "Tangente ⊥ radio",
+      "phrase": "La tangente encuentra al radio en el punto de contacto en 90°.",
+      "also": "",
+      "steps": [
+        "Marca el punto de contacto T.",
+        "Radio OT ⊥ tangente.",
+        "Usa herramientas de triángulo recto (Pitágoras / trig) en OTP."
+      ],
+      "exception": "Perpendicular solo en el contacto — una recta de O a otro punto de la tangente no es radio. Dos tangentes desde un punto son iguales (teorema aparte).",
+      "tag": "Geo"
+    },
+    "altseg": {
+      "name": "Segmento alterno",
+      "phrase": "Ángulo tangente–cuerda iguala al del segmento alterno.",
+      "also": "",
+      "steps": [
+        "Hallar el ángulo entre tangente y cuerda.",
+        "Mira el segmento al otro lado de la cuerda.",
+        "Ese ángulo en el arco coincide."
+      ],
+      "exception": "«Alterno» es el otro segmento, no el adyacente. La tangente debe tocar en un extremo de la cuerda.",
+      "tag": "Geo"
+    },
+    "eqtang": {
+      "name": "Tangentes iguales",
+      "phrase": "Dos tangentes desde un punto exterior tienen la misma longitud.",
+      "also": "",
+      "steps": [
+        "Desde P, las tangentes tocan en A y B.",
+        "PA = PB.",
+        "Triángulos OAP y OBP son congruentes (radios ⊥ tangentes)."
+      ],
+      "exception": "Iguales solo si ambas tangentes salen del mismo punto exterior. Longitudes de cuerda es otra historia.",
+      "tag": "Geo"
+    },
+    "chord": {
+      "name": "Cuerda ⊥ desde el centro",
+      "phrase": "La perpendicular del centro a una cuerda la bisecta.",
+      "also": "",
+      "steps": [
+        "Baja perpendicular de O a cuerda AB en M.",
+        "M es el punto medio: AM = MB.",
+        "En triángulo recto OMA: r² = d² + (mitad de cuerda)²."
+      ],
+      "exception": "La propiedad de bisector necesita la perpendicular (o al revés: recta del centro al punto medio es ⊥). La cuerda entera es el doble de la mitad.",
+      "tag": "Geo"
+    },
+    "exterior": {
+      "name": "Ángulo exterior",
+      "phrase": "El ángulo exterior de un triángulo iguala la suma de los dos interiores alejados.",
+      "also": "",
+      "steps": [
+        "Prolonga un lado para formar el ángulo exterior.",
+        "Exterior = suma de los dos interiores remotos.",
+        "O: exterior = 180° − interior adyacente."
+      ],
+      "exception": "Usa los dos ángulos lejanos — no el interior adyacente. Suma exterior 360° en polígonos es otro teorema.",
+      "tag": "Geo"
+    },
+    "sohcahtoa": {
+      "name": "SOH CAH TOA",
+      "phrase": "SOH CAH TOA: seno opp/hyp, coseno adj/hyp, tangente opp/adj.",
+      "also": "",
+      "steps": [
+        "Marca el ángulo; etiqueta opuesto, adyacente, hipotenusa.",
+        "Elige la razón que usa los lados que conoces / necesitas.",
+        "Resuelve; conserva valores exactos si el ángulo es especial."
+      ],
+      "exception": "La hipotenusa nunca es opuesto ni adyacente en los nombres de razón. Triángulos oblicuos necesitan reglas seno/coseno — no solo SOHCAHTOA.",
+      "tag": "Trig"
+    },
+    "astc": {
+      "name": "Signos ASTC",
+      "phrase": "All Sugar Tea Coffee: all → sin → tan → cos positivos, en sentido antihorario.",
+      "also": "",
+      "steps": [
+        "Reduce a un ángulo de referencia en [0°, 90°].",
+        "Hallar el cuadrante del ángulo original.",
+        "Aplica ASTC para el signo; conserva el valor de referencia."
+      ],
+      "exception": "ASTC trata de signos, no magnitudes. Cot/sec/cosec siguen a sus parejas (tan/cos/sin).",
+      "tag": "Trig"
+    },
+    "hand": {
+      "name": "Mano de ángulos especiales",
+      "phrase": "Truco del puño: sin = √(dedos antes)/2; cos = √(dedos después)/2.",
+      "also": "",
+      "steps": [
+        "Cinco dedos para 0°, 30°, 45°, 60°, 90°.",
+        "Cuenta dedos cerrados antes del ángulo para seno; después para coseno.",
+        "tan = sin/cos; cuidado 90° (tan indefinido)."
+      ],
+      "exception": "Esto construye solo la tabla aguda. Otros ángulos necesitan ASTC + referencia. tan 90° no existe.",
+      "tag": "Trig"
+    },
+    "pyid": {
+      "name": "Identidad pitagórica",
+      "phrase": "sin²θ + cos²θ = 1. Divide entre cos² → 1 + tan²θ = sec²θ.",
+      "also": "",
+      "steps": [
+        "Parte de sin² + cos² = 1.",
+        "Dada una razón, aísla el cuadrado de la otra.",
+        "Raíz con ±; ASTC elige el signo."
+      ],
+      "exception": "sin²θ significa (sin θ)². sin+cos no es 1. Dividir entre cos² falla donde cos = 0.",
+      "tag": "Trig"
+    },
+    "sinerule": {
+      "name": "Regla del seno",
+      "phrase": "a/sin A = b/sin B = c/sin C.",
+      "also": "",
+      "steps": [
+        "Etiqueta lado a opuesto a A, etc.",
+        "Úsala cuando conoces un lado y su ángulo opuesto, más otro dato.",
+        "Regla de tres; en SSA comprueba el caso ambiguo."
+      ],
+      "exception": "SSA puede dar dos triángulos. Ángulos SAS / SSS necesitan regla del coseno.",
+      "tag": "Trig"
+    },
+    "cosrule": {
+      "name": "Regla del coseno",
+      "phrase": "a² = b² + c² − 2bc cos A. (Pitágoras con corrección de coseno.)",
+      "also": "",
+      "steps": [
+        "Úsala para SAS (dos lados + ángulo incluido) o SSS (tres lados → ángulo).",
+        "Lado: a² = b² + c² − 2bc cos A, luego raíz.",
+        "Ángulo: cos A = (b² + c² − a²)/(2bc)."
+      ],
+      "exception": "A debe estar entre b y c. A obtuso hace cos negativo y a crece. A 90° colapsa a Pitágoras.",
+      "tag": "Trig"
+    },
+    "compoundang": {
+      "name": "Ángulo compuesto sin(A±B)",
+      "phrase": "sin cos cos sin, signo se queda: sin(A±B)=sin A cos B ± cos A sin B.",
+      "also": "",
+      "steps": [
+        "Escribe sin(A±B) = sin A cos B ± cos A sin B.",
+        "Rellena cada factor; conserva fracciones / surds exactos.",
+        "Para cos(A±B): cos cos ∓ sin sin (signo cambia)."
+      ],
+      "exception": "sin(A+B) ≠ sin A + sin B. El coseno invierte el signo del medio. Comprueba cuadrante al expandir ángulos numéricos.",
+      "tag": "Trig"
+    },
+    "areasine": {
+      "name": "Área ½ab sin C",
+      "phrase": "Área = ½ab sin C — mitad de dos lados por el seno del ángulo incluido.",
+      "also": "",
+      "steps": [
+        "Identifica el ángulo incluido entre los dos lados.",
+        "Escribe Área = ½ab sin C.",
+        "Usa sin exacto para ángulos especiales."
+      ],
+      "exception": "C debe ser el ángulo entre a y b. En paralelogramo quita el ½. Seno obtuso sigue positivo.",
+      "tag": "Trig"
+    }
+  },
+  "cheat": [
+    {
+      "title": "Ganchos SEE Grupo A",
+      "rows": [
+        ["Herón", "s = (a+b+c)/2; Área = √[s(s−a)(s−b)(s−c)]"],
+        ["Depreciación", "A = P(1 − r/100)^n"],
+        ["Compuesto / población", "A = P(1 + r/100)^n"],
+        ["Edades tras n", "Suma n a cada edad; escribe la ecuación nueva"],
+        ["Clase cuartil", "L + ((N/4 − cf)/f)·h  (misma forma mediana con N/2)"]
+      ]
+    },
+    {
+      "title": "Teoremas geo y trig",
+      "rows": [
+        ["Pitágoras", "a² + b² = c² (triángulo recto)"],
+        ["BPT", "Corte paralelo → mismas razones en lados"],
+        ["Mediana", "Une medios → mitad base, paralela"],
+        ["Centro / arco", "Ángulo en centro = 2 × ángulo en arco"],
+        ["Cíclico op", "Opuestos suman 180°"],
+        ["Tangente ⊥ radio", "Radio encuentra tangente en 90°"],
+        ["Seg. alterno", "Tangente–cuerda = ángulo en segmento alterno"],
+        ["SOH CAH TOA", "opp/hyp · adj/hyp · opp/adj"],
+        ["ASTC", "All Sugar Tea Coffee (signos por cuadrante)"],
+        ["Regla del seno", "a/sin A = b/sin B = c/sin C"],
+        ["Regla del coseno", "a² = b² + c² − 2bc cos A"],
+        ["Área (seno)", "½ab sin C"],
+        ["Alturas y distancias", "Usa g10 · Heights (elevación / depresión) — no duplicado aquí"]
+      ]
+    },
+    {
+      "title": "SEE Grupos B–D rápido",
+      "rows": [
+        ["Conjuntos", "n(A∪B)=n(A)+n(B)−n(A∩B); solo A = n(A)−n(A∩B)"],
+        ["IVA / comisión", "% de etiqueta o venta; comprueba de qué"],
+        ["Divisa", "× tasa para convertir; % cambio en la tasa"],
+        ["Pirámide", "V = (1/3)Bh"],
+        ["Árbol P", "Multiplica en rama; suma caminos mutuamente excluyentes"]
+      ]
+    },
+    {
+      "title": "Más ganchos SEE",
+      "rows": [
+        ["Datos agrupados", "Media en tabla: Σfx ÷ Σf"],
+        ["Paquete mensuration", "Empareja sólido con fórmula: prisma, cilindro, cono, esfera"],
+        ["Tangentes iguales", "Dos tangentes desde un punto: longitudes iguales"],
+        ["Ángulo exterior", "Exterior = suma de interiores lejanos"],
+        ["Prueba semejanza", "AA: dos ángulos iguales → semejantes"],
+        ["Ángulos compuestos", "Expande con fórmulas suma sin/cos"],
+        ["nPr", "Orden importa: n! / (n−r)!"],
+        ["nCr", "Orden no: n! / (r!(n−r)!)"]
+      ]
+    }
+  ]
+}

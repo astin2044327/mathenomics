@@ -1,0 +1,310 @@
+{
+  "grade": "Tablas",
+  "title": "Tablas del 2 al 12",
+  "blurb": "Un truco mnemotécnico por tabla y un rompecabezas para completar los huecos.",
+  "lessons": {
+    "t2": {
+      "name": "×2",
+      "phrase": "Multiplicar por dos es duplicar.",
+      "also": [
+        "1 × 2 = 2",
+        "2 × 2 = 4",
+        "3 × 2 = 6",
+        "4 × 2 = 8",
+        "5 × 2 = 10",
+        "6 × 2 = 12",
+        "7 × 2 = 14",
+        "8 × 2 = 16",
+        "9 × 2 = 18",
+        "10 × 2 = 20",
+        "11 × 2 = 22",
+        "12 × 2 = 24"
+      ],
+      "steps": [
+        "Toma el otro número.",
+        "Súmalo consigo mismo (o cuenta de 2 en 2).",
+        "Ese total es el producto."
+      ],
+      "exception": "Duplicar es ×2, no ×4. ×4 requiere dos duplicados. Y 0 × 2 sigue siendo 0.",
+      "tag": ""
+    },
+    "t3": {
+      "name": "×3",
+      "phrase": "Duplícalo y suma un grupo más.",
+      "also": [
+        "1 × 3 = 3",
+        "2 × 3 = 6",
+        "3 × 3 = 9",
+        "4 × 3 = 12",
+        "5 × 3 = 15",
+        "6 × 3 = 18",
+        "7 × 3 = 21",
+        "8 × 3 = 24",
+        "9 × 3 = 27",
+        "10 × 3 = 30",
+        "11 × 3 = 33",
+        "12 × 3 = 36"
+      ],
+      "steps": [
+        "Primero duplica el otro número (eso es ×2).",
+        "Suma una copia más de ese número.",
+        "Doble más un grupo es ×3."
+      ],
+      "exception": "No te quedes solo con el doble — eso es solo ×2. Y 3 × 3 es 9, no 6.",
+      "tag": ""
+    },
+    "t4": {
+      "name": "×4",
+      "phrase": "Multiplicar por cuatro es doble del doble.",
+      "also": [
+        "1 × 4 = 4",
+        "2 × 4 = 8",
+        "3 × 4 = 12",
+        "4 × 4 = 16",
+        "5 × 4 = 20",
+        "6 × 4 = 24",
+        "7 × 4 = 28",
+        "8 × 4 = 32",
+        "9 × 4 = 36",
+        "10 × 4 = 40",
+        "11 × 4 = 44",
+        "12 × 4 = 48"
+      ],
+      "steps": [
+        "Duplica el otro número una vez.",
+        "Vuelve a duplicar ese resultado.",
+        "Dos duplicados hacen ×4."
+      ],
+      "exception": "Cuenta los duplicados: uno es ×2, dos son ×4, tres son ×8. Parar antes da la mitad del resultado.",
+      "tag": ""
+    },
+    "t5": {
+      "name": "×5",
+      "phrase": "Los cincos son la mitad de los dieces — y terminan en 0 o 5.",
+      "also": [
+        "1 × 5 = 5",
+        "2 × 5 = 10",
+        "3 × 5 = 15",
+        "4 × 5 = 20",
+        "5 × 5 = 25",
+        "6 × 5 = 30",
+        "7 × 5 = 35",
+        "8 × 5 = 40",
+        "9 × 5 = 45",
+        "10 × 5 = 50",
+        "11 × 5 = 55",
+        "12 × 5 = 60"
+      ],
+      "steps": [
+        "Multiplica por 10: pon un 0 al final.",
+        "Toma la mitad de ese resultado de los dieces.",
+        "Comprueba: par ×5 termina en 0; impar ×5 termina en 5."
+      ],
+      "exception": "Si el resultado no termina en 0 o 5, está mal. Mitad del producto por diez, no la mitad del factor solo.",
+      "tag": ""
+    },
+    "t6": {
+      "name": "×6",
+      "phrase": "El seis es cinco más un grupo más.",
+      "also": [
+        "1 × 6 = 6",
+        "2 × 6 = 12",
+        "3 × 6 = 18",
+        "4 × 6 = 24",
+        "5 × 6 = 30",
+        "6 × 6 = 36",
+        "7 × 6 = 42",
+        "8 × 6 = 48",
+        "9 × 6 = 54",
+        "10 × 6 = 60",
+        "11 × 6 = 66",
+        "12 × 6 = 72"
+      ],
+      "steps": [
+        "Calcula ×5 primero (mitad de los dieces).",
+        "Suma una copia más del otro número.",
+        "×5 más un grupo es ×6."
+      ],
+      "exception": "No olvides sumar el grupo extra después de ×5. Y 6 × 6 es 36 («magic tricks»), no 30.",
+      "tag": ""
+    },
+    "t7": {
+      "name": "×7",
+      "phrase": "Five, six, seven, eight: fifty-six is seven times eight. (5, 6, 7, 8: 56 es 7 × 8.)",
+      "also": [
+        "1 × 7 = 7",
+        "2 × 7 = 14",
+        "3 × 7 = 21",
+        "4 × 7 = 28",
+        "5 × 7 = 35",
+        "6 × 7 = 42",
+        "7 × 7 = 49",
+        "8 × 7 = 56",
+        "9 × 7 = 63",
+        "10 × 7 = 70",
+        "11 × 7 = 77",
+        "12 × 7 = 84"
+      ],
+      "steps": [
+        "Usa las rimas famosas para los hechos difíciles (7×7, 7×8).",
+        "Para otros factores, construye desde un hecho que sepas: 7 × 6 es 7 × 5 más 7.",
+        "O cuenta de 7 en 7: 7, 14, 21, 28…"
+      ],
+      "exception": "La rima es un gancho, no la razón. Si la olvidas, usa 7 × 7 = 49 y suma o resta sietes. 7 × 0 es 0.",
+      "tag": ""
+    },
+    "t8": {
+      "name": "×8",
+      "phrase": "Multiplicar por ocho es doble-doble-doble.",
+      "also": [
+        "1 × 8 = 8",
+        "2 × 8 = 16",
+        "3 × 8 = 24",
+        "4 × 8 = 32",
+        "5 × 8 = 40",
+        "6 × 8 = 48",
+        "7 × 8 = 56",
+        "8 × 8 = 64",
+        "9 × 8 = 72",
+        "10 × 8 = 80",
+        "11 × 8 = 88",
+        "12 × 8 = 96"
+      ],
+      "steps": [
+        "Duplica el otro número una vez (×2).",
+        "Duplica otra vez (×4).",
+        "Duplica una vez más (×8)."
+      ],
+      "exception": "Tres duplicados, no dos — parar en ×4 es la mitad de ×8. Cuadrado difícil: «I ate and ate and got sick on the floor: eight times eight is sixty-four.» (Comí y comí y me mareé: 8 × 8 = 64.)",
+      "tag": ""
+    },
+    "t9": {
+      "name": "×9",
+      "phrase": "Dobla el dedo. Los dígitos siempre suman nueve.",
+      "also": [
+        "1 × 9 = 9",
+        "2 × 9 = 18",
+        "3 × 9 = 27",
+        "4 × 9 = 36",
+        "5 × 9 = 45",
+        "6 × 9 = 54",
+        "7 × 9 = 63",
+        "8 × 9 = 72",
+        "9 × 9 = 81",
+        "10 × 9 = 90",
+        "11 × 9 = 99",
+        "12 × 9 = 108"
+      ],
+      "steps": [
+        "Levanta diez dedos.",
+        "Para 9 × n, dobla el dedo n.",
+        "Dedos a la izquierda son decenas; a la derecha, unidades. Comprueba: los dos dígitos suman 9."
+      ],
+      "exception": "Los dedos sirven de 9 × 1 a 9 × 10. Para 9 × 11 o 9 × 12, haz 10 × ese número y réstalo. 9 × 0 es 0.",
+      "tag": ""
+    },
+    "t10": {
+      "name": "×10",
+      "phrase": "Multiplicar por diez: pon un 0 al final.",
+      "also": [
+        "1 × 10 = 10",
+        "2 × 10 = 20",
+        "3 × 10 = 30",
+        "4 × 10 = 40",
+        "5 × 10 = 50",
+        "6 × 10 = 60",
+        "7 × 10 = 70",
+        "8 × 10 = 80",
+        "9 × 10 = 90",
+        "10 × 10 = 100",
+        "11 × 10 = 110",
+        "12 × 10 = 120"
+      ],
+      "steps": [
+        "Escribe el otro número.",
+        "Pon un 0 al final.",
+        "Ese es el producto."
+      ],
+      "exception": "Poner un 0 es ×10, no ×100 (ese necesita dos ceros). Y 10 × 0 es 0, no 10.",
+      "tag": ""
+    },
+    "t11": {
+      "name": "×11",
+      "phrase": "Un dígito: escríbelo dos veces. Dos dígitos: parte y mete la suma en medio.",
+      "also": [
+        "1 × 11 = 11",
+        "2 × 11 = 22",
+        "3 × 11 = 33",
+        "4 × 11 = 44",
+        "5 × 11 = 55",
+        "6 × 11 = 66",
+        "7 × 11 = 77",
+        "8 × 11 = 88",
+        "9 × 11 = 99",
+        "10 × 11 = 110",
+        "11 × 11 = 121",
+        "12 × 11 = 132"
+      ],
+      "steps": [
+        "Del 1 al 9: escribe el dígito dos veces (7 × 11 = 77).",
+        "Con dos dígitos: separa, súmalos y mete la suma en medio.",
+        "Ejemplo: 23 → 2 y 3, suma 5, queda 253."
+      ],
+      "exception": "Si la suma del medio es 10 o más, lleva 1 al dígito de la izquierda. Más de dos dígitos usa el mismo idea con llevadas. 11 × 11 = 121; 11 × 12 = 132.",
+      "tag": ""
+    },
+    "t12": {
+      "name": "×12",
+      "phrase": "Doce es diez más dos: ×10 y luego suma el doble.",
+      "also": [
+        "1 × 12 = 12",
+        "2 × 12 = 24",
+        "3 × 12 = 36",
+        "4 × 12 = 48",
+        "5 × 12 = 60",
+        "6 × 12 = 72",
+        "7 × 12 = 84",
+        "8 × 12 = 96",
+        "9 × 12 = 108",
+        "10 × 12 = 120",
+        "11 × 12 = 132",
+        "12 × 12 = 144"
+      ],
+      "steps": [
+        "Calcula ×10: pon un 0 al final.",
+        "Calcula ×2: duplica el otro número.",
+        "Suma esos dos resultados."
+      ],
+      "exception": "Suma ×10 y ×2 — no los multipliques entre sí. 12 × 12 es 144, no 120 + 12.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Ganchos por tabla",
+      "rows": [
+        ["×2", "Duplícalo."],
+        ["×3", "Doble y luego un grupo más."],
+        ["×4", "Doble del doble."],
+        ["×5", "Mitad de los dieces; termina en 0 o 5."],
+        ["×6", "×5 más un grupo."],
+        ["×7", "5, 6, 7, 8 → 56 es 7×8."],
+        ["×8", "Triple doble; 8×8=64."],
+        ["×9", "Dobla un dedo; dígitos suman 9."],
+        ["×10", "Pon un 0 al final."],
+        ["×11", "Escribe dos veces, o parte y mete la suma."],
+        ["×12", "×10 y luego suma el doble."]
+      ]
+    },
+    {
+      "title": "Patrones de las tablas",
+      "rows": [
+        ["Conmutativa", "a × b = b × a — invierte los factores"],
+        ["×0 / ×1", "Cero borra; uno deja el número"],
+        ["Familia de dobles", "×2, ×4 y ×8 usan duplicar"],
+        ["Comprueba con ÷", "Producto ÷ factor = el otro factor"],
+        ["Hechos con rima", "7×8=56; 8×8=64; 12×12=144"]
+      ]
+    }
+  ]
+}

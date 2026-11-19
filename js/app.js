@@ -51,14 +51,29 @@
     return `${r}s`;
   }
 
+  const t = (key, vars) => (window.I18N ? window.I18N.t(key, vars) : key);
+  const locC = (c) => (window.I18N ? window.I18N.locCourse(c) : c);
+  const locL = (c, l) => (window.I18N ? window.I18N.locLesson(c, l) : l);
+
   function metricsStrip() {
     const M = S.metrics;
-    return `<aside class="metrics" aria-label="Your activity">
-      <div><b>${fmtTime(M.totalMs)}</b><span>time learning</span></div>
-      <div><b>${M.gamesPlayed}</b><span>games finished</span></div>
-      <div><b>${M.puzzlesPlayed}</b><span>table puzzles</span></div>
-      <div><b>${M.roundsPlayed}</b><span>rounds answered</span></div>
+    return `<aside class="metrics" aria-label="${t("activity")}">
+      <div><b>${fmtTime(M.totalMs)}</b><span>${t("timeLearning")}</span></div>
+      <div><b>${M.gamesPlayed}</b><span>${t("gamesFinished")}</span></div>
+      <div><b>${M.puzzlesPlayed}</b><span>${t("tablePuzzles")}</span></div>
+      <div><b>${M.roundsPlayed}</b><span>${t("roundsAnswered")}</span></div>
     </aside>`;
+  }
+
+  function bindLangPicker() {
+    app.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (!window.I18N) return;
+        window.I18N.setLang(btn.dataset.lang);
+        if (location.hash === "#/" || location.hash === "" || location.hash === "#") home();
+        else route();
+      });
+    });
   }
 
   /* Optional hook for keyboard smash (and similar kids toys) */
@@ -198,14 +213,15 @@
   const stars = (n) => `<span class="stars">${[0, 1, 2].map((i) => star(i < n)).join("")}</span>`;
 
   function bar(active) {
+    const kidsLabel = active === "kids" ? "Kids’ corner" : t("kids");
     return `<header class="bar">
       <a class="brand" href="#/">${fox("mini")}<span>Mathenomics</span></a>
       <nav>
-        <a href="#/" class="${active === "learn" ? "on" : ""}">Learn</a>
-        <a href="#/report" class="${active === "report" ? "on" : ""}">Report card</a>
-        <a href="#/kids" class="${active === "kids" ? "on" : ""}">Kids’ corner</a>
+        <a href="#/" class="${active === "learn" ? "on" : ""}">${t("learn")}</a>
+        <a href="#/report" class="${active === "report" ? "on" : ""}">${t("report")}</a>
+        <a href="#/kids" class="${active === "kids" ? "on" : ""}">${kidsLabel}</a>
       </nav>
-      <span class="coins" title="Coins earned">${coin}<b id="coin-count">${S.coins}</b></span>
+      <span class="coins" title="${t("coins")}">${coin}<b id="coin-count">${S.coins}</b></span>
     </header>`;
   }
 
@@ -229,32 +245,36 @@
   function home() {
     const last = S.last && course(S.last.c);
     const lastLesson = last && lessonOf(last, S.last.l);
+    const lastView = lastLesson ? locL(last, lastLesson) : null;
+    const picker = window.I18N ? window.I18N.langPickerHtml() : "";
     paint("learn", "#C84F2E", `
       <section class="hero">
         <div class="hero-copy">
           <h1 class="brand-hero">Mathenomics</h1>
-          <p class="lede">Math, one phrase at a time. Learn it, see it, play five rounds — then earn your mark. Start wherever you are.</p>
-          ${lastLesson ? `<a class="btn primary big" href="#/l/${last.id}/${lastLesson.id}">Keep going: ${lastLesson.name}</a>` : `<a class="btn primary big" href="#/g/g3">Try times tables</a>`}
+          <p class="lede">${t("heroLede")}</p>
+          ${picker}
+          ${lastLesson ? `<a class="btn primary big" href="#/l/${last.id}/${lastLesson.id}">${t("keepGoing", { name: lastView.name })}</a>` : `<a class="btn primary big" href="#/g/g3">${t("tryTables")}</a>`}
         </div>
         <div class="hero-scene">
-          <div class="bubble">Hi, I’m Mio. Choose a grade and I’ll walk it with you.</div>
+          <div class="bubble">${t("mioHi")}</div>
           ${fox("idle big")}
           <div class="hill"></div>
         </div>
       </section>
-      <h2 class="section-title">The library</h2>
+      <h2 class="section-title">${t("library")}</h2>
       <section class="grades">
-        ${libraryCourses().map((c) => {
-          const m = courseMark(c);
-          const hs = c.id === "hs";
-          return `<a class="grade${hs ? " grade-hs" : ""}" href="#/g/${c.id}" style="--accent:${c.color}">
+        ${libraryCourses().map((raw) => {
+          const c = locC(raw);
+          const m = courseMark(raw);
+          const hs = raw.id === "hs";
+          return `<a class="grade${hs ? " grade-hs" : ""}" href="#/g/${raw.id}" style="--accent:${raw.color}">
             <span class="grade-band">${c.grade}</span>
-            ${hs ? `<span class="grade-proof-tag">Proof mode</span>` : ""}
+            ${hs ? `<span class="grade-proof-tag">${t("proofMode")}</span>` : ""}
             <strong>${c.title}</strong>
             <span class="grade-blurb">${c.blurb}</span>
             <span class="grade-foot">
-              <span class="meter"><i style="width:${(m.done / c.lessons.length) * 100}%"></i></span>
-              <span>${m.done}/${c.lessons.length}</span>
+              <span class="meter"><i style="width:${(m.done / raw.lessons.length) * 100}%"></i></span>
+              <span>${m.done}/${raw.lessons.length}</span>
             </span>
             <span class="stamp ${m.pct == null ? "blank" : ""}">${m.letter}</span>
           </a>`;
@@ -262,10 +282,11 @@
       </section>
       <a class="kids-band" href="#/kids">
         ${fox("mini")}
-        <span><strong>Kids’ corner</strong><em>Pictures to name, sounds to hear. Tap Next to keep going.</em></span>
-        <span class="btn">Open</span>
+        <span><strong>${t("kidsBandTitle")}</strong><em>${t("kidsBandLede")}</em></span>
+        <span class="btn">${t("open")}</span>
       </a>
     `);
+    bindLangPicker();
   }
 
   const standAt = ([x]) => (x > 50 ? `calc(${x}% + 38px)` : `calc(${x}% - 112px)`);
@@ -288,24 +309,25 @@
     save();
 
     const hs = c.id === "hs";
-    const mapEyebrow = hs ? "Proof mode" : c.grade;
+    const vc = locC(c);
+    const mapEyebrow = hs ? t("proofMode") : vc.grade;
     const mapLede = hs
-      ? "One mnemonic per theorem, then the proof moves and the trap. Built for SEE send-up and NEB bridge — every stop is open."
-      : `${c.blurb} Every stop is open, so jump to the one you need.`;
+      ? t("hsLede")
+      : `${vc.blurb} ${t("everyStop")}`;
 
     paint("learn", c.color, `
-      <a class="crumb" href="#/">← All grades</a>
+      <a class="crumb" href="#/">← ${t("allGrades")}</a>
       <header class="course-head${hs ? " course-head-hs" : ""}">
         <div>
           <p class="eyebrow">${mapEyebrow}</p>
-          <h1>${c.title}</h1>
+          <h1>${vc.title}</h1>
           <p class="lede">${mapLede}</p>
         </div>
         <div class="course-mark">
           <span class="stamp big ${m.pct == null ? "blank" : ""}">${m.letter}</span>
-          <span>${m.pct == null ? "No mark yet" : `${m.pct}% average`}<br>${m.done} of ${n} played</span>
-          ${c.cheat && c.cheat.length ? `<a class="btn ghost" href="#/cheat/${c.id}">${hs ? "Theorem cheatsheet" : "Grade cheatsheet"}</a>` : ""}
-          ${c.id === "tables" ? `<a class="btn primary" href="#/puzzle/2">Table puzzle</a>` : ""}
+          <span>${m.pct == null ? t("noMark") : t("avgMark", { pct: m.pct })}<br>${t("played", { done: m.done, n })}</span>
+          ${vc.cheat && vc.cheat.length ? `<a class="btn ghost" href="#/cheat/${c.id}">${hs ? t("theoremCheat") : t("gradeCheat")}</a>` : ""}
+          ${c.id === "tables" ? `<a class="btn primary" href="#/puzzle/2">${t("tablePuzzle")}</a>` : ""}
         </div>
       </header>
       <section class="map${hs ? " map-hs" : ""}" style="height:${H}px">
@@ -315,10 +337,11 @@
         ${c.lessons.map((l, i) => {
           const best = S.best[key(c, l)];
           const [x, y] = pts[i];
-          const tag = l.tag ? `<span class="theorem-badge badge-${String(l.tag).toLowerCase()}">${l.tag}</span>` : "";
+          const vl = locL(c, l);
+          const tag = vl.tag ? `<span class="theorem-badge badge-${String(vl.tag).toLowerCase()}">${vl.tag}</span>` : "";
           return `<a class="stop ${best != null ? "done" : ""} ${x > 50 ? "flip" : ""}" href="#/l/${c.id}/${l.id}" style="left:${x}%;top:${y}px">
             <span class="stop-dot">${i + 1}</span>
-            <span class="stop-card">${tag}<strong>${l.name}</strong><em>${l.phrase}</em>${best != null ? `<span class="stop-meta">${stars(starsFor(best))}<b>${letter(best)}</b></span>` : ""}</span>
+            <span class="stop-card">${tag}<strong>${vl.name}</strong><em>${vl.phrase}</em>${best != null ? `<span class="stop-meta">${stars(starsFor(best))}<b>${letter(best)}</b></span>` : ""}</span>
           </a>`;
         }).join("")}
         <div class="walker" style="left:${standAt(pts[from])};top:${pts[from][1]}px">${fox("idle")}</div>
@@ -342,39 +365,46 @@
     const idx = c.lessons.indexOf(l);
     const next = c.lessons[idx + 1];
     const hs = c.id === "hs";
-    const badge = l.tag
-      ? `<span class="theorem-badge badge-${String(l.tag).toLowerCase()}">${l.tag}</span>`
+    const vc = locC(c);
+    const vl = locL(c, l);
+    const vn = next ? locL(c, next) : null;
+    const badge = vl.tag
+      ? `<span class="theorem-badge badge-${String(vl.tag).toLowerCase()}">${vl.tag}</span>`
       : "";
     const stepsClass = hs ? "steps proof-steps" : "steps";
-    const stepsTitle = hs ? "Proof moves" : "How it works";
+    const stepsTitle = hs ? t("proofMoves") : t("howItWorks");
+    const quizNote = window.I18N && window.I18N.isTranslated()
+      ? `<p class="quiz-note">${t("quizNote")}</p>`
+      : "";
     paint("learn", c.color, `
-      <a class="crumb" href="#/g/${c.id}">← ${c.grade} · ${c.title}</a>
+      <a class="crumb" href="#/g/${c.id}">← ${vc.grade} · ${vc.title}</a>
       <article class="lesson${hs ? " lesson-hs" : ""}">
         <figure class="figure">
           <div class="figure-pic">${l.pic()}</div>
-          <figcaption>Stop ${idx + 1} of ${c.lessons.length}</figcaption>
+          <figcaption>${t("stopOf", { i: idx + 1, n: c.lessons.length })}</figcaption>
           <div class="figure-fox">${fox("idle")}</div>
         </figure>
         <div class="lesson-copy">
-          <p class="eyebrow">${badge}${l.name}</p>
-          <h1 class="phrase">“${l.phrase}”</h1>
-          <button type="button" class="btn ghost" id="hear">▶ Hear the phrase</button>
-          <span class="voice-hint">Owner voice when a clip is in voices/</span>
-          ${l.also ? `<p class="also"><span>Also said as</span>${l.also}</p>` : ""}
+          <p class="eyebrow">${badge}${vl.name}</p>
+          <h1 class="phrase">“${vl.phrase}”</h1>
+          <button type="button" class="btn ghost" id="hear">▶ ${t("hearPhrase")}</button>
+          <span class="voice-hint">${t("voiceHint")}</span>
+          ${vl.also ? `<p class="also"><span>${t("alsoSaid")}</span>${vl.also}</p>` : ""}
           <h3 class="small-title">${stepsTitle}</h3>
-          <ol class="${stepsClass}">${l.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
-          <aside class="watch"><strong>Watch out</strong><p>${l.exception}</p></aside>
+          <ol class="${stepsClass}">${vl.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
+          <aside class="watch"><strong>${t("watchOut")}</strong><p>${vl.exception}</p></aside>
+          ${quizNote}
           <div class="lesson-actions">
-            <a class="btn primary" href="#/play/${c.id}/${l.id}">Play ${ROUNDS} rounds</a>
-            ${best != null ? `<span class="best">Best: <b>${letter(best)}</b> · ${best}% ${stars(starsFor(best))}</span>` : `<span class="best">${HEARTS} hearts · ${ROUNDS} rounds · coins for every right answer</span>`}
+            <a class="btn primary" href="#/play/${c.id}/${l.id}">${t("playRounds", { n: ROUNDS })}</a>
+            ${best != null ? `<span class="best">${t("best", { letter: letter(best), pct: best })} ${stars(starsFor(best))}</span>` : `<span class="best">${t("heartsHint", { hearts: HEARTS, rounds: ROUNDS })}</span>`}
           </div>
-          ${next ? `<a class="next-link" href="#/l/${c.id}/${next.id}">Next stop: ${next.name} →</a>` : ""}
+          ${vn ? `<a class="next-link" href="#/l/${c.id}/${next.id}">${t("nextStop", { name: vn.name })}</a>` : ""}
         </div>
       </article>
       ${l.worked && l.worked.length ? `<section class="worked" id="worked">
         <header class="worked-head">
-          <div><p class="eyebrow">Solve it with me</p><h2>Step-by-step problems</h2></div>
-          <div class="worked-tabs">${l.worked.map((_, k) => `<button type="button" class="tab" data-w="${k}">Problem ${k + 1}</button>`).join("")}</div>
+          <div><p class="eyebrow">${t("solveWithMe")}</p><h2>${t("stepByStep")}</h2></div>
+          <div class="worked-tabs">${l.worked.map((_, k) => `<button type="button" class="tab" data-w="${k}">${t("problem")} ${k + 1}</button>`).join("")}</div>
         </header>
         <div class="worked-body"></div>
       </section>` : ""}
@@ -392,17 +422,17 @@
       body.innerHTML = `
         <div class="worked-problem">
           ${w.pic ? `<div class="worked-pic">${w.pic}</div>` : ""}
-          <p class="worked-q"><span>Problem</span>${w.problem}</p>
+          <p class="worked-q"><span>${t("problem")}</span>${w.problem}</p>
         </div>
         <ol class="worked-steps">
           ${w.steps.map(([move, work], k) => `<li class="${k < shown ? "on" : ""}" ${k < shown ? "" : "hidden"}><strong>${move}</strong><span>${work}</span></li>`).join("")}
         </ol>
-        ${shown >= w.steps.length ? `<p class="worked-answer"><span>Answer</span>${w.answer}</p>` : ""}
+        ${shown >= w.steps.length ? `<p class="worked-answer"><span>${t("answer")}</span>${w.answer}</p>` : ""}
         <div class="worked-actions">
           ${shown < w.steps.length
-            ? `<button type="button" class="btn primary" id="wstep">${shown ? "Next step →" : "Show the first step"}</button>
-               <button type="button" class="btn ghost" id="wall">Show all</button>`
-            : `<button type="button" class="btn" id="wagain">Hide the steps and try it alone</button>`}
+            ? `<button type="button" class="btn primary" id="wstep">${shown ? t("nextStep") : t("showFirst")}</button>
+               <button type="button" class="btn ghost" id="wall">${t("showAll")}</button>`
+            : `<button type="button" class="btn" id="wagain">${t("hideSteps")}</button>`}
         </div>`;
       const step = body.querySelector("#wstep");
       if (step) step.addEventListener("click", () => { shown += 1; draw(); sfx("coin"); });
@@ -443,19 +473,20 @@
   function playScreen() {
     const { c, l, qs, i } = run;
     const q = qs[i];
+    const vl = locL(c, l);
     paint("learn", c.color, `
       <div class="hud">
-        <a class="crumb" href="#/l/${c.id}/${l.id}">✕ Leave game</a>
+        <a class="crumb" href="#/l/${c.id}/${l.id}">✕ ${t("leaveGame")}</a>
         <div class="pips">${qs.map((_, k) => `<i class="${k < i ? (run.marks[k] ? "ok" : "no") : k === i ? "now" : ""}"></i>`).join("")}</div>
         <div class="hearts">${Array.from({ length: HEARTS }, (_, k) => heart(k < run.hearts)).join("")}</div>
       </div>
       <section class="arena">
         <div class="coach">
-          <div class="bubble small">${l.phrase}</div>
+          <div class="bubble small">${vl.phrase}</div>
           <div class="coach-fox">${fox("idle")}</div>
         </div>
         <div class="round">
-          <p class="eyebrow">Round ${i + 1} of ${qs.length} · ${l.name}</p>
+          <p class="eyebrow">${t("roundOf", { i: i + 1, n: qs.length, name: vl.name })}</p>
           ${q.pic ? `<div class="round-pic">${q.pic}</div>` : ""}
           <h2 class="prompt">${q.prompt}</h2>
           <div class="answers ${q.choices.length < 3 ? "two" : ""}">
@@ -502,8 +533,9 @@
     const verdict = document.getElementById("verdict");
     verdict.hidden = false;
     verdict.className = `verdict ${ok ? "good" : "bad"}`;
-    verdict.innerHTML = `<p><strong>${ok ? pick(["Nice.", "Got it.", "Yes!", "Spot on."]) : run.hearts === 0 ? "Out of hearts." : "Not quite."}</strong> ${q.why}</p>
-      <button type="button" class="btn primary" id="go">${last ? "See my mark" : "Next round →"}</button>`;
+    const praise = ok ? pick([t("nice"), t("gotIt"), t("yes"), t("spotOn")]) : run.hearts === 0 ? t("outOfHearts") : t("notQuite");
+    verdict.innerHTML = `<p><strong>${praise}</strong> ${q.why}</p>
+      <button type="button" class="btn primary" id="go">${last ? t("seeMark") : t("nextRound")}</button>`;
     const go = document.getElementById("go");
     go.focus({ preventScroll: true });
     go.addEventListener("click", () => {
@@ -535,23 +567,27 @@
     const { pct, prev } = run.result;
     const next = c.lessons[c.lessons.indexOf(l) + 1];
     const s = starsFor(pct);
+    const vl = locL(c, l);
+    const vn = next ? locL(c, next) : null;
+    const lede = (pct === 100 ? t("perfect") : pct >= 60 ? t("goodWork") : t("tryAgain"))
+      + (prev != null && pct > prev ? t("newBest") : "");
     paint("learn", c.color, `
       <section class="result">
         <div class="result-fox">${fox(pct >= 60 ? "cheer loop" : "oops")}</div>
         <div class="result-card">
-          <p class="eyebrow">${l.name} · your mark</p>
+          <p class="eyebrow">${vl.name} · ${t("yourMark")}</p>
           <div class="result-row">
             <span class="stamp huge ${pct < 60 ? "low" : ""}">${letter(pct)}</span>
             <div>
-              <p class="score">${run.right} of ${run.qs.length} right · ${pct}%</p>
+              <p class="score">${run.right} / ${run.qs.length} · ${pct}%</p>
               ${stars(s)}
-              <p class="lede">${pct === 100 ? "Perfect round. Say the phrase once more and it will stick." : pct >= 60 ? "Good work. Play again to push your mark up." : "Read the phrase and the Watch out box, then try again."}${prev != null && pct > prev ? " New best!" : ""}</p>
+              <p class="lede">${lede}</p>
             </div>
           </div>
-          <p class="remember"><span>Remember</span>“${l.phrase}”</p>
+          <p class="remember"><span>★</span>“${vl.phrase}”</p>
           <div class="result-actions">
-            ${next ? `<a class="btn primary" href="#/l/${c.id}/${next.id}">Next: ${next.name} →</a>` : `<a class="btn primary" href="#/g/${c.id}">Back to the map</a>`}
-            <a class="btn" href="#/play/${c.id}/${l.id}">Play again</a>
+            ${vn ? `<a class="btn primary" href="#/l/${c.id}/${next.id}">${t("nextLesson", { name: vn.name })}</a>` : `<a class="btn primary" href="#/g/${c.id}">← ${t("allGrades")}</a>`}
+            <a class="btn" href="#/play/${c.id}/${l.id}">${t("playAgain")}</a>
             <a class="btn ghost" href="#/g/${c.id}">Map</a>
           </div>
         </div>
@@ -561,17 +597,16 @@
   }
 
   function cheatScreen(c) {
-    const sheets = c.cheat || [];
+    const vc = locC(c);
+    const sheets = vc.cheat || [];
     const hs = c.id === "hs";
     paint("learn", c.color, `
-      <a class="crumb" href="#/g/${c.id}">← ${c.grade} · ${c.title}</a>
+      <a class="crumb" href="#/g/${c.id}">← ${vc.grade} · ${vc.title}</a>
       <header class="course-head${hs ? " course-head-hs" : ""}">
         <div>
-          <p class="eyebrow">${hs ? "Proof mode · cheatsheet" : `${c.grade} cheatsheet`}</p>
-          <h1>${hs ? "Theorems at a glance." : "Say it. Spot the trap."}</h1>
-          <p class="lede">${hs
-            ? "Geo and trig hooks for SEE send-up and NEB bridge. Say the phrase, check the trap, then return to the map."
-            : "Every mnemonic for this grade on one page. Use it before a test, then play the map to lock it in."}</p>
+          <p class="eyebrow">${hs ? t("cheatEyebrowHs") : t("cheatEyebrow", { grade: vc.grade })}</p>
+          <h1>${hs ? t("cheatTitleHs") : t("cheatTitle")}</h1>
+          <p class="lede">${hs ? t("cheatLedeHs") : t("cheatLede")}</p>
         </div>
       </header>
       <section class="cheat${hs ? " cheat-hs" : ""}">
@@ -581,7 +616,7 @@
             <table><tbody>
               ${block.rows.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join("")}
             </tbody></table>
-          </article>`).join("") || `<p class="lede">Cheatsheet coming for this grade.</p>`}
+          </article>`).join("") || `<p class="lede">…</p>`}
       </section>
     `);
   }
@@ -697,26 +732,28 @@
     paint("report", "#2E4057", `
       <header class="course-head">
         <div>
-          <p class="eyebrow">Report card</p>
-          <h1>Your marks</h1>
-          <p class="lede">Each lesson keeps your best round. A grade’s mark is the average of the lessons you have played. Activity stays on this device only.</p>
+          <p class="eyebrow">${t("report")}</p>
+          <h1>${t("yourMark")}</h1>
+          <p class="lede">${t("cheatLede")}</p>
         </div>
       </header>
       ${metricsStrip()}
       <section class="report">
-        ${C.map((c) => {
-          const m = courseMark(c);
-          return `<article class="report-row" style="--accent:${c.color}">
+        ${C.map((raw) => {
+          const c = locC(raw);
+          const m = courseMark(raw);
+          return `<article class="report-row" style="--accent:${raw.color}">
             <header>
               <span class="grade-band">${c.grade}</span>
               <strong>${c.title}</strong>
-              <span class="report-pct">${m.pct == null ? "Not started" : `${m.pct}%`}</span>
+              <span class="report-pct">${m.pct == null ? t("noMark") : `${m.pct}%`}</span>
               <span class="stamp ${m.pct == null ? "blank" : ""}">${m.letter}</span>
             </header>
             <ul>
-              ${c.lessons.map((l) => {
-                const b = S.best[key(c, l)];
-                return `<li><a href="#/l/${c.id}/${l.id}">${l.name}</a><span>${b == null ? "—" : `${b}%`}</span>${stars(starsFor(b))}<b>${b == null ? "" : letter(b)}</b></li>`;
+              ${raw.lessons.map((l) => {
+                const b = S.best[key(raw, l)];
+                const vl = locL(raw, l);
+                return `<li><a href="#/l/${raw.id}/${l.id}">${vl.name}</a><span>${b == null ? "—" : `${b}%`}</span>${stars(starsFor(b))}<b>${b == null ? "" : letter(b)}</b></li>`;
               }).join("")}
             </ul>
           </article>`;

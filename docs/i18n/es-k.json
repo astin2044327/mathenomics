@@ -1,0 +1,328 @@
+{
+  "grade": "K–1",
+  "title": "Contar y comparar",
+  "blurb": "Mayor, menor y los pares que suman diez.",
+  "lessons": {
+    "gator": {
+      "name": "Mayor o menor",
+      "phrase": "El cocodrilo hambriento se come el número mayor.",
+      "also": "La punta apunta al número menor.",
+      "steps": [
+        "Mira los dos números.",
+        "La boca abierta del cocodrilo mira al mayor.",
+        "La punta señala al menor."
+      ],
+      "exception": "Si los dos números son iguales, no hay mayor que comerse. Usa =. La boca va al mayor, no al que esté primero.",
+      "tag": ""
+    },
+    "bonds": {
+      "name": "Pares que suman diez",
+      "phrase": "Diez amigos de la mano: 1 y 9, 2 y 8, 3 y 7, 4 y 6, 5 y 5.",
+      "also": "",
+      "steps": [
+        "Llena el marco de diez con el primer número.",
+        "Cuenta las casillas vacías.",
+        "Las vacías son el compañero."
+      ],
+      "exception": "Estos pares solo hacen 10. Para 20 cambian los compañeros: 7 necesita 13. Y el compañero de 0 es el 10 completo.",
+      "tag": ""
+    },
+    "counton": {
+      "name": "Contar hacia adelante",
+      "phrase": "Guarda el número grande en la cabeza y cuenta hacia adelante.",
+      "also": "",
+      "steps": [
+        "Di el número mayor.",
+        "Sube un dedo por cada unidad del número menor.",
+        "El último número que digas es la respuesta."
+      ],
+      "exception": "No vuelvas a empezar desde 1. No cuentes el número inicial dos veces: 8 + 3 es 9, 10, 11, no 8, 9, 10.",
+      "tag": ""
+    },
+    "maketen": {
+      "name": "Formar un diez",
+      "phrase": "Forma un diez y suma lo que sobra.",
+      "also": "8 + 5 = 8 + 2 + 3. El 2 completa el diez y el 3 es lo que resta.",
+      "steps": [
+        "Empieza con el número mayor.",
+        "Toma justo lo necesario del otro número para hacer 10.",
+        "Suma lo que queda al 10."
+      ],
+      "exception": "Toma solo lo que completa el diez: en 8 + 5, toma 2, no 5. Si el total es menor que 10, no hay diez que formar; cuenta hacia adelante.",
+      "tag": ""
+    },
+    "teens": {
+      "name": "Números del 11 al 19",
+      "phrase": "Un «teen» es diez y algo más.",
+      "also": "Catorce es diez y cuatro. El 1 adelante es el diez.",
+      "steps": [
+        "El 1 adelante representa un diez.",
+        "El último dígito dice cuánto más.",
+        "16 es diez y 6 más."
+      ],
+      "exception": "Once y doce no dicen «teen», pero son diez y 1, y diez y 2. Catorce se escribe 14, no 41 ni 104.",
+      "tag": ""
+    },
+    "neardbl": {
+      "name": "Dobles y casi dobles",
+      "phrase": "Casi doble: duplica el menor y suma uno.",
+      "also": "6 + 7 es doble de 6 más 1: 12 + 1 = 13.",
+      "steps": [
+        "Un doble es el mismo número dos veces: 6 + 6 = 12.",
+        "En un casi doble, duplica el menor.",
+        "Suma 1 más."
+      ],
+      "exception": "Duplica el menor y suma 1. Si duplicas el mayor, resta 1: 6 + 7 es 14 − 1. Solo sirve con números vecinos: 6 + 8 es doble de 6 más 2.",
+      "tag": ""
+    },
+    "skip": {
+      "name": "Contar de 2 en 2, de 5 en 5 y de 10 en 10",
+      "phrase": "2, 4, 6, 8, ¿a quién vamos a aplaudir?",
+      "also": "Los cincos terminan en 5 o 0. Los dieces siempre terminan en 0.",
+      "steps": [
+        "De 2 en 2: di uno sí y uno no: 2, 4, 6, 8, 10.",
+        "De 5 en 5: la unidad va 5, 0, 5, 0.",
+        "De 10 en 10: la decena sube 1 y las unidades quedan en 0."
+      ],
+      "exception": "Mantén el mismo salto siempre. De 10 en 10 desde 20: 20, 30, 40, no 20, 21, 22. Si empiezas en impar, de 2 en 2 salen impares: 3, 5, 7.",
+      "tag": ""
+    },
+    "allword": {
+      "name": "Palabras clave: todo / en total",
+      "phrase": "Todo, en total, en conjunto, suma — esas palabras suelen indicar sumar.",
+      "also": "¿Cuántos en total? Junta las partes.",
+      "steps": [
+        "Busca la palabra clave: todo, en total, suma, total.",
+        "Escribe una suma.",
+        "Suma las partes."
+      ],
+      "exception": "«Todo» con «quedan» o «se fueron» puede indicar restar. Lee toda la oración.",
+      "tag": ""
+    },
+    "leftword": {
+      "name": "Palabras clave: quedan / restan",
+      "phrase": "Quedan, restan, quitar, cuántos más — suelen indicar restar.",
+      "also": "",
+      "steps": [
+        "Busca la pista: quedan, restan, quitar, cuántos más, diferencia.",
+        "Escribe una resta.",
+        "Resta."
+      ],
+      "exception": "«Cuántos más» compara dos cantidades: mayor − menor. Empieza con el total, no con lo que sobra.",
+      "tag": ""
+    },
+    "eachword": {
+      "name": "Palabras clave: cada / grupos",
+      "phrase": "Cada, cada uno, grupos de — suelen indicar multiplicar (o partes iguales).",
+      "also": "3 bolsas con 4 en cada una: tres grupos de cuatro.",
+      "steps": [
+        "Localiza «cada», «cada uno» o «grupos de».",
+        "Dibuja grupos iguales.",
+        "Cuenta por grupos o multiplica."
+      ],
+      "exception": "«Cada» también puede indicar dividir al repartir: 12 pegatinas, 3 para cada uno — ¿cuántos niños?",
+      "tag": ""
+    },
+    "shareword": {
+      "name": "Palabras clave: repartir / dividir",
+      "phrase": "Repartir por igual, dividir entre — indican división.",
+      "also": "",
+      "steps": [
+        "Localiza «repartir», «dividir», «entre», «en grupos iguales».",
+        "Escribe una división.",
+        "Hallar cuántos en cada grupo (o cuántos grupos)."
+      ],
+      "exception": "El reparto debe ser justo. Lo que sobra es residuo — no lo ignores.",
+      "tag": ""
+    },
+    "commute": {
+      "name": "Orden de los sumandos",
+      "phrase": "Puedes cambiar el orden: 3 + 5 es lo mismo que 5 + 3.",
+      "also": "Conmutativa: el viaje es igual en ambos sentidos.",
+      "steps": [
+        "Escribe la suma en cualquier orden.",
+        "Guarda el mayor en la cabeza.",
+        "Cuenta hacia adelante el menor."
+      ],
+      "exception": "El orden no importa en + y ×. Sí importa en − y ÷: 5 − 3 no es 3 − 5.",
+      "tag": ""
+    },
+    "countback": {
+      "name": "Contar hacia atrás",
+      "phrase": "Guarda el número grande en la cabeza y cuenta hacia atrás.",
+      "also": "",
+      "steps": [
+        "Di el número mayor.",
+        "Baja un dedo por cada unidad que restas.",
+        "El último número que digas es la respuesta."
+      ],
+      "exception": "No cuentes el número inicial como dedo. 9 − 2 es 8, 7 — no 9, 8.",
+      "tag": ""
+    },
+    "zeroadd": {
+      "name": "Sumar cero",
+      "phrase": "El cero no cambia nada al sumar.",
+      "also": "Más cero deja el número igual.",
+      "steps": [
+        "Mira + 0 o 0 +.",
+        "El otro número se queda igual.",
+        "El cero no agrega nada."
+      ],
+      "exception": "El cero es distinto en + y en ×: n + 0 = n, pero n × 0 = 0.",
+      "tag": ""
+    },
+    "estimate": {
+      "name": "¿Aproximadamente cuántos?",
+      "phrase": "Estima: ¿está más cerca de una decena amiga?",
+      "also": "",
+      "steps": [
+        "Mira el dígito de las unidades.",
+        "5 o más → sube a la siguiente decena.",
+        "4 o menos → quédate en esta decena."
+      ],
+      "exception": "Estimar es «más o menos», no exacto. Úsalo para ver si una respuesta exacta se ve absurda.",
+      "tag": ""
+    },
+    "morefewer": {
+      "name": "Más y menos (cantidad)",
+      "phrase": "Más significa mayor cantidad. Menos significa menor cantidad.",
+      "also": "",
+      "steps": [
+        "Compara las dos cantidades.",
+        "Más → el número mayor.",
+        "Menos → el número menor."
+      ],
+      "exception": "«Menos» suele usarse con cosas contables; con medidas continuas a veces se dice «menor», pero la idea de comparar es la misma.",
+      "tag": ""
+    },
+    "partwhole": {
+      "name": "Parte–parte–todo",
+      "phrase": "Dos partes forman el todo. El todo se divide en partes.",
+      "also": "",
+      "steps": [
+        "Nombra el todo.",
+        "Nombra cada parte.",
+        "Las partes suman el todo; el todo menos una parte deja la otra."
+      ],
+      "exception": "No mezcles qué número es el todo. El todo es siempre el total, nunca un resto.",
+      "tag": ""
+    },
+    "tenmore": {
+      "name": "Diez más, diez menos",
+      "phrase": "Diez más sube el dígito de las decenas. Diez menos lo baja.",
+      "also": "",
+      "steps": [
+        "Ubica el dígito de las decenas.",
+        "Diez más: suma 1 a las decenas.",
+        "Diez menos: resta 1 de las decenas."
+      ],
+      "exception": "Las unidades no cambian al sumar o restar exactamente 10. 27 + 10 es 37, no 28.",
+      "tag": ""
+    },
+    "sameboth": {
+      "name": "Igual en ambos lados",
+      "phrase": "Si ambos lados coinciden, usa el signo igual.",
+      "also": "Balanza: lo que hagas en un lado debe mantener la historia verdadera.",
+      "steps": [
+        "Calcula cada lado si hace falta.",
+        "Si las cantidades coinciden, escribe =.",
+        "Si no, no son iguales."
+      ],
+      "exception": "Igual significa «mismo valor», no «se ven igual». 3 + 5 y 4 + 4 valen 8.",
+      "tag": ""
+    },
+    "fingeradd": {
+      "name": "Dedos para sumas pequeñas",
+      "phrase": "Guarda el mayor; levanta dedos por el menor y cuenta hacia adelante.",
+      "also": "",
+      "steps": [
+        "Pon el mayor en la cabeza (o en una mano).",
+        "Levanta un dedo por cada unidad del menor.",
+        "Cuenta hacia adelante desde el mayor."
+      ],
+      "exception": "Si la suma pasa de 10, forma un diez primero y usa los dedos que sobran.",
+      "tag": ""
+    },
+    "beforeafter": {
+      "name": "Antes y después",
+      "phrase": "Antes es uno menos. Después es uno más.",
+      "also": "",
+      "steps": [
+        "Después: cuenta uno hacia adelante.",
+        "Antes: cuenta uno hacia atrás.",
+        "La recta numérica ayuda."
+      ],
+      "exception": "Antes del 0 salimos de los naturales de uso cotidiano — en K–1 nos quedamos en 0 en adelante.",
+      "tag": ""
+    },
+    "howmany": {
+      "name": "¿Cuántos más?",
+      "phrase": "¿Cuántos más? Empieza en el menor y cuenta hasta el mayor.",
+      "also": "O resta: mayor − menor.",
+      "steps": [
+        "Hallar ambas cantidades.",
+        "Resta el menor del mayor.",
+        "Esa diferencia es «cuántos más»."
+      ],
+      "exception": "«Cuántos más» es una comparación, no un problema de «quedan en el plato».",
+      "tag": ""
+    },
+    "dblfacts": {
+      "name": "Hechos de dobles",
+      "phrase": "Un doble es el mismo número dos veces: 6 + 6 = 12.",
+      "also": "",
+      "steps": [
+        "Detecta dos números iguales.",
+        "Doble significa sumar el número consigo mismo.",
+        "Memoriza los dobles hasta 10 + 10."
+      ],
+      "exception": "Los casi dobles son vecinos (6 + 7). Los dobles puros son iguales exactos.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Comparar y contar",
+      "rows": [
+        ["Cocodrilo hambriento", "La boca se abre al número mayor"],
+        ["Mismos números", "Usa = — no hay mayor"],
+        ["Contar hacia adelante", "Número grande en la cabeza, luego cuenta"],
+        ["Contar hacia atrás", "Empieza grande; un dedo por cada paso"],
+        ["Saltos de 2", "2, 4, 6, 8… los pares"],
+        ["Saltos de 5 / 10", "5 termina en 5 o 0; 10 termina en 0"],
+        ["Más / menos", "Comparar: ¿cuántos más? → resta"]
+      ]
+    },
+    {
+      "title": "Pares que suman diez",
+      "rows": [
+        ["Compañeros del 10", "1+9, 2+8, 3+7, 4+6, 5+5"],
+        ["Formar un diez", "Completa 10 y suma lo que sobra"],
+        ["Número «teen»", "Es diez y algo más"],
+        ["Diez más", "Siguiente decena: 23 + 10 = 33"],
+        ["Dobles", "Igual + igual (6+6=12)"],
+        ["Casi dobles", "Doble el menor y +1"],
+        ["Parte–todo", "Todo = parte + parte; halla la parte faltante"]
+      ]
+    },
+    {
+      "title": "Palabras clave",
+      "rows": [
+        ["Todo / en total", "Junta las partes → suma"],
+        ["Quedan / restan", "Quita → resta"],
+        ["Cada / grupos de", "Grupos iguales → multiplica"],
+        ["Repartir / dividir", "Partes iguales → divide"]
+      ]
+    },
+    {
+      "title": "Datos rápidos",
+      "rows": [
+        ["El cero al sumar", "Sumar 0 no cambia nada; ×0 deja 0"],
+        ["Igual en ambos lados", "¿Mismos sumandos? Duplícalo"],
+        ["Suma con dedos", "Levanta dedos para sumas pequeñas"],
+        ["Antes / después", "Antes: uno menos; después: uno más"],
+        ["Estimar", "Redondea a una decena amiga y ajusta"]
+      ]
+    }
+  ]
+}

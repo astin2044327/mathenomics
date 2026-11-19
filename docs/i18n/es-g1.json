@@ -1,0 +1,360 @@
+{
+  "grade": "Grados 1–2",
+  "title": "Valor posicional y reagrupación",
+  "blurb": "El lugar del dígito y cómo las decenas cambian con las unidades.",
+  "lessons": {
+    "place": {
+      "name": "Valor posicional",
+      "phrase": "El asiento le da el tamaño.",
+      "also": "",
+      "steps": [
+        "Las unidades van a la derecha.",
+        "Las decenas al lado.",
+        "Las centenas un asiento más a la izquierda."
+      ],
+      "exception": "El dígito solo no es el valor. El 4 en 340 son 4 decenas, es decir 40.",
+      "tag": ""
+    },
+    "carry": {
+      "name": "Sumar con reagrupación",
+      "phrase": "Diez unidades hacen una decena. Lleva la decena al siguiente asiento.",
+      "also": "",
+      "steps": [
+        "Suma las unidades.",
+        "Si tienes 10 o más, deja las unidades y lleva 1 decena.",
+        "Suma las decenas más la decena que llevaste."
+      ],
+      "exception": "Solo llevas cuando las unidades hacen 10 o más. En 23 + 14 no hay llevada.",
+      "tag": ""
+    },
+    "borrow": {
+      "name": "Restar con reagrupación",
+      "phrase": "¿Arriba más grande? Sigue. ¿Abajo más grande? Pide prestado una decena del vecino.",
+      "also": "¿Iguales? El cero juega su papel.",
+      "steps": [
+        "Mira la columna de unidades.",
+        "Si el de abajo es mayor, pide una decena al vecino.",
+        "La unidad de arriba gana 10; la decena baja 1."
+      ],
+      "exception": "Nunca inviertas para restar el pequeño del grande. 52 − 27 es 25, no 35.",
+      "tag": ""
+    },
+    "evenodd": {
+      "name": "Pares e impares",
+      "phrase": "Los pares reparten justo: todos tienen pareja. Los impares dejan uno solo.",
+      "also": "Solo decide la última cifra: 0, 2, 4, 6, 8 son pares. 1, 3, 5, 7, 9 son impares.",
+      "steps": [
+        "Mira solo la última cifra.",
+        "0, 2, 4, 6 u 8: par.",
+        "1, 3, 5, 7 o 9: impar."
+      ],
+      "exception": "Ignora las demás cifras: 58 es par aunque el 5 sea impar. El 0 es par porque se divide en dos grupos iguales de nada.",
+      "tag": ""
+    },
+    "round": {
+      "name": "Redondear a 10 y 100",
+      "phrase": "Cinco o más, sube el score. Cuatro o menos, déjalo.",
+      "also": "",
+      "steps": [
+        "Ubica el dígito al que redondeas.",
+        "Mira el dígito justo a su derecha.",
+        "5 o más: sube 1. 4 o menos: se queda.",
+        "Todas las cifras a la derecha pasan a 0."
+      ],
+      "exception": "Mira solo el dígito siguiente. 349 a la centena más cercana es 300 porque la decena es 4. No redondees dos veces (349 → 350 → 400). Un 9 que sube puede pasar de decena: 97 redondea a 100.",
+      "tag": ""
+    },
+    "clock": {
+      "name": "Leer la hora",
+      "phrase": "Hora es palabra corta: manecilla corta. Minuto es palabra larga: manecilla larga.",
+      "also": "La larga cuenta de 5 en 5: el número al que apunta × 5 son los minutos.",
+      "steps": [
+        "Corta: la última hora que ya pasó.",
+        "Larga: número al que apunta × 5 = minutos.",
+        "Di hora y minutos: 3:25."
+      ],
+      "exception": "Después de y media la corta se acerca a la siguiente hora, pero aún no cambió: a las 2:50 casi marca 3, pero sigue siendo 2. La larga en 12 son 0 minutos, en punto.",
+      "tag": ""
+    },
+    "add3": {
+      "name": "Sumar tres números",
+      "phrase": "Busca un diez primero, luego suma el que falta.",
+      "also": "",
+      "steps": [
+        "Busca dos números que sumen 10.",
+        "Súmalos primero.",
+        "Suma el tercero al 10."
+      ],
+      "exception": "Puedes sumar en cualquier orden, pero usa los tres. Si no hay par de 10, busca un doble o suma de izquierda a derecha.",
+      "tag": ""
+    },
+    "month-knuckles": {
+      "name": "Meses en los nudillos",
+      "phrase": "Los nudillos son meses de 31 días; los valles entre ellos son más cortos.",
+      "also": "Calendario con puños: cresta = 31, hueco = 30 (o febrero).",
+      "steps": [
+        "Junta los dos puños lado a lado.",
+        "Nudillo = 31 días; el valle = menos días.",
+        "Después de julio, sigue en el otro puño empezando en agosto.",
+        "Febrero es el mes especial corto."
+      ],
+      "exception": "Febrero tiene 28 días, o 29 en año bisiesto. Después de julio continúas en el otro puño en agosto.",
+      "tag": ""
+    },
+    "thirty-days-hath": {
+      "name": "Thirty days hath…",
+      "phrase": "Thirty days hath September, April, June, and November. (Treinta días tienen septiembre, abril, junio y noviembre.)",
+      "also": "",
+      "steps": [
+        "Memoriza los cuatro meses de 30 días: septiembre, abril, junio, noviembre.",
+        "El resto tienen 31.",
+        "Excepto febrero: 28, o 29 en año bisiesto."
+      ],
+      "exception": "El resto tienen 31, excepto febrero (28 o 29 en bisiesto).",
+      "tag": ""
+    },
+    "commute2": {
+      "name": "Propiedad conmutativa",
+      "phrase": "Puedes intercambiar el orden: a + b = b + a, y a × b = b × a.",
+      "also": "",
+      "steps": [
+        "Cambia el orden.",
+        "En + o × el resultado es el mismo.",
+        "Usa el orden que te sea más cómodo."
+      ],
+      "exception": "La resta y la división no conmutan.",
+      "tag": ""
+    },
+    "assoc2": {
+      "name": "Propiedad asociativa",
+      "phrase": "Asociar es reagrupar: (a + b) + c = a + (b + c).",
+      "also": "Igual al multiplicar: agrupa factores cómodos primero.",
+      "steps": [
+        "Busca un par que sume 10 o un hecho conocido.",
+        "Reagrupa ese par primero.",
+        "Termina la suma o el producto."
+      ],
+      "exception": "Puedes reagrupar, pero no cambies los números. − y ÷ no son asociativas.",
+      "tag": ""
+    },
+    "wordadd2": {
+      "name": "Problemas verbales: sumar",
+      "phrase": "En total, juntos, combinados, suma — junta las partes.",
+      "also": "",
+      "steps": [
+        "Subraya la palabra clave.",
+        "Escribe parte + parte.",
+        "Suma."
+      ],
+      "exception": "«Suma» es adición. «Diferencia» es resta — no mezcles.",
+      "tag": ""
+    },
+    "wordsub2": {
+      "name": "Problemas verbales: restar",
+      "phrase": "Quedan, restan, menos, quitar, diferencia — resta.",
+      "also": "",
+      "steps": [
+        "Subraya la pista.",
+        "Escribe todo − parte (o mayor − menor).",
+        "Resta."
+      ],
+      "exception": "«Menos que» compara. «Quedan» quita del total. Alinea unidades bajo unidades.",
+      "tag": ""
+    },
+    "wordmul2": {
+      "name": "Problemas verbales: multiplicar",
+      "phrase": "Cada, grupos de, filas de, veces — multiplica grupos iguales.",
+      "also": "",
+      "steps": [
+        "Hallar grupos iguales.",
+        "Cuenta grupos × tamaño del grupo.",
+        "O cuenta saltando."
+      ],
+      "exception": "Grupos distintos se suman, no se multiplican de una sola vez.",
+      "tag": ""
+    },
+    "worddiv2": {
+      "name": "Problemas verbales: dividir",
+      "phrase": "Repartir, dividir en partes iguales, cuántos en cada, cuántos grupos — divide.",
+      "also": "",
+      "steps": [
+        "Hallar el total.",
+        "¿Cuántos grupos o cuántos en cada grupo?",
+        "Divide."
+      ],
+      "exception": "Pregunta qué buscas: tamaño de cada parte o número de partes.",
+      "tag": ""
+    },
+    "estimate2": {
+      "name": "Estimar sumas",
+      "phrase": "Redondea ambos y suma — un estimado amigable.",
+      "also": "",
+      "steps": [
+        "Redondea cada número a la decena más cercana.",
+        "Suma los redondeados.",
+        "Di «aproximadamente»."
+      ],
+      "exception": "Redondear ambos hacia arriba puede pasarse. El estimado comprueba el exacto, no lo reemplaza cuando necesitas precisión.",
+      "tag": ""
+    },
+    "mental10": {
+      "name": "Cálculo mental con decenas",
+      "phrase": "Decenas con decenas, unidades con unidades — luego combina.",
+      "also": "",
+      "steps": [
+        "Separa cada número en decenas y unidades.",
+        "Suma decenas. Suma unidades.",
+        "Vuelve a juntar."
+      ],
+      "exception": "Si las unidades hacen 10 o más, reagrupa una decena extra.",
+      "tag": ""
+    },
+    "expanded": {
+      "name": "Forma expandida",
+      "phrase": "La forma expandida muestra cuánto vale cada asiento.",
+      "also": "352 = 300 + 50 + 2.",
+      "steps": [
+        "Lee el asiento de cada dígito.",
+        "Escribe su valor.",
+        "Suma los valores con signos +."
+      ],
+      "exception": "No escribas 352 = 3 + 5 + 2. Importan los asientos: 300 + 50 + 2.",
+      "tag": ""
+    },
+    "factfam": {
+      "name": "Familias de operaciones",
+      "phrase": "Una familia: dos sumas y dos restas con los mismos tres números.",
+      "also": "",
+      "steps": [
+        "Lista los tres números (dos partes y el todo).",
+        "Escribe las dos sumas.",
+        "Escribe las dos restas."
+      ],
+      "exception": "Si dos números son iguales (dobles), la familia tiene menos frases distintas.",
+      "tag": ""
+    },
+    "half2": {
+      "name": "Mitades",
+      "phrase": "Mitad significa dos partes iguales.",
+      "also": "",
+      "steps": [
+        "Forma dos grupos iguales.",
+        "Cada grupo es una mitad.",
+        "La mitad de un par es un número entero."
+      ],
+      "exception": "La mitad de una cantidad impar deja residuo — no puedes repartir 7 manzanas en dos montones enteros iguales sin cortar.",
+      "tag": ""
+    },
+    "compare3": {
+      "name": "Comparar números de tres cifras",
+      "phrase": "Compara de izquierda a derecha: centenas, decenas, unidades.",
+      "also": "",
+      "steps": [
+        "Mira las centenas.",
+        "Si empatan, mira las decenas.",
+        "Si siguen, mira las unidades."
+      ],
+      "exception": "Un dígito mayor a la derecha no gana si a la izquierda ya decidió: 199 < 201.",
+      "tag": ""
+    },
+    "moneycent": {
+      "name": "Monedas hasta un dólar",
+      "phrase": "100 centavos hacen un dólar. Cuenta saltos de moneda.",
+      "also": "",
+      "steps": [
+        "Valores: quarter 25, dime 10, nickel 5, penny 1.",
+        "Suma subiendo por valor de moneda.",
+        "Para en 100 para un dólar."
+      ],
+      "exception": "Cuatro quarters hacen un dólar — no cuatro dimes.",
+      "tag": ""
+    },
+    "skip2": {
+      "name": "Contar saltando para multiplicar",
+      "phrase": "Contar saltando es multiplicar a saltos.",
+      "also": "",
+      "steps": [
+        "Elige el tamaño del salto.",
+        "Salta esa cantidad de veces.",
+        "Donde aterrizas es el producto."
+      ],
+      "exception": "Cada salto del mismo tamaño. Saltos distintos rompen la historia de multiplicar.",
+      "tag": ""
+    },
+    "identity2": {
+      "name": "Elementos neutros",
+      "phrase": "Suma 0: sigues igual. Multiplica por 1: sigues igual.",
+      "also": "",
+      "steps": [
+        "+ 0 no cambia el número.",
+        "× 1 no cambia el número.",
+        "Esas son reglas de identidad."
+      ],
+      "exception": "× 0 no es identidad — deja el número en 0.",
+      "tag": ""
+    },
+    "distrib2": {
+      "name": "Vista previa distributiva",
+      "phrase": "Distribuir es repartir el factor de afuera a cada sumando dentro del paréntesis.",
+      "also": "a × (b + c) = a × b + a × c.",
+      "steps": [
+        "Hay un número afuera con una suma adentro.",
+        "Multiplica el de afuera por cada parte.",
+        "Suma esos productos."
+      ],
+      "exception": "Distribuye sobre + o − adentro. No confundas (a + b) × c con a + (b × c) cuando buscas a(b + c).",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Valor posicional",
+      "rows": [
+        ["El asiento da el tamaño", "Unidades derecha, decenas al lado, centenas izquierda"],
+        ["Dígito ≠ valor", "4 en 340 = 4 decenas = 40"],
+        ["Forma expandida", "352 = 300 + 50 + 2"],
+        ["Par / impar", "Última cifra par → par; impar deja uno solo"]
+      ]
+    },
+    {
+      "title": "Reagrupación",
+      "rows": [
+        ["Llevada", "Diez unidades = una decena — lleva al vecino"],
+        ["Pedir prestado", "¿Abajo más grande? Pide una decena"],
+        ["Tres sumandos", "Busca un diez primero"],
+        ["Tres cifras", "Centenas, decenas, unidades"]
+      ]
+    },
+    {
+      "title": "Redondeo, hora y calendario",
+      "rows": [
+        ["Redondear", "5 o más sube; 4 o menos se queda"],
+        ["Manecilla corta", "Hora (palabra corta → mano corta)"],
+        ["Manecilla larga", "Minuto; número × 5"],
+        ["Nudillos", "Meses en nudillos = 31 días"],
+        ["Thirty days hath", "…abril, junio, noviembre… (excepto febrero)"]
+      ]
+    },
+    {
+      "title": "Hechos y propiedades",
+      "rows": [
+        ["Conmutativa (+)", "3 + 5 = 5 + 3 — invierte sumandos"],
+        ["Asociativa", "Agrupa dos sumandos como quieras"],
+        ["Distributiva", "a×(b+c) = a×b + a×c"],
+        ["Familia", "3, 4, 7 → 3+4, 4+3, 7−3, 7−4"],
+        ["Mitad de par", "Dos montones iguales"],
+        ["Identidad", "+0 y ×1 dejan el número"]
+      ]
+    },
+    {
+      "title": "Palabras y dinero",
+      "rows": [
+        ["Palabras: suma / resta", "Clave → + o −"],
+        ["Palabras: cada / repartir", "Cada → ×; repartir → ÷"],
+        ["Mental +10", "Decena +1; unidades igual"],
+        ["Centavos", "100¢ = $1; quarters de 25"],
+        ["Estimar", "Redondea a la decena y calcula"]
+      ]
+    }
+  ]
+}

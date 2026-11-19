@@ -1,4 +1,4 @@
-const CACHE = "mathenomics-v23";
+const CACHE = "mathenomics-v24";
 const SHELL = [
   "./",
   "./index.html",
@@ -14,6 +14,13 @@ const SHELL = [
   "./js/more/optional.js",
   "./js/more/expand.js",
   "./js/more/tables.js",
+  "./js/i18n.js",
+  "./js/i18n/ne-pack-a.js",
+  "./js/i18n/ne-pack-b.js",
+  "./js/i18n/ne-pack-c.js",
+  "./js/i18n/es-pack-a.js",
+  "./js/i18n/es-pack-b.js",
+  "./js/i18n/es-pack-c.js",
   "./js/sounds.js",
   "./js/narration.js",
   "./js/keys.js",

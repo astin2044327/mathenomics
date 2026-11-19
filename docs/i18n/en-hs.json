@@ -1,0 +1,401 @@
+{
+  "grade": "High School",
+  "title": "Theorems & proofs",
+  "blurb": "SEE send-up mnemonics and theorem cards: proof moves, exceptions, and exam-style drills for geo + trig.",
+  "lessons": {
+    "heron": {
+      "name": "Heron's formula",
+      "phrase": "s = (a+b+c)/2. Area = √[s(s−a)(s−b)(s−c)].",
+      "also": "Semi-perimeter first — then the product under the root.",
+      "steps": [
+        "Add the three sides and halve: s = (a+b+c)/2.",
+        "Write s−a, s−b, s−c.",
+        "Area = √[s(s−a)(s−b)(s−c)]. Take the positive root."
+      ],
+      "exception": "Sides must form a triangle (triangle inequality). s is half the perimeter, not the area. Do not skip the square root.",
+      "tag": "SEE"
+    },
+    "compound": {
+      "name": "Compound / depreciation / population",
+      "phrase": "Grow: A = P(1 + r/100)^n. Depreciate: A = P(1 − r/100)^n.",
+      "also": "Population and compound interest share the growth form.",
+      "steps": [
+        "Write P (start), r% per period, n periods.",
+        "Growth / compound / population: multiply by (1 + r/100) each period.",
+        "Depreciation / decay: multiply by (1 − r/100) each period.",
+        "Raise to n, then multiply by P."
+      ],
+      "exception": "Simple interest is I = Prt/100; simple amount is P + Prt/100 — no power. Compound uses (1±r/100)^n. Depreciation uses minus, not plus. n is the number of compounding periods, not always calendar years if compounded half-yearly.",
+      "tag": "SEE"
+    },
+    "grouped": {
+      "name": "Grouped mean / median / quartile",
+      "phrase": "Mean: Σfm / Σf. Median & quartiles: L + ((N/k − cf)/f)·h.",
+      "also": "For median k=2 (N/2); for Q₁ use N/4; for Q₃ use 3N/4.",
+      "steps": [
+        "Find total frequency N = Σf.",
+        "Mean: midpoints × frequencies, sum, divide by N.",
+        "Median class: first class whose cumulative frequency reaches N/2.",
+        "Median = L + ((N/2 − cf)/f)·h. Quartiles swap N/2 for N/4 or 3N/4."
+      ],
+      "exception": "L is the lower boundary of the median/quartile class; cf is cumulative frequency before that class; f and h belong to that class only. Do not use raw-list median shortcuts on grouped tables.",
+      "tag": "SEE"
+    },
+    "ages": {
+      "name": "Ages after n years",
+      "phrase": "After n years, every age gains n. Rewrite the relation with +n on each person.",
+      "also": "",
+      "steps": [
+        "Let present ages be variables (or use given numbers).",
+        "After n years: add n to each age in the story.",
+        "Write the equation with the new ages and solve for the present."
+      ],
+      "exception": "\"n years ago\" subtracts n. Do not add n only to one person. Ratios after n years use (age+n), not age×n.",
+      "tag": "SEE"
+    },
+    "sets": {
+      "name": "Sets & Venn (SEE)",
+      "phrase": "n(A∪B)=n(A)+n(B)−n(A∩B). Only A = n(A)−n(A∩B).",
+      "also": "Neither = total − n(A∪B).",
+      "steps": [
+        "Sketch two circles; label only A, both, only B, neither.",
+        "Both = n(A∩B). Only A = n(A) − both.",
+        "Union = only A + both + only B = n(A)+n(B)−both.",
+        "Neither = survey total − union."
+      ],
+      "exception": "n(A) already includes the intersection — do not add n(A∩B) again when forming the union. \"Only A\" is not n(A).",
+      "tag": "SEE"
+    },
+    "money": {
+      "name": "Currency / commission / VAT",
+      "phrase": "Percent of the stated base. Currency: × rate. Commission/VAT: % of amount.",
+      "also": "",
+      "steps": [
+        "Name the base: marked price, selling price, or exchange amount.",
+        "Currency: multiply or divide by the given rate.",
+        "Commission or VAT: amount × rate/100.",
+        "Price with VAT: amount × (1 + rate/100)."
+      ],
+      "exception": "VAT-inclusive reverse uses ÷(1+r/100), not ×(1−r/100). Commission is usually on sales, not on profit unless stated.",
+      "tag": "SEE"
+    },
+    "menspack": {
+      "name": "Prism / pyramid / packing",
+      "phrase": "Prism: V = Bh. Pyramid: V = (1/3)Bh. Packing: total ÷ one unit.",
+      "also": "",
+      "steps": [
+        "Prism / cuboid: base area × height.",
+        "Pyramid / cone idea: one-third of base area × height.",
+        "Brick / packing: volume of wall or box ÷ volume of one unit (watch mortar gaps if given)."
+      ],
+      "exception": "Pyramid needs the 1/3 — forgetting it triples the volume. Packing counts whole units; leftover space is not an extra brick unless stated.",
+      "tag": "SEE"
+    },
+    "probtree": {
+      "name": "Probability trees",
+      "phrase": "Multiply along a branch. Add separate paths. Without replacement: the second fraction changes.",
+      "also": "",
+      "steps": [
+        "Draw the first-stage branches with their probabilities.",
+        "From each outcome, draw the next stage (update if without replacement).",
+        "A full path: multiply the fractions on that path.",
+        "\"Or\" across paths: add the path probabilities."
+      ],
+      "exception": "With replacement the second draw stays the same; without replacement the totals drop. Do not add probabilities that sit on the same path.",
+      "tag": "SEE"
+    },
+    "pythag": {
+      "name": "Pythagoras",
+      "phrase": "Legs squared add to hypotenuse squared: a² + b² = c².",
+      "also": "",
+      "steps": [
+        "Confirm the right angle; c is the side opposite it.",
+        "Write a² + b² = c².",
+        "Solve for the missing side (root at the end)."
+      ],
+      "exception": "Only right triangles. c must be the longest side. Converse: if a²+b²=c², the angle between a and b is 90°.",
+      "tag": "Geo"
+    },
+    "bpt": {
+      "name": "Basic proportionality (BPT)",
+      "phrase": "A line parallel to one side cuts the other two sides in the same ratio.",
+      "also": "",
+      "steps": [
+        "Confirm the cut is parallel to the third side.",
+        "Write AD/DB = AE/EC (or the full-side form AD/AB = AE/AC).",
+        "Cross-multiply and solve."
+      ],
+      "exception": "Parallel is required — a random transversal does not give equal ratios. Match corresponding segments on each side.",
+      "tag": "Geo"
+    },
+    "midseg": {
+      "name": "Midsegment theorem",
+      "phrase": "Join the midpoints: the midsegment is parallel to the third side and half as long.",
+      "also": "",
+      "steps": [
+        "Mark midpoints of two sides.",
+        "The segment joining them ∥ the third side.",
+        "Length = half of that third side."
+      ],
+      "exception": "Both endpoints must be midpoints. Half the base — not equal to the base.",
+      "tag": "Geo"
+    },
+    "similar": {
+      "name": "Similarity AAA",
+      "phrase": "AAA: matching angles → similar triangles → sides in one scale factor.",
+      "also": "",
+      "steps": [
+        "Show three angles match (two often imply the third).",
+        "Write corresponding sides in the same order.",
+        "Set up a proportion with one scale factor and solve."
+      ],
+      "exception": "AAA gives similarity, not congruence (SSS/SAS/ASA/RHS). Keep correspondence: largest side faces largest angle.",
+      "tag": "Geo"
+    },
+    "bisector": {
+      "name": "Angle bisector theorem",
+      "phrase": "The bisector cuts the opposite side in the ratio of the adjacent sides.",
+      "also": "",
+      "steps": [
+        "Confirm the ray bisects the angle.",
+        "Write (side)/(side) = (segment)/(segment).",
+        "Cross-multiply."
+      ],
+      "exception": "It splits the opposite side — not the bisector's own length. Ratio uses the two sides that form the angle.",
+      "tag": "Geo"
+    },
+    "central": {
+      "name": "Center = 2 × rim",
+      "phrase": "Angle at the center is twice the angle at the rim on the same arc.",
+      "also": "",
+      "steps": [
+        "Identify the shared arc.",
+        "Center angle = 2 × rim angle (same arc).",
+        "Solve for the unknown."
+      ],
+      "exception": "Both angles must stand on the same arc. Rim angle on the major arc is different. Center is at the circle's center, not any interior point.",
+      "tag": "Geo"
+    },
+    "cyclic": {
+      "name": "Cyclic opposite angles",
+      "phrase": "A quadrilateral is cyclic iff opposite angles sum to 180°.",
+      "also": "",
+      "steps": [
+        "Spot a cyclic quad (all vertices on a circle).",
+        "Opposite angles: A + C = 180°, B + D = 180°.",
+        "Solve for the unknown angle."
+      ],
+      "exception": "Adjacent angles are not forced to 180° (that would be a trapezoid-with-parallel case). Interior angle ≠ exterior unless stated.",
+      "tag": "Geo"
+    },
+    "tangent": {
+      "name": "Tangent ⊥ radius",
+      "phrase": "A tangent meets the radius at the point of contact at 90°.",
+      "also": "",
+      "steps": [
+        "Mark the contact point T.",
+        "Radius OT ⊥ tangent.",
+        "Use right-triangle tools (Pythagoras / trig) in triangle OTP."
+      ],
+      "exception": "Perpendicular only at the contact point — a line from O to another point on the tangent is not a radius. Two tangents from one point are equal (separate theorem).",
+      "tag": "Geo"
+    },
+    "altseg": {
+      "name": "Alternate segment",
+      "phrase": "Tangent–chord angle equals the angle in the alternate segment.",
+      "also": "",
+      "steps": [
+        "Find the angle between tangent and chord.",
+        "Look to the segment on the other side of the chord.",
+        "That rim angle matches."
+      ],
+      "exception": "\"Alternate\" means the other segment, not the adjacent one. The tangent must touch at an endpoint of the chord.",
+      "tag": "Geo"
+    },
+    "eqtang": {
+      "name": "Equal tangents",
+      "phrase": "Two tangents from one outside point are equal in length.",
+      "also": "",
+      "steps": [
+        "From P, tangents touch at A and B.",
+        "PA = PB.",
+        "Triangles OAP and OBP are congruent (radii ⊥ tangents)."
+      ],
+      "exception": "Equal only when both tangents start from the same external point. Chord lengths are a different story.",
+      "tag": "Geo"
+    },
+    "chord": {
+      "name": "Chord ⊥ from center",
+      "phrase": "Perpendicular from the center to a chord bisects the chord.",
+      "also": "",
+      "steps": [
+        "Drop a perpendicular from O to chord AB at M.",
+        "M is the midpoint: AM = MB.",
+        "In right triangle OMA: r² = d² + (half chord)²."
+      ],
+      "exception": "The bisector property needs the perpendicular (or conversely: line from center to midpoint is ⊥). Full chord is twice the half.",
+      "tag": "Geo"
+    },
+    "exterior": {
+      "name": "Exterior angle",
+      "phrase": "Exterior angle of a triangle equals the sum of the two far interior angles.",
+      "also": "",
+      "steps": [
+        "Extend one side to form the exterior angle.",
+        "Exterior = sum of the two remote interiors.",
+        "Or: exterior = 180° − adjacent interior."
+      ],
+      "exception": "Use the two far angles — not the adjacent interior. Polygon exterior sum 360° is a different theorem.",
+      "tag": "Geo"
+    },
+    "sohcahtoa": {
+      "name": "SOH CAH TOA",
+      "phrase": "SOH CAH TOA: sine opp/hyp, cosine adj/hyp, tangent opp/adj.",
+      "also": "",
+      "steps": [
+        "Mark the angle; label opposite, adjacent, hypotenuse.",
+        "Pick the ratio that uses the sides you know / need.",
+        "Solve; keep exact values when the angle is special."
+      ],
+      "exception": "Hypotenuse is never opposite or adjacent in the ratio names. Oblique triangles need sine/cosine rules — not plain SOHCAHTOA alone.",
+      "tag": "Trig"
+    },
+    "astc": {
+      "name": "ASTC signs",
+      "phrase": "All Sugar Tea Coffee: all → sin → tan → cos positive, going counterclockwise.",
+      "also": "",
+      "steps": [
+        "Reduce to a reference angle in [0°, 90°].",
+        "Find the quadrant of the original angle.",
+        "Apply ASTC for the sign; keep the reference value."
+      ],
+      "exception": "ASTC is about signs, not magnitudes. Cot/sec/cosec follow their partners (tan/cos/sin).",
+      "tag": "Trig"
+    },
+    "hand": {
+      "name": "Special angles hand",
+      "phrase": "Fist trick: sin = √(fingers before)/2; cos = √(fingers after)/2.",
+      "also": "",
+      "steps": [
+        "Hold five fingers for 0°, 30°, 45°, 60°, 90°.",
+        "Count closed fingers before the angle for sine; after for cosine.",
+        "tan = sin/cos; watch 90° (undefined tan)."
+      ],
+      "exception": "This builds the acute table only. Other angles need ASTC + reference. tan 90° does not exist.",
+      "tag": "Trig"
+    },
+    "pyid": {
+      "name": "Pythagorean identity",
+      "phrase": "sin²θ + cos²θ = 1. Divide by cos² → 1 + tan²θ = sec²θ.",
+      "also": "",
+      "steps": [
+        "Start from sin² + cos² = 1.",
+        "Given one ratio, isolate the square of the other.",
+        "Square root with ±; ASTC picks the sign."
+      ],
+      "exception": "sin²θ means (sin θ)². sin+cos is not 1. Division by cos² fails where cos = 0.",
+      "tag": "Trig"
+    },
+    "sinerule": {
+      "name": "Sine rule",
+      "phrase": "a/sin A = b/sin B = c/sin C.",
+      "also": "",
+      "steps": [
+        "Label side a opposite A, etc.",
+        "Use when you know a side and its opposite angle, plus one more.",
+        "Cross-multiply; for SSA check the ambiguous case."
+      ],
+      "exception": "SSA can give two triangles. SAS / SSS angles need the cosine rule.",
+      "tag": "Trig"
+    },
+    "cosrule": {
+      "name": "Cosine rule",
+      "phrase": "a² = b² + c² − 2bc cos A. (Pythagoras with a cosine correction.)",
+      "also": "",
+      "steps": [
+        "Use for SAS (two sides + included angle) or SSS (three sides → angle).",
+        "Side: a² = b² + c² − 2bc cos A, then root.",
+        "Angle: cos A = (b² + c² − a²)/(2bc)."
+      ],
+      "exception": "A must sit between b and c. Obtuse A makes cos negative so a grows. At 90° it collapses to Pythagoras.",
+      "tag": "Trig"
+    },
+    "compoundang": {
+      "name": "Compound angle sin(A±B)",
+      "phrase": "sin cos cos sin, sign stays: sin(A±B)=sin A cos B ± cos A sin B.",
+      "also": "",
+      "steps": [
+        "Write sin(A±B) = sin A cos B ± cos A sin B.",
+        "Fill each factor; keep exact fractions / surds.",
+        "For cos(A±B): cos cos ∓ sin sin (sign swaps)."
+      ],
+      "exception": "sin(A+B) ≠ sin A + sin B. Cosine flips the middle sign. Check quadrant when expanding numerical angles.",
+      "tag": "Trig"
+    },
+    "areasine": {
+      "name": "Area ½ab sin C",
+      "phrase": "Area = ½ab sin C — half of two sides times the sine of the included angle.",
+      "also": "",
+      "steps": [
+        "Identify the included angle between the two sides.",
+        "Write Area = ½ab sin C.",
+        "Use exact sin for special angles."
+      ],
+      "exception": "C must be the angle between a and b. For a parallelogram drop the ½. Obtuse sin is still positive.",
+      "tag": "Trig"
+    }
+  },
+  "cheat": [
+    {
+      "title": "SEE Group A hooks",
+      "rows": [
+        ["Heron", "s = (a+b+c)/2; Area = √[s(s−a)(s−b)(s−c)]"],
+        ["Depreciation", "A = P(1 − r/100)^n"],
+        ["Compound / population", "A = P(1 + r/100)^n"],
+        ["Ages after n", "Add n to every age; write the new equation"],
+        ["Quartile class", "L + ((N/4 − cf)/f)·h  (same shape for median with N/2)"]
+      ]
+    },
+    {
+      "title": "Geo & trig theorems",
+      "rows": [
+        ["Pythagoras", "a² + b² = c² (right triangle)"],
+        ["BPT", "Parallel cut → same side ratios"],
+        ["Midsegment", "Join midpoints → half base, parallel"],
+        ["Center / rim", "Angle at center = 2 × angle at rim"],
+        ["Cyclic opp", "Opposite angles sum to 180°"],
+        ["Tangent ⊥ radius", "Radius meets tangent at 90°"],
+        ["Alt. segment", "Tangent–chord = angle in alternate segment"],
+        ["SOH CAH TOA", "opp/hyp · adj/hyp · opp/adj"],
+        ["ASTC", "All Sugar Tea Coffee (signs by quadrant)"],
+        ["Sine rule", "a/sin A = b/sin B = c/sin C"],
+        ["Cosine rule", "a² = b² + c² − 2bc cos A"],
+        ["Area (sine)", "½ab sin C"],
+        ["Heights & distances", "Use g10 · Heights (elevation / depression) — not duplicated here"]
+      ]
+    },
+    {
+      "title": "SEE Groups B–D quick",
+      "rows": [
+        ["Sets", "n(A∪B)=n(A)+n(B)−n(A∩B); only A = n(A)−n(A∩B)"],
+        ["VAT / commission", "% of marked or sale; check of what"],
+        ["Currency", "× rate to convert; % change on the rate"],
+        ["Pyramid", "V = (1/3)Bh"],
+        ["Tree P", "Multiply along a branch; add mutually exclusive paths"]
+      ]
+    },
+    {
+      "title": "More SEE hooks",
+      "rows": [
+        ["Grouped data", "Mean from frequency table: Σfx ÷ Σf"],
+        ["Mensuration pack", "Match solid to formula: prism, cylinder, cone, sphere"],
+        ["Equal tangents", "Two tangents from one point: equal lengths"],
+        ["Exterior angle", "Outside = sum of far interior angles"],
+        ["Similar proof", "AA similarity: two angles match → similar"],
+        ["Compound angles", "Expand with sin/cos addition formulas"],
+        ["nPr", "Order matters: n! / (n−r)!"],
+        ["nCr", "Order does not: n! / (r!(n−r)!)"]
+      ]
+    }
+  ]
+}

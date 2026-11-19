@@ -1,0 +1,358 @@
+{
+  "grade": "Tables",
+  "title": "Times tables 2–12",
+  "blurb": "One mnemonic per table, then a puzzle to fill the blanks yourself.",
+  "lessons": {
+    "t2": {
+      "name": "×2",
+      "phrase": "Times two means double it.",
+      "also": [
+        "1 × 2 = 2",
+        "2 × 2 = 4",
+        "3 × 2 = 6",
+        "4 × 2 = 8",
+        "5 × 2 = 10",
+        "6 × 2 = 12",
+        "7 × 2 = 14",
+        "8 × 2 = 16",
+        "9 × 2 = 18",
+        "10 × 2 = 20",
+        "11 × 2 = 22",
+        "12 × 2 = 24"
+      ],
+      "steps": [
+        "Take the other number.",
+        "Add it to itself (or skip-count by 2).",
+        "That total is the product."
+      ],
+      "exception": "Doubling is ×2, not ×4. ×4 needs two doubles. And 0 × 2 is still 0.",
+      "tag": ""
+    },
+    "t3": {
+      "name": "×3",
+      "phrase": "Double it, then add one more group.",
+      "also": [
+        "1 × 3 = 3",
+        "2 × 3 = 6",
+        "3 × 3 = 9",
+        "4 × 3 = 12",
+        "5 × 3 = 15",
+        "6 × 3 = 18",
+        "7 × 3 = 21",
+        "8 × 3 = 24",
+        "9 × 3 = 27",
+        "10 × 3 = 30",
+        "11 × 3 = 33",
+        "12 × 3 = 36"
+      ],
+      "steps": [
+        "Double the other number first (that is ×2).",
+        "Add one more copy of that number.",
+        "Double-plus-one-group is ×3."
+      ],
+      "exception": "Do not stop after the double — that is only ×2. And 3 × 3 is 9, not 6.",
+      "tag": ""
+    },
+    "t4": {
+      "name": "×4",
+      "phrase": "Times four is double-double.",
+      "also": [
+        "1 × 4 = 4",
+        "2 × 4 = 8",
+        "3 × 4 = 12",
+        "4 × 4 = 16",
+        "5 × 4 = 20",
+        "6 × 4 = 24",
+        "7 × 4 = 28",
+        "8 × 4 = 32",
+        "9 × 4 = 36",
+        "10 × 4 = 40",
+        "11 × 4 = 44",
+        "12 × 4 = 48"
+      ],
+      "steps": [
+        "Double the other number once.",
+        "Double that answer again.",
+        "Two doubles make ×4."
+      ],
+      "exception": "Count the doubles: one double is ×2, two doubles are ×4, three are ×8. Stopping early gives half the answer.",
+      "tag": ""
+    },
+    "t5": {
+      "name": "×5",
+      "phrase": "Fives are half of tens — and they end in 0 or 5.",
+      "also": [
+        "1 × 5 = 5",
+        "2 × 5 = 10",
+        "3 × 5 = 15",
+        "4 × 5 = 20",
+        "5 × 5 = 25",
+        "6 × 5 = 30",
+        "7 × 5 = 35",
+        "8 × 5 = 40",
+        "9 × 5 = 45",
+        "10 × 5 = 50",
+        "11 × 5 = 55",
+        "12 × 5 = 60"
+      ],
+      "steps": [
+        "Multiply by 10: stick a zero on the end.",
+        "Take half of that tens answer.",
+        "Check: even ×5 ends in 0; odd ×5 ends in 5."
+      ],
+      "exception": "If your answer ends in anything other than 0 or 5, it is wrong. Half of the tens product, not half of the other factor alone.",
+      "tag": ""
+    },
+    "t6": {
+      "name": "×6",
+      "phrase": "Six is five plus one more group.",
+      "also": [
+        "1 × 6 = 6",
+        "2 × 6 = 12",
+        "3 × 6 = 18",
+        "4 × 6 = 24",
+        "5 × 6 = 30",
+        "6 × 6 = 36",
+        "7 × 6 = 42",
+        "8 × 6 = 48",
+        "9 × 6 = 54",
+        "10 × 6 = 60",
+        "11 × 6 = 66",
+        "12 × 6 = 72"
+      ],
+      "steps": [
+        "Find ×5 first (half of tens).",
+        "Add one more copy of the other number.",
+        "×5 plus one group is ×6."
+      ],
+      "exception": "Do not forget to add the extra group after ×5. And 6 × 6 is 36 (“magic tricks”), not 30.",
+      "tag": ""
+    },
+    "t7": {
+      "name": "×7",
+      "phrase": "Five, six, seven, eight: fifty-six is seven times eight.",
+      "also": [
+        "1 × 7 = 7",
+        "2 × 7 = 14",
+        "3 × 7 = 21",
+        "4 × 7 = 28",
+        "5 × 7 = 35",
+        "6 × 7 = 42",
+        "7 × 7 = 49",
+        "8 × 7 = 56",
+        "9 × 7 = 63",
+        "10 × 7 = 70",
+        "11 × 7 = 77",
+        "12 × 7 = 84"
+      ],
+      "steps": [
+        "Use the famous rhymes for the hard facts (7×7, 7×8).",
+        "For other factors, build from a fact you know: 7 × 6 is 7 × 5 plus 7.",
+        "Or skip-count by sevens: 7, 14, 21, 28…"
+      ],
+      "exception": "A rhyme is a hook, not the reason. If you forget it, use 7 × 7 = 49 and add or take away sevens. 7 × 0 is 0.",
+      "tag": ""
+    },
+    "t8": {
+      "name": "×8",
+      "phrase": "Times eight is double-double-double.",
+      "also": [
+        "1 × 8 = 8",
+        "2 × 8 = 16",
+        "3 × 8 = 24",
+        "4 × 8 = 32",
+        "5 × 8 = 40",
+        "6 × 8 = 48",
+        "7 × 8 = 56",
+        "8 × 8 = 64",
+        "9 × 8 = 72",
+        "10 × 8 = 80",
+        "11 × 8 = 88",
+        "12 × 8 = 96"
+      ],
+      "steps": [
+        "Double the other number once (×2).",
+        "Double again (×4).",
+        "Double one more time (×8)."
+      ],
+      "exception": "Three doubles, not two — stopping at ×4 is half of ×8. Hard square: “I ate and ate and got sick on the floor: eight times eight is sixty-four.”",
+      "tag": ""
+    },
+    "t9": {
+      "name": "×9",
+      "phrase": "Fold the finger. Digits always add to nine.",
+      "also": [
+        "1 × 9 = 9",
+        "2 × 9 = 18",
+        "3 × 9 = 27",
+        "4 × 9 = 36",
+        "5 × 9 = 45",
+        "6 × 9 = 54",
+        "7 × 9 = 63",
+        "8 × 9 = 72",
+        "9 × 9 = 81",
+        "10 × 9 = 90",
+        "11 × 9 = 99",
+        "12 × 9 = 108"
+      ],
+      "steps": [
+        "Hold up ten fingers.",
+        "For 9 × n, fold down finger n.",
+        "Fingers on the left are tens; fingers on the right are ones. Check: the two digits sum to 9."
+      ],
+      "exception": "Fingers work for 9 × 1 through 9 × 10. For 9 × 11 or 9 × 12, do 10 × that number and subtract it. 9 × 0 is 0.",
+      "tag": ""
+    },
+    "t10": {
+      "name": "×10",
+      "phrase": "Times ten: stick a zero on the end.",
+      "also": [
+        "1 × 10 = 10",
+        "2 × 10 = 20",
+        "3 × 10 = 30",
+        "4 × 10 = 40",
+        "5 × 10 = 50",
+        "6 × 10 = 60",
+        "7 × 10 = 70",
+        "8 × 10 = 80",
+        "9 × 10 = 90",
+        "10 × 10 = 100",
+        "11 × 10 = 110",
+        "12 × 10 = 120"
+      ],
+      "steps": [
+        "Write the other number.",
+        "Put a zero on the end.",
+        "That is the product."
+      ],
+      "exception": "Sticking a zero is ×10, not ×100 (that needs two zeros). And 10 × 0 is 0, not 10.",
+      "tag": ""
+    },
+    "t11": {
+      "name": "×11",
+      "phrase": "One digit: write it twice. Two digits: split and park the sum.",
+      "also": [
+        "1 × 11 = 11",
+        "2 × 11 = 22",
+        "3 × 11 = 33",
+        "4 × 11 = 44",
+        "5 × 11 = 55",
+        "6 × 11 = 66",
+        "7 × 11 = 77",
+        "8 × 11 = 88",
+        "9 × 11 = 99",
+        "10 × 11 = 110",
+        "11 × 11 = 121",
+        "12 × 11 = 132"
+      ],
+      "steps": [
+        "For 1–9: write the digit twice (7 × 11 = 77).",
+        "For a two-digit number: split the digits, add them, park the sum in the middle.",
+        "Example: 23 → 2 and 3, sum 5, park it: 253."
+      ],
+      "exception": "If the middle sum is 10 or more, carry 1 to the left digit. Beyond two digits the same idea needs place-value carrying. 11 × 11 = 121; 11 × 12 = 132.",
+      "tag": ""
+    },
+    "t12": {
+      "name": "×12",
+      "phrase": "Twelve is ten plus two: ×10, then add a double.",
+      "also": [
+        "1 × 12 = 12",
+        "2 × 12 = 24",
+        "3 × 12 = 36",
+        "4 × 12 = 48",
+        "5 × 12 = 60",
+        "6 × 12 = 72",
+        "7 × 12 = 84",
+        "8 × 12 = 96",
+        "9 × 12 = 108",
+        "10 × 12 = 120",
+        "11 × 12 = 132",
+        "12 × 12 = 144"
+      ],
+      "steps": [
+        "Find ×10: stick a zero on the end.",
+        "Find ×2: double the other number.",
+        "Add those two results."
+      ],
+      "exception": "Add ×10 and ×2 — do not multiply them together. 12 × 12 is 144 (“one forty-four”), not 120 + 12.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Table hooks",
+      "rows": [
+        [
+          "×2",
+          "Double it."
+        ],
+        [
+          "×3",
+          "Double, then add one more group."
+        ],
+        [
+          "×4",
+          "Double-double."
+        ],
+        [
+          "×5",
+          "Half of tens; ends in 0 or 5."
+        ],
+        [
+          "×6",
+          "×5 plus one more group."
+        ],
+        [
+          "×7",
+          "5, 6, 7, 8 → 56 is 7×8."
+        ],
+        [
+          "×8",
+          "Double-double-double; 8×8=64."
+        ],
+        [
+          "×9",
+          "Fold a finger; digits sum to 9."
+        ],
+        [
+          "×10",
+          "Stick a zero on the end."
+        ],
+        [
+          "×11",
+          "Write twice, or split and park."
+        ],
+        [
+          "×12",
+          "×10, then add a double."
+        ]
+      ]
+    },
+    {
+      "title": "Table patterns",
+      "rows": [
+        [
+          "Commutative",
+          "a × b = b × a — flip the factors"
+        ],
+        [
+          "×0 / ×1",
+          "Zero wipes; one leaves the number"
+        ],
+        [
+          "Doubles family",
+          "×2 ×4 ×8 all use doubling"
+        ],
+        [
+          "Check with ÷",
+          "Product ÷ factor = other factor"
+        ],
+        [
+          "Rhyme facts",
+          "7×8=56; 8×8=64; 12×12=144"
+        ]
+      ]
+    }
+  ]
+}

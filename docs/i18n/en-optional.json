@@ -1,0 +1,220 @@
+{
+  "grade": "Optional · 7–12",
+  "title": "Optional mathematics",
+  "blurb": "Extra track: sets, matrices, limits, trig identities, and vectors — Nepal/CBSE optional style.",
+  "lessons": {
+    "setlang": {
+      "name": "Set language",
+      "phrase": "∈ means “in the club.” ∪ is or, ∩ is and, ′ is not.",
+      "also": "",
+      "steps": [
+        "Curly braces list elements: {1,2,3}.",
+        "x ∈ A means x is a member; x ∉ A means it is not.",
+        "Union ∪ = or; intersection ∩ = both; complement A′ = not in A (inside the universe)."
+      ],
+      "exception": "Order and repeats do not matter in a set: {1,2} = {2,1,1}. ∅ is empty — nothing is ∈ ∅. Do not confuse ⊂ (subset) with ∈ (element).",
+      "tag": ""
+    },
+    "setcount": {
+      "name": "Counting with sets",
+      "phrase": "n(A∪B) = n(A)+n(B)−n(A∩B). Subtract the double-counted overlap.",
+      "also": "",
+      "steps": [
+        "Add the sizes of A and B.",
+        "Subtract n(A∩B) once (it was counted twice).",
+        "For three sets, use the full inclusion–exclusion formula."
+      ],
+      "exception": "If A and B are disjoint, n(A∩B)=0 and you just add. n(A) counts elements, not a probability — divide by n(U) only when asked for a probability.",
+      "tag": ""
+    },
+    "matintro": {
+      "name": "Matrix shape & add",
+      "phrase": "Rows by columns: m×n. Add entrywise — same shape only.",
+      "also": "",
+      "steps": [
+        "Read size as rows × columns.",
+        "Addition: add matching positions; sizes must match.",
+        "Scalar multiply: multiply every entry by the number."
+      ],
+      "exception": "You cannot add a 2×3 to a 3×2. Matrix multiplication is not entrywise addition — that comes later.",
+      "tag": ""
+    },
+    "matdet": {
+      "name": "Determinant & inverse idea",
+      "phrase": "det = ad − bc. Inverse exists only if det ≠ 0.",
+      "also": "",
+      "steps": [
+        "For [[a,b],[c,d]], compute ad − bc.",
+        "If det ≠ 0, A⁻¹ = (1/det) [[d,−b],[−c,a]].",
+        "Check: A A⁻¹ = I."
+      ],
+      "exception": "det = 0 means singular — no inverse. Do not swap the sign pattern on the off-diagonal by mistake.",
+      "tag": ""
+    },
+    "limintro": {
+      "name": "Limits intro",
+      "phrase": "A limit asks: what do the outputs approach as x approaches a?",
+      "also": "",
+      "steps": [
+        "Try plugging x = a into f(x).",
+        "If you get a normal number, that is usually the limit (for continuous pieces).",
+        "If you get 0/0, factor or simplify, then plug in again."
+      ],
+      "exception": "A hole or jump can make the limit differ from f(a), or make left/right limits disagree. “Approaches” is not the same as “equals” at a.",
+      "tag": ""
+    },
+    "trigid": {
+      "name": "Trig identity extras",
+      "phrase": "sin²θ + cos²θ = 1. Divide by cos² → 1 + tan²θ = sec²θ.",
+      "also": "",
+      "steps": [
+        "Start from sin² + cos² = 1 on the unit circle.",
+        "Divide by cos²θ: tan² + 1 = sec².",
+        "Divide by sin²θ: 1 + cot² = cosec²."
+      ],
+      "exception": "These assume cos θ ≠ 0 when you create tan/sec forms (and sin ≠ 0 for cot/cosec). Identities hold where the functions are defined.",
+      "tag": ""
+    },
+    "trigcomp": {
+      "name": "Cofunction & signs",
+      "phrase": "sin(90°−θ)=cos θ. ASTC: All Sugar Tea Coffee for signs.",
+      "also": "",
+      "steps": [
+        "Complement: sin↔cos, tan↔cot, sec↔cosec with 90°−θ.",
+        "For angles past 90°, reduce to a reference angle.",
+        "ASTC tells which functions are positive in each quadrant."
+      ],
+      "exception": "Cofunction identities need the complement (90°−θ), not 180°−θ (that keeps the name for sine). Know your calculator mode.",
+      "tag": ""
+    },
+    "vecintro": {
+      "name": "Vectors intro",
+      "phrase": "A vector has size and direction. ⟨a,b⟩ adds componentwise; length √(a²+b²).",
+      "also": "",
+      "steps": [
+        "Write a plane vector as ⟨a,b⟩ or ai + bj.",
+        "Add/subtract matching components; multiply by a scalar on each.",
+        "Magnitude |⟨a,b⟩| = √(a²+b²)."
+      ],
+      "exception": "Position vs free vector: the same ⟨a,b⟩ can start anywhere. |a+b| is not usually |a|+|b|. A scalar has no direction.",
+      "tag": ""
+    },
+    "vecdot": {
+      "name": "Dot product intro",
+      "phrase": "a·b = a₁b₁ + a₂b₂. Zero dot means perpendicular.",
+      "also": "",
+      "steps": [
+        "Multiply matching components and add.",
+        "Also a·b = |a||b| cos θ.",
+        "If a·b = 0 (and neither is zero), the vectors are perpendicular."
+      ],
+      "exception": "Dot product is a number, not a vector. Parallel vectors have cos θ = ±1, not necessarily a zero dot.",
+      "tag": ""
+    },
+    "setops": {
+      "name": "Subset & power set",
+      "phrase": "A ⊆ B if every element of A sits in B. Power set: all subsets — 2ⁿ of them.",
+      "also": "",
+      "steps": [
+        "Check subset: each member of A must be in B.",
+        "Proper subset ⊂ usually means ⊆ but not equal.",
+        "A finite set with n elements has 2ⁿ subsets (including ∅ and itself)."
+      ],
+      "exception": "∈ is for elements; ⊆ is for sets. {1} ∈ {{1}} is true, but 1 ∈ {{1}} is false. ∅ is a subset of every set.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Sets & matrices",
+      "rows": [
+        [
+          "∈ / ∉",
+          "is / is not an element"
+        ],
+        [
+          "∪",
+          "union — in A or B (or both)"
+        ],
+        [
+          "∩",
+          "intersection — in both"
+        ],
+        [
+          "A′",
+          "complement — not in A"
+        ],
+        [
+          "n(A∪B)",
+          "n(A)+n(B)−n(A∩B)"
+        ],
+        [
+          "det 2×2",
+          "ad − bc"
+        ],
+        [
+          "I₂",
+          "[[1,0],[0,1]] identity"
+        ]
+      ]
+    },
+    {
+      "title": "Limits, trig, vectors",
+      "rows": [
+        [
+          "Limit",
+          "outputs approach L as x approaches a"
+        ],
+        [
+          "sin²+cos²",
+          "= 1"
+        ],
+        [
+          "1+tan²",
+          "= sec²"
+        ],
+        [
+          "|a|",
+          "√(a₁²+a₂²)"
+        ],
+        [
+          "a·b",
+          "a₁b₁+a₂b₂"
+        ]
+      ]
+    },
+    {
+      "title": "Matrices, limits & vectors",
+      "rows": [
+        [
+          "Matrix add",
+          "Same size; add matching entries"
+        ],
+        [
+          "Matrix multiply",
+          "Row × column; inner sizes must match"
+        ],
+        [
+          "Scalar × matrix",
+          "Multiply every entry by the scalar"
+        ],
+        [
+          "Limit laws",
+          "Sum/product of limits when they exist"
+        ],
+        [
+          "tan = sin/cos",
+          "Quotient identity for tangent"
+        ],
+        [
+          "Unit vector",
+          "Divide by length: v/|v|"
+        ],
+        [
+          "Dot gives angle",
+          "cos θ = a·b / (|a||b|)"
+        ]
+      ]
+    }
+  ]
+}

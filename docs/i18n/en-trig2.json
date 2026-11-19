@@ -1,0 +1,316 @@
+{
+  "grade": "Grades 11–12",
+  "title": "Advanced trigonometry",
+  "blurb": "Radians, any angle, the sine and cosine rules, compound angles, and trig equations.",
+  "lessons": {
+    "rad": {
+      "name": "Radians and arc length",
+      "phrase": "π is 180°. To radians, × π/180. To degrees, × 180/π.",
+      "also": "Arc = radius × angle: s = rθ, with θ in radians.",
+      "steps": [
+        "Remember one fact: π radians = 180°.",
+        "Degrees to radians: multiply by π/180. 60° = 60π/180 = π/3.",
+        "Radians to degrees: swap π for 180°. 3π/4 = 3 × 180° ÷ 4 = 135°.",
+        "Arc length s = rθ and sector area = ½r²θ, with θ in radians."
+      ],
+      "exception": "s = rθ only works with θ in radians. Check your calculator mode: sin 30 in radian mode is not 1/2. One radian is about 57.3°, not 1°.",
+      "tag": ""
+    },
+    "allied": {
+      "name": "Allied angles",
+      "phrase": "Odd multiple of 90° swaps sin ↔ cos. ASTC decides the sign.",
+      "also": "180° and 360° keep the name. 90° and 270° change it.",
+      "steps": [
+        "Write the angle as 90°, 180°, 270°, or 360° plus or minus θ.",
+        "180° or 360° (even multiples of 90°): keep the name.",
+        "90° or 270° (odd multiples): swap sin ↔ cos and tan ↔ cot.",
+        "Pretend θ is small to see which quadrant you land in.",
+        "ASTC gives the sign of the original function in that quadrant."
+      ],
+      "exception": "The sign comes from the original function in the new quadrant, not from the new name. cos(90° + θ) = −sin θ because cos is negative in quadrant II. Also, sin(−θ) = −sin θ but cos(−θ) = cos θ.",
+      "tag": ""
+    },
+    "sine": {
+      "name": "Sine rule",
+      "phrase": "Each side over the sine of the angle it faces: a/sin A = b/sin B = c/sin C.",
+      "also": "Small letter faces capital letter.",
+      "steps": [
+        "Label: side a faces angle A, b faces B, c faces C.",
+        "Use it when you know a side and the angle it faces, plus one more side or angle.",
+        "Write the two fractions you need and cross-multiply.",
+        "For an angle: sin B = b sin A ÷ a. Then check whether 180° − B also fits."
+      ],
+      "exception": "The ambiguous case: with two sides and an angle that is not between them (SSA), sin B gives two angles, B and 180° − B. Both work if the angles still add to less than 180°. If you know two sides and the angle between them, use the cosine rule instead.",
+      "tag": ""
+    },
+    "cosine": {
+      "name": "Cosine rule",
+      "phrase": "Pythagoras with a correction: a² = b² + c² − 2bc cos A.",
+      "also": "For an angle, flip it round: cos A = (b² + c² − a²) ÷ 2bc.",
+      "steps": [
+        "Use it for two sides and the angle between them (to find the third side).",
+        "Or for three sides (to find an angle).",
+        "Side: a² = b² + c² − 2bc cos A, then take the root.",
+        "Angle: cos A = (b² + c² − a²) ÷ 2bc, then use cos⁻¹."
+      ],
+      "exception": "A must be the angle between b and c. If A is obtuse, cos A is negative, so the correction adds and a gets longer. At A = 90°, the correction is 0 and it is plain Pythagoras. Work out 2bc cos A before subtracting.",
+      "tag": ""
+    },
+    "area": {
+      "name": "Area with sine",
+      "phrase": "Half of two sides times the sine of the angle between.",
+      "also": "Area = ½ab sin C. For a parallelogram, drop the half.",
+      "steps": [
+        "Pick two sides that meet at a known angle.",
+        "Multiply the two sides.",
+        "Multiply by the sine of the angle between them.",
+        "Halve it."
+      ],
+      "exception": "The angle must be between the two sides you use. An obtuse angle is fine: sin 150° = sin 30° = 1/2. Use sin, not cos.",
+      "tag": ""
+    },
+    "compound": {
+      "name": "Compound angles",
+      "phrase": "sin cos cos sin, sign stays. cos cos sin sin, sign swaps.",
+      "also": "tan(A + B) = (tan A + tan B) ÷ (1 − tan A tan B).",
+      "steps": [
+        "sin(A ± B) = sin A cos B ± cos A sin B.",
+        "cos(A ± B) = cos A cos B ∓ sin A sin B.",
+        "tan(A ± B) = (tan A ± tan B) ÷ (1 ∓ tan A tan B).",
+        "Split an awkward angle into table angles: 75° = 45° + 30°, 15° = 45° − 30°."
+      ],
+      "exception": "sin(A + B) is not sin A + sin B: sin 90° is 1, but sin 60° + sin 30° is about 1.37. In cos the sign flips: cos(A + B) has a minus.",
+      "tag": ""
+    },
+    "double": {
+      "name": "Double angles",
+      "phrase": "Double the angle: sin 2A = 2 sin A cos A.",
+      "also": "cos 2A has three faces: cos²A − sin²A, 2cos²A − 1, and 1 − 2sin²A.",
+      "steps": [
+        "Put B = A in the compound formulas.",
+        "sin 2A = 2 sin A cos A.",
+        "cos 2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A.",
+        "tan 2A = 2 tan A ÷ (1 − tan²A)."
+      ],
+      "exception": "sin 2A is not 2 sin A: sin 60° is √3/2, but 2 sin 30° is 1. Pick the cos 2A face that fits what you know: if only sin is given, use 1 − 2sin²A.",
+      "tag": ""
+    },
+    "equations": {
+      "name": "Solving trig equations",
+      "phrase": "Find the reference angle, then let ASTC place it.",
+      "also": "Quadrant I: θ. II: 180° − θ. III: 180° + θ. IV: 360° − θ.",
+      "steps": [
+        "Get the ratio alone, like sin θ = −1/2.",
+        "Find the reference angle from the table, ignoring the sign: 30°.",
+        "Use ASTC to pick the quadrants where the sign is right: sin negative is III and IV.",
+        "Place it: 180° + 30° = 210°, and 360° − 30° = 330°."
+      ],
+      "exception": "Don’t stop at the calculator’s one answer; most equations have two in 0° to 360°. sin θ = 2 has none, because sin and cos stay between −1 and 1. Never divide both sides by sin θ or cos θ; you lose the answers where it is 0. Factor instead.",
+      "tag": ""
+    },
+    "prove": {
+      "name": "Proving identities",
+      "phrase": "Work on the messier side; turn everything into sin and cos.",
+      "also": "Never cross the = sign: reshape one side until it looks like the other.",
+      "steps": [
+        "Pick the messier side.",
+        "Rewrite tan, cot, sec, and cosec in sin and cos.",
+        "Combine fractions over one bottom.",
+        "Use sin² + cos² = 1 to simplify.",
+        "Stop when it matches the other side."
+      ],
+      "exception": "Do not move terms across the = sign or do the same thing to both sides; that assumes what you want to prove. Checking one angle is not a proof, but one angle that fails does disprove it.",
+      "tag": ""
+    },
+    "inverse": {
+      "name": "Inverse trig",
+      "phrase": "sin⁻¹ asks: which angle has this sine?",
+      "also": "Principal ranges: sin⁻¹ and tan⁻¹ give −90° to 90°. cos⁻¹ gives 0° to 180°.",
+      "steps": [
+        "Read sin⁻¹ x as “the angle whose sine is x”.",
+        "Find the reference angle from the table.",
+        "Give the one answer in the principal range.",
+        "sin⁻¹ and tan⁻¹: negative inputs give negative angles. cos⁻¹: negative inputs give angles from 90° to 180°."
+      ],
+      "exception": "sin⁻¹x is not 1 ÷ sin x; that is cosec x. sin⁻¹ 2 does not exist, because sine never passes 1. cos⁻¹(−1/2) is 120°, not −60°: cos⁻¹ answers live in 0° to 180°.",
+      "tag": ""
+    },
+    "sohadv": {
+      "name": "SOHCAHTOA still rules",
+      "phrase": "Even in advanced trig, a right triangle still speaks SOH CAH TOA.",
+      "also": "",
+      "steps": [
+        "Drop a perpendicular if needed.",
+        "Label opp/adj/hyp for the acute angle.",
+        "Read the primary ratio."
+      ],
+      "exception": "Oblique triangles need sine/cosine rules — not plain SOHCAHTOA alone.",
+      "tag": ""
+    },
+    "astc2": {
+      "name": "ASTC for allied angles",
+      "phrase": "All Students Take Calculus — fix the sign after the allied reduction.",
+      "also": "",
+      "steps": [
+        "Reduce to a related acute angle.",
+        "Ask which quadrant the original angle sits in.",
+        "Apply ASTC for the sign."
+      ],
+      "exception": "Odd multiples of 90° can swap sin ↔ cos — do the swap before the sign.",
+      "tag": ""
+    },
+    "wordkeys2": {
+      "name": "Ambiguous case words",
+      "phrase": "SSA is the ambiguous case — two triangles, one, or none.",
+      "also": "",
+      "steps": [
+        "Spot two sides and a non-included angle.",
+        "Compute the height a sin A.",
+        "Compare the opposite side to that height and to a."
+      ],
+      "exception": "If angle A is obtuse, the “two triangles” story changes — check carefully.",
+      "tag": ""
+    },
+    "compound2": {
+      "name": "Compound sign memory",
+      "phrase": "sin cos cos sin, sign stays. cos cos sin sin, sign swaps.",
+      "also": "",
+      "steps": [
+        "For sin(A±B): sin A cos B ± cos A sin B (sign stays).",
+        "For cos(A±B): cos A cos B ∓ sin A sin B (sign swaps).",
+        "Write carefully."
+      ],
+      "exception": "tan compound formulas are different — don’t force this chant onto tan.",
+      "tag": ""
+    },
+    "double2": {
+      "name": "Double-angle pack",
+      "phrase": "sin 2A = 2 sin A cos A. cos 2A has three outfits.",
+      "also": "",
+      "steps": [
+        "Sine double: 2 sin cos.",
+        "Cosine double: cos²−sin², or 2cos²−1, or 1−2sin².",
+        "Pick the outfit that matches what you know."
+      ],
+      "exception": "sin 2A is not sin² A.",
+      "tag": ""
+    },
+    "arith2": {
+      "name": "Exact-value arithmetic",
+      "phrase": "Build bigger angles from 30°, 45°, 60° with compound formulas.",
+      "also": "",
+      "steps": [
+        "Write the angle as a sum/difference of standards.",
+        "Apply compound formulas.",
+        "Simplify exact values."
+      ],
+      "exception": "75° = 45°+30° works; don’t invent a standard for 20°.",
+      "tag": ""
+    },
+    "estimate2": {
+      "name": "Bound trig answers",
+      "phrase": "Sine and cosine live between −1 and 1 — reject impossible calculator slips.",
+      "also": "",
+      "steps": [
+        "Solve the equation.",
+        "Check each candidate is in range.",
+        "Use ASTC to place angles."
+      ],
+      "exception": "tan can be any real number — the −1…1 bound is only for sin/cos (and their reciprocals’ domains).",
+      "tag": ""
+    },
+    "mental2": {
+      "name": "Mental radians",
+      "phrase": "π is 180°. Half is 90°, a third is 60°, a quarter is 45°.",
+      "also": "",
+      "steps": [
+        "Memorize π ↔ 180°.",
+        "Divide π to get the common friends.",
+        "Convert by ×180/π or ×π/180."
+      ],
+      "exception": "2π is a full turn (360°), not 180°.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Radians & any angle",
+      "rows": [
+        [
+          "π = 180°",
+          "To rad ×π/180; to deg ×180/π"
+        ],
+        [
+          "Arc length",
+          "s = rθ (θ in radians)"
+        ],
+        [
+          "Allied angles",
+          "Odd×90° swaps sin↔cos; ASTC for sign"
+        ],
+        [
+          "Solve trig eq",
+          "Reference angle, then ASTC places it"
+        ],
+        [
+          "Inverse trig",
+          "sin⁻¹x answers an angle, not a ratio"
+        ]
+      ]
+    },
+    {
+      "title": "Triangle formulas",
+      "rows": [
+        [
+          "Sine rule",
+          "a/sin A = b/sin B = c/sin C"
+        ],
+        [
+          "Cosine rule",
+          "a² = b² + c² − 2bc cos A"
+        ],
+        [
+          "Area",
+          "½ab sin C"
+        ],
+        [
+          "Heights",
+          "Elevation up, depression down from flat"
+        ],
+        [
+          "SOH CAH TOA",
+          "Right △ only — oblique needs sine/cosine rule"
+        ]
+      ]
+    },
+    {
+      "title": "Identities & compounds",
+      "rows": [
+        [
+          "Pythagorean",
+          "sin²+cos²=1; 1+tan²=sec²; 1+cot²=cosec²"
+        ],
+        [
+          "Complement",
+          "sin(90°−θ)=cos θ (“co” = complement)"
+        ],
+        [
+          "sin(A±B)",
+          "sin cos cos sin — sign stays"
+        ],
+        [
+          "cos(A±B)",
+          "cos cos sin sin — sign swaps"
+        ],
+        [
+          "sin 2A",
+          "2 sin A cos A"
+        ],
+        [
+          "Prove identity",
+          "Messier side → all sin and cos"
+        ]
+      ]
+    }
+  ]
+}

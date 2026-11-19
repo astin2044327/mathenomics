@@ -1,0 +1,397 @@
+{
+  "grade": "K–1",
+  "title": "Counting & comparing",
+  "blurb": "Bigger, smaller, and the friends that make ten.",
+  "lessons": {
+    "gator": {
+      "name": "Bigger or smaller",
+      "phrase": "The hungry alligator eats the bigger number.",
+      "also": "The pointy end points at the smaller number.",
+      "steps": [
+        "Look at both numbers.",
+        "The alligator’s open mouth faces the bigger one.",
+        "The point faces the smaller one."
+      ],
+      "exception": "If both numbers are the same, there is nothing bigger to eat. Use = instead. The mouth faces the bigger number, not whichever number comes first.",
+      "tag": ""
+    },
+    "bonds": {
+      "name": "Friends of ten",
+      "phrase": "Ten friends hold hands: 1 and 9, 2 and 8, 3 and 7, 4 and 6, 5 and 5.",
+      "also": "",
+      "steps": [
+        "Fill the ten frame with the first number.",
+        "Count the empty boxes.",
+        "The empty boxes are the partner."
+      ],
+      "exception": "These partners only make 10. For 20, the partners change: 7 needs 13. And 0’s partner is the whole 10.",
+      "tag": ""
+    },
+    "counton": {
+      "name": "Counting on",
+      "phrase": "Put the big number in your head, then count on.",
+      "also": "",
+      "steps": [
+        "Say the bigger number.",
+        "Count up one finger for each of the smaller number.",
+        "The last number you say is the answer."
+      ],
+      "exception": "Do not start again from 1. And do not count the starting number twice: 8 + 3 is 9, 10, 11, not 8, 9, 10.",
+      "tag": ""
+    },
+    "maketen": {
+      "name": "Make a ten",
+      "phrase": "Make a ten, then add the rest.",
+      "also": "8 + 5 = 8 + 2 + 3. The 2 fills the ten, and the 3 is the rest.",
+      "steps": [
+        "Start with the bigger number.",
+        "Take just enough from the other number to make 10.",
+        "Add what is left to 10."
+      ],
+      "exception": "Take only what fills the ten: for 8 + 5, take 2, not 5. If the total is less than 10, there is no ten to make, so just count on.",
+      "tag": ""
+    },
+    "teens": {
+      "name": "Teen numbers",
+      "phrase": "A teen is ten and some more.",
+      "also": "Fourteen is ten and four. The 1 in front is the ten.",
+      "steps": [
+        "The 1 in front stands for one ten.",
+        "The last digit tells how many more.",
+        "16 is ten and 6 more."
+      ],
+      "exception": "Eleven and twelve don’t say “teen”, but they are ten and 1, and ten and 2. Fourteen is written 14, not 41, and not 104.",
+      "tag": ""
+    },
+    "neardbl": {
+      "name": "Doubles and near doubles",
+      "phrase": "Doubles plus one: double the small number, then add one more.",
+      "also": "6 + 7 is double 6 plus 1: 12 + 1 = 13.",
+      "steps": [
+        "A double is the same number twice: 6 + 6 = 12.",
+        "For a near double, double the smaller number.",
+        "Add 1 more."
+      ],
+      "exception": "Double the smaller number, then add 1. If you double the bigger one, take 1 away instead: 6 + 7 is 14 − 1. It only works for next-door numbers: 6 + 8 is double 6 plus 2.",
+      "tag": ""
+    },
+    "skip": {
+      "name": "Counting by 2s, 5s, and 10s",
+      "phrase": "2, 4, 6, 8, who do we appreciate?",
+      "also": "Fives end in 5 or 0. Tens always end in 0.",
+      "steps": [
+        "By 2s: say every other number: 2, 4, 6, 8, 10.",
+        "By 5s: the last digit goes 5, 0, 5, 0.",
+        "By 10s: the tens digit goes up by 1, and the ones digit stays 0."
+      ],
+      "exception": "Keep the jump the same every time. Counting by 10s from 20 goes 20, 30, 40, not 20, 21, 22. If you start on an odd number, counting by 2s gives odd numbers: 3, 5, 7.",
+      "tag": ""
+    },
+    "allword": {
+      "name": "Word clues: all / altogether",
+      "phrase": "All, altogether, in all, total — those words mean add.",
+      "also": "How many in all? Put the parts together.",
+      "steps": [
+        "Find the clue word: all, altogether, in all, total, sum.",
+        "Write an addition.",
+        "Add the parts."
+      ],
+      "exception": "“All” with “left” or “gone” can mean subtract. Read the whole sentence.",
+      "tag": ""
+    },
+    "leftword": {
+      "name": "Word clues: left / remain",
+      "phrase": "Left, remain, take away, how many more — those words mean subtract.",
+      "also": "",
+      "steps": [
+        "Find the clue: left, remain, take away, how many more, difference.",
+        "Write a subtraction.",
+        "Take away."
+      ],
+      "exception": "“How many more” compares two amounts: bigger − smaller. Start with the whole, not the leftover.",
+      "tag": ""
+    },
+    "eachword": {
+      "name": "Word clues: each / groups",
+      "phrase": "Each, every, groups of — those words often mean multiply (or equal shares).",
+      "also": "3 bags with 4 each: three groups of four.",
+      "steps": [
+        "Spot “each”, “every”, or “groups of”.",
+        "Draw equal groups.",
+        "Count by groups or multiply."
+      ],
+      "exception": "“Each” can also mean divide when you share: 12 stickers, 3 each means how many kids?",
+      "tag": ""
+    },
+    "shareword": {
+      "name": "Word clues: share / split",
+      "phrase": "Share equally, split, divide among — those words mean divide.",
+      "also": "",
+      "steps": [
+        "Spot “share”, “split”, “among”, “into equal groups”.",
+        "Write a division.",
+        "Find how many in each group (or how many groups)."
+      ],
+      "exception": "Sharing must be fair. Leftovers are a remainder — don’t pretend they vanish.",
+      "tag": ""
+    },
+    "commute": {
+      "name": "Order of addends",
+      "phrase": "You can flip the addends: 3 + 5 is the same as 5 + 3.",
+      "also": "Commutative: the commute is the same both ways.",
+      "steps": [
+        "Write the sum either way.",
+        "Start with the bigger number in your head.",
+        "Count on the smaller."
+      ],
+      "exception": "Order does not matter for + and ×. It does matter for − and ÷: 5 − 3 is not 3 − 5.",
+      "tag": ""
+    },
+    "countback": {
+      "name": "Counting back",
+      "phrase": "Put the big number in your head, then count back.",
+      "also": "",
+      "steps": [
+        "Say the bigger number.",
+        "Count back one finger for each you take away.",
+        "The last number you say is the answer."
+      ],
+      "exception": "Do not count the starting number as a finger. 9 − 2 is 8, 7 — not 9, 8.",
+      "tag": ""
+    },
+    "zeroadd": {
+      "name": "Adding zero",
+      "phrase": "Zero is the do-nothing number for adding.",
+      "also": "Plus zero keeps the number the same.",
+      "steps": [
+        "See + 0 or 0 +.",
+        "The other number stays the same.",
+        "Zero adds nothing."
+      ],
+      "exception": "Zero is special for + and × differently: n + 0 = n, but n × 0 = 0.",
+      "tag": ""
+    },
+    "estimate": {
+      "name": "About how many?",
+      "phrase": "Estimate: is it closer to a friendly ten?",
+      "also": "",
+      "steps": [
+        "Look at the ones digit.",
+        "5 or more → bump up to the next ten.",
+        "4 or less → stay at this ten."
+      ],
+      "exception": "Estimating is a “about” answer, not exact. Use it to check if an exact answer looks wild.",
+      "tag": ""
+    },
+    "morefewer": {
+      "name": "More and fewer",
+      "phrase": "More means bigger. Fewer means smaller.",
+      "also": "",
+      "steps": [
+        "Compare the two amounts.",
+        "More → the bigger number.",
+        "Fewer → the smaller number."
+      ],
+      "exception": "Fewer is for things you can count. For continuous stuff people say “less,” but the compare idea is the same.",
+      "tag": ""
+    },
+    "partwhole": {
+      "name": "Part–part–whole",
+      "phrase": "Two parts make the whole. The whole splits into parts.",
+      "also": "",
+      "steps": [
+        "Name the whole.",
+        "Name each part.",
+        "Parts add to the whole; whole minus a part leaves the other part."
+      ],
+      "exception": "Don’t mix which number is the whole. The whole is always the total, never a leftover part.",
+      "tag": ""
+    },
+    "tenmore": {
+      "name": "Ten more, ten less",
+      "phrase": "Ten more bumps the tens digit up. Ten less bumps it down.",
+      "also": "",
+      "steps": [
+        "Find the tens digit.",
+        "Ten more: add 1 to the tens.",
+        "Ten less: subtract 1 from the tens."
+      ],
+      "exception": "Ones stay put when you add or subtract exactly 10. 27 + 10 is 37, not 28.",
+      "tag": ""
+    },
+    "sameboth": {
+      "name": "Same on both sides",
+      "phrase": "If both sides match, use the equals sign.",
+      "also": "Balance: what you do to one side, keep the story true.",
+      "steps": [
+        "Compute each side if needed.",
+        "If the amounts match, write =.",
+        "If not, they are not equal."
+      ],
+      "exception": "Equals means “same value,” not “looks the same.” 3 + 5 and 4 + 4 both equal 8.",
+      "tag": ""
+    },
+    "fingeradd": {
+      "name": "Fingers for small sums",
+      "phrase": "Hold the bigger number; raise fingers for the smaller; count them on.",
+      "also": "",
+      "steps": [
+        "Put the bigger number in your head (or on one hand).",
+        "Raise one finger for each of the smaller number.",
+        "Count on from the big number."
+      ],
+      "exception": "When the sum goes past 10, make a ten first, then use the leftover fingers.",
+      "tag": ""
+    },
+    "beforeafter": {
+      "name": "Before and after",
+      "phrase": "Before is one less. After is one more.",
+      "also": "",
+      "steps": [
+        "After: count one forward.",
+        "Before: count one back.",
+        "The number line is your friend."
+      ],
+      "exception": "Before 0 you leave the everyday counting numbers — kindergarten stays at 0 and up.",
+      "tag": ""
+    },
+    "howmany": {
+      "name": "How many more?",
+      "phrase": "How many more? Start at the smaller, count up to the bigger.",
+      "also": "Or subtract: bigger − smaller.",
+      "steps": [
+        "Find both amounts.",
+        "Subtract smaller from bigger.",
+        "That difference is “how many more.”"
+      ],
+      "exception": "“How many more” is a compare, not a take-away story with leftovers on a plate.",
+      "tag": ""
+    },
+    "dblfacts": {
+      "name": "Doubles facts",
+      "phrase": "A double is the same number twice: 6 + 6 = 12.",
+      "also": "",
+      "steps": [
+        "Spot two matching numbers.",
+        "Double means add the number to itself.",
+        "Remember the common doubles through 10 + 10."
+      ],
+      "exception": "Near doubles are next door (6 + 7). Pure doubles are exact twins.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Compare & count",
+      "rows": [
+        [
+          "Hungry alligator",
+          "Mouth opens to the bigger number"
+        ],
+        [
+          "Same numbers",
+          "Use = — nothing bigger to eat"
+        ],
+        [
+          "Counting on",
+          "Big number in your head, then count on"
+        ],
+        [
+          "Counting back",
+          "Start big, hop back one finger per step"
+        ],
+        [
+          "Skip by 2s",
+          "2, 4, 6, 8… even parade"
+        ],
+        [
+          "Skip by 5s / 10s",
+          "5s end in 5 or 0; 10s end in 0"
+        ],
+        [
+          "More / fewer",
+          "Compare: how many more? → subtract"
+        ]
+      ]
+    },
+    {
+      "title": "Friends of ten",
+      "rows": [
+        [
+          "Partners of 10",
+          "1+9, 2+8, 3+7, 4+6, 5+5"
+        ],
+        [
+          "Make a ten",
+          "Fill to 10, then add the rest"
+        ],
+        [
+          "Teen number",
+          "A teen is ten and some more"
+        ],
+        [
+          "Ten more",
+          "Next decade: 23 + 10 = 33"
+        ],
+        [
+          "Doubles",
+          "Same + same (6+6=12)"
+        ],
+        [
+          "Near doubles",
+          "Double the small, then +1"
+        ],
+        [
+          "Part–whole",
+          "Whole = part + part; find the missing part"
+        ]
+      ]
+    },
+    {
+      "title": "Word clues",
+      "rows": [
+        [
+          "All / altogether",
+          "Put the parts together → add"
+        ],
+        [
+          "Left / remain",
+          "Take away → subtract"
+        ],
+        [
+          "Each / groups of",
+          "Equal groups → multiply"
+        ],
+        [
+          "Share / split",
+          "Fair shares → divide"
+        ]
+      ]
+    },
+    {
+      "title": "Quick facts",
+      "rows": [
+        [
+          "Zero stays",
+          "Adding 0 changes nothing; ×0 wipes to 0"
+        ],
+        [
+          "Same both sides",
+          "Both addends the same? Double it"
+        ],
+        [
+          "Finger add",
+          "Hold up fingers for small sums"
+        ],
+        [
+          "Before / after",
+          "Before is one less; after is one more"
+        ],
+        [
+          "Estimate",
+          "Round to a friendly ten, then adjust"
+        ]
+      ]
+    }
+  ]
+}

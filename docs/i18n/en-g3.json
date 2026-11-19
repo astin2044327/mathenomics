@@ -1,0 +1,505 @@
+{
+  "grade": "Grades 3–4",
+  "title": "Times tables & division",
+  "blurb": "A trick for each times family, the tricky-fact rhymes, and long division.",
+  "lessons": {
+    "groups": {
+      "name": "What × means",
+      "phrase": "Times means groups of.",
+      "also": "",
+      "steps": [
+        "Read 3 × 4 as 3 groups of 4.",
+        "Draw the groups, or skip-count: 4, 8, 12.",
+        "Order does not change the total: 4 groups of 3 is also 12."
+      ],
+      "exception": "Times is not plus. 3 × 4 is not 7. Anything times 0 is 0, and anything times 1 stays the same.",
+      "tag": ""
+    },
+    "doubles": {
+      "name": "×2, ×4, ×8",
+      "phrase": "×2 is double. ×4 is double-double. ×8 is double-double-double.",
+      "also": "",
+      "steps": [
+        "Double the number once for ×2.",
+        "Double it again for ×4.",
+        "Double one more time for ×8."
+      ],
+      "exception": "Count your doubles. Doubling twice is ×4, not ×8. And ×6 is not a doubling family: it is ×5 plus one more group.",
+      "tag": ""
+    },
+    "fives": {
+      "name": "×5",
+      "phrase": "Fives are half of tens.",
+      "also": "Fives end in 5 or 0.",
+      "steps": [
+        "Multiply by 10: put a 0 on the end.",
+        "Take half of that."
+      ],
+      "exception": "An even number of fives ends in 0. An odd number ends in 5. If your answer ends in anything else, check again.",
+      "tag": ""
+    },
+    "nines": {
+      "name": "×9",
+      "phrase": "Fold the finger. Left fingers are tens, right fingers are ones.",
+      "also": "The digits always add to nine.",
+      "steps": [
+        "Hold up ten fingers.",
+        "For 9 × 7, fold down finger 7.",
+        "6 fingers on the left, 3 on the right: 63."
+      ],
+      "exception": "The fingers work up to 9 × 10. For 9 × 12, do 10 × 12 and take away 12. And 9 × 0 is 0.",
+      "tag": ""
+    },
+    "rhymes": {
+      "name": "Tricky facts",
+      "phrase": "Five, six, seven, eight: fifty-six is seven times eight.",
+      "also": "I ate and ate and got sick on the floor: eight times eight is sixty-four.",
+      "steps": [
+        "Six times six, magic tricks: thirty-six.",
+        "I know now and you do too: six times seven is forty-two.",
+        "Six and eight went on a date, came back as forty-eight.",
+        "Seven and seven are doing fine: forty-nine.",
+        "Five, six, seven, eight: fifty-six is seven times eight.",
+        "I ate and ate and got sick on the floor: eight times eight is sixty-four."
+      ],
+      "exception": "A rhyme is a hook, not the reason. If you forget it, build from a fact you know: 7 × 8 is 7 × 7 plus one more 7, which is 49 + 7 = 56.",
+      "tag": ""
+    },
+    "elevens": {
+      "name": "×11 for two digits",
+      "phrase": "Split the digits. Park their sum in the middle.",
+      "also": "",
+      "steps": [
+        "Split 23 into 2 and 3.",
+        "Add them: 5.",
+        "Park the 5 in the middle: 253."
+      ],
+      "exception": "If the middle sum is 10 or more, carry the 1 to the left digit. 85 × 11: 8 + 5 = 13, so 8 + 1 = 9, then 3, then 5: 935.",
+      "tag": ""
+    },
+    "longdiv": {
+      "name": "Long division",
+      "phrase": "Does McDonald’s Sell Burgers?",
+      "also": "Dad, Mom, Sister, Brother, and Rover the dog repeats it.",
+      "steps": [
+        "Divide: how many times does it fit?",
+        "Multiply: that answer times the divisor.",
+        "Subtract: what is left?",
+        "Bring down the next digit, then repeat."
+      ],
+      "exception": "What is left must be smaller than the divisor. If it is not, your divide step was too small. If the divisor does not fit at all, write a 0 in the answer before you bring down.",
+      "tag": ""
+    },
+    "divis": {
+      "name": "Divisibility rules",
+      "phrase": "Last digit for 2, 5, and 10. Add the digits for 3 and 9. Last two digits for 4. Six needs 2 and 3.",
+      "also": "",
+      "steps": [
+        "2: the last digit is even.",
+        "5: it ends in 0 or 5. 10: it ends in 0.",
+        "3 or 9: add the digits. If the sum divides by 3 (or 9), so does the number.",
+        "4: the last two digits divide by 4.",
+        "6: it passes the test for 2 and the test for 3."
+      ],
+      "exception": "Adding the digits works only for 3 and 9, not for 4 or 7. Six needs both tests: 15 passes 3 but is odd, so it fails 6.",
+      "tag": ""
+    },
+    "primes": {
+      "name": "Factors, multiples, and primes",
+      "phrase": "Factors are few, multiples are many. A prime has just two factors: 1 and itself.",
+      "also": "Factors fit into a number. Multiples are what you get when you times it.",
+      "steps": [
+        "Factors of 12: numbers that divide 12 exactly: 1, 2, 3, 4, 6, 12.",
+        "Multiples of 12: 12, 24, 36, and on forever.",
+        "Prime: exactly two factors, like 7 (1 and 7).",
+        "Composite: more than two factors, like 9 (1, 3, 9)."
+      ],
+      "exception": "1 is not prime: it has only one factor. 2 is the only even prime. Odd does not mean prime: 9, 15, and 21 are composite.",
+      "tag": ""
+    },
+    "areaper": {
+      "name": "Area and perimeter",
+      "phrase": "Perimeter is the fence around. Area is the carpet inside.",
+      "also": "",
+      "steps": [
+        "Perimeter: add all four sides, or 2 × (length + width).",
+        "Area: length × width.",
+        "Perimeter is a length (cm). Area is squares (cm²)."
+      ],
+      "exception": "Don’t mix them up: a 5 by 3 rectangle has a fence of 16 but a carpet of 15. Two shapes with the same area can have different perimeters.",
+      "tag": ""
+    },
+    "roundbig": {
+      "name": "Rounding big numbers",
+      "phrase": "Underline the place. Look next door. Five or more, raise the score.",
+      "also": "Four or less, let it rest.",
+      "steps": [
+        "Underline the digit in the place you want.",
+        "Look at the digit next door, on its right.",
+        "5 or more: the underlined digit goes up 1. 4 or less: it stays.",
+        "Every digit after it becomes 0."
+      ],
+      "exception": "If the underlined digit is a 9 and it goes up, it rolls over: 3,960 to the nearest hundred is 4,000. Don’t round in steps: 3,449 → 3,450 → 3,500 is wrong. It is 3,400.",
+      "tag": ""
+    },
+    "equivfr": {
+      "name": "Equivalent fractions",
+      "phrase": "What you do to the top, you do to the bottom.",
+      "also": "",
+      "steps": [
+        "Pick a number.",
+        "Multiply (or divide) the top by it.",
+        "Do the same to the bottom. It looks different, but it is the same amount."
+      ],
+      "exception": "Only × and ÷ work. Adding the same number to the top and bottom changes the amount: 1/2 is not 2/3.",
+      "tag": ""
+    },
+    "times10": {
+      "name": "× 10, 100, 1000",
+      "phrase": "Each zero slides the digits one place left.",
+      "also": "× 10: one place. × 100: two places. × 1000: three places. Zeros fill the empty seats.",
+      "steps": [
+        "Count the zeros in 10, 100, or 1000.",
+        "Slide every digit that many places to the left.",
+        "Fill the empty seats with zeros."
+      ],
+      "exception": "Count the zeros in the 10, 100, or 1000 only. 40 × 100 is 4,000: the 0 in 40 moves too, and two new zeros join it.",
+      "tag": ""
+    },
+    "roman-iview": {
+      "name": "Roman numerals I V X",
+      "phrase": "I View Xylophones: I=1, V=5, X=10 (extend: L=50, C=100, D=500, M=1000).",
+      "also": "I View X-rays works too for the first three.",
+      "steps": [
+        "Learn the seven symbols: I=1, V=5, X=10, L=50, C=100, D=500, M=1000.",
+        "Read left to right, adding values.",
+        "Apply subtractive pairs when a smaller symbol sits before a larger one."
+      ],
+      "exception": "Subtractive notation: IV=4, IX=9, XL=40, XC=90, CD=400, CM=900.",
+      "tag": ""
+    },
+    "commute3": {
+      "name": "Commutative multiply",
+      "phrase": "Factors can swap seats: 6 × 7 = 7 × 6.",
+      "also": "",
+      "steps": [
+        "Write the product either way.",
+        "Use the order you know better.",
+        "The answer matches."
+      ],
+      "exception": "Arrays look different when swapped (2×6 vs 6×2) but count the same dots.",
+      "tag": ""
+    },
+    "assoc3": {
+      "name": "Associative multiply",
+      "phrase": "Regroup factors: (2 × 3) × 4 = 2 × (3 × 4).",
+      "also": "",
+      "steps": [
+        "Look for a friendly pair (like ×10).",
+        "Multiply that pair first.",
+        "Multiply by the leftover factor."
+      ],
+      "exception": "Only regroup — don’t drop a factor.",
+      "tag": ""
+    },
+    "distrib3": {
+      "name": "Distributive property",
+      "phrase": "Break a hard times into two easy times, then add.",
+      "also": "7 × 6 = 7 × (5 + 1) = 35 + 7.",
+      "steps": [
+        "Split one factor into friendly parts.",
+        "Multiply each part.",
+        "Add the partial products."
+      ],
+      "exception": "Split into a sum (or difference), not a product — that’s a different rule.",
+      "tag": ""
+    },
+    "wordkeys3": {
+      "name": "Word-problem keywords",
+      "phrase": "All/altogether=add · left/remain=subtract · each/groups=multiply · share=divide.",
+      "also": "",
+      "steps": [
+        "Scan for a keyword.",
+        "Pick the operation it usually signals.",
+        "Write the number sentence and solve."
+      ],
+      "exception": "Keywords help but the story wins — “each” can divide when sharing.",
+      "tag": ""
+    },
+    "estimate3": {
+      "name": "Estimate products",
+      "phrase": "Round, then multiply — about how many?",
+      "also": "",
+      "steps": [
+        "Round each factor to a friendly number.",
+        "Multiply the rounded factors.",
+        "Label it “about.”"
+      ],
+      "exception": "Rounding both up overestimates. Good for checking ballpark, not exact answers.",
+      "tag": ""
+    },
+    "gallon": {
+      "name": "Gallon Man",
+      "phrase": "King Gallon had 4 quarts; each quart 2 pints; each pint 2 cups.",
+      "also": "4 quarts = 1 gallon. 2 pints = 1 quart. 2 cups = 1 pint.",
+      "steps": [
+        "Remember Gallon Man’s body: 4 quarts.",
+        "Each quart arm/leg holds 2 pints.",
+        "Each pint holds 2 cups."
+      ],
+      "exception": "US liquid measures. Don’t mix with liters without converting.",
+      "tag": ""
+    },
+    "kinghenry3": {
+      "name": "King Henry metric",
+      "phrase": "King Henry Died By Drinking Chocolate Milk.",
+      "also": "Kilo, Hecto, Deca, Base, Deci, Centi, Milli — each step is ×10 or ÷10.",
+      "steps": [
+        "Line up the King Henry words with prefixes.",
+        "Count hops between units.",
+        "Move the decimal that many places."
+      ],
+      "exception": "“By” is the base unit. Mega/micro/nano are off this ladder. Each hop is ×10 or ÷10. Miles and inches need different bridges.",
+      "tag": ""
+    },
+    "zeroprop": {
+      "name": "Zero and one in multiply",
+      "phrase": "Times zero wipes out. Times one keeps it.",
+      "also": "",
+      "steps": [
+        "n × 0 = 0.",
+        "n × 1 = n.",
+        "Use these as quick checks."
+      ],
+      "exception": "Adding zero keeps n; multiplying by zero does not.",
+      "tag": ""
+    },
+    "remain3": {
+      "name": "Remainders",
+      "phrase": "Divide until you can’t make another full group — what’s left is the remainder.",
+      "also": "",
+      "steps": [
+        "Divide for how many full groups.",
+        "Multiply back.",
+        "Subtract from the total — that leftover is R."
+      ],
+      "exception": "Remainder must be smaller than the divisor. If not, you can make another group.",
+      "tag": ""
+    },
+    "array3": {
+      "name": "Arrays",
+      "phrase": "Rows times columns — an array shows multiply.",
+      "also": "",
+      "steps": [
+        "Count the rows.",
+        "Count how many in each row.",
+        "Multiply rows × columns."
+      ],
+      "exception": "A scattered pile is not an array until you line it into equal rows.",
+      "tag": ""
+    },
+    "tomatoes": {
+      "name": "Feet in a mile",
+      "phrase": "Silly optional hook: “five tomatoes” sounds like 5-2-8-0 (feet in a mile).",
+      "also": "Joke only — always confirm 5,280 ft/mi.",
+      "steps": [
+        "Picture five tomatoes (optional silly picture).",
+        "Hear 5, 2, 8, 0 as a sound-alike.",
+        "Check the real fact: 5,280 feet per mile."
+      ],
+      "exception": "Not a math procedure — a joke scaffold with no structure. Digits scramble easily; verify 5,280 feet per mile.",
+      "tag": ""
+    },
+    "orderops3": {
+      "name": "× before +",
+      "phrase": "My Dear before Aunt Sally: multiply before you add.",
+      "also": "A early peek at order of operations.",
+      "steps": [
+        "Scan for × or ÷.",
+        "Do those first (left to right).",
+        "Then + and −."
+      ],
+      "exception": "Brackets still beat everything. × and ÷ tie left to right when both appear; without brackets, ×÷ beat +−.",
+      "tag": ""
+    },
+    "northdakota": {
+      "name": "Numerator & denominator",
+      "phrase": "Nice Dog: Numerator up, Denominator down. N before D.",
+      "also": "North Dakota — N above D.",
+      "steps": [
+        "Top is numerator (N).",
+        "Bottom is denominator (D).",
+        "N before D in the alphabet — top before bottom in the name."
+      ],
+      "exception": "The bar means divide: top ÷ bottom, not bottom ÷ top.",
+      "tag": ""
+    },
+    "mental3": {
+      "name": "Mental math: ×10 and ×100",
+      "phrase": "×10 adds a zero. ×100 adds two zeros.",
+      "also": "",
+      "steps": [
+        "For ×10, write a zero on the end.",
+        "For ×100, write two zeros.",
+        "That’s sliding place value."
+      ],
+      "exception": "For decimals the zeros work differently — digits slide across the point.",
+      "tag": ""
+    },
+    "patterns3": {
+      "name": "Number patterns",
+      "phrase": "Find the jump rule, then keep jumping.",
+      "also": "",
+      "steps": [
+        "Subtract neighbors to find the jump.",
+        "Check the jump is steady.",
+        "Apply the jump to find the next term."
+      ],
+      "exception": "Some patterns change rule (square numbers). These drills stay on constant jumps.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Times tables",
+      "rows": [
+        [
+          "Times means",
+          "Groups of"
+        ],
+        [
+          "×2, ×4, ×8",
+          "Double → double-double → triple double"
+        ],
+        [
+          "×5",
+          "Fives are half of tens"
+        ],
+        [
+          "×9 finger fold",
+          "Left = tens, right = ones"
+        ],
+        [
+          "5-6-7-8",
+          "Fifty-six is seven times eight"
+        ],
+        [
+          "×11 (2 digits)",
+          "Split digits; park their sum in the middle"
+        ],
+        [
+          "×12",
+          "×10, then add a double of the number"
+        ],
+        [
+          "Tricky rhymes",
+          "6×6=36, 7×8=56, 8×8=64…"
+        ]
+      ]
+    },
+    {
+      "title": "Division & number sense",
+      "rows": [
+        [
+          "Long division",
+          "Does McDonald’s Sell Burgers? (÷ × − bring down)"
+        ],
+        [
+          "Remainder",
+          "What’s left after fair shares"
+        ],
+        [
+          "Divisibility",
+          "2/5/10: last digit; 3/9: digit sum; 4: last two"
+        ],
+        [
+          "Factors vs multiples",
+          "Factors are few; multiples are many"
+        ],
+        [
+          "Prime",
+          "Exactly two factors: 1 and itself"
+        ],
+        [
+          "Zero property",
+          "n × 0 = 0; n ÷ 1 = n"
+        ]
+      ]
+    },
+    {
+      "title": "Fractions & decimals",
+      "rows": [
+        [
+          "Equivalent",
+          "What you do to the top, do to the bottom"
+        ],
+        [
+          "×10 / 100 / 1000",
+          "Each zero slides digits one place left"
+        ],
+        [
+          "Tomatoes on a fence",
+          "Numerator on top, denominator below"
+        ]
+      ]
+    },
+    {
+      "title": "Measure & order",
+      "rows": [
+        [
+          "Perimeter",
+          "Fence around"
+        ],
+        [
+          "Area",
+          "Carpet inside"
+        ],
+        [
+          "King Henry",
+          "King Henry Died By Drinking Chocolate Milk (kilo→milli)"
+        ],
+        [
+          "Gallon land",
+          "4 quarts = 1 gallon; 2 pints = 1 quart"
+        ],
+        [
+          "PEMDAS",
+          "Groups → powers → ×÷ then +− (each left to right)"
+        ],
+        [
+          "GEMS / BODMAS",
+          "Same levels as PEMDAS; ×÷ and +− each left to right"
+        ],
+        [
+          "Arrays",
+          "Rows × columns = total tiles"
+        ],
+        [
+          "Roman i-v",
+          "I, V, X — no IV = 4 on the clock"
+        ]
+      ]
+    },
+    {
+      "title": "Properties & patterns",
+      "rows": [
+        [
+          "Commute / associate",
+          "Reorder factors freely when multiplying"
+        ],
+        [
+          "Distribute",
+          "Break one factor into friendly parts"
+        ],
+        [
+          "Mental math",
+          "Use compatible numbers (25, 50, 100)"
+        ],
+        [
+          "Number patterns",
+          "What changes each step? Predict next"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,493 @@
+{
+  "grade": "Grade 7",
+  "title": "Integers & percent",
+  "blurb": "Positive and negative numbers, and anything out of 100.",
+  "lessons": {
+    "signs": {
+      "name": "Multiplying signs",
+      "phrase": "Friends are positive. Strangers are negative.",
+      "also": "Same signs give +. Different signs give −.",
+      "steps": [
+        "Ignore the signs and multiply.",
+        "Same signs (friends): the answer is positive.",
+        "Different signs (strangers): the answer is negative."
+      ],
+      "exception": "This is only for × and ÷. Adding is different: −3 + −4 is −7, not +7. Anything times 0 is 0, with no sign.",
+      "tag": ""
+    },
+    "intadd": {
+      "name": "Adding integers",
+      "phrase": "Same signs: add and keep. Different signs: subtract and keep the bigger one’s sign.",
+      "also": "",
+      "steps": [
+        "Check the two signs.",
+        "Same: add the sizes, keep the sign.",
+        "Different: subtract the smaller size from the bigger, and keep the sign of the bigger size."
+      ],
+      "exception": "Do not use the friends-and-strangers rule here. −3 + −4 is −7, because adding two debts makes a bigger debt.",
+      "tag": ""
+    },
+    "percent": {
+      "name": "Percent of a number",
+      "phrase": "Per cent means out of 100. Hop the decimal two places, then multiply.",
+      "also": "",
+      "steps": [
+        "Write the percent out of 100: 25% is 0.25.",
+        "Multiply by the amount.",
+        "For a change, always compare with the starting amount."
+      ],
+      "exception": "10% of 10% is 1%, not 20%. More than 100% is fine: 150% of 40 is 60.",
+      "tag": ""
+    },
+    "intsub": {
+      "name": "Subtracting integers",
+      "phrase": "Keep, Change, Change.",
+      "also": "Subtracting a number is the same as adding its opposite.",
+      "steps": [
+        "Keep the first number.",
+        "Change − to +.",
+        "Change the sign of the second number.",
+        "Add using the adding rules."
+      ],
+      "exception": "Change both things: the sign in the middle and the second number. Never change the first number. Don’t mix it up with “Keep, Change, Flip” for dividing fractions.",
+      "tag": ""
+    },
+    "intdiv": {
+      "name": "Dividing integers",
+      "phrase": "Divide the sizes. Same signs, positive. Different signs, negative.",
+      "also": "It is the same sign rule as for ×.",
+      "steps": [
+        "Ignore the signs and divide.",
+        "Same signs: the answer is positive.",
+        "Different signs: the answer is negative."
+      ],
+      "exception": "You can never divide by 0. 0 divided by any other number is 0, with no sign. Two negatives make a positive only for × and ÷, not for + or −.",
+      "tag": ""
+    },
+    "equations": {
+      "name": "Solving equations",
+      "phrase": "Do the opposite to both sides.",
+      "also": "Undo in reverse order: + and − first, then × and ÷.",
+      "steps": [
+        "See what is being done to x.",
+        "Undo the + or − first: do the opposite to both sides.",
+        "Then undo the × or ÷ the same way.",
+        "Check: put your answer back in."
+      ],
+      "exception": "Whatever you do to one side, do to the other, or the two sides stop being equal. Undo the + or − before the ×: in 3x + 4 = 19, don’t divide 19 by 3 first.",
+      "tag": ""
+    },
+    "circle": {
+      "name": "Circumference and area of a circle",
+      "phrase": "Cherry pie’s delicious: C = πd. Apple pies are too: A = πr².",
+      "also": "The diameter goes all the way across. The radius goes halfway: d = 2 × r.",
+      "steps": [
+        "Find the radius r or the diameter d. d = 2 × r.",
+        "Around the edge (circumference): C = π × d.",
+        "Inside (area): A = π × r × r.",
+        "Use π ≈ 3.14."
+      ],
+      "exception": "Area uses the radius, not the diameter. If you are given d, halve it first. r² means r × r, not r × 2.",
+      "tag": ""
+    },
+    "interest": {
+      "name": "Simple interest",
+      "phrase": "I = PRT: Interest = Principal × Rate × Time.",
+      "also": "Principal is the money you start with. Rate is the percent per year. Time is in years.",
+      "steps": [
+        "Write the rate as a decimal: 5% = 0.05.",
+        "Write the time in years: 6 months = 0.5.",
+        "Multiply P × R × T.",
+        "For the total, add the interest to the principal."
+      ],
+      "exception": "Use the rate as a decimal, not the whole number: 5% is 0.05, not 5. Simple interest is the same every year. It does not grow on itself (that is compound interest).",
+      "tag": ""
+    },
+    "pchange": {
+      "name": "Percent increase and decrease",
+      "phrase": "New minus old, over old, times 100.",
+      "also": "",
+      "steps": [
+        "Find the change: new − old.",
+        "Divide by the old (starting) number.",
+        "Multiply by 100 to get a percent. Positive is an increase, negative is a decrease."
+      ],
+      "exception": "Always divide by the old number, not the new one. Up 50% then down 50% does not bring you back: 100 → 150 → 75.",
+      "tag": ""
+    },
+    "discount": {
+      "name": "Discount and sales tax",
+      "phrase": "Sale? Take it off. Tax? Put it on.",
+      "also": "20% off means you pay 80%. 5% tax means you pay 105%.",
+      "steps": [
+        "Find the percent of the price.",
+        "Discount: subtract it from the price.",
+        "Tax: add it to the price.",
+        "Both: take the discount off first, then find the tax on the new price."
+      ],
+      "exception": "Tax goes on the sale price, not the old price. 20% off and then 5% tax is not the same as 15% off.",
+      "tag": ""
+    },
+    "prob": {
+      "name": "Probability",
+      "phrase": "What you want, over all you’ve got.",
+      "also": "P(event) = favorable outcomes ÷ total outcomes.",
+      "steps": [
+        "Count the outcomes you want (favorable).",
+        "Count all the possible outcomes.",
+        "Write want ÷ total, then simplify."
+      ],
+      "exception": "The total includes the ones you want. With 3 red and 5 blue, P(red) is 3/8, not 3/5. A probability is always from 0 (impossible) to 1 (certain).",
+      "tag": ""
+    },
+    "proportion": {
+      "name": "Proportions",
+      "phrase": "Cross multiply: the butterfly method.",
+      "also": "Multiply across each diagonal. The two wings are equal. Then divide by the number next to x.",
+      "steps": [
+        "Set up two equal fractions, with the same order on both sides.",
+        "Multiply across the diagonals: the butterfly wings.",
+        "Set the wings equal and divide to find x."
+      ],
+      "exception": "Only cross multiply when two fractions are equal. Never do it to add fractions. Keep the order the same: miles over hours = miles over hours.",
+      "tag": ""
+    },
+    "dirt-distance": {
+      "name": "Distance = rate × time",
+      "phrase": "d = rt — dirt.",
+      "also": "Distance, rate, time share one triangle of formulas.",
+      "steps": [
+        "Write d = rt.",
+        "Substitute the known values.",
+        "Solve for the unknown.",
+        "Check that units match."
+      ],
+      "exception": "Units must match. Average speed ≠ instantaneous speed.",
+      "tag": ""
+    },
+    "speed-triangle": {
+      "name": "D–S–T cover-up",
+      "phrase": "Distance = speed × time; cover up the unknown in the D–S–T relation.",
+      "also": "",
+      "steps": [
+        "Identify which of D, S, T you need.",
+        "Cover that letter: the other two show multiply or divide.",
+        "Use D = ST, S = D ÷ T, or T = D ÷ S.",
+        "Check units."
+      ],
+      "exception": "Use consistent units. Average speed is total distance ÷ total time — not the average of speeds.",
+      "tag": ""
+    },
+    "scalene-odd-one": {
+      "name": "Scalene triangles",
+      "phrase": "Scalene is the odd one out: no equal sides.",
+      "also": "Equilateral: all equal. Isosceles: at least two equal.",
+      "steps": [
+        "Compare the three side lengths.",
+        "No equals → scalene.",
+        "Two equal → isosceles; three equal → equilateral."
+      ],
+      "exception": "Side names ≠ angle names (acute/right/obtuse). A scalene triangle can still be acute, right, or obtuse.",
+      "tag": ""
+    },
+    "kcc": {
+      "name": "Keep Change Change",
+      "phrase": "Keep Change Change: keep the first, change − to +, change the next sign.",
+      "also": "Subtracting a negative is adding: a − (−b) = a + b.",
+      "steps": [
+        "Keep the first number.",
+        "Change the subtraction to addition.",
+        "Change the sign of the second number.",
+        "Then add integers."
+      ],
+      "exception": "KCC is for subtraction of integers. Don’t KCC a multiplication.",
+      "tag": ""
+    },
+    "arithspell": {
+      "name": "Spelling arithmetic",
+      "phrase": "A Rat In The House May Eat The Ice Cream.",
+      "also": "A-R-I-T-H-M-E-T-I-C.",
+      "steps": [
+        "Use the sentence initials.",
+        "Write A R I T H M E T I C.",
+        "That’s “arithmetic.”"
+      ],
+      "exception": "It’s a spelling hook — not a calculation method.",
+      "tag": ""
+    },
+    "commute7": {
+      "name": "Integer properties",
+      "phrase": "Flip and regroup still work with negatives for + and ×.",
+      "also": "",
+      "steps": [
+        "Commutative: order can flip for + and ×.",
+        "Associative: regroup + or ×.",
+        "Watch signs when you distribute."
+      ],
+      "exception": "Subtraction isn’t commutative even with KCC — rewrite as adding the opposite first.",
+      "tag": ""
+    },
+    "distrib7": {
+      "name": "Distribute with signs",
+      "phrase": "Give the outside factor — including its sign — to each term inside.",
+      "also": "",
+      "steps": [
+        "Write a(b + c) as ab + ac.",
+        "If outside is negative, every term flips sign.",
+        "Simplify."
+      ],
+      "exception": "−(x − 3) = −x + 3, not −x − 3.",
+      "tag": ""
+    },
+    "wordkeys7": {
+      "name": "Integer word clues",
+      "phrase": "Altogether still adds; left still subtracts — now signs can be negative.",
+      "also": "",
+      "steps": [
+        "Translate keywords to operations.",
+        "Attach signs from the story (debt, below, loss).",
+        "Compute with integer rules."
+      ],
+      "exception": "“More than” on a number line can mean move positive even if you started negative.",
+      "tag": ""
+    },
+    "estimate7": {
+      "name": "Estimate percents",
+      "phrase": "Round the amount, use a friendly percent, then adjust.",
+      "also": "",
+      "steps": [
+        "Round the base number.",
+        "Take 10% or 50% as a hook.",
+        "Scale up to the percent you need."
+      ],
+      "exception": "Estimates for tips/tax are fine; bank interest needs exact.",
+      "tag": ""
+    },
+    "absval": {
+      "name": "Absolute value",
+      "phrase": "Absolute value is distance from zero — always positive (or zero).",
+      "also": "",
+      "steps": [
+        "Find how far the number is from 0.",
+        "Drop the sign.",
+        "Write |n| for that distance."
+      ],
+      "exception": "|−3| = 3, but that doesn’t make −3 positive in every equation — context matters.",
+      "tag": ""
+    },
+    "unitrate7": {
+      "name": "Unit rate",
+      "phrase": "Find the rate for one, and then you’re done.",
+      "also": "",
+      "steps": [
+        "Divide total by the count.",
+        "Label “per one.”",
+        "Multiply the unit rate for more."
+      ],
+      "exception": "Keep units matched: miles per hour, not miles per minute mixed in.",
+      "tag": ""
+    },
+    "cross7": {
+      "name": "Cross multiply solve",
+      "phrase": "Butterfly: cross multiply, then divide to free x.",
+      "also": "",
+      "steps": [
+        "Set up equal ratios.",
+        "Cross multiply.",
+        "Divide by the coefficient of x."
+      ],
+      "exception": "Only when two ratios are equal — not for adding fractions.",
+      "tag": ""
+    },
+    "scale7": {
+      "name": "Scale factor",
+      "phrase": "New = old × scale. Scale >1 grows; between 0 and 1 shrinks.",
+      "also": "",
+      "steps": [
+        "Identify the scale factor k.",
+        "Multiply every length by k.",
+        "Areas scale by k² (careful!)."
+      ],
+      "exception": "A scale of 2 doubles lengths, but area becomes ×4.",
+      "tag": ""
+    },
+    "opposites7": {
+      "name": "Additive inverses",
+      "phrase": "A number plus its opposite makes zero.",
+      "also": "",
+      "steps": [
+        "Find the opposite (flip the sign).",
+        "Add them.",
+        "Sum is 0."
+      ],
+      "exception": "Opposite of 0 is 0. Opposite is not the same as reciprocal.",
+      "tag": ""
+    },
+    "taxest7": {
+      "name": "Mental tax & tip",
+      "phrase": "10% hop the decimal; 20% is double that; 15% is 10% + half of 10%.",
+      "also": "",
+      "steps": [
+        "Find 10% by moving the decimal one left.",
+        "Build 5%, 15%, 20% from that.",
+        "Add to the bill for tip/tax."
+      ],
+      "exception": "Exact tax rates may be 6.25% — estimate first, then calculate exactly if needed.",
+      "tag": ""
+    },
+    "orderint7": {
+      "name": "Order with negatives",
+      "phrase": "On the number line, left is smaller — even if the digits look bigger.",
+      "also": "",
+      "steps": [
+        "Picture the number line.",
+        "More left = smaller.",
+        "−10 is less than −2."
+      ],
+      "exception": "|−10| > |−2|, but −10 < −2.",
+      "tag": ""
+    },
+    "convert7": {
+      "name": "Fraction–decimal–percent",
+      "phrase": "Percent is hundredths; hop the decimal two places.",
+      "also": "",
+      "steps": [
+        "Fraction → divide top by bottom.",
+        "Decimal → percent: ×100 (hop 2).",
+        "Percent → decimal: ÷100."
+      ],
+      "exception": "1/3 is 0.333… repeating — percent ≈ 33.3%, not a tidy terminating decimal.",
+      "tag": ""
+    },
+    "mental7": {
+      "name": "Mental integer chains",
+      "phrase": "Do easy jumps on the number line: +10, −10, then the leftovers.",
+      "also": "",
+      "steps": [
+        "Chunk the second number into friendly jumps.",
+        "Move on the number line.",
+        "Land on the answer."
+      ],
+      "exception": "Don’t reverse a jump direction when signs get messy — rewrite with KCC first if subtracting.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Integers",
+      "rows": [
+        [
+          "× / ÷ signs",
+          "Friends (+): positive; strangers (−): negative"
+        ],
+        [
+          "Add integers",
+          "Same signs: add & keep; different: subtract, keep bigger sign"
+        ],
+        [
+          "Subtract (KCC)",
+          "Keep, Change, Change"
+        ],
+        [
+          "Integer ÷",
+          "Same sign rules as multiply"
+        ],
+        [
+          "Solve equations",
+          "Do the opposite to both sides"
+        ],
+        [
+          "Absolute value",
+          "|−5| = 5 — distance from zero"
+        ],
+        [
+          "Order with negatives",
+          "Farther left on the number line is smaller"
+        ]
+      ]
+    },
+    {
+      "title": "Percent & money",
+      "rows": [
+        [
+          "Percent of",
+          "Hop decimal two places, then multiply"
+        ],
+        [
+          "% change",
+          "(new − old) ÷ old × 100"
+        ],
+        [
+          "Sale / discount",
+          "Take the percent off the price"
+        ],
+        [
+          "Tax / tip",
+          "Add the percent on top"
+        ],
+        [
+          "I = PRT",
+          "Simple interest only: P × rate × time (rate as decimal)"
+        ],
+        [
+          "Unit rate",
+          "Divide to price per one item"
+        ]
+      ]
+    },
+    {
+      "title": "Chance & circle",
+      "rows": [
+        [
+          "Probability",
+          "What you want ÷ all you’ve got"
+        ],
+        [
+          "Proportions",
+          "Cross multiply (butterfly)"
+        ],
+        [
+          "Scale drawing",
+          "Map distance × scale = real distance"
+        ],
+        [
+          "Cherry pie",
+          "C = πd"
+        ],
+        [
+          "Apple pies",
+          "A = πr²"
+        ]
+      ]
+    },
+    {
+      "title": "Distance & shortcuts",
+      "rows": [
+        [
+          "D = rt",
+          "Distance = rate × time; cover the letter you need"
+        ],
+        [
+          "Speed triangle",
+          "Rate = distance ÷ time; match units"
+        ],
+        [
+          "King Henry",
+          "Kilo→milli ladder; “By” = base; hop decimal"
+        ],
+        [
+          "Distributive",
+          "a(b + c) = ab + ac across negatives too"
+        ],
+        [
+          "Mental +/-",
+          "Compensation: 199 + 57 ≈ 200 + 56"
+        ],
+        [
+          "Opposite signs",
+          "−(−3) = +3; opposites sum to 0"
+        ]
+      ]
+    }
+  ]
+}

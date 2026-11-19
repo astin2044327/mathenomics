@@ -1,0 +1,268 @@
+{
+  "grade": "Grados 11–12",
+  "title": "Trigonometría avanzada",
+  "blurb": "Radianes, cualquier ángulo, reglas del seno y coseno, ángulos compuestos y ecuaciones trigonométricas.",
+  "lessons": {
+    "rad": {
+      "name": "Radianes y longitud de arco",
+      "phrase": "π es 180°. A radianes: × π/180. A grados: × 180/π.",
+      "also": "Arco = radio × ángulo: s = rθ, con θ en radianes.",
+      "steps": [
+        "Recuerda un dato: π radianes = 180°.",
+        "Grados a radianes: multiplica por π/180. 60° = 60π/180 = π/3.",
+        "Radianes a grados: cambia π por 180°. 3π/4 = 3 × 180° ÷ 4 = 135°.",
+        "Longitud de arco s = rθ y área de sector = ½r²θ, con θ en radianes."
+      ],
+      "exception": "s = rθ solo funciona con θ en radianes. Revisa el modo de la calculadora: sin 30 en modo radianes no es 1/2. Un radián es unos 57,3°, no 1°.",
+      "tag": ""
+    },
+    "allied": {
+      "name": "Ángulos aliados",
+      "phrase": "Un múltiplo impar de 90° intercambia sin ↔ cos. ASTC decide el signo.",
+      "also": "180° y 360° conservan el nombre. 90° y 270° lo cambian.",
+      "steps": [
+        "Escribe el ángulo como 90°, 180°, 270° o 360° más o menos θ.",
+        "180° o 360° (múltiplos pares de 90°): conserva el nombre.",
+        "90° o 270° (múltiplos impares): intercambia sin ↔ cos y tan ↔ cot.",
+        "Imagina θ pequeño para ver en qué cuadrante caes.",
+        "ASTC da el signo de la función original en ese cuadrante."
+      ],
+      "exception": "El signo viene de la función original en el cuadrante nuevo, no del nombre nuevo. cos(90° + θ) = −sin θ porque cos es negativo en el II. Además, sin(−θ) = −sin θ pero cos(−θ) = cos θ.",
+      "tag": ""
+    },
+    "sine": {
+      "name": "Regla del seno",
+      "phrase": "Cada lado entre el seno del ángulo que enfrenta: a/sin A = b/sin B = c/sin C.",
+      "also": "La letra minúscula enfrenta a la mayúscula.",
+      "steps": [
+        "Etiqueta: el lado a enfrenta al ángulo A, b a B, c a C.",
+        "Úsala cuando conoces un lado y el ángulo que enfrenta, más otro lado o ángulo.",
+        "Escribe las dos fracciones que necesitas y haz la proporción.",
+        "Para un ángulo: sin B = b sin A ÷ a. Luego comprueba si 180° − B también encaja."
+      ],
+      "exception": "El caso ambiguo: con dos lados y un ángulo que no está entre ellos (SSA), sin B da dos ángulos, B y 180° − B. Ambos valen si los ángulos siguen sumando menos de 180°. Si conoces dos lados y el ángulo entre ellos, usa la regla del coseno.",
+      "tag": ""
+    },
+    "cosine": {
+      "name": "Regla del coseno",
+      "phrase": "Pitágoras con corrección: a² = b² + c² − 2bc cos A.",
+      "also": "Para un ángulo, al revés: cos A = (b² + c² − a²) ÷ 2bc.",
+      "steps": [
+        "Úsala con dos lados y el ángulo entre ellos (para hallar el tercer lado).",
+        "O con tres lados (para hallar un ángulo).",
+        "Lado: a² = b² + c² − 2bc cos A, luego saca la raíz.",
+        "Ángulo: cos A = (b² + c² − a²) ÷ 2bc, luego cos⁻¹."
+      ],
+      "exception": "A debe ser el ángulo entre b y c. Si A es obtuso, cos A es negativo y a crece. Con A = 90°, la corrección es 0 y es Pitágoras puro. Calcula 2bc cos A antes de restar.",
+      "tag": ""
+    },
+    "area": {
+      "name": "Área con seno",
+      "phrase": "La mitad de dos lados por el seno del ángulo entre ellos.",
+      "also": "Área = ½ab sin C. En un paralelogramo, quita la mitad.",
+      "steps": [
+        "Elige dos lados que se encuentren en un ángulo conocido.",
+        "Multiplica los dos lados.",
+        "Multiplica por el seno del ángulo entre ellos.",
+        "Divide entre dos."
+      ],
+      "exception": "El ángulo debe estar entre los dos lados que usas. Un ángulo obtuso vale: sin 150° = sin 30° = 1/2. Usa sin, no cos.",
+      "tag": ""
+    },
+    "compound": {
+      "name": "Ángulos compuestos",
+      "phrase": "sin cos cos sin, el signo se queda. cos cos sin sin, el signo cambia.",
+      "also": "tan(A + B) = (tan A + tan B) ÷ (1 − tan A tan B).",
+      "steps": [
+        "sin(A ± B) = sin A cos B ± cos A sin B.",
+        "cos(A ± B) = cos A cos B ∓ sin A sin B.",
+        "tan(A ± B) = (tan A ± tan B) ÷ (1 ∓ tan A tan B).",
+        "Parte un ángulo incómodo en ángulos de tabla: 75° = 45° + 30°, 15° = 45° − 30°."
+      ],
+      "exception": "sin(A + B) no es sin A + sin B: sin 90° es 1, pero sin 60° + sin 30° es unos 1,37. En cos el signo se invierte: cos(A + B) lleva menos.",
+      "tag": ""
+    },
+    "double": {
+      "name": "Ángulos dobles",
+      "phrase": "Doble el ángulo: sin 2A = 2 sin A cos A.",
+      "also": "cos 2A tiene tres formas: cos²A − sin²A, 2cos²A − 1 y 1 − 2sin²A.",
+      "steps": [
+        "Pon B = A en las fórmulas compuestas.",
+        "sin 2A = 2 sin A cos A.",
+        "cos 2A = cos²A − sin²A = 2cos²A − 1 = 1 − 2sin²A.",
+        "tan 2A = 2 tan A ÷ (1 − tan²A)."
+      ],
+      "exception": "sin 2A no es 2 sin A: sin 60° es √3/2, pero 2 sin 30° es 1. Elige la forma de cos 2A que encaje con lo que tienes: si solo tienes sin, usa 1 − 2sin²A.",
+      "tag": ""
+    },
+    "equations": {
+      "name": "Resolver ecuaciones trig",
+      "phrase": "Hallar el ángulo de referencia; luego ASTC lo coloca.",
+      "also": "I: θ. II: 180° − θ. III: 180° + θ. IV: 360° − θ.",
+      "steps": [
+        "Deja la razón sola, como sin θ = −1/2.",
+        "Hallar el ángulo de referencia en la tabla, sin el signo: 30°.",
+        "Usa ASTC para elegir cuadrantes con ese signo: sin negativo en III y IV.",
+        "Colócalo: 180° + 30° = 210°, y 360° − 30° = 330°."
+      ],
+      "exception": "No te quedes con la única respuesta de la calculadora; la mayoría tienen dos entre 0° y 360°. sin θ = 2 no tiene solución, porque sin y cos están entre −1 y 1. Nunca dividas ambos lados entre sin θ o cos θ; pierdes soluciones donde valen 0. Factoriza.",
+      "tag": ""
+    },
+    "prove": {
+      "name": "Demostrar identidades",
+      "phrase": "Trabaja el lado más feo; convierte todo a sin y cos.",
+      "also": "Nunca cruces el =: reescribe un lado hasta que parezca el otro.",
+      "steps": [
+        "Elige el lado más enredado.",
+        "Reescribe tan, cot, sec y cosec en sin y cos.",
+        "Junta fracciones con un mismo denominador.",
+        "Usa sin² + cos² = 1 para simplificar.",
+        "Para cuando coincida con el otro lado."
+      ],
+      "exception": "No pases términos al otro lado del = ni hagas lo mismo en ambos lados; eso supone lo que quieres probar. Comprobar un ángulo no es demostración, pero un ángulo que falla sí refuta.",
+      "tag": ""
+    },
+    "inverse": {
+      "name": "Trig inversa",
+      "phrase": "sin⁻¹ pregunta: ¿qué ángulo tiene este seno?",
+      "also": "Rangos principales: sin⁻¹ y tan⁻¹ dan −90° a 90°. cos⁻¹ da 0° a 180°.",
+      "steps": [
+        "Lee sin⁻¹ x como «el ángulo cuyo seno es x».",
+        "Hallar el ángulo de referencia en la tabla.",
+        "Da la respuesta en el rango principal.",
+        "sin⁻¹ y tan⁻¹: entradas negativas dan ángulos negativos. cos⁻¹: entradas negativas dan de 90° a 180°."
+      ],
+      "exception": "sin⁻¹x no es 1 ÷ sin x; eso es cosec x. sin⁻¹ 2 no existe, porque el seno no pasa de 1. cos⁻¹(−1/2) es 120°, no −60°: cos⁻¹ vive en 0° a 180°.",
+      "tag": ""
+    },
+    "sohadv": {
+      "name": "SOHCAHTOA sigue mandando",
+      "phrase": "Incluso en trig avanzada, un triángulo rectángulo habla SOH CAH TOA.",
+      "also": "",
+      "steps": [
+        "Baja una perpendicular si hace falta.",
+        "Etiqueta opp/adj/hyp para el ángulo agudo.",
+        "Lee la razón principal."
+      ],
+      "exception": "Triángulos oblicuos necesitan reglas del seno/coseno — no solo SOHCAHTOA.",
+      "tag": ""
+    },
+    "astc2": {
+      "name": "ASTC para ángulos aliados",
+      "phrase": "All Students Take Calculus — fija el signo tras la reducción aliada.",
+      "also": "",
+      "steps": [
+        "Reduce a un ángulo agudo relacionado.",
+        "Pregunta en qué cuadrante está el ángulo original.",
+        "Aplica ASTC para el signo."
+      ],
+      "exception": "Múltiplos impares de 90° pueden intercambiar sin ↔ cos — haz el cambio antes del signo.",
+      "tag": ""
+    },
+    "wordkeys2": {
+      "name": "Palabras del caso ambiguo",
+      "phrase": "SSA es el caso ambiguo — dos triángulos, uno o ninguno.",
+      "also": "",
+      "steps": [
+        "Detecta dos lados y un ángulo no incluido.",
+        "Calcula la altura a sin A.",
+        "Compara el lado opuesto con esa altura y con a."
+      ],
+      "exception": "Si el ángulo A es obtuso, la historia de «dos triángulos» cambia — comprueba con cuidado.",
+      "tag": ""
+    },
+    "compound2": {
+      "name": "Memoria de signos compuestos",
+      "phrase": "sin cos cos sin, el signo se queda. cos cos sin sin, el signo cambia.",
+      "also": "",
+      "steps": [
+        "Para sin(A±B): sin A cos B ± cos A sin B (signo se queda).",
+        "Para cos(A±B): cos A cos B ∓ sin A sin B (signo cambia).",
+        "Escribe con cuidado."
+      ],
+      "exception": "Las fórmulas de tan compuestas son distintas — no fuerces este canto en tan.",
+      "tag": ""
+    },
+    "double2": {
+      "name": "Paquete ángulo doble",
+      "phrase": "sin 2A = 2 sin A cos A. cos 2A tiene tres disfraces.",
+      "also": "",
+      "steps": [
+        "Seno doble: 2 sin cos.",
+        "Coseno doble: cos²−sin², o 2cos²−1, o 1−2sin².",
+        "Elige el disfraz que encaje con lo que sabes."
+      ],
+      "exception": "sin 2A no es sin² A.",
+      "tag": ""
+    },
+    "arith2": {
+      "name": "Aritmética con valores exactos",
+      "phrase": "Construye ángulos mayores desde 30°, 45°, 60° con fórmulas compuestas.",
+      "also": "",
+      "steps": [
+        "Escribe el ángulo como suma/resta de estándares.",
+        "Aplica fórmulas compuestas.",
+        "Simplifica valores exactos."
+      ],
+      "exception": "75° = 45°+30° vale; no inventes un estándar para 20°.",
+      "tag": ""
+    },
+    "estimate2": {
+      "name": "Acotar respuestas trig",
+      "phrase": "Seno y coseno viven entre −1 y 1 — rechaza imposibles de la calculadora.",
+      "also": "",
+      "steps": [
+        "Resuelve la ecuación.",
+        "Comprueba que cada candidato está en rango.",
+        "Usa ASTC para situar ángulos."
+      ],
+      "exception": "tan puede ser cualquier real — el límite −1…1 es solo para sin/cos (y dominios de sus recíprocas).",
+      "tag": ""
+    },
+    "mental2": {
+      "name": "Radianes mentales",
+      "phrase": "π es 180°. La mitad es 90°, un tercio 60°, un cuarto 45°.",
+      "also": "",
+      "steps": [
+        "Memoriza π ↔ 180°.",
+        "Divide π para tener los amigos habituales.",
+        "Convierte con ×180/π o ×π/180."
+      ],
+      "exception": "2π es un giro completo (360°), no 180°.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Radianes y cualquier ángulo",
+      "rows": [
+        ["π = 180°", "A rad ×π/180; a grad ×180/π"],
+        ["Longitud de arco", "s = rθ (θ en radianes)"],
+        ["Ángulos aliados", "Impar×90° intercambia sin↔cos; ASTC para signo"],
+        ["Resolver ecuación trig", "Ángulo de referencia, luego ASTC"],
+        ["Trig inversa", "sin⁻¹x responde un ángulo, no una razón"]
+      ]
+    },
+    {
+      "title": "Fórmulas del triángulo",
+      "rows": [
+        ["Regla del seno", "a/sin A = b/sin B = c/sin C"],
+        ["Regla del coseno", "a² = b² + c² − 2bc cos A"],
+        ["Área", "½ab sin C"],
+        ["Alturas", "Elevación arriba, depresión abajo desde la horizontal"],
+        ["SOH CAH TOA", "Solo △ recto — oblicuo → reglas seno/coseno"]
+      ]
+    },
+    {
+      "title": "Identidades y compuestos",
+      "rows": [
+        ["Pitagórica", "sin²+cos²=1; 1+tan²=sec²; 1+cot²=cosec²"],
+        ["Complemento", "sin(90°−θ)=cos θ («co» = complemento)"],
+        ["sin(A±B)", "sin cos cos sin — signo se queda"],
+        ["cos(A±B)", "cos cos sin sin — signo cambia"],
+        ["sin 2A", "2 sin A cos A"],
+        ["Probar identidad", "Lado feo → todo sin y cos"]
+      ]
+    }
+  ]
+}

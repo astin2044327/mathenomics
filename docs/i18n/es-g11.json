@@ -1,0 +1,299 @@
+{
+  "grade": "Grados 11–12",
+  "title": "Introducción al cálculo",
+  "blurb": "Derivadas e integrales, cada una con su movimiento de una línea.",
+  "lessons": {
+    "power": {
+      "name": "Regla de la potencia",
+      "phrase": "Baja la potencia al frente; después quítale uno a la potencia.",
+      "also": "",
+      "steps": [
+        "Multiplica por la potencia.",
+        "Baja la potencia en 1.",
+        "Una constante sola se vuelve 0."
+      ],
+      "exception": "Productos necesitan la regla del producto. Paréntesis dentro de paréntesis, la regla de la cadena. La derivada de 7 es 0, no 7.",
+      "tag": ""
+    },
+    "product": {
+      "name": "Regla del producto",
+      "phrase": "Primero por derivada del segundo más segundo por derivada del primero.",
+      "also": "d(uv) = u v′ + v u′.",
+      "steps": [
+        "Nombra los dos factores: primero u, segundo v.",
+        "Conserva el primero, por la derivada del segundo: u v′.",
+        "Suma el segundo por la derivada del primero: v u′.",
+        "Ordena."
+      ],
+      "exception": "La derivada de un producto no es el producto de derivadas: d/dx (x · x) es 2x, no 1. Si un factor es solo un número, déjalo al frente; no hace falta regla del producto.",
+      "tag": ""
+    },
+    "chain": {
+      "name": "Regla de la cadena",
+      "phrase": "Derivada de afuera, conserva adentro, por derivada de adentro.",
+      "also": "dy/dx = dy/du × du/dx.",
+      "steps": [
+        "Detecta adentro (el paréntesis) y afuera (lo que se le hace).",
+        "Deriva afuera dejando adentro intacto.",
+        "Multiplica por la derivada de adentro."
+      ],
+      "exception": "No olvides el último «por»: d/dx (3x + 1)⁵ es 15(3x + 1)⁴, no 5(3x + 1)⁴. Conserva adentro sin cambiar dentro de la derivada de afuera.",
+      "tag": ""
+    },
+    "trigdiff": {
+      "name": "Derivadas de sin y cos",
+      "phrase": "sin → cos → −sin → −cos → sin: cada derivada avanza un paso en el ciclo.",
+      "also": "Cuatro pasos y vuelves al inicio.",
+      "steps": [
+        "Escribe el ciclo: sin x, cos x, −sin x, −cos x.",
+        "Cada derivada avanza un paso a la derecha.",
+        "Tras −cos x, vuelve a sin x.",
+        "Los números al frente solo se arrastran."
+      ],
+      "exception": "Solo en radianes. En grados aparece un π/180 extra. Cuidado el signo: d/dx cos x es −sin x, no sin x.",
+      "tag": ""
+    },
+    "quotient": {
+      "name": "Regla del cociente",
+      "phrase": "Abajo por derivada de arriba menos arriba por derivada de abajo, sobre abajo al cuadrado.",
+      "also": "",
+      "steps": [
+        "Abajo = denominador, arriba = numerador, d = derivada de.",
+        "Abajo × d(arriba) menos arriba × d(abajo).",
+        "Divide entre abajo al cuadrado."
+      ],
+      "exception": "El orden importa por el menos: arriba d(abajo) primero da el signo mal. Si abajo es constante, solo divide; no hace falta cociente.",
+      "tag": ""
+    },
+    "integral": {
+      "name": "Integrar potencias",
+      "phrase": "Sube la potencia uno, divide por la nueva potencia y suma C.",
+      "also": "",
+      "steps": [
+        "Suma 1 a la potencia.",
+        "Divide por esa nueva potencia.",
+        "Suma + C por la constante que falta."
+      ],
+      "exception": "La regla falla en x⁻¹ porque dividirías entre 0. ∫ 1/x dx = ln|x| + C.",
+      "tag": ""
+    },
+    "logdef": {
+      "name": "Qué significa un log",
+      "phrase": "log pregunta: ¿a qué potencia?",
+      "also": "log₂ 8 = 3 significa 2³ = 8. La base sigue siendo la base.",
+      "steps": [
+        "Lee log₂ 8 como «¿2 elevado a qué da 8?»",
+        "Escríbelo como potencia: 2^? = 8.",
+        "2³ = 8, así log₂ 8 = 3.",
+        "log sin base significa base 10."
+      ],
+      "exception": "Solo puedes tomar log de un número positivo: log₂ 0 y log₂(−4) no existen. Para toda base, log 1 = 0 y log de la base misma es 1.",
+      "tag": ""
+    },
+    "loglaws": {
+      "name": "Leyes de logaritmos",
+      "phrase": "Multiplicar → sumar, dividir → restar, potencia → al frente.",
+      "also": "",
+      "steps": [
+        "log(mn) = log m + log n.",
+        "log(m ÷ n) = log m − log n.",
+        "log(mᵏ) = k log m.",
+        "Úsalas al revés para juntar varios logs en uno."
+      ],
+      "exception": "No hay regla para log(m + n): no es log m + log n. log m ÷ log n no es log(m ÷ n). Todos los log deben tener la misma base.",
+      "tag": ""
+    },
+    "liate-parts": {
+      "name": "Integración por partes (LIATE)",
+      "phrase": "LIATE: prefiere u de Logarítmico, Trig inversa, Algebráico, Trig, Exponencial (el más a la izquierda gana).",
+      "also": "",
+      "steps": [
+        "Elige u con LIATE (con flexibilidad).",
+        "dv es el resto del integrando.",
+        "Aplica ∫u dv = uv − ∫v du."
+      ],
+      "exception": "Heurística, no teorema — algunas integrales piden la elección opuesta o métodos cíclicos.",
+      "tag": ""
+    },
+    "u-sub-chain-reverse": {
+      "name": "Sustitución u",
+      "phrase": "Si ves f(g(x))·g'(x), pon u = g(x) (deshaz la regla de la cadena).",
+      "also": "",
+      "steps": [
+        "Define u = la función interior.",
+        "Escribe du = u' dx.",
+        "Reescribe la integral en u.",
+        "Integra.",
+        "Sustituye de vuelta, o cambia límites en integrales definidas."
+      ],
+      "exception": "Cuidado factores constantes. En definidas, cambia límites a valores de u (o sustituye de vuelta).",
+      "tag": ""
+    },
+    "wordkeys11": {
+      "name": "Pistas de palabras de razón",
+      "phrase": "Razón, pendiente, marginal, instantánea — esas palabras apuntan a una derivada.",
+      "also": "",
+      "steps": [
+        "Detecta lenguaje de tasa de cambio.",
+        "Deriva el modelo.",
+        "Sustituye el instante pedido."
+      ],
+      "exception": "Razón media es Δy/Δx — no la derivada salvo que la ventana tienda a un instante.",
+      "tag": ""
+    },
+    "estimate11": {
+      "name": "Estimación lineal",
+      "phrase": "Cerca de un punto: Δy ≈ y′ · Δx — la subida de la tangente.",
+      "also": "",
+      "steps": [
+        "Hallar y′ en el punto conocido.",
+        "Multiplica por el Δx pequeño.",
+        "Súmalo al y conocido."
+      ],
+      "exception": "Lejos del punto la tangente se desvía — usa un modelo mejor.",
+      "tag": ""
+    },
+    "powerarith": {
+      "name": "Aritmética regla de potencia",
+      "phrase": "Baja la potencia al frente, luego resta uno a la potencia.",
+      "also": "",
+      "steps": [
+        "Para axⁿ, la derivada es a·n·xⁿ⁻¹.",
+        "Multiplica el coeficiente por la potencia vieja.",
+        "Reduce la potencia en 1."
+      ],
+      "exception": "Derivada de una constante es 0, no la constante.",
+      "tag": ""
+    },
+    "commute11": {
+      "name": "Regla de la suma",
+      "phrase": "La derivada de una suma es la suma de derivadas — término a término.",
+      "also": "",
+      "steps": [
+        "Separa la expresión en términos.",
+        "Deriva cada término.",
+        "Suma los resultados."
+      ],
+      "exception": "Productos necesitan regla del producto — no termine a termine un producto.",
+      "tag": ""
+    },
+    "distrib11": {
+      "name": "Regla del múltiplo constante",
+      "phrase": "Las constantes salen de las derivadas: (c·f)′ = c·f′.",
+      "also": "",
+      "steps": [
+        "Saca la constante.",
+        "Deriva lo que queda.",
+        "Multiplica de nuevo por la constante."
+      ],
+      "exception": "La constante no debe depender de x.",
+      "tag": ""
+    },
+    "intarith": {
+      "name": "Aritmética integral de potencias",
+      "phrase": "Sube la potencia uno, divide por la nueva — más C.",
+      "also": "",
+      "steps": [
+        "Suma 1 al exponente.",
+        "Divide por ese nuevo exponente.",
+        "Suma + C en integrales indefinidas."
+      ],
+      "exception": "∫x⁻¹ dx es ln|x| + C, no x⁰/0.",
+      "tag": ""
+    },
+    "mental11": {
+      "name": "Derivadas mentales",
+      "phrase": "sin → cos → −sin → −cos → sin: da un paso en el ciclo.",
+      "also": "",
+      "steps": [
+        "Conoce el ciclo de cuatro pasos para sin/cos.",
+        "Aparece menos al salir de cos hacia −sin.",
+        "La regla de la cadena multiplica una derivada interior extra."
+      ],
+      "exception": "d/dx[cos x] = −sin x — no pierdas el menos.",
+      "tag": ""
+    },
+    "logarith": {
+      "name": "Aritmética de log",
+      "phrase": "log pregunta: ¿a qué potencia? Multiplicar → sumar, dividir → restar, potencia → al frente.",
+      "also": "",
+      "steps": [
+        "Reescribe la pregunta del log como exponencial.",
+        "Aplica leyes de log para expandir o condensar.",
+        "Resuelve la incógnita."
+      ],
+      "exception": "log(a + b) no es log a + log b.",
+      "tag": ""
+    },
+    "ftc-inverses": {
+      "name": "Teorema fundamental",
+      "phrase": "Derivación e integración se deshacen (Teorema Fundamental).",
+      "also": "",
+      "steps": [
+        "Reconoce una antiderivada F de f.",
+        "En una integral definida, calcula F(b) − F(a).",
+        "Lee el resultado como cambio neto cuando f es una razón."
+      ],
+      "exception": "Necesita hipótesis de continuidad. +C en indefinidas. √(x²)=|x|. Los límites importan en definidas.",
+      "tag": ""
+    },
+    "pvalue-row-boat": {
+      "name": "Qué es un p-valor",
+      "phrase": "Un p-valor es la probabilidad, asumiendo H₀ cierta, de datos al menos tan extremos.",
+      "also": "",
+      "steps": [
+        "Enuncia H₀ con claridad.",
+        "Calcula el estadístico de prueba con los datos.",
+        "Hallar la probabilidad de cola bajo H₀.",
+        "Interpreta con cautela — p pequeño significa sorprendente bajo H₀, no «H₀ falsa con probabilidad p»."
+      ],
+      "exception": "p no es P(H₀ verdadera). p pequeño sugiere incompatibilidad con H₀ bajo el modelo — no prueba. Evita p-hacking.",
+      "tag": ""
+    },
+    "boxplot-iqr-leash": {
+      "name": "Bigotes del diagrama de caja (1,5 IQR)",
+      "phrase": "Los bigotes llegan al punto más lejano dentro de 1,5 × IQR de los cuartiles; más allá son atípicos.",
+      "also": "",
+      "steps": [
+        "Hallar Q1, Q3 e IQR = Q3 − Q1.",
+        "Vallas en Q1 − 1,5·IQR y Q3 + 1,5·IQR.",
+        "Bigotes hasta el dato más lejano aún dentro de las vallas; más allá, atípicos."
+      ],
+      "exception": "Algunos programas/currículos usan otras vallas (o min/max). Revisa la convención.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Derivadas",
+      "rows": [
+        ["Regla de potencia", "Baja la potencia; quita uno a la potencia"],
+        ["Regla del producto", "Primero d-segundo + segundo d-primero"],
+        ["Regla del cociente", "Abajo d-arriba − arriba d-abajo, sobre abajo²"],
+        ["Regla de la cadena", "Afuera′(adentro) × adentro′"],
+        ["Derivada trig", "sin → cos → −sin → −cos → sin"],
+        ["ln y e", "d/dx ln x = 1/x; d/dx eˣ = eˣ"]
+      ]
+    },
+    {
+      "title": "Integrales y logs",
+      "rows": [
+        ["∫ potencia", "Sube potencia 1, ÷ nueva potencia, + C"],
+        ["∫ 1/x", "ln|x| + C (no regla de potencia)"],
+        ["LIATE", "Elige u: Log, Trig inv., Alg., Trig, Exp"],
+        ["u-sub", "Regla de cadena al revés; cambia du"],
+        ["Definición log", "log_b x = y ↔ bʸ = x"],
+        ["Leyes log", "× → sumar; ÷ → restar; potencia → frente"]
+      ]
+    },
+    {
+      "title": "TFC y datos",
+      "rows": [
+        ["TFC", "∫ₐᵇ f′(x) dx = f(b) − f(a)"],
+        ["Valor medio", "Área ÷ ancho"],
+        ["IQR caja", "Q3 − Q1; atípicos más allá de 1,5×IQR"],
+        ["p-valor", "Prob., si H₀ fuera cierta, de datos tan extremos (pequeño → sorprende)"]
+      ]
+    }
+  ]
+}

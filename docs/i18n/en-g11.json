@@ -1,0 +1,347 @@
+{
+  "grade": "Grades 11–12",
+  "title": "Calculus starters",
+  "blurb": "Derivatives and integrals, each with its one-line move.",
+  "lessons": {
+    "power": {
+      "name": "Power rule",
+      "phrase": "Bring the power down in front, then take one off the power.",
+      "also": "",
+      "steps": [
+        "Multiply by the power.",
+        "Lower the power by 1.",
+        "A constant on its own becomes 0."
+      ],
+      "exception": "Products need the product rule. Brackets inside brackets need the chain rule. The derivative of 7 is 0, not 7.",
+      "tag": ""
+    },
+    "product": {
+      "name": "Product rule",
+      "phrase": "First d-second plus second d-first.",
+      "also": "d(uv) = u v′ + v u′.",
+      "steps": [
+        "Name the two factors: first u, second v.",
+        "Keep the first, times the derivative of the second: u v′.",
+        "Add the second times the derivative of the first: v u′.",
+        "Tidy up."
+      ],
+      "exception": "The derivative of a product is not the product of the derivatives: d/dx (x · x) is 2x, not 1. If one factor is just a number, keep it in front; no product rule needed.",
+      "tag": ""
+    },
+    "chain": {
+      "name": "Chain rule",
+      "phrase": "Derivative of the outside, keep the inside, times derivative of the inside.",
+      "also": "dy/dx = dy/du × du/dx.",
+      "steps": [
+        "Spot the inside (the bracket) and the outside (what is done to it).",
+        "Differentiate the outside, leaving the inside alone.",
+        "Multiply by the derivative of the inside."
+      ],
+      "exception": "Don’t forget the last “times”: d/dx (3x + 1)⁵ is 15(3x + 1)⁴, not 5(3x + 1)⁴. Keep the inside unchanged inside the outside’s derivative.",
+      "tag": ""
+    },
+    "trigdiff": {
+      "name": "Derivatives of sin and cos",
+      "phrase": "sin → cos → −sin → −cos → sin: each derivative is one step round the cycle.",
+      "also": "Four steps bring you back to the start.",
+      "steps": [
+        "Write the cycle: sin x, cos x, −sin x, −cos x.",
+        "Each derivative moves one step to the right.",
+        "After −cos x, go back to sin x.",
+        "Numbers in front just come along."
+      ],
+      "exception": "Only in radians. In degrees, an extra π/180 appears. Watch the sign: d/dx cos x is −sin x, not sin x.",
+      "tag": ""
+    },
+    "quotient": {
+      "name": "Quotient rule",
+      "phrase": "Low d-high minus high d-low, over the low squared.",
+      "also": "",
+      "steps": [
+        "Low = bottom, high = top, d = derivative of.",
+        "Low × d(high) minus high × d(low).",
+        "Divide by the bottom squared."
+      ],
+      "exception": "Order matters because of the minus: high d-low first gives the wrong sign. If the bottom is a constant, just divide; no quotient rule needed.",
+      "tag": ""
+    },
+    "integral": {
+      "name": "Integrating powers",
+      "phrase": "Raise the power by one, divide by the new power, and add C.",
+      "also": "",
+      "steps": [
+        "Add 1 to the power.",
+        "Divide by that new power.",
+        "Add + C for the missing constant."
+      ],
+      "exception": "The rule breaks at x⁻¹, because you would divide by 0. ∫ 1/x dx = ln|x| + C.",
+      "tag": ""
+    },
+    "logdef": {
+      "name": "What a log means",
+      "phrase": "log asks: what power?",
+      "also": "log₂ 8 = 3 means 2³ = 8. The base stays the base.",
+      "steps": [
+        "Read log₂ 8 as “2 to what power gives 8?”",
+        "Write it as a power: 2^? = 8.",
+        "2³ = 8, so log₂ 8 = 3.",
+        "log with no base means base 10."
+      ],
+      "exception": "You can only take the log of a positive number: log₂ 0 and log₂(−4) do not exist. For every base, log 1 = 0 and the log of the base itself is 1.",
+      "tag": ""
+    },
+    "loglaws": {
+      "name": "Log laws",
+      "phrase": "Multiply → add, divide → subtract, power → front.",
+      "also": "",
+      "steps": [
+        "log(mn) = log m + log n.",
+        "log(m ÷ n) = log m − log n.",
+        "log(mᵏ) = k log m.",
+        "Use them backwards to squash several logs into one."
+      ],
+      "exception": "There is no rule for log(m + n): it is not log m + log n. log m ÷ log n is not log(m ÷ n). Every log must have the same base.",
+      "tag": ""
+    },
+    "liate-parts": {
+      "name": "Integration by parts (LIATE)",
+      "phrase": "LIATE: prefer u from Logarithmic, Inverse trig, Algebraic, Trig, Exponential (earlier wins).",
+      "also": "",
+      "steps": [
+        "Choose u via LIATE (flexibly).",
+        "dv is the rest of the integrand.",
+        "Apply ∫u dv = uv − ∫v du."
+      ],
+      "exception": "Heuristic, not a theorem — some integrals need the opposite choice or cyclic methods.",
+      "tag": ""
+    },
+    "u-sub-chain-reverse": {
+      "name": "u-substitution",
+      "phrase": "If you see f(g(x))·g'(x), let u = g(x) (undo the chain rule).",
+      "also": "",
+      "steps": [
+        "Set u = the inner function.",
+        "Write du = u' dx.",
+        "Rewrite the integral in u.",
+        "Integrate.",
+        "Back-substitute, or convert limits for definite integrals."
+      ],
+      "exception": "Watch constant factors. For definite integrals, change limits to u-values (or substitute back).",
+      "tag": ""
+    },
+    "wordkeys11": {
+      "name": "Rate-word clues",
+      "phrase": "Rate, slope, marginal, instantaneous — those words point to a derivative.",
+      "also": "",
+      "steps": [
+        "Spot rate-of-change language.",
+        "Differentiate the model.",
+        "Plug in the instant asked."
+      ],
+      "exception": "Average rate is Δy/Δx — not the derivative unless the window shrinks to an instant.",
+      "tag": ""
+    },
+    "estimate11": {
+      "name": "Linear estimate",
+      "phrase": "Near a point: Δy ≈ y′ · Δx — the tangent’s rise.",
+      "also": "",
+      "steps": [
+        "Find y′ at the known point.",
+        "Multiply by the small Δx.",
+        "Add to the known y."
+      ],
+      "exception": "Far from the point, the tangent estimate drifts — use a better model.",
+      "tag": ""
+    },
+    "powerarith": {
+      "name": "Power rule arithmetic",
+      "phrase": "Bring the power down, then subtract one from the power.",
+      "also": "",
+      "steps": [
+        "For axⁿ, derivative is a·n·xⁿ⁻¹.",
+        "Multiply the coefficient by the old power.",
+        "Reduce the power by 1."
+      ],
+      "exception": "Derivative of a constant is 0, not the constant.",
+      "tag": ""
+    },
+    "commute11": {
+      "name": "Sum rule",
+      "phrase": "Derivative of a sum is the sum of derivatives — term by term.",
+      "also": "",
+      "steps": [
+        "Split the expression into terms.",
+        "Differentiate each term.",
+        "Add the results."
+      ],
+      "exception": "Products need the product rule — don’t term-by-term a product.",
+      "tag": ""
+    },
+    "distrib11": {
+      "name": "Constant multiple rule",
+      "phrase": "Constants factor out of derivatives: (c·f)′ = c·f′.",
+      "also": "",
+      "steps": [
+        "Pull the constant out.",
+        "Differentiate the leftover function.",
+        "Multiply back by the constant."
+      ],
+      "exception": "The constant must not depend on x.",
+      "tag": ""
+    },
+    "intarith": {
+      "name": "Integral power arithmetic",
+      "phrase": "Raise the power by one, then divide by the new power — plus C.",
+      "also": "",
+      "steps": [
+        "Add 1 to the exponent.",
+        "Divide by that new exponent.",
+        "Add + C for indefinite integrals."
+      ],
+      "exception": "∫x⁻¹ dx is ln|x| + C, not x⁰/0.",
+      "tag": ""
+    },
+    "mental11": {
+      "name": "Mental derivatives",
+      "phrase": "sin → cos → −sin → −cos → sin: walk one step around the cycle.",
+      "also": "",
+      "steps": [
+        "Know the four-step cycle for sin/cos.",
+        "A minus appears when you leave cos toward −sin.",
+        "Chain rule multiplies an extra inside derivative."
+      ],
+      "exception": "d/dx[cos x] = −sin x — don’t drop the minus.",
+      "tag": ""
+    },
+    "logarith": {
+      "name": "Log arithmetics",
+      "phrase": "log asks: what power? Multiply → add, divide → subtract, power → front.",
+      "also": "",
+      "steps": [
+        "Rewrite the log question as an exponential.",
+        "Apply log laws to expand or condense.",
+        "Solve for the unknown."
+      ],
+      "exception": "log(a + b) is not log a + log b.",
+      "tag": ""
+    },
+    "ftc-inverses": {
+      "name": "Fundamental theorem",
+      "phrase": "Differentiation and integration undo each other (Fundamental Theorem).",
+      "also": "",
+      "steps": [
+        "Recognize an antiderivative F of f.",
+        "For a definite integral, compute F(b) − F(a).",
+        "Read the result as net change when f is a rate."
+      ],
+      "exception": "Needs continuity hypotheses. +C for indefinite integrals. √(x²)=|x|. Limits matter for definite integrals.",
+      "tag": ""
+    },
+    "pvalue-row-boat": {
+      "name": "What a p-value is",
+      "phrase": "A p-value is the chance, assuming H₀ is true, of data at least this extreme.",
+      "also": "",
+      "steps": [
+        "State H₀ clearly.",
+        "Compute the test statistic from the data.",
+        "Find the tail probability under H₀.",
+        "Interpret cautiously — small p means surprising under H₀, not “H₀ is false with probability p”."
+      ],
+      "exception": "p is not P(H₀ true). Small p suggests incompatibility with H₀ under the model — not proof. Avoid p-hacking.",
+      "tag": ""
+    },
+    "boxplot-iqr-leash": {
+      "name": "Boxplot whiskers (1.5 IQR)",
+      "phrase": "Boxplot whiskers reach the furthest point within 1.5 × IQR of the quartiles; beyond that are outliers.",
+      "also": "",
+      "steps": [
+        "Find Q1, Q3, and IQR = Q3 − Q1.",
+        "Fences sit at Q1 − 1.5·IQR and Q3 + 1.5·IQR.",
+        "Whiskers stretch to the furthest data points still inside the fences; points beyond are outliers."
+      ],
+      "exception": "Some software/curricula use different fences (or min/max whiskers). Check the convention.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Derivatives",
+      "rows": [
+        [
+          "Power rule",
+          "Bring power down; take one off the power"
+        ],
+        [
+          "Product rule",
+          "First d-second + second d-first"
+        ],
+        [
+          "Quotient rule",
+          "Low d-high − high d-low, over low²"
+        ],
+        [
+          "Chain rule",
+          "Outside′(inside) × inside′"
+        ],
+        [
+          "Trig diff",
+          "sin → cos → −sin → −cos → sin"
+        ],
+        [
+          "ln and e",
+          "d/dx ln x = 1/x; d/dx eˣ = eˣ"
+        ]
+      ]
+    },
+    {
+      "title": "Integrals & logs",
+      "rows": [
+        [
+          "∫ power",
+          "Raise power by 1, ÷ new power, + C"
+        ],
+        [
+          "∫ 1/x",
+          "ln|x| + C (not the power rule)"
+        ],
+        [
+          "LIATE",
+          "Pick u: Log, Inverse trig, Algebraic, Trig, Exp"
+        ],
+        [
+          "u-sub",
+          "Chain rule in reverse; change du"
+        ],
+        [
+          "Log definition",
+          "log_b x = y ↔ bʸ = x"
+        ],
+        [
+          "Log laws",
+          "× → add; ÷ → subtract; power → front"
+        ]
+      ]
+    },
+    {
+      "title": "FTC & data",
+      "rows": [
+        [
+          "FTC",
+          "∫ₐᵇ f′(x) dx = f(b) − f(a)"
+        ],
+        [
+          "Average value",
+          "Area ÷ width"
+        ],
+        [
+          "IQR boxplot",
+          "Q3 − Q1; outliers past 1.5×IQR"
+        ],
+        [
+          "p-value",
+          "Chance, if H₀ were true, of data this extreme (small → surprising)"
+        ]
+      ]
+    }
+  ]
+}

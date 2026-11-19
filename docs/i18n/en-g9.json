@@ -1,0 +1,432 @@
+{
+  "grade": "Grade 9",
+  "title": "Similarity, circles & quadratics",
+  "blurb": "Same shape, circle facts, and the quadratic formula.",
+  "lessons": {
+    "similar": {
+      "name": "Similar triangles",
+      "phrase": "Same angles, same shape. Every side grows by the same scale.",
+      "also": "",
+      "steps": [
+        "Match the equal angles.",
+        "Find the scale: big side ÷ matching small side.",
+        "Multiply any small side by the scale."
+      ],
+      "exception": "Similar is not the same as congruent. The sizes can be different. Always pair a side with the side across from the same angle.",
+      "tag": ""
+    },
+    "bpt": {
+      "name": "Parallel cut in a triangle",
+      "phrase": "A line parallel to the base cuts both sides in the same ratio.",
+      "also": "",
+      "steps": [
+        "Read the two pieces on one side.",
+        "Set their ratio equal to the two pieces on the other side.",
+        "Solve."
+      ],
+      "exception": "Only if the cut is parallel to the base. A slanted line does not keep the ratio.",
+      "tag": ""
+    },
+    "midseg": {
+      "name": "Midsegment",
+      "phrase": "Join the middles: half the base, and parallel to it.",
+      "also": "",
+      "steps": [
+        "Find the midpoint of two sides.",
+        "Join them.",
+        "That line is half as long as the third side."
+      ],
+      "exception": "Both ends must be midpoints. If one end is not the middle, the half rule does not apply.",
+      "tag": ""
+    },
+    "semicircle": {
+      "name": "Angle in a semicircle",
+      "phrase": "A diameter always sees a right angle.",
+      "also": "",
+      "steps": [
+        "Check that one side is a diameter.",
+        "The angle on the circle across from it is 90°.",
+        "The other two angles add to 90°."
+      ],
+      "exception": "The 90° is on the circle, not at the center. The center angle on a diameter is a straight line, 180°.",
+      "tag": ""
+    },
+    "tangent": {
+      "name": "Tangent and radius",
+      "phrase": "A tangent meets the radius at a right angle.",
+      "also": "Two tangents from the same point are the same length.",
+      "steps": [
+        "Draw the radius to the touching point.",
+        "That corner is 90°.",
+        "Use the triangle angle sum for the rest."
+      ],
+      "exception": "A line that cuts through the circle is not a tangent. A tangent only touches once.",
+      "tag": ""
+    },
+    "quadratic": {
+      "name": "Quadratic formula",
+      "phrase": "Negative b, plus or minus the root of b² − 4ac, all over 2a.",
+      "also": "",
+      "steps": [
+        "Read a, b, and c from ax² + bx + c = 0.",
+        "Work out b² − 4ac.",
+        "Use + and − to get both answers. Divide by 2a."
+      ],
+      "exception": "If a is 0, it is not a quadratic. If b² − 4ac is negative, there are no real answers. If it is 0, both answers are the same.",
+      "tag": ""
+    },
+    "foil": {
+      "name": "FOIL expanding",
+      "phrase": "First, Outside, Inside, Last.",
+      "also": "",
+      "steps": [
+        "First: the two first terms.",
+        "Outside: the two outer terms.",
+        "Inside: the two inner terms.",
+        "Last: the two last terms.",
+        "Add them and tidy like terms."
+      ],
+      "exception": "Watch the signs: (x − 3)(x + 2) still uses FOIL, but the insides and lasts pick up minuses. FOIL is for two brackets; three brackets need more steps.",
+      "tag": ""
+    },
+    "dos": {
+      "name": "Difference of two squares",
+      "phrase": "a² − b² = (a − b)(a + b).",
+      "also": "",
+      "steps": [
+        "Spot two squares with a minus between them.",
+        "Write (√first − √second)(√first + √second).",
+        "Check by FOIL: the middle terms cancel."
+      ],
+      "exception": "It must be a minus. a² + b² does not factor over the reals this way. And 9x² − 4 is (3x − 2)(3x + 2), not (9x − 2)(x + 2).",
+      "tag": ""
+    },
+    "factor": {
+      "name": "Factorising quadratics",
+      "phrase": "Find two numbers that multiply to c and add to b.",
+      "also": "",
+      "steps": [
+        "For x² + bx + c, find two numbers with product c and sum b.",
+        "Write (x + p)(x + q).",
+        "Check by expanding."
+      ],
+      "exception": "If the numbers you need do not exist as integers, it may not factor nicely. Leading coefficient not 1 needs a different hunt (or the quadratic formula).",
+      "tag": ""
+    },
+    "ineq": {
+      "name": "Inequalities",
+      "phrase": "Solve like an equation — but flip the sign when you × or ÷ by a negative.",
+      "also": "",
+      "steps": [
+        "Move terms the same way you would for =.",
+        "If you multiply or divide both sides by a negative, flip < ↔ >.",
+        "Check with a test number."
+      ],
+      "exception": "Adding or subtracting never flips the sign. Only multiplying or dividing by a negative does. Swapping sides also flips the inequality sign.",
+      "tag": ""
+    },
+    "simul": {
+      "name": "Simultaneous equations",
+      "phrase": "Elimination: make one letter match, then add or subtract to wipe it out.",
+      "also": "",
+      "steps": [
+        "Line up the two equations.",
+        "Multiply so one letter has the same (or opposite) coefficient.",
+        "Add or subtract to eliminate that letter.",
+        "Solve for the other letter, then back-substitute."
+      ],
+      "exception": "If both letters wipe out and you get 0 = 5, there is no solution. If you get 0 = 0, there are infinitely many. Check by plugging both answers back in.",
+      "tag": ""
+    },
+    "distmid": {
+      "name": "Distance and midpoint",
+      "phrase": "Distance is Pythagoras on the grid. Midpoint averages the coordinates.",
+      "also": "",
+      "steps": [
+        "Distance: √((x₂ − x₁)² + (y₂ − y₁)²).",
+        "Midpoint: ((x₁ + x₂)/2, (y₁ + y₂)/2).",
+        "Count the run and rise first if that feels easier."
+      ],
+      "exception": "Do not add the coordinates for distance. Midpoint uses the average, not the difference.",
+      "tag": ""
+    },
+    "perpgrad": {
+      "name": "Parallel and perpendicular slopes",
+      "phrase": "Parallel: same slope. Perpendicular: flip the fraction and change the sign.",
+      "also": "",
+      "steps": [
+        "Parallel lines have equal slopes.",
+        "Perpendicular: take the slope, flip it, and multiply by −1.",
+        "Check: m₁ × m₂ = −1 for perpendicular lines."
+      ],
+      "exception": "Horizontal (slope 0) is perpendicular to vertical (undefined slope). A negative slope flipped stays careful with two minuses.",
+      "tag": ""
+    },
+    "discr": {
+      "name": "Discriminant",
+      "phrase": "b² − 4ac tells how many real roots: positive two, zero one, negative none.",
+      "also": "",
+      "steps": [
+        "From ax² + bx + c = 0, compute Δ = b² − 4ac.",
+        "Δ > 0: two different real roots.",
+        "Δ = 0: one repeated real root.",
+        "Δ < 0: no real roots."
+      ],
+      "exception": "The discriminant does not give the roots themselves — only how many. Complex roots exist when Δ < 0, but this lesson stays with real numbers.",
+      "tag": ""
+    },
+    "scaleAV": {
+      "name": "Similar areas and volumes",
+      "phrase": "Lengths × k, areas × k², volumes × k³.",
+      "also": "",
+      "steps": [
+        "Find the length scale factor k.",
+        "Areas scale by k².",
+        "Volumes scale by k³.",
+        "If you are given areas, k = √(area scale)."
+      ],
+      "exception": "Do not scale area by k, or volume by k². A doubled length makes area ×4 and volume ×8.",
+      "tag": ""
+    },
+    "bisector": {
+      "name": "Angle bisector theorem",
+      "phrase": "The bisector cuts the opposite side in the ratio of the two adjacent sides.",
+      "also": "",
+      "steps": [
+        "Confirm the ray bisects the angle.",
+        "Write adjacent side ÷ adjacent side = segment ÷ segment.",
+        "Cross-multiply and solve."
+      ],
+      "exception": "It is the opposite side that is split. The ratio matches the two sides that form the angle, not the bisector length itself.",
+      "tag": ""
+    },
+    "wordkeys9": {
+      "name": "Translate words to algebra",
+      "phrase": "Altogether → +; difference → −; product → ×; quotient → ÷; of → ×.",
+      "also": "",
+      "steps": [
+        "Underline keywords.",
+        "Pick a variable for the unknown.",
+        "Build the expression or equation."
+      ],
+      "exception": "“Less than” reverses order: 3 less than x is x − 3, not 3 − x.",
+      "tag": ""
+    },
+    "estimate9": {
+      "name": "Estimate irrational squares",
+      "phrase": "Squeeze between perfect squares to estimate √n.",
+      "also": "",
+      "steps": [
+        "Find whole squares around n.",
+        "See which is closer.",
+        "Estimate √n near that whole."
+      ],
+      "exception": "√n is exact only for perfect squares.",
+      "tag": ""
+    },
+    "commute9": {
+      "name": "Rearrange algebra",
+      "phrase": "Terms can commute; factors can commute — keep signs glued to their terms.",
+      "also": "",
+      "steps": [
+        "Move like terms together.",
+        "Add coefficients.",
+        "Write in a tidy order (often powers high to low)."
+      ],
+      "exception": "The minus sign belongs to the term that follows it when you commute.",
+      "tag": ""
+    },
+    "distrib9": {
+      "name": "FOIL mindset",
+      "phrase": "FOIL: First, Outside, Inside, Last — then tidy.",
+      "also": "",
+      "steps": [
+        "First × first.",
+        "Outside pair.",
+        "Inside pair.",
+        "Last × last.",
+        "Combine like terms."
+      ],
+      "exception": "FOIL is two binomials. More terms → use a grid.",
+      "tag": ""
+    },
+    "compsupp9": {
+      "name": "Angle pairs in algebra",
+      "phrase": "Complement → sum 90. Supplement → sum 180. Solve for x.",
+      "also": "",
+      "steps": [
+        "Translate to x + y = 90 or 180.",
+        "Substitute expressions.",
+        "Solve."
+      ],
+      "exception": "Don’t assume adjacent — the problem must say complementary/supplementary (or show the figure).",
+      "tag": ""
+    },
+    "zero9": {
+      "name": "Zero product property",
+      "phrase": "If a product is zero, at least one factor is zero.",
+      "also": "",
+      "steps": [
+        "Set the equation to = 0.",
+        "Factor if needed.",
+        "Set each factor = 0 and solve."
+      ],
+      "exception": "Only works for zero on the other side. ab = 6 does not mean a=6.",
+      "tag": ""
+    },
+    "complete9": {
+      "name": "Completing the square hook",
+      "phrase": "Halve the middle, square it, park it on both sides.",
+      "also": "",
+      "steps": [
+        "Move the constant.",
+        "Take half of the x-coefficient.",
+        "Square that half and add to both sides.",
+        "Write a square binomial."
+      ],
+      "exception": "Leading coefficient must be 1 (divide through first if not).",
+      "tag": ""
+    },
+    "quadform9": {
+      "name": "Quadratic formula song",
+      "phrase": "x equals opposite b, plus or minus the square root of b squared minus 4ac, all over 2a.",
+      "also": "",
+      "steps": [
+        "Identify a, b, c.",
+        "Compute the discriminant b² − 4ac.",
+        "Plug into (−b ± √Δ)/(2a)."
+      ],
+      "exception": "If Δ < 0 there are no real roots. Don’t forget the “all over 2a” applies to everything.",
+      "tag": ""
+    },
+    "prop9": {
+      "name": "Similar ratios",
+      "phrase": "Same shape: matching sides stay in proportion — butterfly if needed.",
+      "also": "",
+      "steps": [
+        "Match corresponding sides.",
+        "Write a proportion.",
+        "Cross multiply to solve."
+      ],
+      "exception": "Correspondence matters — don’t match short to long casually.",
+      "tag": ""
+    },
+    "exp9": {
+      "name": "Exponent mental moves",
+      "phrase": "Multiply → add powers. Divide → subtract. Power of a power → multiply.",
+      "also": "",
+      "steps": [
+        "Same base? Apply the law.",
+        "Add/subtract/multiply the exponents as the law says.",
+        "Simplify coefficients separately."
+      ],
+      "exception": "Different bases don’t combine with these laws (unless you rewrite).",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Similarity & circles",
+      "rows": [
+        [
+          "Similar triangles",
+          "Same angles; sides × same scale"
+        ],
+        [
+          "BPT (parallel cut)",
+          "Cuts both sides in the same ratio"
+        ],
+        [
+          "Midsegment",
+          "Join middles: half the base, parallel"
+        ],
+        [
+          "Semicircle",
+          "Angle in a semicircle is 90°"
+        ],
+        [
+          "Tangent ⊥ radius",
+          "Meets at a right angle"
+        ],
+        [
+          "Lengths / areas / volumes",
+          "×k, ×k², ×k³"
+        ],
+        [
+          "Angle bisector",
+          "Splits opposite side in ratio of the sides"
+        ]
+      ]
+    },
+    {
+      "title": "Algebra toolkit",
+      "rows": [
+        [
+          "FOIL",
+          "First, Outside, Inside, Last"
+        ],
+        [
+          "Difference of squares",
+          "a² − b² = (a − b)(a + b)"
+        ],
+        [
+          "Factor x²+bx+c",
+          "Two numbers: product c, sum b"
+        ],
+        [
+          "Zero product",
+          "AB = 0 → A = 0 or B = 0"
+        ],
+        [
+          "Complete the square",
+          "Half b, square it, balance both sides"
+        ],
+        [
+          "Quadratic formula",
+          "x = (−b ± √(b²−4ac)) / 2a"
+        ],
+        [
+          "Inequalities",
+          "Flip the sign when × or ÷ by a negative"
+        ],
+        [
+          "Simultaneous",
+          "Match a letter, add/subtract to wipe it"
+        ],
+        [
+          "Discriminant",
+          "b²−4ac: +, 0, − → 2, 1, 0 real roots"
+        ]
+      ]
+    },
+    {
+      "title": "Coordinate geometry",
+      "rows": [
+        [
+          "Distance",
+          "Pythagoras on the grid"
+        ],
+        [
+          "Midpoint",
+          "Average the coordinates"
+        ],
+        [
+          "Parallel slopes",
+          "Same m"
+        ],
+        [
+          "Perpendicular",
+          "Flip fraction, change sign (m₁m₂ = −1)"
+        ],
+        [
+          "Proportion",
+          "a/b = c/d → cross multiply"
+        ],
+        [
+          "Expand powers",
+          "(ab)ⁿ = aⁿbⁿ"
+        ]
+      ]
+    }
+  ]
+}

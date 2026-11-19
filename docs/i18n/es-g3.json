@@ -1,0 +1,418 @@
+{
+  "grade": "Grados 3–4",
+  "title": "Tablas y división",
+  "blurb": "Un truco por familia de multiplicación, rimas para los hechos difíciles y división larga.",
+  "lessons": {
+    "groups": {
+      "name": "Qué significa ×",
+      "phrase": "Veces significa grupos de.",
+      "also": "",
+      "steps": [
+        "Lee 3 × 4 como 3 grupos de 4.",
+        "Dibuja los grupos o cuenta saltando: 4, 8, 12.",
+        "El orden no cambia el total: 4 grupos de 3 también es 12."
+      ],
+      "exception": "Veces no es más. 3 × 4 no es 7. Cualquier cosa × 0 es 0, y × 1 deja el número.",
+      "tag": ""
+    },
+    "doubles": {
+      "name": "×2, ×4, ×8",
+      "phrase": "×2 es duplicar. ×4 es doble del doble. ×8 es triple doble.",
+      "also": "",
+      "steps": [
+        "Duplica una vez para ×2.",
+        "Duplica otra vez para ×4.",
+        "Duplica una vez más para ×8."
+      ],
+      "exception": "Cuenta los duplicados. Dos duplicados son ×4, no ×8. ×6 no es familia de duplicados: es ×5 más un grupo.",
+      "tag": ""
+    },
+    "fives": {
+      "name": "×5",
+      "phrase": "Los cincos son la mitad de los dieces.",
+      "also": "Los cincos terminan en 5 o 0.",
+      "steps": [
+        "Multiplica por 10: pon un 0 al final.",
+        "Toma la mitad de eso."
+      ],
+      "exception": "Par de cincos termina en 0; impar termina en 5. Si termina en otra cifra, revisa.",
+      "tag": ""
+    },
+    "nines": {
+      "name": "×9",
+      "phrase": "Dobla el dedo. Izquierda = decenas, derecha = unidades.",
+      "also": "Los dígitos siempre suman nueve.",
+      "steps": [
+        "Levanta diez dedos.",
+        "Para 9 × 7, dobla el dedo 7.",
+        "6 dedos a la izquierda, 3 a la derecha: 63."
+      ],
+      "exception": "Los dedos sirven hasta 9 × 10. Para 9 × 12, haz 10 × 12 y resta 12. 9 × 0 es 0.",
+      "tag": ""
+    },
+    "rhymes": {
+      "name": "Hechos difíciles",
+      "phrase": "Five, six, seven, eight: fifty-six is seven times eight.",
+      "also": "I ate and ate and got sick on the floor: eight times eight is sixty-four.",
+      "steps": [
+        "Six times six, magic tricks: thirty-six.",
+        "I know now and you do too: six times seven is forty-two.",
+        "Six and eight went on a date, came back as forty-eight.",
+        "Seven and seven are doing fine: forty-nine.",
+        "Five, six, seven, eight: fifty-six is seven times eight.",
+        "I ate and ate and got sick on the floor: eight times eight is sixty-four."
+      ],
+      "exception": "Una rima es gancho, no demostración. Si la olvidas, construye desde un hecho: 7 × 8 = 7 × 7 + 7 = 49 + 7 = 56.",
+      "tag": ""
+    },
+    "elevens": {
+      "name": "×11 con dos dígitos",
+      "phrase": "Separa los dígitos. Mete su suma en medio.",
+      "also": "",
+      "steps": [
+        "Parte 23 en 2 y 3.",
+        "Súmalos: 5.",
+        "Mete el 5 en medio: 253."
+      ],
+      "exception": "Si la suma del medio es 10 o más, lleva 1 a la izquierda. 85 × 11: 8 + 5 = 13 → 9, 3, 5 = 935.",
+      "tag": ""
+    },
+    "longdiv": {
+      "name": "División larga",
+      "phrase": "Does McDonald’s Sell Burgers? (¿McDonald’s vende hamburguesas?) — Divide, Multiplica, Resta, Baja.",
+      "also": "Dad, Mom, Sister, Brother, and Rover — el perro repite el ciclo.",
+      "steps": [
+        "Divide: ¿cuántas veces cabe?",
+        "Multiplica: ese resultado × el divisor.",
+        "Resta: ¿qué queda?",
+        "Baja el siguiente dígito y repite."
+      ],
+      "exception": "Lo que queda debe ser menor que el divisor. Si no, el cociente fue muy pequeño. Si no cabe, pon 0 en el cociente antes de bajar.",
+      "tag": ""
+    },
+    "divis": {
+      "name": "Reglas de divisibilidad",
+      "phrase": "Última cifra para 2, 5 y 10. Suma de dígitos para 3 y 9. Dos últimas para 4. El 6 necesita 2 y 3.",
+      "also": "",
+      "steps": [
+        "2: la última cifra es par.",
+        "5: termina en 0 o 5. 10: termina en 0.",
+        "3 o 9: suma dígitos; si divide por 3 (o 9), el número también.",
+        "4: las dos últimas cifras dividen entre 4.",
+        "6: pasa prueba de 2 y de 3."
+      ],
+      "exception": "Sumar dígitos solo sirve para 3 y 9, no para 4 o 7. El 6 exige ambas: 15 pasa 3 pero es impar, falla 6.",
+      "tag": ""
+    },
+    "primes": {
+      "name": "Factores, múltiplos y primos",
+      "phrase": "Factores son pocos, múltiplos muchos. Un primo tiene solo dos factores: 1 y él mismo.",
+      "also": "Los factores caben en el número. Los múltiplos salen al multiplicarlo.",
+      "steps": [
+        "Factores de 12: dividen 12 exacto: 1, 2, 3, 4, 6, 12.",
+        "Múltiplos de 12: 12, 24, 36… sin fin.",
+        "Primo: exactamente dos factores, como 7 (1 y 7).",
+        "Compuesto: más de dos, como 9 (1, 3, 9)."
+      ],
+      "exception": "1 no es primo: solo tiene un factor. 2 es el único primo par. Impar no implica primo: 9, 15 y 21 son compuestos.",
+      "tag": ""
+    },
+    "areaper": {
+      "name": "Área y perímetro",
+      "phrase": "Perímetro es la cerca alrededor. Área es la alfombra adentro.",
+      "also": "",
+      "steps": [
+        "Perímetro: suma los cuatro lados, o 2 × (largo + ancho).",
+        "Área: largo × ancho.",
+        "Perímetro es longitud (cm). Área es cuadrados (cm²)."
+      ],
+      "exception": "No los mezcles: un rectángulo 5 × 3 tiene perímetro 16 y área 15. Dos figuras con igual área pueden tener distinto perímetro.",
+      "tag": ""
+    },
+    "roundbig": {
+      "name": "Redondear números grandes",
+      "phrase": "Subraya la posición. Mira a la derecha. Cinco o más, sube el score.",
+      "also": "Cuatro o menos, déjalo.",
+      "steps": [
+        "Subraya el dígito de la posición elegida.",
+        "Mira el dígito de la derecha.",
+        "5 o más: sube 1. 4 o menos: igual.",
+        "Las cifras a la derecha pasan a 0."
+      ],
+      "exception": "Si sube un 9, puede pasar de decena: 3,960 a la centena más cercana es 4,000. No redondees por pasos: 3,449 → 3,400, no 3,500.",
+      "tag": ""
+    },
+    "equivfr": {
+      "name": "Fracciones equivalentes",
+      "phrase": "Lo que hagas arriba, hazlo abajo.",
+      "also": "",
+      "steps": [
+        "Elige un número.",
+        "Multiplica (o divide) el numerador.",
+        "Haz lo mismo al denominador. Se ve distinto, pero es la misma cantidad."
+      ],
+      "exception": "Solo × y ÷. Sumar lo mismo arriba y abajo cambia el valor: 1/2 no es 2/3.",
+      "tag": ""
+    },
+    "times10": {
+      "name": "× 10, 100, 1000",
+      "phrase": "Cada cero desplaza los dígitos un lugar a la izquierda.",
+      "also": "× 10: un lugar. × 100: dos. × 1000: tres. Los ceros llenan huecos.",
+      "steps": [
+        "Cuenta los ceros en 10, 100 o 1000.",
+        "Desplaza todos los dígitos esa cantidad a la izquierda.",
+        "Llena con ceros los asientos vacíos."
+      ],
+      "exception": "Cuenta solo los ceros del 10, 100 o 1000. 40 × 100 = 4,000: el 0 de 40 también se mueve.",
+      "tag": ""
+    },
+    "roman-iview": {
+      "name": "Números romanos I V X",
+      "phrase": "I View Xylophones: I=1, V=5, X=10 (extiende: L=50, C=100, D=500, M=1000).",
+      "also": "I View X-rays también sirve para los tres primeros.",
+      "steps": [
+        "Aprende I=1, V=5, X=10, L=50, C=100, D=500, M=1000.",
+        "Lee de izquierda a derecha sumando.",
+        "Usa resta cuando un símbolo menor va antes de uno mayor."
+      ],
+      "exception": "Resta: IV=4, IX=9, XL=40, XC=90, CD=400, CM=900.",
+      "tag": ""
+    },
+    "commute3": {
+      "name": "Conmutativa de la multiplicación",
+      "phrase": "Los factores pueden cambiar de lugar: 6 × 7 = 7 × 6.",
+      "also": "",
+      "steps": [
+        "Escribe el producto en cualquier orden.",
+        "Usa el orden que conozcas mejor.",
+        "El resultado coincide."
+      ],
+      "exception": "El arreglo se ve distinto (2×6 vs 6×2) pero cuenta los mismos puntos.",
+      "tag": ""
+    },
+    "assoc3": {
+      "name": "Asociativa de la multiplicación",
+      "phrase": "Reagrupa factores: (2 × 3) × 4 = 2 × (3 × 4).",
+      "also": "",
+      "steps": [
+        "Busca un par cómodo (como ×10).",
+        "Multiplica ese par primero.",
+        "Multiplica por el factor que sobra."
+      ],
+      "exception": "Solo reagrupa — no pierdas ningún factor.",
+      "tag": ""
+    },
+    "distrib3": {
+      "name": "Propiedad distributiva",
+      "phrase": "Parte un producto difícil en dos fáciles y suma.",
+      "also": "7 × 6 = 7 × (5 + 1) = 35 + 7.",
+      "steps": [
+        "Divide un factor en partes amigas.",
+        "Multiplica cada parte.",
+        "Suma los productos parciales."
+      ],
+      "exception": "Divide en una suma (o resta), no en un producto — es otra regla.",
+      "tag": ""
+    },
+    "wordkeys3": {
+      "name": "Palabras clave en problemas",
+      "phrase": "Todo/en total=suma · quedan/restan=resta · cada/grupos=multiplica · repartir=divide.",
+      "also": "",
+      "steps": [
+        "Busca una palabra clave.",
+        "Elige la operación que suele indicar.",
+        "Escribe la oración numérica y resuelve."
+      ],
+      "exception": "Las palabras ayudan, pero gana la historia — «cada» puede dividir al repartir.",
+      "tag": ""
+    },
+    "estimate3": {
+      "name": "Estimar productos",
+      "phrase": "Redondea y multiplica — ¿aproximadamente cuántos?",
+      "also": "",
+      "steps": [
+        "Redondea cada factor a un número amigo.",
+        "Multiplica los redondeados.",
+        "Etiqueta «aproximadamente»."
+      ],
+      "exception": "Redondear ambos hacia arriba sobrestima. Sirve para comprobar el orden de magnitud.",
+      "tag": ""
+    },
+    "gallon": {
+      "name": "Gallon Man",
+      "phrase": "King Gallon tenía 4 cuartos; cada cuarto 2 pintas; cada pinta 2 tazas.",
+      "also": "4 quarts = 1 gallon. 2 pints = 1 quart. 2 cups = 1 pint.",
+      "steps": [
+        "Cuerpo = 4 cuartos (quarts).",
+        "Cada cuarto: 2 pintas (pints).",
+        "Cada pinta: 2 tazas (cups)."
+      ],
+      "exception": "Medidas líquidas de EE. UU. No mezcles con litros sin convertir.",
+      "tag": ""
+    },
+    "kinghenry3": {
+      "name": "King Henry (métrico)",
+      "phrase": "King Henry Died By Drinking Chocolate Milk. (Rey Enrique murió bebiendo chocolate.)",
+      "also": "Kilo, Hecto, Deca, base, Deci, Centi, Milli — cada paso ×10 o ÷10.",
+      "steps": [
+        "Alinea los prefijos con las palabras del rey.",
+        "Cuenta saltos entre unidades.",
+        "Mueve la coma decimal esa cantidad."
+      ],
+      "exception": "«By» es la unidad base. Mega/micro/nano quedan fuera de esta escalera. Millas y pulgadas necesitan otros puentes.",
+      "tag": ""
+    },
+    "zeroprop": {
+      "name": "Cero y uno al multiplicar",
+      "phrase": "Por cero borra. Por uno conserva.",
+      "also": "",
+      "steps": [
+        "n × 0 = 0.",
+        "n × 1 = n.",
+        "Úsalos como comprobación rápida."
+      ],
+      "exception": "Sumar cero conserva n; multiplicar por cero no.",
+      "tag": ""
+    },
+    "remain3": {
+      "name": "Residuos",
+      "phrase": "Divide hasta no poder otro grupo completo — lo que sobra es el residuo.",
+      "also": "",
+      "steps": [
+        "Divide cuántos grupos completos.",
+        "Multiplica de vuelta.",
+        "Resta del total — lo que queda es R."
+      ],
+      "exception": "El residuo debe ser menor que el divisor. Si no, cabe otro grupo.",
+      "tag": ""
+    },
+    "array3": {
+      "name": "Arreglos",
+      "phrase": "Filas × columnas — un arreglo muestra la multiplicación.",
+      "also": "",
+      "steps": [
+        "Cuenta las filas.",
+        "Cuenta cuántos hay en cada fila.",
+        "Multiplica filas × columnas."
+      ],
+      "exception": "Un montón suelto no es arreglo hasta que formes filas iguales.",
+      "tag": ""
+    },
+    "tomatoes": {
+      "name": "Pies en una milla",
+      "phrase": "«Five tomatoes» suena como 5-2-8-0 (pies por milla).",
+      "also": "Solo chiste — confirma siempre 5,280 ft/mi.",
+      "steps": [
+        "Imagina cinco tomates (opcional).",
+        "Escucha 5, 2, 8, 0 como sonido parecido.",
+        "Verifica el dato real: 5,280 pies por milla."
+      ],
+      "exception": "No es procedimiento — es andamiaje chistoso. Los dígitos se confunden; verifica 5,280.",
+      "tag": ""
+    },
+    "orderops3": {
+      "name": "× antes que +",
+      "phrase": "My Dear antes que Aunt Sally: multiplica antes de sumar.",
+      "also": "Vista temprana del orden de operaciones (PEMDAS / GEMS / BODMAS: mismos niveles).",
+      "steps": [
+        "Busca × o ÷.",
+        "Hazlos primero (izquierda a derecha).",
+        "Luego + y −."
+      ],
+      "exception": "Los paréntesis mandan. × y ÷ empatan izquierda a derecha; sin paréntesis, ×÷ van antes que +−.",
+      "tag": ""
+    },
+    "northdakota": {
+      "name": "Numerador y denominador",
+      "phrase": "Nice Dog: Numerador arriba, Denominador abajo. N antes que D.",
+      "also": "North Dakota — N sobre D.",
+      "steps": [
+        "Arriba: numerador (N).",
+        "Abajo: denominador (D).",
+        "N antes que D en el alfabeto — arriba antes que abajo en el nombre."
+      ],
+      "exception": "La barra significa dividir: arriba ÷ abajo, no al revés.",
+      "tag": ""
+    },
+    "mental3": {
+      "name": "Cálculo mental: ×10 y ×100",
+      "phrase": "×10 agrega un cero. ×100 agrega dos ceros.",
+      "also": "",
+      "steps": [
+        "En ×10, pon un 0 al final.",
+        "En ×100, pon dos ceros.",
+        "Es desplazar el valor posicional."
+      ],
+      "exception": "Con decimales los ceros funcionan distinto — los dígitos cruzan la coma.",
+      "tag": ""
+    },
+    "patterns3": {
+      "name": "Patrones numéricos",
+      "phrase": "Hallar la regla del salto y seguir saltando.",
+      "also": "",
+      "steps": [
+        "Resta vecinos para ver el salto.",
+        "Comprueba que el salto sea constante.",
+        "Aplica el salto al siguiente término."
+      ],
+      "exception": "Algunos patrones cambian de regla (cuadrados). Aquí trabajamos saltos constantes.",
+      "tag": ""
+    }
+  },
+  "cheat": [
+    {
+      "title": "Tablas de multiplicar",
+      "rows": [
+        ["Veces significa", "Grupos de"],
+        ["×2, ×4, ×8", "Doble → doble-doble → triple doble"],
+        ["×5", "Mitad de los dieces"],
+        ["×9 con dedos", "Izquierda = decenas, derecha = unidades"],
+        ["5-6-7-8", "56 es 7 × 8"],
+        ["×11 (2 dígitos)", "Separa; mete la suma en medio"],
+        ["×12", "×10, luego suma el doble del número"],
+        ["Rimas difíciles", "6×6=36, 7×8=56, 8×8=64…"]
+      ]
+    },
+    {
+      "title": "División y sentido numérico",
+      "rows": [
+        ["División larga", "Does McDonald’s Sell Burgers? (÷ × − baja)"],
+        ["Residuo", "Lo que sobra tras repartir justo"],
+        ["Divisibilidad", "2/5/10: última cifra; 3/9: suma; 4: dos últimas"],
+        ["Factores vs múltiplos", "Factores son pocos; múltiplos, muchos"],
+        ["Primo", "Exactamente dos factores: 1 y él mismo"],
+        ["Propiedad del cero", "n × 0 = 0; n ÷ 1 = n"]
+      ]
+    },
+    {
+      "title": "Fracciones y decimales",
+      "rows": [
+        ["Equivalentes", "Lo de arriba, lo de abajo — mismo × o ÷"],
+        ["×10 / 100 / 1000", "Cada cero desplaza un lugar a la izquierda"],
+        ["Tomatoes on a fence", "Numerador arriba, denominador abajo"]
+      ]
+    },
+    {
+      "title": "Medida y orden",
+      "rows": [
+        ["Perímetro", "Cerca alrededor"],
+        ["Área", "Alfombra adentro"],
+        ["King Henry", "King Henry Died By Drinking Chocolate Milk (kilo→milli)"],
+        ["Gallon land", "4 quarts = 1 gallon; 2 pints = 1 quart"],
+        ["PEMDAS", "Paréntesis → potencias → ×÷ luego +− (cada uno izq. a der.)"],
+        ["GEMS / BODMAS", "Mismos niveles que PEMDAS; ×÷ y +− cada uno izq. a der."],
+        ["Arreglos", "Filas × columnas = total"],
+        ["Romano i-v", "I, V, X — IV = 4 en el reloj"]
+      ]
+    },
+    {
+      "title": "Propiedades y patrones",
+      "rows": [
+        ["Conmutativa / asociativa", "Reordena factores al multiplicar"],
+        ["Distributiva", "Parte un factor en trozos amigos"],
+        ["Cálculo mental", "Números compatibles (25, 50, 100)"],
+        ["Patrones", "¿Qué cambia cada paso? Predice el siguiente"]
+      ]
+    }
+  ]
+}
