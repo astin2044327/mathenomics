@@ -7,9 +7,11 @@
   const HEARTS = 3;
 
   const blankSave = {
-    coins: 0, best: {}, last: null, walkFrom: {},
+    coins: 0, best: {}, last: null, walkFrom: {}, srs: {},
     metrics: { totalMs: 0, gamesPlayed: 0, puzzlesPlayed: 0, roundsPlayed: 0, sessions: 0 }
   };
+  const mapUnlocked = new Set();
+  const DAY_MS = 86400000;
   const Safe = window.MATH_SAFE || {
     esc: (s) => String(s == null ? "" : s),
     loadSave: (_st, _k, blank) => Object.assign({}, blank, { metrics: Object.assign({}, blank.metrics) }),
@@ -55,8 +57,19 @@
   }
 
   const t = (key, vars) => (window.I18N ? window.I18N.t(key, vars) : key);
-  const locC = (c) => (window.I18N ? window.I18N.locCourse(c) : c);
-  const locL = (c, l) => (window.I18N ? window.I18N.locLesson(c, l) : l);
+  /* Merge: base → profile labels → i18n overlay (lang packs win last). Kids unused. */
+  const locC = (c) => {
+    let x = c;
+    if (window.MATH_PROFILES) x = window.MATH_PROFILES.locCourse(x);
+    if (window.I18N) x = window.I18N.locCourse(x);
+    return x;
+  };
+  const locL = (c, l) => {
+    let x = l;
+    if (window.MATH_PROFILES) x = window.MATH_PROFILES.lessonVariant(c.id, l.id, x);
+    if (window.I18N) x = window.I18N.locLesson(c, x);
+    return x;
+  };
 
   function metricsStrip() {
     const M = S.metrics;
@@ -68,12 +81,21 @@
     </aside>`;
   }
 
-  let langMenuDocBound = false;
-  function bindLangMenu() {
-    const root = app.querySelector(".lang-menu");
-    if (!root || !window.I18N) return;
+  let barMenuDocBound = false;
+  function closeBarMenus() {
+    app.querySelectorAll(".lang-menu.open").forEach((m) => {
+      m.classList.remove("open");
+      const b = m.querySelector(".lang-drop-btn");
+      const p = m.querySelector(".lang-drop");
+      if (b) b.setAttribute("aria-expanded", "false");
+      if (p) p.hidden = true;
+    });
+  }
+  function bindDropMenu(root, onPick) {
+    if (!root) return;
     const btn = root.querySelector(".lang-drop-btn");
     const panel = root.querySelector(".lang-drop");
+    if (!btn) return;
     const setOpen = (on) => {
       root.classList.toggle("open", on);
       btn.setAttribute("aria-expanded", on ? "true" : "false");
@@ -81,31 +103,44 @@
     };
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      setOpen(!root.classList.contains("open"));
+      const willOpen = !root.classList.contains("open");
+      closeBarMenus();
+      setOpen(willOpen);
     });
-    root.querySelectorAll(".lang-opt").forEach((opt) => {
-      opt.addEventListener("click", (e) => {
-        e.stopPropagation();
-        window.I18N.setLang(opt.dataset.lang);
-        setOpen(false);
-        if (location.hash === "#/" || location.hash === "" || location.hash === "#") home();
-        else route();
-      });
-    });
-    if (!langMenuDocBound) {
-      langMenuDocBound = true;
-      const closeAll = () => {
-        app.querySelectorAll(".lang-menu.open").forEach((m) => {
-          m.classList.remove("open");
-          const b = m.querySelector(".lang-drop-btn");
-          const p = m.querySelector(".lang-drop");
-          if (b) b.setAttribute("aria-expanded", "false");
-          if (p) p.hidden = true;
+    onPick(root, setOpen);
+  }
+  function bindLangMenu() {
+    if (window.I18N) {
+      bindDropMenu(app.querySelector(".lang-menu:not(.profile-menu)"), (root, setOpen) => {
+        root.querySelectorAll(".lang-opt[data-lang]").forEach((opt) => {
+          opt.addEventListener("click", (e) => {
+            e.stopPropagation();
+            window.I18N.setLang(opt.dataset.lang);
+            setOpen(false);
+            if (location.hash === "#/" || location.hash === "" || location.hash === "#") home();
+            else route();
+          });
         });
-      };
-      document.addEventListener("click", closeAll);
+      });
+    }
+    if (window.MATH_PROFILES) {
+      bindDropMenu(app.querySelector(".profile-menu"), (root, setOpen) => {
+        root.querySelectorAll(".profile-opt[data-profile]").forEach((opt) => {
+          opt.addEventListener("click", (e) => {
+            e.stopPropagation();
+            window.MATH_PROFILES.set(opt.dataset.profile);
+            setOpen(false);
+            if (location.hash === "#/" || location.hash === "" || location.hash === "#") home();
+            else route();
+          });
+        });
+      });
+    }
+    if (!barMenuDocBound) {
+      barMenuDocBound = true;
+      document.addEventListener("click", closeBarMenus);
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeAll();
+        if (e.key === "Escape") closeBarMenus();
       });
     }
   }
@@ -140,6 +175,71 @@
     const scores = c.lessons.map((l) => S.best[key(c, l)]).filter((v) => v != null);
     const pct = scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : null;
     return { pct, letter: letter(pct), done: scores.length };
+  }
+
+  function srsDays(pct) {
+    const L = letter(pct);
+    if (L === "A+" || L === "A") return 7;
+    if (L === "B") return 3;
+    if (L === "C" || L === "D") return 1;
+    return 0;
+  }
+
+  function scheduleSrs(c, l, pct) {
+    if (!S.srs || typeof S.srs !== "object" || Array.isArray(S.srs)) S.srs = {};
+    S.srs[key(c, l)] = { nextDue: Date.now() + srsDays(pct) * DAY_MS, lastPct: pct };
+  }
+
+  function dueQueue() {
+    if (!S.srs || typeof S.srs !== "object") return [];
+    const now = Date.now();
+    const out = [];
+    Object.keys(S.srs).forEach((k) => {
+      const row = S.srs[k];
+      if (!row || typeof row !== "object") return;
+      const due = Number(row.nextDue);
+      if (!Number.isFinite(due) || due > now) return;
+      const slash = k.indexOf("/");
+      if (slash < 1) return;
+      const c = course(k.slice(0, slash));
+      const l = lessonOf(c, k.slice(slash + 1));
+      if (c && l) out.push({ c, l, nextDue: due });
+    });
+    out.sort((a, b) => a.nextDue - b.nextDue);
+    return out;
+  }
+
+  function fadePhrase(phrase, roundI, forceFull) {
+    if (forceFull || roundI === 0) return { mode: "full", text: phrase };
+    if (roundI <= 2) {
+      const text = String(phrase).replace(/[A-Za-z0-9\u00C0-\u024F]+/g, (w) =>
+        w[0] + "·".repeat(Math.max(0, w.length - 1)));
+      return { mode: "cloze", text };
+    }
+    return { mode: "empty", text: "" };
+  }
+
+  function makeTrap(l) {
+    const ex = String(l.exception || "").trim();
+    if (ex.length < 8) return null;
+    const gist = ex.split(/(?<=[.!?])\s+/)[0].slice(0, 140);
+    const wrongs = [
+      "The phrase always works — there are no exceptions.",
+      "Apply the phrase on every problem, even when Watch out applies.",
+      "Watch out only matters on hard exams, not everyday practice.",
+      "Ignore Watch out and guess from the diagram alone."
+    ].filter((w) => w !== gist);
+    const prompt = Math.random() < 0.5 ? t("trapPrompt") : t("trapPromptApply");
+    const why = t("trapWhy");
+    try {
+      if (window.MK && typeof window.MK.Q === "function") return window.MK.Q(prompt, gist, wrongs, why);
+    } catch (_) { /* fall through */ }
+    const choices = [gist].concat(wrongs.slice(0, 3));
+    for (let i = choices.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [choices[i], choices[j]] = [choices[j], choices[i]];
+    }
+    return { prompt, choices, answer: choices.indexOf(gist), why, pic: "" };
   }
 
   /* ---------- sound ---------- */
@@ -256,6 +356,7 @@
         <a href="#/kids" class="${active === "kids" ? "on" : ""}">${kidsLabel}</a>
       </nav>
       <span class="bar-end">
+        ${window.MATH_PROFILES ? window.MATH_PROFILES.profileBarHtml() : ""}
         ${window.I18N ? window.I18N.langBarHtml() : ""}
         <span class="coins" title="${t("coins")}">${coin}<b id="coin-count">${S.coins}</b></span>
       </span>
@@ -298,17 +399,47 @@
     return C.slice().sort((a, b) => rank(a.id) - rank(b.id) || C.indexOf(a) - C.indexOf(b));
   }
 
+  function examPlaylistHtml() {
+    const P = window.MATH_PROFILES;
+    if (!P) return "";
+    const track = P.examTrack();
+    if (!track || !track.items || !track.items.length) return "";
+    const first = track.items[0];
+    const links = track.items.map((path) => {
+      const [cid, lid] = String(path).split("/");
+      const c = course(cid);
+      const l = lessonOf(c, lid);
+      if (!c || !l) return "";
+      const vl = locL(c, l);
+      return `<a class="exam-item" href="#/l/${cid}/${lid}">${esc(vl.name)}</a>`;
+    }).filter(Boolean).join("");
+    if (!links) return "";
+    return `<aside class="exam-playlist" aria-label="${esc(track.title)}">
+      <div class="exam-head">
+        <strong>${esc(track.title)}</strong>
+        <a class="btn ghost" href="#/l/${first}">Start</a>
+      </div>
+      <div class="exam-list">${links}</div>
+    </aside>`;
+  }
+
   /* ---------- screens ---------- */
   function home() {
     const last = S.last && course(S.last.c);
     const lastLesson = last && lessonOf(last, S.last.l);
     const lastView = lastLesson ? locL(last, lastLesson) : null;
+    const dueAll = dueQueue();
+    const dueShow = dueAll.slice(0, 5);
+    const dueN = dueAll.length;
+    const dueTop = dueShow[0];
+    const dueLabel = dueN === 1 ? t("dueCtaOne") : t("dueCta", { n: dueN });
     paint("learn", "#C84F2E", `
       <section class="hero">
         <div class="hero-copy">
           <h1 class="brand-hero">Mathenomics</h1>
           <p class="lede">${t("heroLede")}</p>
           ${lastLesson ? `<a class="btn primary big" href="#/l/${last.id}/${lastLesson.id}">${t("keepGoing", { name: lastView.name })}</a>` : `<a class="btn primary big" href="#/g/g3">${t("tryTables")}</a>`}
+          ${dueTop ? `<a class="due-cta" href="#/play/${dueTop.c.id}/${dueTop.l.id}/review">${dueLabel}</a>` : ""}
         </div>
         <div class="hero-scene">
           <div class="bubble">${t("mioHi")}</div>
@@ -316,6 +447,7 @@
           <div class="hill"></div>
         </div>
       </section>
+      ${examPlaylistHtml()}
       <h2 class="section-title">${t("library")}</h2>
       <section class="grades">
         ${libraryCourses().map((raw) => {
@@ -368,6 +500,7 @@
     const mapLede = hs
       ? t("hsLede")
       : `${vc.blurb} ${t("everyStop")}`;
+    const examStrip = (c.id === "hs" || c.id === "pabson") ? examPlaylistHtml() : "";
 
     paint("learn", c.color, `
       <a class="crumb" href="#/">← ${t("allGrades")}</a>
@@ -384,6 +517,7 @@
           ${c.id === "tables" ? `<a class="btn primary" href="#/puzzle/2">${t("tablePuzzle")}</a>` : ""}
         </div>
       </header>
+      ${examStrip}
       <section class="map${hs ? " map-hs" : ""}" style="height:${H}px">
         <svg class="trail" viewBox="0 0 100 ${H}" preserveAspectRatio="none" aria-hidden="true">
           <path d="${path}" fill="none" stroke="#1F1D1A" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
@@ -392,8 +526,11 @@
           const best = S.best[key(c, l)];
           const [x, y] = pts[i];
           const vl = locL(c, l);
+          const MP = window.MATH_PROFILES;
+          const dim = MP && MP.isDeemphasized(l.id) ? " deemph" : "";
+          const emp = MP && MP.isEmphasized(l.id) ? " emph" : "";
           const tag = vl.tag ? `<span class="theorem-badge badge-${String(vl.tag).toLowerCase()}">${vl.tag}</span>` : "";
-          return `<a class="stop ${best != null ? "done" : ""} ${x > 50 ? "flip" : ""}" href="#/l/${c.id}/${l.id}" style="left:${x}%;top:${y}px">
+          return `<a class="stop${dim}${emp} ${best != null ? "done" : ""} ${x > 50 ? "flip" : ""}" href="#/l/${c.id}/${l.id}" style="left:${x}%;top:${y}px">
             <span class="stop-dot">${i + 1}</span>
             <span class="stop-card">${tag}<strong>${vl.name}</strong><em>${vl.phrase}</em>${best != null ? `<span class="stop-meta">${stars(starsFor(best))}<b>${letter(best)}</b></span>` : ""}</span>
           </a>`;
@@ -430,6 +567,9 @@
     const quizNote = window.I18N && window.I18N.isTranslated()
       ? `<p class="quiz-note">${t("quizNote")}</p>`
       : "";
+    const steps = Array.isArray(vl.steps) ? vl.steps : [];
+    const needMap = steps.length >= 2;
+    const unlocked = !needMap || mapUnlocked.has(key(c, l));
     paint("learn", c.color, `
       <a class="crumb" href="#/g/${c.id}">← ${vc.grade} · ${vc.title}</a>
       <article class="lesson${hs ? " lesson-hs" : ""}">
@@ -445,11 +585,21 @@
           <span class="voice-hint">${t("voiceHint")}</span>
           ${vl.also ? `<p class="also"><span>${t("alsoSaid")}</span>${vl.also}</p>` : ""}
           <h3 class="small-title">${stepsTitle}</h3>
-          <ol class="${stepsClass}">${vl.steps.map((s) => `<li>${s}</li>`).join("")}</ol>
+          <ol class="${stepsClass}">${steps.map((s) => `<li>${s}</li>`).join("")}</ol>
+          ${needMap ? `<section class="map-it" id="mapit">
+            <h3 class="small-title">${t("mapIt")}</h3>
+            <p class="map-it-lede">${t("mapItLede")}</p>
+            <ol class="map-it-trail" id="map-trail">${steps.map(() => `<li class="map-slot"></li>`).join("")}</ol>
+            <div class="map-it-pool" id="map-pool"></div>
+            <div class="map-it-actions">
+              <button type="button" class="btn ghost" id="map-reveal">${t("mapReveal")}</button>
+              <span class="map-it-status" id="map-status">${unlocked ? t("mapDone") : t("mapLocked")}</span>
+            </div>
+          </section>` : ""}
           <aside class="watch"><strong>${t("watchOut")}</strong><p>${vl.exception}</p></aside>
           ${quizNote}
           <div class="lesson-actions">
-            <a class="btn primary" href="#/play/${c.id}/${l.id}">${t("playRounds", { n: ROUNDS })}</a>
+            <a class="btn primary${unlocked ? "" : " locked"}" id="play-go" href="${unlocked ? `#/play/${c.id}/${l.id}` : "#"}" ${unlocked ? "" : 'aria-disabled="true"'}>${t("playRounds", { n: ROUNDS })}</a>
             ${best != null ? `<span class="best">${t("best", { letter: letter(best), pct: best })} ${stars(starsFor(best))}</span>` : `<span class="best">${t("heartsHint", { hearts: HEARTS, rounds: ROUNDS })}</span>`}
           </div>
           ${vn ? `<a class="next-link" href="#/l/${c.id}/${next.id}">${t("nextStop", { name: vn.name })}</a>` : ""}
@@ -464,7 +614,73 @@
       </section>` : ""}
     `);
     bindHear(app.querySelector("#hear"), () => window.NARRATION.playLesson(c.id, l.id));
+    const playGo = app.querySelector("#play-go");
+    if (playGo && needMap) {
+      playGo.addEventListener("click", (e) => {
+        if (playGo.classList.contains("locked")) e.preventDefault();
+      });
+    }
+    if (needMap) bindMapIt(c, l, steps, unlocked);
     if (l.worked && l.worked.length) workedBox(l.worked);
+  }
+
+  function bindMapIt(c, l, steps, already) {
+    const pool = app.querySelector("#map-pool");
+    const trail = app.querySelector("#map-trail");
+    const status = app.querySelector("#map-status");
+    const play = app.querySelector("#play-go");
+    const reveal = app.querySelector("#map-reveal");
+    if (!pool || !trail || !play) return;
+    let order = [];
+    const unlock = (msg) => {
+      mapUnlocked.add(key(c, l));
+      play.classList.remove("locked");
+      play.setAttribute("href", `#/play/${c.id}/${l.id}`);
+      play.removeAttribute("aria-disabled");
+      if (status) status.textContent = msg || t("mapDone");
+      if (reveal) reveal.disabled = true;
+      pool.querySelectorAll("button").forEach((b) => { b.disabled = true; });
+    };
+    const paintTrail = () => {
+      [...trail.children].forEach((li, i) => {
+        li.textContent = order[i] != null ? steps[order[i]] : "";
+        li.classList.toggle("filled", order[i] != null);
+      });
+    };
+    const idxs = steps.map((_, i) => i);
+    for (let i = idxs.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [idxs[i], idxs[j]] = [idxs[j], idxs[i]];
+    }
+    pool.innerHTML = idxs.map((i) =>
+      `<button type="button" class="map-chip" data-i="${i}">${steps[i]}</button>`).join("");
+    paintTrail();
+    if (already) { unlock(); return; }
+    pool.addEventListener("click", (e) => {
+      const btn = e.target.closest(".map-chip");
+      if (!btn || btn.disabled) return;
+      const i = Number(btn.dataset.i);
+      if (i !== order.length) {
+        btn.classList.add("miss");
+        window.setTimeout(() => btn.classList.remove("miss"), 350);
+        sfx("no");
+        return;
+      }
+      order.push(i);
+      btn.disabled = true;
+      btn.classList.add("used");
+      paintTrail();
+      sfx("coin");
+      if (order.length === steps.length) { sfx("ok"); unlock(); }
+    });
+    if (reveal) {
+      reveal.addEventListener("click", () => {
+        order = steps.map((_, i) => i);
+        paintTrail();
+        unlock(t("mapDone"));
+        sfx("ok");
+      });
+    }
   }
 
   function workedBox(list) {
@@ -508,11 +724,13 @@
   /* ---------- game ---------- */
   let run = null;
 
-  function startRun(c, l) {
+  function startRun(c, l, opts) {
+    const review = !!(opts && opts.review);
+    const n = review ? 3 : ROUNDS;
     const qs = [];
     const seen = new Set();
     let tries = 0;
-    while (qs.length < ROUNDS && tries < 60) {
+    while (qs.length < n && tries < 60) {
       tries += 1;
       let q;
       try { q = l.gen(); } catch (_) { continue; }
@@ -525,7 +743,18 @@
       run = null;
       throw new Error("Could not build practice rounds");
     }
-    run = { c, l, qs, i: 0, hearts: HEARTS, right: 0, marks: [], locked: false };
+    const trap = makeTrap(l);
+    if (trap && qs.length) {
+      const wantTrap = !review || Math.random() < 0.2;
+      if (wantTrap) {
+        const at = Math.floor(Math.random() * qs.length);
+        qs[at] = Object.assign(trap, { trap: true });
+      }
+    }
+    run = {
+      c, l, qs, i: 0, hearts: HEARTS, right: 0, marks: [], locked: false,
+      review, peeked: false, phraseForce: false
+    };
     S.last = { c: c.id, l: l.id };
     save();
   }
@@ -534,6 +763,10 @@
     const { c, l, qs, i } = run;
     const q = qs[i];
     const vl = locL(c, l);
+    const fade = fadePhrase(vl.phrase, i, run.phraseForce);
+    run.phraseForce = false;
+    const bubbleText = fade.mode === "empty" ? t("sayThenPick") : fade.text;
+    const canPeek = !run.peeked && fade.mode !== "full";
     paint("learn", c.color, `
       <div class="hud">
         <a class="crumb" href="#/l/${c.id}/${l.id}">✕ ${t("leaveGame")}</a>
@@ -542,12 +775,13 @@
       </div>
       <section class="arena">
         <div class="coach">
-          <div class="bubble small">${vl.phrase}</div>
+          <div class="bubble small${fade.mode === "empty" ? " phrase-empty" : ""}${fade.mode === "cloze" ? " phrase-cloze" : ""}" id="coach-phrase">${bubbleText}</div>
+          ${canPeek ? `<button type="button" class="btn ghost peek-btn" id="peek">${t("peekPhrase")}</button>` : ""}
           <div class="coach-fox">${fox("idle")}</div>
         </div>
         <div class="round">
-          <p class="eyebrow">${t("roundOf", { i: i + 1, n: qs.length, name: vl.name })}</p>
-          ${q.pic ? `<div class="round-pic">${q.pic}</div>` : ""}
+          <p class="eyebrow">${q.trap ? `<span class="trap-pill">${t("trapPill")}</span> ` : ""}${t("roundOf", { i: i + 1, n: qs.length, name: vl.name })}</p>
+          ${q.pic && !q.trap ? `<div class="round-pic">${q.pic}</div>` : ""}
           <h2 class="prompt">${q.prompt}</h2>
           <div class="answers ${q.choices.length < 3 ? "two" : ""}">
             ${q.choices.map((ch, k) => `<button type="button" class="answer" data-k="${k}"><span class="key">${"ABCD"[k]}</span><span>${ch}</span></button>`).join("")}
@@ -557,6 +791,36 @@
       </section>
     `);
     app.querySelectorAll(".answer").forEach((b) => b.addEventListener("click", () => answer(Number(b.dataset.k))));
+    const peek = app.querySelector("#peek");
+    if (peek) {
+      peek.addEventListener("click", () => {
+        if (run.peeked) return;
+        run.peeked = true;
+        const el = app.querySelector("#coach-phrase");
+        if (el) {
+          el.textContent = vl.phrase;
+          el.classList.remove("phrase-empty", "phrase-cloze");
+          el.classList.add("phrase-peek");
+        }
+        peek.remove();
+        window.setTimeout(() => {
+          if (!run || run.i !== i) return;
+          const again = fadePhrase(vl.phrase, i, false);
+          const bubble = app.querySelector("#coach-phrase");
+          if (!bubble) return;
+          bubble.classList.remove("phrase-peek");
+          if (again.mode === "empty") {
+            bubble.textContent = t("sayThenPick");
+            bubble.classList.add("phrase-empty");
+          } else if (again.mode === "cloze") {
+            bubble.textContent = again.text;
+            bubble.classList.add("phrase-cloze");
+          } else {
+            bubble.textContent = again.text;
+          }
+        }, 2200);
+      });
+    }
   }
 
   function answer(k) {
@@ -588,6 +852,13 @@
       sfx("no");
       const lostHeart = app.querySelectorAll(".hearts .heart")[run.hearts];
       if (lostHeart) lostHeart.classList.add("break");
+      const bubble = app.querySelector("#coach-phrase");
+      const vl = locL(run.c, run.l);
+      if (bubble) {
+        bubble.textContent = vl.phrase;
+        bubble.classList.remove("phrase-empty", "phrase-cloze");
+        bubble.classList.add("phrase-reinstate");
+      }
     }
     const last = run.i === run.qs.length - 1 || run.hearts === 0;
     const verdict = document.getElementById("verdict");
@@ -617,6 +888,7 @@
     S.walkFrom[c.id] = c.lessons.indexOf(l);
     S.metrics.gamesPlayed += 1;
     S.metrics.roundsPlayed += run.qs.length;
+    scheduleSrs(c, l, pct);
     save();
     run.result = { pct, prev };
     location.hash = `#/done/${c.id}/${l.id}`;
@@ -1040,7 +1312,10 @@
       const l = lessonOf(c, b);
       if (view === "g" && c) return mapScreen(c);
       if (view === "l" && l) return lessonScreen(c, l);
-      if (view === "play" && l) { startRun(c, l); return playScreen(); }
+      if (view === "play" && l) {
+        startRun(c, l, { review: parts[3] === "review" });
+        return playScreen();
+      }
       if (view === "done" && l) return doneScreen(c, l);
       if (view === "report") return report();
       if (view === "cheat" && c) return cheatScreen(c);

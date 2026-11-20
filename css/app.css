@@ -131,6 +131,55 @@ p { margin: 0; }
   color: var(--paper2);
 }
 .lang-opt.on span { color: color-mix(in srgb, var(--paper2) 72%, transparent); }
+.profile-drop-btn {
+  width: auto;
+  min-width: 36px;
+  padding: 0 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.profile-note {
+  margin: 6px 4px 2px;
+  padding: 8px 10px;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--ink-2);
+  border-top: 1px solid var(--line);
+}
+.exam-playlist {
+  margin: 0 0 1.5rem;
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--paper2);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.exam-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.exam-head strong {
+  font-family: var(--display);
+  font-size: 1.05rem;
+}
+.exam-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+.exam-item {
+  font-size: 0.88rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: var(--ink-2);
+}
+.exam-item:hover { color: var(--ink); }
+.stop.deemph { opacity: 0.42; }
+.stop.emph { outline: 2px solid var(--accent); outline-offset: 2px; }
 .quiz-note {
   margin: 12px 0 4px;
   padding: 10px 12px;
@@ -527,10 +576,6 @@ html[data-lang="zh"] body { --sans: "Source Sans 3", "Noto Sans SC", "PingFang S
   color: #7A2E16;
   border-color: var(--ink);
 }
-.theorem-badge.badge-neb {
-  background: #EDE6D4;
-  color: #4A3A1E;
-}
 .proof-steps { gap: 10px; }
 .proof-steps li {
   padding: 12px 14px 12px 12px;
@@ -573,6 +618,62 @@ html[data-lang="zh"] body { --sans: "Source Sans 3", "Noto Sans SC", "PingFang S
 .lesson-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 28px; }
 .best { color: var(--ink-2); font-weight: 650; font-size: 0.94rem; display: inline-flex; align-items: center; gap: 8px; }
 .next-link { display: inline-block; margin-top: 22px; font-weight: 700; text-underline-offset: 4px; }
+.btn.locked {
+  opacity: 0.45; cursor: not-allowed; pointer-events: auto;
+  box-shadow: none; transform: none;
+}
+.btn.locked:hover { transform: none; box-shadow: none; }
+
+.due-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 14px; padding: 8px 14px;
+  font-size: 0.92rem; font-weight: 700;
+  color: var(--ink); text-decoration: none;
+  background: var(--paper2); border: 2px solid var(--ink); border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.due-cta:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--ink); }
+.due-cta::before { content: "↻"; font-weight: 800; color: var(--ink-hot); }
+
+.map-it {
+  margin: 18px 0 8px; padding: 14px 16px;
+  background: var(--paper); border: 2px dashed var(--line); border-radius: 14px;
+}
+.map-it-lede { color: var(--ink-2); font-size: 0.95rem; margin: 0 0 12px; }
+.map-it-trail {
+  list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 8px;
+}
+.map-slot {
+  min-height: 42px; padding: 8px 12px;
+  border: 2px dashed var(--ink); border-radius: 10px; background: var(--paper2);
+  font-weight: 650; color: var(--ink-2);
+}
+.map-slot.filled { border-style: solid; color: var(--ink); background: #fff; }
+.map-it-pool { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.map-chip {
+  padding: 8px 12px; font-size: 0.92rem; font-weight: 650;
+  background: var(--paper2); border: 2px solid var(--ink); border-radius: 10px;
+  box-shadow: 2px 2px 0 var(--ink); cursor: pointer; text-align: left;
+}
+.map-chip:hover:not(:disabled) { transform: translate(-1px, -1px); }
+.map-chip.used { opacity: 0.35; box-shadow: none; }
+.map-chip.miss { animation: shake 0.35s ease; background: #F6DEDB; }
+.map-it-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.map-it-status { font-size: 0.88rem; font-weight: 650; color: var(--ink-2); }
+
+.peek-btn { margin-top: 2px; font-size: 0.85rem; padding: 6px 12px; }
+.bubble.phrase-empty { color: var(--ink-2); font-style: italic; font-weight: 550; }
+.bubble.phrase-cloze { letter-spacing: 0.02em; }
+.bubble.phrase-peek, .bubble.phrase-reinstate {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+
+.trap-pill {
+  display: inline-block; margin-right: 6px; padding: 2px 8px;
+  font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 800; color: var(--ink); background: #F3E6B8;
+  border: 1.5px solid var(--ink); border-radius: 6px; vertical-align: middle;
+}
 
 /* diagrams in HTML */
 .chain { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; padding: 16px 0; }

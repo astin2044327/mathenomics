@@ -26,6 +26,7 @@
     out.best = out.best && typeof out.best === "object" && !Array.isArray(out.best) ? out.best : {};
     out.walkFrom = out.walkFrom && typeof out.walkFrom === "object" && !Array.isArray(out.walkFrom) ? out.walkFrom : {};
     out.last = out.last && typeof out.last === "object" ? out.last : null;
+    out.srs = out.srs && typeof out.srs === "object" && !Array.isArray(out.srs) ? out.srs : {};
     const m = out.metrics && typeof out.metrics === "object" ? out.metrics : {};
     out.metrics = Object.assign({}, blank.metrics, m);
     Object.keys(blank.metrics).forEach((k) => {

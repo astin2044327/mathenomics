@@ -127,6 +127,7 @@
       title: "Division & number sense",
       rows: [
         ["Long division", "Does McDonald’s Sell Burgers? (÷ × − bring down)"],
+        ["Division house", "Dividend inside; divisor outside; quotient on the roof"],
         ["Remainder", "What’s left after fair shares"],
         ["Divisibility", "2/5/10: last digit; 3/9: digit sum; 4: last two"],
         ["Factors vs multiples", "Factors are few; multiples are many"],
@@ -178,13 +179,15 @@
         ["MAD face", "Mixed → improper: Multiply, Add, Denom stays"],
         ["N.D.D.", "Numerator ÷ Denominator → decimal"],
         ["Simplify", "Divide top and bottom by the same GCF"],
-        ["Reciprocal", "Flip the fraction for division"]
+        ["Reciprocal", "Flip the fraction for division"],
+        ["Butterfly", "Cross-multiply to compare or for proportions — not to add"]
       ]
     },
     {
       title: "Order & decimals",
       rows: [
-        ["PEMDAS / BODMAS", "Groups first, then ×÷, then +−"],
+        ["PEMDAS", "Groups → powers → ×÷ L→R → +− L→R"],
+        ["BODMAS / BIDMAS / BEDMAS", "Brackets, Orders/Exponents; ×÷ and +− each left to right"],
         ["GEMS order", "Group, Exponent, Multiply/Divide, Subtract/Add"],
         ["Line up the dots", "Add/subtract decimals"],
         ["× decimals", "Ignore dots, multiply, count places back"],
@@ -200,7 +203,7 @@
         ["Unit rate", "Find the rate for one, then you’re done"],
         ["LCM / GCF ladder", "Left side = GCF; multiply big L = LCM"],
         ["Mean / median / mode / range", "Add÷n; middle; most; max−min"],
-        ["Butterfly (proportion)", "Cross multiply only when two ratios are equal"],
+        ["Butterfly (proportion)", "Cross multiply to compare or solve a proportion — not to add fractions"],
         ["Triangle area", "½ × base × height"],
         ["Box volume", "l × w × h (floor, then stack)"],
         ["Coordinates", "Along the corridor, up the stairs"]
@@ -297,6 +300,7 @@
         ["Cylinder", "πr²h"],
         ["Cone", "⅓πr²h"],
         ["Sphere", "(4/3)πr³"],
+        ["Surface nets", "Unwrap into a net; add every face (cuboid: 2(lw+wh+hl))"],
         ["Transform", "Slide, flip, turn"]
       ]
     },
@@ -304,7 +308,7 @@
       title: "Linear & exponents",
       rows: [
         ["Slope", "Rise over run"],
-        ["y = mx + b", "m = slope; b = y-intercept"],
+        ["y = mx + b", "Begin at b, then Move with m"],
         ["Exponent laws", "× → add; ÷ → subtract; power→power multiply"],
         ["Negative exponent", "a⁻ⁿ = 1/aⁿ"],
         ["Scientific notation", "One digit, then a dot, × 10ⁿ"]
@@ -500,8 +504,6 @@
       rows: [
         ["Matrix multiply", "Row × column; sizes must match"],
         ["LIATE", "Pick u: Log, Inverse trig, Algebraic, Trig, Exp"],
-        ["nPr", "Order matters: n! / (n−r)!"],
-        ["nCr", "Order does not: n! / (r!(n−r)!)"],
         ["Partial fractions", "Split one fraction into simpler pieces"],
         ["Area under curve", "Definite ∫ between bounds"],
         ["Complex i", "i² = −1; powers cycle every 4"],

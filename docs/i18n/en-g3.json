@@ -298,18 +298,6 @@
       "exception": "A scattered pile is not an array until you line it into equal rows.",
       "tag": ""
     },
-    "tomatoes": {
-      "name": "Feet in a mile",
-      "phrase": "Silly optional hook: “five tomatoes” sounds like 5-2-8-0 (feet in a mile).",
-      "also": "Joke only — always confirm 5,280 ft/mi.",
-      "steps": [
-        "Picture five tomatoes (optional silly picture).",
-        "Hear 5, 2, 8, 0 as a sound-alike.",
-        "Check the real fact: 5,280 feet per mile."
-      ],
-      "exception": "Not a math procedure — a joke scaffold with no structure. Digits scramble easily; verify 5,280 feet per mile.",
-      "tag": ""
-    },
     "orderops3": {
       "name": "× before +",
       "phrase": "My Dear before Aunt Sally: multiply before you add.",

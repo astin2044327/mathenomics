@@ -61,13 +61,14 @@
     return box(320, 134, body + T(160, 122, note, { size: 14, weight: 500 }), `${n} dots in buddy pairs`);
   }
 
-  function roundLine(lo, hi, n) {
+  function roundLine(lo, hi, n, hideAns) {
     const x = (v) => 30 + ((v - lo) * 260) / (hi - lo);
     const mid = (lo + hi) / 2;
     let body = line(18, 96, 302, 96);
     [lo, mid, hi].forEach((v) => {
       body += line(x(v), 88, x(v), 104, { w: v === mid ? 1.8 : 2.5, dash: v === mid ? "3 3" : "" });
-      body += T(x(v), 126, big(v), { size: 13, weight: v === mid ? 500 : 700 });
+      const lab = hideAns != null && v === hideAns ? "?" : big(v);
+      body += T(x(v), 126, lab, { size: 13, weight: v === mid ? 500 : 700 });
     });
     body += T(x(mid), 144, "halfway", { size: 11, weight: 500 });
     body += `<circle cx="${x(n)}" cy="96" r="7" fill="var(--accent)"/>` + T(x(n), 76, big(n), { size: 15, fill: "var(--accent)" });
@@ -419,7 +420,7 @@
           do { n = R(11, 99); } while (n % 10 === 0);
           const d = n % 10, down = n - d, ans = r10(n);
           return Q(`Round ${n} to the nearest 10.`, ans, [ans === down ? down + 10 : down, ...[ans + 10, ans - 10, ans + 20].filter((v) => v > 0)],
-            `The ones digit is ${d}. ${d >= 5 ? "Five or more, raise the score" : "Four or less, let it rest"}: ${ans}.`, roundLine(down, down + 10, n));
+            `The ones digit is ${d}. ${d >= 5 ? "Five or more, raise the score" : "Four or less, let it rest"}: ${ans}.`, roundLine(down, down + 10, n, ans));
         }
         let n;
         do { n = R(101, 999); } while (n % 100 === 0);
@@ -427,7 +428,7 @@
         const ans = t >= 5 ? down + 100 : down;
         const twice = r10(n) - (r10(n) % 100) + (Math.floor(r10(n) / 10) % 10 >= 5 ? 100 : 0);
         return Q(`Round ${n} to the nearest 100.`, ans, [ans === down ? down + 100 : down, twice, r10(n), ...[ans + 100, ans - 100, ans + 200].filter((v) => v > 0)],
-          `The tens digit is ${t}. ${t >= 5 ? "Five or more, raise the score" : "Four or less, let it rest"}: ${ans}.`, roundLine(down, down + 100, n));
+          `The tens digit is ${t}. ${t >= 5 ? "Five or more, raise the score" : "Four or less, let it rest"}: ${ans}.`, roundLine(down, down + 100, n, ans));
       },
       worked: [
         {
@@ -656,7 +657,7 @@
         const name = { 10: "ten", 100: "hundred", 1000: "thousand" }[place];
         const wrongs = [ans === down ? down + place : down, place > 10 ? rnd(rnd(n, place / 10), place) : null, rnd(n, place * 10), place > 10 ? rnd(n, place / 10) : null, ans + place, ans - place];
         return Q(`Round ${big(n)} to the nearest ${name}.`, big(ans), wrongs.map((x) => (x ? big(x) : null)),
-          `The digit next door is ${next}. ${next >= 5 ? "Five or more, raise the score" : "Four or less, let it rest"}: ${big(ans)}.`, roundLine(down, down + place, n));
+          `The digit next door is ${next}. ${next >= 5 ? "Five or more, raise the score" : "Four or less, let it rest"}: ${big(ans)}.`, roundLine(down, down + place, n, ans));
       },
       worked: [
         {

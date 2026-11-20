@@ -203,18 +203,6 @@
       "exception": "KCC पूर्णांक घटाउका लागि। गुणामा KCC होइन।",
       "tag": ""
     },
-    "arithspell": {
-      "name": "Arithmetic हिज्जे",
-      "phrase": "A Rat In The House May Eat The Ice Cream।",
-      "also": "A-R-I-T-H-M-E-T-I-C।",
-      "steps": [
-        "वाक्यका पहिलो अक्षर प्रयोग।",
-        "A R I T H M E T I C लेख्नुहोस्।",
-        "“arithmetic” हिज्जे।"
-      ],
-      "exception": "हिज्जे होक मात्र — गणना विधि होइन।",
-      "tag": ""
-    },
     "commute7": {
       "name": "पूर्णांक गुणधर्म",
       "phrase": "ऋणात्मकसँग पनि फ्लिप र पुन:समूह + र × मा।",

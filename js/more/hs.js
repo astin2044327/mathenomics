@@ -37,6 +37,23 @@
     return box(320, 236, body, "Pyramid");
   }
 
+  function sameBasePic(note) {
+    const A = [50, 190], B = [230, 190], C = [280, 90], D = [100, 90];
+    let body = poly([A, B, C, D], { fill: "var(--accent-soft)" });
+    body += line(A[0], A[1], C[0], C[1], { stroke: ACC, w: 2.5 });
+    body += T(140, 175, "base", { size: 12 }) + T(160, 70, "∥", { size: 14, fill: ACC });
+    body += T(160, 220, note || "same base + same parallels → para = 2 × △", { size: 12 });
+    return box(320, 236, body, "Same base & parallels");
+  }
+
+  function combinedPic(note) {
+    let body = poly([[60, 180], [170, 180], [170, 70], [60, 70]], { fill: "var(--accent-soft)" });
+    body += poly([[170, 160], [260, 160], [260, 90], [170, 90]], { fill: "var(--paper2)" });
+    body += T(115, 130, "A", { size: 14 }) + T(215, 130, "B", { size: 14 });
+    body += T(160, 210, note || "add volumes · peel outer surface", { size: 12 });
+    return box(320, 230, body, "Combined solids");
+  }
+
   function treePic(note) {
     let body = T(160, 28, "start", { size: 14 });
     body += line(160, 40, 90, 90) + line(160, 40, 230, 90);
@@ -135,6 +152,8 @@
           ["VAT / commission", "% of marked or sale; check of what"],
           ["Currency", "× rate to convert; % change on the rate"],
           ["Pyramid", "V = (1/3)Bh"],
+          ["Same base / parallels", "Same base + same height → para = 2 × triangle"],
+          ["Combined solids", "Add/subtract volumes; TSA counts only exposed faces"],
           ["Tree P", "Multiply along a branch; add mutually exclusive paths"]
         ]
       }
@@ -481,6 +500,103 @@
               ["Compute", "(1/3)×36×9 = 108."]
             ],
             answer: "108"
+          }
+        ]
+      },
+      {
+        id: "hs-same-base",
+        name: "Same base & same parallels",
+        tag: "SEE",
+        phrase: "Same base and same parallels → parallelogram is twice the triangle.",
+        also: "Same base + same height (between the parallels) → same area family.",
+        steps: [
+          "Confirm the shared base and the parallel lines (same height).",
+          "Triangle area = ½ × base × height; parallelogram = base × height.",
+          "Conclude: Area of parallelogram = 2 × area of the triangle on that base."
+        ],
+        exception: "Same base alone is not enough — you also need the same parallels (same height). Triangles on equal bases between the same parallels have equal area, not double.",
+        pic: () => sameBasePic(),
+        gen() {
+          const form = R(1, 3);
+          if (form === 1) {
+            const b = R(4, 12), h = R(3, 10) * (b % 2 ? 2 : 1);
+            const tri = (b * h) / 2;
+            const ans = b * h;
+            return Q(`Parallelogram and a triangle share base ${b} between the same parallels (height ${h}). Triangle area is ${tri}. Find the parallelogram area.`, ans,
+              near(ans, [tri, b + h, 2 * b + h]),
+              `Para = 2 × triangle = 2 × ${tri} = ${ans}.`, sameBasePic("para = 2 × △"));
+          }
+          if (form === 2) {
+            const b = R(4, 10) * 2, h = R(3, 9);
+            const tri = (b * h) / 2;
+            return Q(`Same base ${b}, same parallels, height ${h}. Find the triangle area.`, tri,
+              near(tri, [b * h, b + h, tri * 2]),
+              `△ = ½×${b}×${h} = ${tri}.`, sameBasePic("△ = ½bh"));
+          }
+          const tri = pick([12, 18, 24, 30]);
+          return Q(`A parallelogram and a triangle sit on the same base between the same parallels. Triangle area = ${tri}. Parallelogram area?`, tri * 2,
+            near(tri * 2, [tri, tri / 2, tri + 2]),
+            `Same base & parallels → para = 2 × ${tri} = ${tri * 2}.`, sameBasePic("? = 2 × △"));
+        },
+        worked: [
+          {
+            problem: "Triangle on base 8 between parallels of height 5. Matching parallelogram area?",
+            steps: [
+              ["Triangle", "½×8×5 = 20."],
+              ["Double", "Parallelogram = 40."]
+            ],
+            answer: "40"
+          }
+        ]
+      },
+      {
+        id: "hs-combined",
+        name: "Combined solids",
+        tag: "SEE",
+        phrase: "Glue or dig: add volumes that stick out; peel only the outer surface.",
+        also: "Hidden faces where solids join are not in the total surface area.",
+        steps: [
+          "Name each piece (cuboid, cylinder, hemisphere…).",
+          "Volumes: add when glued; subtract when hollowed.",
+          "Surface: count only faces that stay exposed — peel the outer skin."
+        ],
+        exception: "Do not add full TSAs of each piece when they share a face — drop the glued faces. Units must match before you add or subtract.",
+        pic: () => combinedPic(),
+        gen() {
+          const form = R(1, 3);
+          if (form === 1) {
+            const a = R(3, 8), b = R(3, 8), c = R(2, 6);
+            const d = R(2, 5), e = R(2, 5), f = R(2, 5);
+            const ans = a * b * c + d * e * f;
+            return Q(`Two cuboids glued: ${a}×${b}×${c} and ${d}×${e}×${f}. Find total volume.`, ans,
+              near(ans, [a * b * c, d * e * f, a * b * c - d * e * f]),
+              `Add volumes: ${a * b * c} + ${d * e * f} = ${ans}.`, combinedPic("V = V₁ + V₂"));
+          }
+          if (form === 2) {
+            const L = R(6, 12), W = R(4, 8), H = R(4, 8);
+            const side = R(2, Math.min(3, L - 1, W - 1, H - 1));
+            const ans = L * W * H - side * side * side;
+            return Q(`Cuboid ${L}×${W}×${H} with a ${side}×${side}×${side} cube dug out. Find remaining volume.`, ans,
+              near(ans, [L * W * H, L * W * H + side ** 3, side ** 3]),
+              `Outer − hole: ${L * W * H} − ${side ** 3} = ${ans}.`, combinedPic("V = outer − hole"));
+          }
+          const L = R(5, 10), W = R(4, 8), H = R(3, 7);
+          const join = L * W;
+          const full = 2 * (L * W + W * H + H * L);
+          const ans = full - join;
+          return Q(`Cuboid ${L}×${W}×${H} glued on its ${L}×${W} face to another solid. Exposed surface from this cuboid alone?`, ans,
+            near(ans, [full, full - 2 * join, L * W * H]),
+            `Full TSA ${full} − glued face ${join} = ${ans}.`, combinedPic("peel outer only"));
+        },
+        worked: [
+          {
+            problem: "Cuboids 4×3×2 and 2×2×2 glued. Total volume?",
+            steps: [
+              ["First", "4×3×2 = 24."],
+              ["Second", "2×2×2 = 8."],
+              ["Add", "32."]
+            ],
+            answer: "32"
           }
         ]
       },
