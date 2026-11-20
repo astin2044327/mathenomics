@@ -1,10 +1,25 @@
 {
   "name": "mathenomics",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Mathenomics — grade-by-grade math mnemonics you can play as a PWA.",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "python3 -m http.server 8766",
-    "check": "node tools/check.js"
+    "check": "node tools/check.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "vitest run",
+    "test:integration": "node tests/integration/http-smoke.mjs && playwright test",
+    "test:integration:http": "node tests/integration/http-smoke.mjs",
+    "test:e2e": "playwright test",
+    "test:load": "node scripts/load-test.mjs",
+    "ci": "npm run check && npm run test:unit && npm run test:integration && npm run test:load"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "autocannon": "^9.0.0",
+    "vitest": "^4.1.12"
   }
 }

@@ -77,17 +77,9 @@
     return src ? playSrc(src) : false;
   }
 
-  async function hasLesson(courseId, lessonId) {
-    return !!(await resolve(lessonKey(courseId, lessonId)));
-  }
-
   window.NARRATION = {
     playLesson,
     playKid,
-    hasLesson,
-    stop,
-    lessonKey,
-    kidKey,
-    resolve
+    stop
   };
 })();

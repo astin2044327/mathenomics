@@ -6,15 +6,18 @@
   const ROUNDS = 5;
   const HEARTS = 3;
 
-  const S = Object.assign({
+  const blankSave = {
     coins: 0, best: {}, last: null, walkFrom: {},
     metrics: { totalMs: 0, gamesPlayed: 0, puzzlesPlayed: 0, roundsPlayed: 0, sessions: 0 }
-  }, JSON.parse(localStorage.getItem(KEY) || "{}"));
-  if (!S.metrics) S.metrics = { totalMs: 0, gamesPlayed: 0, puzzlesPlayed: 0, roundsPlayed: 0, sessions: 0 };
-  ["totalMs", "gamesPlayed", "puzzlesPlayed", "roundsPlayed", "sessions"].forEach((k) => {
-    if (S.metrics[k] == null) S.metrics[k] = 0;
-  });
-  const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+  };
+  const Safe = window.MATH_SAFE || {
+    esc: (s) => String(s == null ? "" : s),
+    loadSave: (_st, _k, blank) => Object.assign({}, blank, { metrics: Object.assign({}, blank.metrics) }),
+    writeSave: () => false
+  };
+  const S = Safe.loadSave(localStorage, KEY, blankSave);
+  const save = () => { Safe.writeSave(localStorage, KEY, S); };
+  const esc = Safe.esc;
 
   /* ---------- usage metrics (device-local) ---------- */
   S.metrics.sessions += 1;
@@ -65,15 +68,46 @@
     </aside>`;
   }
 
-  function bindLangPicker() {
-    app.querySelectorAll(".lang-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (!window.I18N) return;
-        window.I18N.setLang(btn.dataset.lang);
+  let langMenuDocBound = false;
+  function bindLangMenu() {
+    const root = app.querySelector(".lang-menu");
+    if (!root || !window.I18N) return;
+    const btn = root.querySelector(".lang-drop-btn");
+    const panel = root.querySelector(".lang-drop");
+    const setOpen = (on) => {
+      root.classList.toggle("open", on);
+      btn.setAttribute("aria-expanded", on ? "true" : "false");
+      if (panel) panel.hidden = !on;
+    };
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setOpen(!root.classList.contains("open"));
+    });
+    root.querySelectorAll(".lang-opt").forEach((opt) => {
+      opt.addEventListener("click", (e) => {
+        e.stopPropagation();
+        window.I18N.setLang(opt.dataset.lang);
+        setOpen(false);
         if (location.hash === "#/" || location.hash === "" || location.hash === "#") home();
         else route();
       });
     });
+    if (!langMenuDocBound) {
+      langMenuDocBound = true;
+      const closeAll = () => {
+        app.querySelectorAll(".lang-menu.open").forEach((m) => {
+          m.classList.remove("open");
+          const b = m.querySelector(".lang-drop-btn");
+          const p = m.querySelector(".lang-drop");
+          if (b) b.setAttribute("aria-expanded", "false");
+          if (p) p.hidden = true;
+        });
+      };
+      document.addEventListener("click", closeAll);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeAll();
+      });
+    }
   }
 
   /* Optional hook for keyboard smash (and similar kids toys) */
@@ -221,14 +255,37 @@
         <a href="#/report" class="${active === "report" ? "on" : ""}">${t("report")}</a>
         <a href="#/kids" class="${active === "kids" ? "on" : ""}">${kidsLabel}</a>
       </nav>
-      <span class="coins" title="${t("coins")}">${coin}<b id="coin-count">${S.coins}</b></span>
+      <span class="bar-end">
+        ${window.I18N ? window.I18N.langBarHtml() : ""}
+        <span class="coins" title="${t("coins")}">${coin}<b id="coin-count">${S.coins}</b></span>
+      </span>
     </header>`;
   }
 
   function paint(active, accent, html) {
-    document.body.style.setProperty("--accent", accent || "#C84F2E");
-    app.innerHTML = bar(active) + `<main class="view">${html}</main>`;
-    window.scrollTo(0, 0);
+    try {
+      document.body.style.setProperty("--accent", accent || "#C84F2E");
+      app.innerHTML = bar(active) + `<main class="view">${html}</main>`;
+      window.scrollTo(0, 0);
+      bindLangMenu();
+    } catch (err) {
+      try {
+        app.innerHTML = `<main class="view"><p class="lede">Something went wrong drawing this screen. <a href="#/">Go home</a>.</p></main>`;
+      } catch (_) { /* last resort */ }
+      if (typeof console !== "undefined" && console.error) console.error(err);
+    }
+  }
+
+  function boom(err) {
+    if (typeof console !== "undefined" && console.error) console.error(err);
+    paint("learn", "#C84F2E", `
+      <section class="hero">
+        <div class="hero-copy">
+          <h1 class="brand-hero">Mathenomics</h1>
+          <p class="lede">That page hit a snag. Your progress on this device is safe — try again from home.</p>
+          <a class="btn primary big" href="#/">Back home</a>
+        </div>
+      </section>`);
   }
 
   /* Prefer High School theorems right after Grade 10 (near PABSON in the shelf). */
@@ -246,13 +303,11 @@
     const last = S.last && course(S.last.c);
     const lastLesson = last && lessonOf(last, S.last.l);
     const lastView = lastLesson ? locL(last, lastLesson) : null;
-    const picker = window.I18N ? window.I18N.langPickerHtml() : "";
     paint("learn", "#C84F2E", `
       <section class="hero">
         <div class="hero-copy">
           <h1 class="brand-hero">Mathenomics</h1>
           <p class="lede">${t("heroLede")}</p>
-          ${picker}
           ${lastLesson ? `<a class="btn primary big" href="#/l/${last.id}/${lastLesson.id}">${t("keepGoing", { name: lastView.name })}</a>` : `<a class="btn primary big" href="#/g/g3">${t("tryTables")}</a>`}
         </div>
         <div class="hero-scene">
@@ -286,7 +341,6 @@
         <span class="btn">${t("open")}</span>
       </a>
     `);
-    bindLangPicker();
   }
 
   const standAt = ([x]) => (x > 50 ? `calc(${x}% + 38px)` : `calc(${x}% - 112px)`);
@@ -459,11 +513,17 @@
     const seen = new Set();
     let tries = 0;
     while (qs.length < ROUNDS && tries < 60) {
-      const q = l.gen();
       tries += 1;
+      let q;
+      try { q = l.gen(); } catch (_) { continue; }
+      if (!q || !Array.isArray(q.choices) || q.choices.length < 2) continue;
       if (seen.has(q.prompt) && tries < 40) continue;
       seen.add(q.prompt);
       qs.push(q);
+    }
+    if (!qs.length) {
+      run = null;
+      throw new Error("Could not build practice rounds");
     }
     run = { c, l, qs, i: 0, hearts: HEARTS, right: 0, marks: [], locked: false };
     S.last = { c: c.id, l: l.id };
@@ -534,7 +594,7 @@
     verdict.hidden = false;
     verdict.className = `verdict ${ok ? "good" : "bad"}`;
     const praise = ok ? pick([t("nice"), t("gotIt"), t("yes"), t("spotOn")]) : run.hearts === 0 ? t("outOfHearts") : t("notQuite");
-    verdict.innerHTML = `<p><strong>${praise}</strong> ${q.why}</p>
+    verdict.innerHTML = `<p><strong>${esc(praise)}</strong> ${esc(q.why)}</p>
       <button type="button" class="btn primary" id="go">${last ? t("seeMark") : t("nextRound")}</button>`;
     const go = document.getElementById("go");
     go.focus({ preventScroll: true });
@@ -970,40 +1030,46 @@
 
   /* ---------- router ---------- */
   function route() {
-    kidsKeys = null;
-    hush();
-    if (window.KEYS && typeof window.KEYS.teardown === "function") window.KEYS.teardown();
-    const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
-    const [view, a, b] = parts;
-    const c = course(a);
-    const l = lessonOf(c, b);
-    if (view === "g" && c) return mapScreen(c);
-    if (view === "l" && l) return lessonScreen(c, l);
-    if (view === "play" && l) { startRun(c, l); return playScreen(); }
-    if (view === "done" && l) return doneScreen(c, l);
-    if (view === "report") return report();
-    if (view === "cheat" && c) return cheatScreen(c);
-    if (view === "puzzle") return puzzleScreen(a);
-    if (view === "keys") {
-      if (window.KEYS && window.KEYS.mount) return window.KEYS.mount(paint, fox);
-      paint("kids", "#2E4057", `<a class="crumb" href="#/kids">← Kids’ corner</a><p class="lede">Keyboard smash is loading…</p>`);
-      return;
-    }
-    if (view === "kids" && !a) return kidsHome();
-    if (view === "kids") {
-      const set = K.find((s) => s.id === a);
-      if (set) {
-        if (set.id === "ocean" && (b == null || b === "" || b === "intro")) {
-          return kidsOceanIntro(set);
-        }
-        return kidsPage(set, Math.max(0, Number(b) || 0));
+    try {
+      kidsKeys = null;
+      hush();
+      if (window.KEYS && typeof window.KEYS.teardown === "function") window.KEYS.teardown();
+      const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
+      const [view, a, b] = parts;
+      const c = course(a);
+      const l = lessonOf(c, b);
+      if (view === "g" && c) return mapScreen(c);
+      if (view === "l" && l) return lessonScreen(c, l);
+      if (view === "play" && l) { startRun(c, l); return playScreen(); }
+      if (view === "done" && l) return doneScreen(c, l);
+      if (view === "report") return report();
+      if (view === "cheat" && c) return cheatScreen(c);
+      if (view === "puzzle") return puzzleScreen(a);
+      if (view === "keys") {
+        if (window.KEYS && window.KEYS.mount) return window.KEYS.mount(paint, fox);
+        paint("kids", "#2E4057", `<a class="crumb" href="#/kids">← Kids’ corner</a><p class="lede">Keyboard smash is loading…</p>`);
+        return;
       }
+      if (view === "kids" && !a) return kidsHome();
+      if (view === "kids") {
+        const set = (K || []).find((s) => s.id === a);
+        if (set) {
+          if (set.id === "ocean" && (b == null || b === "" || b === "intro")) {
+            return kidsOceanIntro(set);
+          }
+          return kidsPage(set, Math.max(0, Number(b) || 0));
+        }
+      }
+      return home();
+    } catch (err) {
+      boom(err);
     }
-    return home();
   }
 
   window.addEventListener("hashchange", route);
-  route();
+  try { route(); } catch (err) { boom(err); }
 
-  if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(() => {});
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  }
 })();
