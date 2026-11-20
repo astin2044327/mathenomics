@@ -3,8 +3,14 @@
 *.log
 node_modules/
 .venv/
+.venv-*/
 __pycache__/
 .idea/
 .vscode/
 *.swp
 .cursor/
+js/i18n/.tmp-build/
+test-results/
+playwright-report/
+blob-report/
+.playwright/
