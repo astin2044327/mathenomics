@@ -402,7 +402,7 @@
             const s = a + b;
             return Q(`${neg(a)} + ${neg(b)}`, neg(s), [neg(-s), neg(a - b), neg((Math.abs(a) + Math.abs(b)) * Math.sign(a))],
               (a < 0) === (b < 0) ? `Same signs: add ${Math.abs(a)} and ${Math.abs(b)}, keep the sign: ${neg(s)}.` : `Different signs: ${Math.max(Math.abs(a), Math.abs(b))} − ${Math.min(Math.abs(a), Math.abs(b))}, keep the bigger one’s sign: ${neg(s)}.`,
-              Math.abs(a) <= 9 && Math.abs(s) <= 12 ? P.numberLine(Math.min(a, s, 0) - 1, Math.max(a, s, 0) + 1, a, [b]) : "");
+              Math.abs(a) <= 9 && Math.abs(s) <= 12 ? P.numberLine(Math.min(a, s, 0) - 1, Math.max(a, s, 0) + 1, a, [b], { hideTicks: [s] }) : "");
           }
         }),
         L({

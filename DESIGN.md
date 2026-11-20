@@ -2,7 +2,7 @@
 
 ## Product idea
 
-A single place for math mnemonics, organised by grade, played like a short game. Every lesson is one phrase that covers a whole class of problems, with the exception on the same card so the rhyme does not become a trap.
+The free offline mnemonic map for school math — one phrase per skill, the exception on the same card, then a short game; no account, no solver.
 
 ## Audience
 

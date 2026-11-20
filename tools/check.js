@@ -3,10 +3,12 @@ const fs = require("fs");
 const path = require("path");
 const root = path.join(__dirname, "..");
 global.window = {};
-const load = ["js/pics.js", "js/courses.js"];
-for (const f of fs.readdirSync(path.join(root, "js/more")).sort()) {
-  if (f.endsWith(".js")) load.push("js/more/" + f);
-}
+/* Match index.html order so cheats.js attaches after every course exists. */
+const moreOrder = [
+  "arith.js", "geo.js", "trig.js", "tables.js", "expand.js",
+  "hs.js", "pabson.js", "optional.js", "cheats.js"
+];
+const load = ["js/pics.js", "js/courses.js", ...moreOrder.map((f) => "js/more/" + f)];
 for (const f of load) {
   if (fs.existsSync(path.join(root, f))) require(path.join(root, f));
 }

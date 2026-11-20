@@ -912,20 +912,32 @@
       ]
     },
     {
-      id: "tomatoes", name: "Feet in a mile", phrase: "Silly optional hook: “five tomatoes” sounds like 5-2-8-0 (feet in a mile).",
-      also: "Joke only — always confirm 5,280 ft/mi.",
-      steps: ["Picture five tomatoes (optional silly picture).", "Hear 5, 2, 8, 0 as a sound-alike.", "Check the real fact: 5,280 feet per mile."],
-      exception: "Not a math procedure — a joke scaffold with no structure. Digits scramble easily; verify 5,280 feet per mile.",
-      pic: () => P.formula("1 mile", "5,280 feet", "Five tomatoes"),
+      id: "divhouse", name: "Division house", phrase: "Dividend goes inside the house; divisor outside; quotient on the roof.",
+      also: "remainder is what’s left after fair shares — not the quotient.",
+      steps: ["Write the dividend under the long-division bar (inside the house).", "Put the divisor to the left (outside).", "Write the quotient on top; any leftover is the remainder."],
+      exception: "Layouts vary by textbook. Quotient is the answer to “how many groups,” not the leftover. Dividend ÷ divisor = quotient.",
+      pic: () => P.formula("12 ÷ 3", "3 ) 12", "quotient 4 on the roof"),
       gen() {
+        const div = R(2, 9), q = R(2, 9), rem = Math.random() < 0.4 ? R(1, div - 1) : 0;
+        const dividend = div * q + rem;
         const form = R(1, 3);
-        if (form === 1) return Q(`1 mile = ? feet`, 5280, wrongs(5280, [528, 5080, 5800]), `Five tomatoes: 5,280 feet.`);
-        if (form === 2) return Q(`Half a mile ≈ ? feet`, 2640, wrongs(2640, [5280, 1320, 2500]), `5,280 ÷ 2 = 2,640.`);
-        return Q(`In “five tomatoes,” the digits are?`, "5280", wrongs("5280", ["5028", "5820", "2805"]), `5-2-8-0.`);
+        if (form === 1) {
+          return Q(`In ${dividend} ÷ ${div}, which number is the dividend?`, dividend,
+            wrongs(dividend, [div, q, rem || div + 1]),
+            `Dividend is inside the house: ${dividend}.`);
+        }
+        if (form === 2) {
+          return Q(`In ${dividend} ÷ ${div} = ${q}${rem ? ` R${rem}` : ""}, which is the divisor?`, div,
+            wrongs(div, [dividend, q, rem || q + 1]),
+            `Divisor stands outside: ${div}.`);
+        }
+        return Q(`${dividend} ÷ ${div} — what is the quotient?`, q,
+          wrongs(q, [rem || q + 1, dividend, div]),
+          rem ? `${div}×${q}=${div * q}, remainder ${rem}. Quotient is ${q}.` : `${div}×${q}=${dividend}.`);
       },
       worked: [
-        { problem: "Feet in a mile?", steps: [["Five tomatoes", "5,280."]], answer: "5280" },
-        { problem: "2 miles in feet?", steps: [["2 × 5280", "10560."]], answer: "10560" }
+        { problem: "Name dividend and divisor in 56 ÷ 7.", steps: [["Inside", "56 is the dividend."], ["Outside", "7 is the divisor."]], answer: "56 ÷ 7" },
+        { problem: "47 ÷ 5. Quotient and remainder?", steps: [["5×9=45", "Remainder 2."], ["Quotient", "9."]], answer: "9 R2" }
       ]
     },
     {
@@ -1076,6 +1088,29 @@
       worked: [
         { problem: "6 + 2 × 3", steps: [["× first", "6."], ["+ 6", "12? Wait 6+6=12."]], answer: "12" },
         { problem: "(6 + 2) × 3", steps: [["Brackets", "8 × 3 = 24."]], answer: "24" }
+      ]
+    },
+    {
+      id: "bedmas", name: "BEDMAS", phrase: "BEDMAS: Brackets, Exponents, Division/Multiplication, Addition/Subtraction.",
+      also: "Canadian classroom spelling of the same ladder as BODMAS / PEMDAS.",
+      steps: ["Brackets first.", "Exponents (powers).", "÷ and × left to right.", "+ and − left to right."],
+      exception: "E is exponents — same as “Orders” in BODMAS. ÷ and × share a level; + and − share a level.",
+      pic: () => P.pemdas(),
+      gen() {
+        const a = R(2, 8), b = R(2, 5), c = R(2, 5);
+        if (Math.random() < 0.5) {
+          return Q(`${a} + ${b} × ${c}`, a + b * c,
+            wrongs(a + b * c, [(a + b) * c, a + b + c]),
+            `BEDMAS: × before +: ${b}×${c}=${b * c}, then +${a}.`);
+        }
+        const x = b * c * R(1, 3);
+        return Q(`${x} ÷ ${b} × ${c}`, (x / b) * c,
+          wrongs((x / b) * c, [x / (b * c), x / b + c]),
+          `÷ and × left to right under BEDMAS.`);
+      },
+      worked: [
+        { problem: "4 + 3 × 5", steps: [["× first", "15."], ["+ 4", "19."]], answer: "19" },
+        { problem: "24 ÷ 4 × 2", steps: [["Left to right", "6 × 2 = 12."]], answer: "12" }
       ]
     },
     {
@@ -1236,8 +1271,9 @@
     },
     {
       id: "butterfly5", name: "Butterfly compare", phrase: "To compare fractions, cross multiply — the butterfly wings.",
+      also: "Same cross-multiply move for a true proportion a/b = c/d — not for adding fractions.",
       steps: ["Write the two fractions.", "Cross multiply both diagonals.", "The bigger wing sits under the bigger fraction."],
-      exception: "Butterfly compare needs positives. For equals, wings match.",
+      exception: "Use butterfly to compare fractions or to solve a proportion. Do NOT use it to add or multiply fractions (common bottoms / straight across). Needs positives; equal wings mean equal fractions.",
       pic: () => P.formula("3/4 ? 5/6", "3×6=18, 4×5=20", "20 bigger → 5/6 bigger"),
       gen() {
         let a, b, c, d;
@@ -1449,28 +1485,11 @@
         return Q(`${neg(a)} − (${neg(b)})`, neg(ans),
           wrongs(neg(ans), [neg(a + b), neg(-(a - b)), neg(b - a)]),
           `KCC: ${neg(a)} + (${neg(-b)}) = ${neg(ans)}.`,
-          P.numberLine(Math.min(a, ans, 0) - 1, Math.max(a, ans, 0) + 1, a, [-b]));
+          P.numberLine(Math.min(a, ans, 0) - 1, Math.max(a, ans, 0) + 1, a, [-b], { hideTicks: [ans] }));
       },
       worked: [
         { problem: "6 − (−2)", steps: [["KCC", "6 + 2."], ["Step", "8"]], answer: "8" },
         { problem: "−4 − 3", steps: [["KCC", "−4 + (−3) = −7."]], answer: "−7" }
-      ]
-    },
-    {
-      id: "arithspell", name: "Spelling arithmetic", phrase: "A Rat In The House May Eat The Ice Cream.",
-      also: "A-R-I-T-H-M-E-T-I-C.",
-      steps: ["Use the sentence initials.", "Write A R I T H M E T I C.", "That’s “arithmetic.”"],
-      exception: "It’s a spelling hook — not a calculation method.",
-      pic: () => P.chain(["A", "R", "I", "T", "H", "M", "E", "T", "I", "C"], ["Rat In The House…"]),
-      gen() {
-        const form = R(1, 3);
-        if (form === 1) return Q(`Initial of “Rat” in the arithmetic spelling mnemonic?`, "R", wrongs("R", ["A", "I", "T"]), `A Rat… → R.`);
-        if (form === 2) return Q(`How many letters in “arithmetic”?`, 10, wrongs(10, [9, 11, 8]), `A-R-I-T-H-M-E-T-I-C → 10.`);
-        return Q(`Ice Cream stands for which ending letters?`, "IC", wrongs("IC", ["TI", "ME", "TH"]), `…Ice Cream → I C.`);
-      },
-      worked: [
-        { problem: "Spell arithmetic with the rat sentence", steps: [["Step", "A Rat In The House May Eat The Ice Cream"], ["Step", "ARITHMETIC"]], answer: "ARITHMETIC" },
-        { problem: "Third letter?", steps: [["A R I…", "I"]], answer: "I" }
       ]
     },
     {

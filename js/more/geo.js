@@ -764,9 +764,10 @@
       ]
     },
     {
-      id: "ymxb", name: "Slope-intercept form", phrase: "y = mx + b: m is the slope, b is where it hits the y-axis.",
-      steps: ["Read m: the number in front of x (slope).", "Read b: the constant term (y-intercept).", "To find y, plug in x. To find x, plug in y and solve."],
-      exception: "If the equation is not solved for y, rearrange first. The intercept is on the y-axis (x = 0), not the x-axis.",
+      id: "ymxb", name: "Slope-intercept form", phrase: "Begin at b, then Move with m.",
+      also: "y = mx + b: b is the y-intercept; m is rise over run.",
+      steps: ["Begin at b: plot (0, b) on the y-axis.", "Move with m: from there, rise/run using the slope (up/right for positive m).", "Connect the points; read y for any x from the line or by plugging into y = mx + b."],
+      exception: "If the equation is not solved for y, rearrange first. m is rise/run, not run/rise. Vertical lines have no y = mx + b form. The intercept is on the y-axis (x = 0), not the x-axis.",
       pic: () => lineEq(1, 2),
       gen() {
         const m = pick([-3, -2, -1, 1, 2, 3, 4]);
@@ -819,7 +820,7 @@
         const a = R(2, 6), b = R(2, 5);
         if (kind === "mul") {
           return Q(`x${sup(a)} × x${sup(b)}`, `x${sup(a + b)}`, [`x${sup(a * b)}`, `x${sup(a - b)}`, `x${sup(a + b + 1)}`, `${2 * a}x`],
-            `Multiply → add powers: ${a} + ${b} = ${a + b}.`, P.chain([`x${sup(a)} × x${sup(b)}`, `x${sup(a + b)}`], ["add"]));
+            `Multiply → add powers: ${a} + ${b} = ${a + b}.`, P.chain([`x${sup(a)} × x${sup(b)}`, "?"], ["add"]));
         }
         if (kind === "div") {
           const top = a + b;
@@ -977,6 +978,52 @@
           problem: "Why is (4/3)πr² not the volume formula?",
           steps: [["Volume needs three lengths multiplied", "r³, not r²."], ["r² would give an area-like quantity", "The surface area uses 4πr²; volume uses (4/3)πr³."]],
           answer: "Volume needs r³; 4πr² is surface area"
+        }
+      ]
+    },
+    {
+      id: "sa-nets", name: "Surface area from a net", phrase: "Unwrap the solid into a net — then add every face.",
+      also: "Cuboid net: two of each face → SA = 2(lw + wh + hl).",
+      steps: [
+        "Picture unfolding the solid into a flat net.",
+        "List every face that appears in the net.",
+        "Add the face areas (for a cuboid: 2(lw + wh + hl))."
+      ],
+      exception: "A net cannot overlap faces. Volume uses three dimensions multiplied once — surface area adds faces. Don’t count a hidden join as if it were still exposed.",
+      pic: () => P.roof("faces in the net", "add them up", "surface area"),
+      gen() {
+        const l = R(3, 9), w = R(2, 7), h = R(2, 6);
+        const ans = 2 * (l * w + w * h + h * l);
+        const form = R(1, 3);
+        if (form === 1) {
+          return Q(`Cuboid ${l}×${w}×${h}. Find the surface area from its net.`, ans,
+            [l * w * h, l * w + w * h + h * l, 2 * (l + w + h), ans + 2 * l * w],
+            `Net: 2(${l}×${w} + ${w}×${h} + ${h}×${l}) = ${ans}.`, P.roof(`${l}×${w}×${h}`, "?", "unwrap → add faces"));
+        }
+        if (form === 2) {
+          const face = l * w;
+          return Q(`A cuboid net shows two ${l}×${w} faces, two ${w}×${h}, two ${h}×${l}. Total surface area?`, ans,
+            [face, ans / 2, l * w * h],
+            `Add all six faces: ${ans}.`, P.roof("6 faces", "?", "net total"));
+        }
+        return Q(`Which formula matches “unwrap the cuboid net and add faces”?`, "2(lw + wh + hl)",
+          ["lwh", "2(l + w + h)", "lw + wh + hl"],
+          `Surface area from the net is 2(lw + wh + hl).`);
+      },
+      worked: [
+        {
+          problem: "Cuboid 4×3×2. Surface area?",
+          steps: [
+            ["Faces", "2(4×3 + 3×2 + 2×4)."],
+            ["Inside", "12 + 6 + 8 = 26."],
+            ["Times 2", "52."]
+          ],
+          answer: "52"
+        },
+        {
+          problem: "Why isn’t SA = lwh?",
+          steps: [["lwh is volume", "Space inside."], ["Net adds faces", "Surface wrap."]],
+          answer: "lwh is volume, not surface"
         }
       ]
     },

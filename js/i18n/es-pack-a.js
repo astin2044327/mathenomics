@@ -1132,18 +1132,6 @@
         "exception": "Un montón suelto no es arreglo hasta que formes filas iguales.",
         "tag": ""
       },
-      "tomatoes": {
-        "name": "Pies en una milla",
-        "phrase": "«Five tomatoes» suena como 5-2-8-0 (pies por milla).",
-        "also": "Solo chiste — confirma siempre 5,280 ft/mi.",
-        "steps": [
-          "Imagina cinco tomates (opcional).",
-          "Escucha 5, 2, 8, 0 como sonido parecido.",
-          "Verifica el dato real: 5,280 pies por milla."
-        ],
-        "exception": "No es procedimiento — es andamiaje chistoso. Los dígitos se confunden; verifica 5,280.",
-        "tag": ""
-      },
       "orderops3": {
         "name": "× antes que +",
         "phrase": "My Dear antes que Aunt Sally: multiplica antes de sumar.",

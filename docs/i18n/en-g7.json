@@ -203,18 +203,6 @@
       "exception": "KCC is for subtraction of integers. Don’t KCC a multiplication.",
       "tag": ""
     },
-    "arithspell": {
-      "name": "Spelling arithmetic",
-      "phrase": "A Rat In The House May Eat The Ice Cream.",
-      "also": "A-R-I-T-H-M-E-T-I-C.",
-      "steps": [
-        "Use the sentence initials.",
-        "Write A R I T H M E T I C.",
-        "That’s “arithmetic.”"
-      ],
-      "exception": "It’s a spelling hook — not a calculation method.",
-      "tag": ""
-    },
     "commute7": {
       "name": "Integer properties",
       "phrase": "Flip and regroup still work with negatives for + and ×.",

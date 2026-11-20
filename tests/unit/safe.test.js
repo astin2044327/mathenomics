@@ -67,4 +67,18 @@ describe("MATH_SAFE", () => {
     };
     expect(Safe.writeSave(storage, "k", blank)).toBe(false);
   });
+
+  it("keeps a plain srs object and resets corrupt srs", () => {
+    const ok = Safe.loadSave({
+      getItem: () => JSON.stringify({ srs: { "g3/nines": { nextDue: 1, lastPct: 100 } } }),
+      setItem() {}
+    }, "k", blank);
+    expect(ok.srs["g3/nines"].nextDue).toBe(1);
+
+    const bad = Safe.loadSave({
+      getItem: () => JSON.stringify({ srs: ["nope"] }),
+      setItem() {}
+    }, "k", blank);
+    expect(bad.srs).toEqual({});
+  });
 });

@@ -203,18 +203,6 @@
       "exception": "KCC es para resta de enteros. No KCC en una multiplicación.",
       "tag": ""
     },
-    "arithspell": {
-      "name": "Deletrear arithmetic",
-      "phrase": "A Rat In The House May Eat The Ice Cream.",
-      "also": "A-R-I-T-H-M-E-T-I-C.",
-      "steps": [
-        "Usa las iniciales de la oración.",
-        "Escribe A R I T H M E T I C.",
-        "Eso es «arithmetic»."
-      ],
-      "exception": "Es gancho de deletreo — no un método de cálculo.",
-      "tag": ""
-    },
     "commute7": {
       "name": "Propiedades con enteros",
       "phrase": "Voltear y reagrupar sigue valiendo con negativos en + y ×.",

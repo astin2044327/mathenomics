@@ -29,7 +29,8 @@ Anyone who opens the app on that device can play every grade, every lesson, the 
 
 ## Design
 
-See [DESIGN.md](./DESIGN.md) for the product design, visual language, content sources, and file map.
+See [DESIGN.md](./DESIGN.md) for the product design, visual language, and content rules.  
+For “where do I edit X?” use [docs/FEATURE_MAP.md](./docs/FEATURE_MAP.md) (file/folder → feature map for humans and agents).
 
 ## What is used
 
